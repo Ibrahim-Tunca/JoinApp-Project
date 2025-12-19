@@ -1,0 +1,98 @@
+body{
+    background-color: #4589FF;
+}
+
+.background-color-white-signup{
+    background-color: white;
+}
+
+.center-section{
+    height: 586px;
+}
+
+
+.h2-signup{
+    font-size: 48px;
+    margin-bottom: 11px;
+    padding-bottom: 15px;
+    border-bottom: solid 2px #4589FF;
+}
+
+.headline-signup{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.form-container-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section-signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 422px;
+    height: 152px;
+}
+
+.button-container-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 40px 0;
+}
+
+.button-order-signup{
+    display: flex;
+    justify-content: space-evenly;
+    width: 422px;
+    height: 48px;
+}
+
+.inputfield-signup{
+    padding: 10px 20px 10px 20px;
+    border-width: 0px;
+    border-bottom: solid 2px #D1D1D1;
+    margin: 15px;
+}
+
+.inputfield-signup::placeholder {
+    color: #D1D1D1;
+}
+
+.inputfield-signup:focus {
+    outline: none;
+    border-bottom-color: #4589FF;
+}
+
+.checkbox-signup{
+    display: flex;
+    justify-content: center;
+    padding-top: 149px;
+}
+
+.checkbox-href{
+    text-decoration: none;
+    color: #4589FF;
+    transition: 0.2s;
+}
+
+.checkbox-href:hover{
+    color: #005DFF;
+    cursor: pointer;
+}
+
+
+.private-pollicy-legal-notice-element{
+    color: white;
+}
+
+.private-pollicy-legal-notice-element:hover{
+    color: #005DFF;
+    cursor: pointer;
+}

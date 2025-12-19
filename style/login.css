@@ -1,0 +1,156 @@
+
+
+.top-section{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 18px;
+    padding: 15px;
+}
+
+.blue-button{
+    margin: 0 15px 0 15px;
+    color: white;
+    background-color: #4589FF;
+    padding: 8px 16px 8px 16px;
+    border-radius: 4px;
+    border-style: none;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.blue-button:hover{
+    background-color: #005DFF;
+    cursor: pointer;
+}
+
+.center-section{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(100vh / 5);
+
+    width: 652px;
+    height: 448px;
+
+    border: groove;
+    border-radius: 15px;
+}
+
+.headline-login{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.h2-login{
+    font-size: 48px;
+    margin-bottom: 11px;
+    padding-bottom: 15px;
+    border-bottom: solid 2px #4589FF;
+}
+
+.form-section-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 422px;
+    height: 152px;
+}
+
+.form-container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputfield-login{
+    padding: 10px 20px 10px 20px;
+    border-width: 0px;
+    border-bottom: solid 2px #D1D1D1;
+}
+
+.inputfield-login::placeholder {
+    color: #D1D1D1;
+}
+
+.inputfield-login:focus {
+    outline: none;
+    border-bottom-color: #4589FF;
+}
+
+.button-order-login{
+    display: flex;
+    justify-content: space-evenly;
+    width: 422px;
+    height: 48px;
+}
+
+.button-container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 40px 0;
+}
+
+.blue-button-big{
+    color: white;
+    height: 48px;
+    padding: 0 37px 0 37px;
+    background-color: #4589FF;
+    border-radius: 4px;
+    border-style: none;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.blue-button-big:hover {
+    background-color: #005DFF;
+    cursor: pointer;
+}
+
+.white-button-big{
+    color: #647188;
+    height: 48px;
+    padding: 0 37px 0 37px;
+    background-color: #FFFFFF;
+    border: solid 2px #647188;
+    border-radius: 4px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.white-button-big:hover{
+    color: #4589FF;
+    border: solid 2px #4589FF;
+    cursor: pointer;
+}
+
+bottom-section {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Damit es die gesamte Breite einnimmt */
+    /*background-color: white;*/ /* Optional: Hintergrundfarbe */
+    /*text-align: center;*/ /* Optional: Zentrierter Text */
+}
+
+.bottom-section-order{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+}
+
+.private-pollicy-legal-notice-element{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+.private-pollicy-legal-notice-element:hover{
+    color: #4589FF;
+    cursor: pointer;
+}
+
