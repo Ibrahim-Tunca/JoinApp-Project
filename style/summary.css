@@ -2,17 +2,10 @@ body{
     margin: 0;
 }
 
-
-header{
-    width: 100%;
-    height: 78px;
-    background-color: #4589FF;
-}
-
 .navbar{
     width: 214px;
-    border-right: solid 2px gray;
-    height: calc(100vh - 138px);
+    border-right: inset;
+    height: calc(100vh - 156px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,17 +20,27 @@ header{
 }
 
 .navbar-element{
+    display: flex;
+    align-items: center;
+    
     padding: 10px 15px 10px 15px;
     margin: 5px 0 5px 0;
     color: #42526E;
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
+    transition: 0.2s;
 }
 
 .navbar-element:hover{
     background-color: #D2E3FF;
     cursor: pointer;
+}
+
+.navbar-icons{
+    height: 24px;
+    width: 24px;
+    margin-right: 15px;
 }
 
 .second-navcontainer{
