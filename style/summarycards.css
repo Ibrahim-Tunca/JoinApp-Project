@@ -1,0 +1,216 @@
+.transition-quick{
+    transition: 0.2s;
+}
+
+.number-size{
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.regular-container-font{
+    color: #4589FF;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.img-size-border{
+    width: 66px;
+    height: 66px;
+    border: solid white 2px;
+    border-radius: 40px;
+}
+
+
+.urgency-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 676px;
+    height: 191px;
+    background-color: #4589FF;
+}
+
+.urgency-container:hover{
+    cursor: pointer;
+    background-color: white;
+    width: 687px;
+    height: 195px;
+    border-top-left-radius: 0;
+}
+                .urgency-container:hover .img-size-border{
+                    width: 79px;
+                    height: 79px;
+                }
+
+        .urgency-inside-left-container{
+            display: flex;
+            flex-direction: column;
+            width: 140px;
+            height: 113px;
+        }
+
+        .urgency-separator{
+            height: 145px;
+            width: 2px;
+            background-color: white;
+        }
+
+                .urgency-container:hover .urgency-separator{
+                    background-color: #4589FF;
+                }
+
+        .urgency-inside-right-container{
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            width: 274px;
+            height: 81px;
+        }
+
+        .urgency-number{
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+                .urgency-container:hover .urgency-number{
+                    color: #4589FF;
+                    font-size: 62px;
+                }
+
+        .urgency-font{
+            color: white;
+            font-size: 23px;
+            display: flex;
+            margin-top: 10px;
+        }
+
+                .urgency-container:hover .urgency-font{
+                    color: #4589FF;
+                    font-size: 27px;
+                }
+
+        .urgency-font-bold{
+            color: white;
+            font-size: 33px;
+            font-weight: 700;
+        }
+
+        .urgency-container:hover .urgency-font-bold{
+            color: #4589FF;
+            font-size: 37px;
+        }
+
+
+.tasks-on-board-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 204px;
+    height: 191px;
+}
+
+.tasks-on-board-container:hover{
+    width: 219px;
+    height: 196px;
+    background-color: #005DFF;
+    cursor: pointer;
+    border-top-left-radius: 0;
+}
+
+        .tasks-on-board-inside-container{
+            height: 124px;
+            width: 139px;
+        }
+
+                .tasks-on-board-container:hover .img-size-border{
+                    width: 79px;
+                    height: 79px;
+                }
+
+                .tasks-on-board-container:hover .number-size{
+                    color: white;
+                    font-size: 62px;
+                }
+
+                .tasks-on-board-container:hover .regular-container-font{
+                    color: white;
+                    font-size: 27px;
+                }
+
+.tasks-to-do-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 204px;
+    height: 219px;
+    background-color: #D2E3FF;
+}
+
+.tasks-to-do-container:hover{
+    width: 224px;
+    height: 235px;
+    background-color: white;
+    border-top-left-radius: 0;
+    cursor: pointer;
+}
+
+        .tasks-to-do-inside-container{
+            height: 128px;
+            width: 139px;
+        }
+
+                .tasks-to-do-container:hover .img-size-border{
+                    width: 79px;
+                    height: 79px;
+                }
+
+                .tasks-to-do-container:hover .number-size{
+                    color: #005DFF;
+                    font-size: 62px;
+                }
+
+                .tasks-to-do-container:hover .regular-container-font{
+                    color: #005DFF;
+                    font-size: 27px;
+                }
+
+
+.other-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 204px;
+    height: 219px;
+}
+
+.other-container:hover{
+    width: 224px;
+    height: 235px;
+    background-color: #005DFF;
+    border-top-left-radius: 0;
+    cursor: pointer;
+}
+
+        .other-inside-container{
+            height: 128px;
+            width: 139px;
+        }
+
+                .other-container:hover .img-size-border{
+                    width: 79px;
+                    height: 79px;
+                }
+
+                .other-container:hover .number-size{
+                    color: white;
+                    font-size: 62px;
+                }
+
+                .other-container:hover .regular-container-font{
+                    color: white;
+                    font-size: 27px;
+                }

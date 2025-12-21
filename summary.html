@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>summary</title>
     <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/summary.css">
+    <link rel="stylesheet" href="./style/summarycards.css">
 
 </head>
 <body>
@@ -13,13 +15,14 @@
     <header>
             <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
             <div class="header-right-section-container">
-                <span>Kanban Project Management Tool</span>
+                <span class="header-font">Kanban Project Management Tool</span>
                 <img class="help-icon" src="./img/help.svg" alt="">
                 <button class="user-button">G</button>
             </div>
     </header>
 
     <main-container style="display: flex;">
+
         <navbar class="navbar">
 
             <div class="first-navcontainer">
@@ -35,9 +38,100 @@
             </div>
 
         </navbar>
-        <maincontent>
+
+        <maincontent class="maincontent-outside-container-summary">
+
+            <div class="maincontent-inside-container-summary">
+                <h1 class="h1-summary">Good morning</h1>
+                <div>
+                    <div class="upper-container ">
+
+
+                        <div class="urgency-container border-radius-summary border-color-summary transition-quick">
+                                <div>
+                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                        <img class="img-size-border transition-quick" src="./img/summary-urgent.svg" alt="">
+                                        <span class="urgency-number">1</span>
+                                    </div>
+                                    <span class="urgency-font transition-quick">Tasks Urgent</span>
+                                </div>
+                                <separator class="urgency-separator transition-quick"></separator>
+                                <div class="urgency-inside-right-container">
+                                    <span class="urgency-font-bold transition-quick">October 16, 2022</span>
+                                    <span class="urgency-font transition-quick">Upcoming Deadline</span>
+                                </div>
+                        </div>
+
+
+                        <div class="tasks-on-board-container border-radius-summary border-color-summary transition-quick">
+                            <div class="tasks-on-board-inside-container">
+                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                        <img class="img-size-border transition-quick" src="./img/summary-board.svg" alt="">
+                                        <span class="number-size transition-quick">5</span>
+                                    </div>
+                                    <span class="regular-container-font transition-quick">Tasks in Board</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="lower-container">
+
+
+                        <div class="tasks-to-do-container border-radius-summary border-color-summary transition-quick">
+                            <div class="tasks-to-do-inside-container">
+                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                        <img class="img-size-border transition-quick" src="./img/summary-todo.svg" alt="">
+                                        <span class="number-size transition-quick">5</span>
+                                    </div>
+                                    <span class="regular-container-font transition-quick">Tasks To-do</span>
+                            </div>
+                        </div>
+
+
+                        <div class="other-container border-radius-summary border-color-summary transition-quick">
+                            <div class="other-inside-container">
+                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                        <img class="img-size-border transition-quick" src="./img/summary-progress.svg" alt="">
+                                        <span class="number-size transition-quick">5</span>
+                                    </div>
+                                    <span class="regular-container-font transition-quick">Tasks in Progress</span>
+                            </div>
+                        </div>
+
+
+                        <div class="other-container border-radius-summary border-color-summary transition-quick">
+                            <div class="other-inside-container">
+                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                        <img class="img-size-border transition-quick" src="./img/summary-feedback.svg" alt="">
+                                        <span class="number-size transition-quick">5</span>
+                                    </div>
+                                    <span class="regular-container-font">Awaiting Feedback</span>
+                            </div>
+                        </div>
+
+
+                        <div class="other-container border-radius-summary border-color-summary transition-quick">
+                            <div class="other-inside-container">
+                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                        <img class="img-size-border transition-quick" src="./img/summary-done.svg" alt="">
+                                        <span class="number-size transition-quick">5</span>
+                                    </div>
+                                    <span class="regular-container-font">Tasks done</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
 
         </maincontent>
+
     </main-container>
     
 </body>

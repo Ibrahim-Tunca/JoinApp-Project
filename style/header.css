@@ -2,12 +2,15 @@ header{
     width: 100%;
     height: 96px;
     background-color: #4589FF;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 30px 0 30px;
     box-sizing: border-box;
+}
+
+.header-font{
+    font-size: 19px;
 }
 
 .help-icon{
@@ -27,7 +30,7 @@ header{
     align-items: center;
     justify-content: space-between;
     color: white;
-    width: 352px;
+    width: 398px;
 }
 
 .user-button{
