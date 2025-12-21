@@ -70,6 +70,11 @@
             height: 81px;
         }
 
+                .urgency-container:hover .urgency-inside-right-container{
+                    width: 350px;
+                    height: 130px;
+                }
+
         .urgency-number{
             color: white;
             font-size: 48px;
