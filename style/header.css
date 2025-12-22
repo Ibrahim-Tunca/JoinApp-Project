@@ -30,6 +30,12 @@ header{
     object-fit: cover;
 }
 
+        .help-icon:hover{
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
 .capa-icon-header{
     width: 46px;
     height: 56px;
@@ -41,7 +47,7 @@ header{
     align-items: center;
     justify-content: space-between;
     color: white;
-    width: 398px;
+    width: 448px;
 }
 
 .user-button{

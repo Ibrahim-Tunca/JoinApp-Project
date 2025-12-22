@@ -19,7 +19,7 @@
 .img-size-border{
     width: 66px;
     height: 66px;
-    border: solid white 2px;
+    object-fit: cover;
     border-radius: 40px;
 }
 
@@ -31,14 +31,16 @@
     width: 676px;
     height: 191px;
     background-color: #4589FF;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Verhindert, dass andere Elemente verschoben werden */
 }
 
 .urgency-container:hover{
     cursor: pointer;
     background-color: white;
-    width: 687px;
-    height: 195px;
     border-top-left-radius: 0;
+    transform: scale(1.05); /* Vergrößert den Container */
+    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: fügt einen Schatten hinzu */
 }
                 .urgency-container:hover .img-size-border{
                     width: 79px;
@@ -71,8 +73,8 @@
         }
 
                 .urgency-container:hover .urgency-inside-right-container{
-                    width: 350px;
-                    height: 130px;
+                    width: 310px;
+                    height: 90px;
                 }
 
         .urgency-number{
@@ -83,7 +85,7 @@
 
                 .urgency-container:hover .urgency-number{
                     color: #4589FF;
-                    font-size: 62px;
+                    font-size: 58px;
                 }
 
         .urgency-font{
@@ -116,29 +118,29 @@
     justify-content: center;
     width: 204px;
     height: 191px;
+    position: relative;
 }
 
 .tasks-on-board-container:hover{
-    width: 219px;
-    height: 196px;
+    transform: scale(1.15);
     background-color: #005DFF;
     cursor: pointer;
     border-top-left-radius: 0;
 }
 
         .tasks-on-board-inside-container{
-            height: 124px;
+            height: 150px;
             width: 139px;
         }
 
                 .tasks-on-board-container:hover .img-size-border{
-                    width: 79px;
-                    height: 79px;
+                    width: 73px;
+                    height: 73px;
                 }
 
                 .tasks-on-board-container:hover .number-size{
                     color: white;
-                    font-size: 62px;
+                    font-size: 58px;
                 }
 
                 .tasks-on-board-container:hover .regular-container-font{
@@ -153,29 +155,29 @@
     width: 204px;
     height: 219px;
     background-color: #D2E3FF;
+    position: relative;
 }
 
 .tasks-to-do-container:hover{
-    width: 224px;
-    height: 235px;
+    transform: scale(1.15);
     background-color: white;
     border-top-left-radius: 0;
     cursor: pointer;
 }
 
         .tasks-to-do-inside-container{
-            height: 128px;
+            height: 159px;
             width: 139px;
         }
 
                 .tasks-to-do-container:hover .img-size-border{
-                    width: 79px;
-                    height: 79px;
+                    width: 73px;
+                    height: 73px;
                 }
 
                 .tasks-to-do-container:hover .number-size{
                     color: #005DFF;
-                    font-size: 62px;
+                    font-size: 58px;
                 }
 
                 .tasks-to-do-container:hover .regular-container-font{
@@ -190,18 +192,18 @@
     justify-content: center;
     width: 204px;
     height: 219px;
+    position: relative;
 }
 
 .other-container:hover{
-    width: 224px;
-    height: 235px;
+    transform: scale(1.15);
     background-color: #005DFF;
     border-top-left-radius: 0;
     cursor: pointer;
 }
 
         .other-inside-container{
-            height: 128px;
+            height: 159px;
             width: 139px;
         }
 
@@ -212,7 +214,7 @@
 
                 .other-container:hover .number-size{
                     color: white;
-                    font-size: 62px;
+                    font-size: 58px;
                 }
 
                 .other-container:hover .regular-container-font{
