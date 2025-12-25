@@ -1,0 +1,104 @@
+.maincontent-container-contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 32px 24px 32px 24px;
+
+    width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Beispiel für einen realistischen Schatten */
+
+    height: calc(100vh - 160px);
+    overflow: hidden;
+}
+
+.contacts-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 352px;
+    height: 56px;
+
+    color: white;
+    background-color: #4589FF;
+    padding: 8px 16px 8px 16px;
+    border-radius: 4px;
+    border-style: none;
+    font-size: 23px;
+    transition: 0.2s;
+}
+
+        .contacts-button:hover{
+            background-color: #005DFF;
+            cursor: pointer;
+        }
+
+.person-add-img{
+    height: 32px;
+    width: 32px;
+    margin: 0 15px;
+    object-fit: cover;
+}
+
+.letter-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 352px;
+    height: 56px;
+
+    font-size: 18px;
+
+    border-bottom: inset;
+}
+
+.letter{
+    margin: 0 20px;
+}
+
+.allcontacts-container{
+    overflow-y: auto;
+}
+
+
+.contact-container{
+    display: flex;
+    align-items: center;
+    
+    height: 77px;
+    width: 352px;
+}
+
+.inital-ball{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 40px 0 30px;
+
+
+    background-color: #FF7A00;
+    border-radius: 40px;
+
+    font-size: 16px;
+    color: white;
+
+    height: 42px;
+    width: 42px;
+}
+
+.name-mail-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.name-font-contact{
+    font-size: 19px;
+}
+
+.mail-font-contact{
+    font-size: 16px;
+    color: #005DFF;
+}
