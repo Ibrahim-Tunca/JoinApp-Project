@@ -1,0 +1,223 @@
+.addcontact-maincontainer{
+    display: flex;
+    flex-direction: column;
+
+    height: 937px;
+    width: 584px;
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+
+.top-section-contact{
+    display: flex;
+    flex-direction: column;
+    background-color: #005DFF;
+    border-top-left-radius: 30px;
+    height: 362px;
+}
+
+.top-section-inside-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 240px;
+}
+
+.h2-font-contact{
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 22px;
+}
+
+.close-button-container-add-contact{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.close-button{
+    height: 17px;
+    width: 17px;
+    object-fit: cover;
+    margin: 17px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+        .close-button:hover{
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.452);
+        }
+
+.join-logo-contact{
+    height: 66px;
+    width: 55px;
+    object-fit: cover;
+}
+
+.join-logo-contact-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-section-contact-font{
+    font-size: 27px;
+    color:white;
+    text-align: center;
+}
+
+.bottom-section-contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 573px;
+}
+
+
+.bottom-section-container-contact{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    height: 438px;
+    width: 422px;
+}
+
+.person-logo-contact{
+    height: 64px;
+    width: 64px;
+    object-fit: cover;
+    filter: brightness(1.5);
+}
+
+.person-logo-container-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 120px;
+    width: 120px;
+
+    background-color: #D1D1D1;
+    border: solid 3px white;
+    border-radius: 63px;
+}
+
+.input-container-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 185px;
+    width: 100%;
+    margin-top: 27px;
+    height: 193px;
+}
+
+.single-inputfield-container-contact{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    position: relative;
+}
+
+.inputfield-placeholder-img{
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+    position: absolute;
+    right: 9px;
+}
+
+.inputfield-contact{
+    padding: 7px 20px;
+    border-width: 0px;
+    border-bottom: solid 2px #D1D1D1;
+    font-size: 23px;
+    width: 381px;
+}
+
+.inputfield-contact::placeholder{
+    color: #D1D1D1;
+    font-size: 18px;
+}
+
+        .inputfield-contact:focus {
+            outline: none;
+            border-bottom-color: #4589FF;
+        }
+.button-order-contact{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+    margin-top: 40px;
+}
+
+.blue-button-big{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    color: white;
+    height: 48px;
+    padding: 0 15px;
+    background-color: #4589FF;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+        .blue-button-big:hover {
+            background-color: #005DFF;
+            cursor: pointer;
+        }
+
+.blue-button-check{
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+    margin-left: 8px;
+}
+
+.white-button-big{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: #647188;
+    height: 48px;
+    padding: 0 15px;
+    background-color: #FFFFFF;
+    border: solid 2px #647188;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+        .white-button-big:hover{
+            color: #4589FF;
+            border: solid 2px #4589FF;
+            cursor: pointer;
+        }
+
+        .white-button-big:hover img {
+            filter: invert(29%) sepia(96%) saturate(746%) hue-rotate(186deg) brightness(95%) contrast(92%);
+        }
+
+.white-button-x{
+    height: 24px;
+    width: 24px;
+    transition: 0.2s;
+    object-fit: cover;
+    margin-left: 8px;
+}
