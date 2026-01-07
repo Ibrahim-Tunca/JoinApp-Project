@@ -62,14 +62,19 @@
     overflow-y: auto;
 }
 
-
 .contact-container{
     display: flex;
     align-items: center;
-    
     height: 77px;
     width: 352px;
+    border-radius: 10px;
+    margin: 5px;
 }
+
+        .contact-container:hover{
+            background-color: #D2E3FF;
+            cursor: pointer;
+        }
 
 .inital-ball{
     display: flex;
@@ -81,6 +86,7 @@
 
     background-color: #FF7A00;
     border-radius: 40px;
+    border: solid white 2px;
 
     font-size: 16px;
     color: white;

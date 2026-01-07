@@ -1,0 +1,104 @@
+.floating-contact-container{
+    display: flex;
+    flex-direction: column;
+    width: 472px;
+    height: 318px;
+    background-color: bisque;
+}
+
+.top-section-floating-contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+}
+
+
+
+.inital-ball-floating-contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FF7A00;
+    border-radius: 63px;
+    border: solid white 4px;
+
+    font-size: 47px;
+    font-weight: 500;
+
+    color: white;
+    height: 120px;
+    width: 120px;
+}
+
+.name-and-edit-delete-button-container-floating-contanct{
+    display: flex;
+    flex-direction: column;
+    
+    width: 298px;
+    height: 87px;
+}
+
+.h2-floating-contact{
+    font-size: 46px;
+    font-weight: 600;
+    margin: 0 0 7px 0;
+}
+
+.edit-and-delete-container-floating-contact{
+    display: flex;
+}
+
+.edit-and-delete-single-container-floating-contact{
+    display: flex;
+    align-items: center;
+    width: 79px;
+}
+
+        .edit-and-delete-single-container-floating-contact:hover{
+            cursor: pointer;
+        }
+
+.edit-delete-font-float-contaier{
+    font-size: 16px;
+    margin: 0 10px 0 10px;
+    transition: font-weight 0.2s ease;
+}
+
+        .edit-and-delete-single-container-floating-contact:hover .edit-delete-font-float-contaier{
+            font-weight: 600;
+            color: #005DFF;
+        }
+
+.edit-delete-icons-floating-contact{
+    width: 24px;
+    height: 24px;
+    transition: 0.2s;
+}
+
+        .edit-and-delete-single-container-floating-contact:hover .edit-delete-icons-floating-contact {
+            color: #005DFF;  
+            fill: #005DFF;
+        }
+
+
+.h3-font-floating-contact{
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.p-tag-headline-font-floating-contact{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.email-font-floating-contact{
+    font-size: 16px;
+    color: #005DFF;
+}
+
+.phonenumber-font-floating-contact{
+    font-size: 16px;
+}
