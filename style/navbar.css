@@ -1,6 +1,6 @@
 
 .navbar{
-    width: 262px;
+    max-width: 262px;
     border-right: inset;
     height: calc(100vh - 156px);
     display: flex;

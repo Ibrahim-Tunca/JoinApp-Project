@@ -1,0 +1,70 @@
+.button-order-addtask{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-bottom: 21px;
+    padding-right: 11px;
+    flex-grow: 1;
+}
+
+.button-white-addtask{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #647188;
+    height: 48px;
+    padding: 0 15px;
+    margin: 0 15px;
+    background-color: #FFFFFF;
+    border: solid 2px #647188;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+        .button-white-addtask:hover{
+            color: #4589FF;
+            border: solid 2px #4589FF;
+            cursor: pointer;
+        }
+
+.clear-icon-addtask{
+    height: 24px;
+    width: 24px;
+    transition: 0.2s;
+    object-fit: cover;
+    margin-left: 8px;
+}
+
+        .button-white-addtask:hover img{
+            filter: invert(29%) sepia(96%) saturate(746%) hue-rotate(186deg) brightness(95%) contrast(92%);
+        }
+
+.button-blue-addtask{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: white;
+    height: 48px;
+    padding: 0 15px;
+    margin: 0 15px;
+    background-color: #4589FF;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+        .button-blue-addtask:hover{
+            background-color: #005DFF;
+            cursor: pointer;
+        }
+
+.affirmative-icon-addtask{
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+    margin-left: 8px;
+}
+
