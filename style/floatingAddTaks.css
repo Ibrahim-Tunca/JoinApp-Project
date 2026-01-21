@@ -1,0 +1,72 @@
+.main-container-floating-addTask{
+    display: flex;
+    flex-direction: column;
+
+    border: solid 2px #D1D1D1;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    height: calc(100vh - 96px);
+    width: 488px;
+    padding: 0 21px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.h1-font-floating-addTask{
+    font-weight: 700;
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+.close-button-floating-addTaks{
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+        .close-button-floating-addTaks:hover{
+            background-color: #D2E3FF;
+            cursor: pointer;
+            transform: scale(1.2); 
+            filter: contrast(2.0);
+        }
+
+.close-button-container-add-Task{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-top: 26px;
+}
+
+.blue-button-container-floating-task{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+}
+
+.blue-button-floating-Task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+    padding: 15px 8px;
+    margin: 15px 0;
+    width: 155px;
+
+    background-color: #4589FF;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+        .blue-button-floating-Task:hover{
+            background-color: #005DFF;
+            cursor: pointer;
+        }

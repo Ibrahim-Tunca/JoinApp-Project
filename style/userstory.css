@@ -1,0 +1,132 @@
+.main-container-userstory{
+    display: flex;
+    flex-direction: column;
+
+    width: 528px;
+    height: 932px;
+
+    gap: 24px;
+    padding: 48px 40px;
+
+    border-radius: 30px;
+    border:solid 2px #D1D1D1;
+
+    background-color: bisque;
+}
+
+.regular-span-font-userstory{
+    font-size: 19px;
+}
+
+.bold-span-font-userstory{
+    color: #42526E;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.bold-span-font-space-userstory{
+    display: flex;
+    width: 128px;
+}
+
+.userstory-category-tag{
+    background-color: #FF7A00;
+    padding: 4px 24px;
+    font-size: 23px;
+    color: white;
+    border-radius: 8px; 
+}
+
+.close-button-userstory{
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+        .close-button-userstory:hover{
+            background-color: #D2E3FF;
+            cursor: pointer;
+            transform: scale(1.2); 
+            filter: contrast(2.0);
+        }
+
+.h1-font-userstory{
+    font-size: 61px;
+    font-weight: 700;
+    margin: 22px 0;
+}
+
+.priotity-icon-userstory{
+    width: 17px;
+    height: 7px;
+    margin: 0 9px;
+}
+
+.letter-ball-userstory{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 25px;
+
+    border-radius: 21px;
+    background-color: #1FD7C1;
+    height: 42px;
+    width: 42px;
+    color: white;
+    font-size: 16px;
+}
+
+.assigned-to-content-order{
+    display: flex;
+    align-items: center;
+    margin: 15px 0 0 0;
+}
+
+.subtasks-inputfield-userstory{
+    margin: 0 18px;
+}
+
+.subtasks-single-container-userstory{
+    margin: 15px 0;
+}
+
+.edit-delete-container-userstory{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 100%;
+}
+
+.edit-delete-single-container-userstory{
+    display: flex;
+    align-items: center;   
+}
+
+.edit-delete-separator-userstory{
+    width: 2px;
+    height: 27px;
+    background-color: #D1D1D1;
+    margin: 0 20px;
+}
+
+.edit-delete-icon-userstory{
+    width: 24px;
+    height: 24px;
+    margin: 0 11px 0 0;
+}
+
+.edit-delete-font-userstory{
+    font-size: 19px;
+    transition: 0.2s;
+}
+
+        .edit-delete-single-container-userstory:hover .edit-delete-font-userstory{
+            color: #005DFF;
+            font-weight: 600;
+        }
+
+        .edit-delete-single-container-userstory:hover{
+            cursor: pointer;
+        }

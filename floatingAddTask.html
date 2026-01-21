@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/addTasks.css">
+    <link rel="stylesheet" href="./style/floatingAddTaks.css">
+
+</head>
+<body>
+    <scrollcontainer style="overflow: hidden; display: flex;">
+
+            <maincontent class="main-container-floating-addTask">
+
+                        <div class="close-button-container-add-Task">
+                            <img class="close-button-floating-addTaks" src="./img/close-blue.svg" alt="">
+                        </div>
+
+                        <h1 class="h1-font-floating-addTask">Add Task</h1>
+
+                        <input class="input-title-addTask" type="text" placeholder="Enter a title">
+                        <span>This field is required</span>
+
+                        <div class="margin-top-add-task">
+                            <span class="font-bold-add-task">Description</span><span class="font-normal-add-task"> (optional)</span>
+                        </div>
+                        <textarea class="textarea-description-addtask" name="inputDescription-addTask" id="" placeholder="Enter a Description"></textarea>
+                        
+
+
+                        <div class="margin-top-add-task">
+                            <span class="font-bold-add-task">Due date</span>
+                        </div>
+                        <input class="input-date-addTask" type="date" placeholder="tt/mm/jjjj">
+                        <span>This field is required</span>
+
+
+                        <priority class="margin-top-bigger-add-task">
+                            <span class="font-bold-add-task">Priority</span>
+                            <div class="prio-buttons-order-addTask margin-top-add-task">
+                                <button class="prio-buttons-addTask high-prio-button-addTask">Urgent<img class="prio-icons-addTask" src="./img/addTask/prio-high.svg"></button>
+                                <button class="prio-buttons-addTask mid-prio-button-addTask">Medium<img class="prio-icons-addTask" src="./img/addTask/prio-medium.svg"></button>
+                                <button class="prio-buttons-addTask low-prio-button-addTask">Low<img class="prio-icons-addTask" src="./img/addTask/prio-low.svg"></button>
+                            </div>
+                        </priority>
+
+
+
+
+
+                        <assignedTo class="margin-top-bigger-add-task">
+                            <span class="font-bold-add-task">Assigned to</span><span class="font-normal-add-task"> (optional)</span>
+                        </assignedTo>
+
+                        <select class="select-contacts-addTask styled-select-arrow-add-Task margin-top-add-task" name="contacts" required>
+                            <option value="" disabled selected hidden>Select contacts to assign</option>
+                            <option value="ahmet">ahmet</option>
+                            <option value="bibor">bibor</option>
+                            <option value="günther">günther</option>
+                        </select>
+
+
+
+
+                        <category class="margin-top-bigger-add-task">
+                            <span class="font-bold-add-task">Category</span>
+                        </category>
+
+                        <select class="select-contacts-addTask styled-select-arrow-add-Task margin-top-add-task" name="category" required>
+                            <option value="0" disabled selected hidden>Select task category</option>
+                            <option value="1">Technical Task</option>
+                            <option value="2">User Story</option>
+                        </select>
+
+                            
+
+
+                        <subtask class="margin-top-bigger-add-task">
+                            <span class="font-bold-add-task">Subtask</span><span class="font-normal-add-task"> (optional)</span>
+                        </subtask>
+
+                        <input class="input-subtask-addTask margin-top-add-task margin-bottom-add-task" type="text" placeholder="add new subtask">
+                    
+                        <div class="blue-button-container-floating-task">
+                            <button class="blue-button-floating-Task">
+                                Create Task
+                                <img class="affirmative-icon-addtask" src="./img/check.svg" alt="">
+                            </button>
+                        </div>
+
+
+            </maincontent>
+
+        </scrollcontainer>
+    
+</body>
+</html>
