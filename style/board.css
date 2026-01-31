@@ -1,0 +1,139 @@
+.maincontent-container-board{
+    padding: 76px 56px;
+}
+
+.bottom-section-board{
+    display: flex;
+    margin-top: 60px;
+}
+
+.bottom-section-single-container-board{
+    width: 224px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 28px;
+}
+
+.input-addtask-button-container{
+    display: flex;
+    width: 100%;
+}
+
+.inputfield-container-board{
+    width: 312px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.h2-font-board{
+    font-weight: 700;
+    font-size: 23px;
+    margin: 0;
+    color: #42526E;
+}
+
+.inputfield-board{
+    height: 39px;
+    width: 278px;
+    font-size: 16px;
+    padding: 8px 16px;
+    
+    border-radius: 10px;
+    border-style: none;
+    border: solid 1px #A8A8A8; 
+
+    position: relative;
+
+    background-image: url('../img/small-separator.svg');
+    background-repeat: no-repeat;
+    background-position: 243px 12px;
+}
+
+        .inputfield-board:hover{
+            cursor: pointer;
+            border: solid 1px #4589FF; 
+        }
+
+        .inputfield-board::placeholder{
+            color: #D1D1D1;
+        }
+
+        .inputfield-board:focus{
+            outline: none;
+        }
+
+.search-icon-board{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+
+    right: 19px;
+    padding: 6px;
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+        .search-icon-board:hover{
+            cursor: pointer;
+            background-color: #D2E3FF;
+        }
+
+.blue-button-borad{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+    padding: 15px 11px;
+    margin: 0 48px;
+    width: 143px;
+
+    background-color: #4589FF;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 23px;
+    transition: 0.2s;
+}
+
+        .blue-button-borad:hover{
+            background-color: #005DFF;
+            cursor: pointer;
+        }
+
+.plus-icon-board{
+    height: 17px;
+    width: 17px;
+    object-fit: cover;
+}
+
+.headline-container-board{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.plus-button-board{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    border: solid 2px #4589FF;
+    border-radius: 8px;
+    color: #4589FF;
+    width: 24px;
+    height: 24px;
+    transition: 0.2s;
+}
+
+        .plus-button-board:hover{
+            cursor: pointer;
+            border: solid 2px #005DFF;
+            color: #005DFF;
+        }
+
