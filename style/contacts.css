@@ -3,22 +3,24 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 32px 24px 32px 24px;
+    width: 456px;
+    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.2);
 
-    width: 400px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Beispiel für einen realistischen Schatten */
-
-    height: calc(100vh - 160px);
+    height: calc(100vh - 96px);
     overflow: hidden;
 }
 
 .contacts-button{
+    position: absolute;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 352px;
     height: 56px;
+
+    margin: 15px 44px;
 
     color: white;
     background-color: #4589FF;
@@ -33,6 +35,17 @@
             background-color: #005DFF;
             cursor: pointer;
         }
+
+.button-background-white{
+    background: white;
+    height: 89px;
+    width: 377px;
+    position: absolute;
+}
+
+.contact-container-space-between-button-and-contacts{
+    height: 70px;
+}
 
 .person-add-img{
     height: 32px;
@@ -51,6 +64,8 @@
 
     font-size: 18px;
 
+    margin: 0 44px;
+
     border-bottom: inset;
 }
 
@@ -60,6 +75,7 @@
 
 .allcontacts-container{
     overflow-y: auto;
+    width:100%;
 }
 
 .contact-container{
@@ -68,7 +84,7 @@
     height: 77px;
     width: 352px;
     border-radius: 10px;
-    margin: 5px;
+    margin: 7px 44px
 }
 
         .contact-container:hover{
