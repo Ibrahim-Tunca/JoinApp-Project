@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>summary</title>
+    <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon">
+
     <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/contacts.css">
+
+    <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
+
+    <script src="./script/popUp.js"></script>
 
 </head>
 <body>
@@ -16,11 +22,20 @@
             <div class="header-right-section-container">
                 <span class="header-font">Kanban Project Management Tool</span>
                 <a href="./help.html"><img  class="help-icon" src="./img/help.svg" alt=""></a>
-                <button class="user-button">G</button>
+                <button class="user-button" onclick="togglePopUpMenue()">G</button>
             </div>
     </header>
 
     <main-container style="display: flex;">
+
+        <popupmenue class="popup-menue-position d_none" id="popUpID">
+                <div class="popup-menue-container">
+                    <a class="popup-menue-font" href="./legal.html">Legal Notice</a>
+                    <a class="popup-menue-font" href="./privacy.html">Private Policy</a>
+                    <a class="popup-menue-font" href="./index.html">Log out</a>
+                </div>
+        </popupmenue>
+
 
         <navbar class="navbar">
 

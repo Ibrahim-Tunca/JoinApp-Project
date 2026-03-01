@@ -1,0 +1,37 @@
+.popup-menue-position{
+    right: 0px;
+    top: 96px;
+    position: absolute;
+    width: 172px;
+    height: 137px
+}
+
+.popup-menue-container{
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 4px 12px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 14px 16px;
+    gap: 8px;
+}
+
+.popup-menue-font{
+    display: flex;
+    justify-content: end;
+    font-size: 19px;
+    color: #42526E;
+    padding: 5px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.popup-menue-font:hover{
+    background-color: #D2E3FF;
+    cursor: pointer;
+}
+
+.d_none{
+    display: none;
+}
