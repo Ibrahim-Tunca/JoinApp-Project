@@ -1,11 +1,36 @@
+@font-face{
+    font-family: 'Open_Sans';
+    src: url('../fonts/Open_sans/OpenSans-VariableFont_wdth\,wght.ttf')
+}
 
+body{
+    margin: 0px;
+    font-family: 'Open_Sans', Arial, sans-serif;
+}
+
+.h2-login{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 11px;
+    padding-bottom: 15px;
+    border-bottom: solid 2px #4589FF;
+}
 
 .top-section{
     display: flex;
-    justify-content: end;
-    align-items: center;
-    font-size: 18px;
-    padding: 15px;
+    justify-content: space-between;
+    margin: 67px;
+}
+
+.blue-join-icon-login{
+    height: 122px;
+    width: 100px;
+}
+
+.not-a-join-user{
+    display: flex;
+    align-items: baseline;
+    font-size: 23px;
 }
 
 .blue-button{
@@ -13,9 +38,13 @@
     color: white;
     background-color: #4589FF;
     padding: 8px 16px 8px 16px;
+
+    height: 48px;
+    width: 112px;
+
     border-radius: 4px;
     border-style: none;
-    font-size: 18px;
+    font-size: 23px;
     transition: 0.2s;
 }
 
@@ -24,16 +53,17 @@
     cursor: pointer;
 }
 
-.center-section{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: calc(100vh / 5);
+.center-section-login{
+    display: flex;
+    justify-content: center;
+}
 
+.center-container-login{
     width: 652px;
     height: 448px;
 
-    border: groove;
-    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+    border-radius: 30px;
 }
 
 .headline-login{
@@ -41,13 +71,6 @@
     justify-content: center;
     width: 100%;
     align-items: center;
-}
-
-.h2-login{
-    font-size: 48px;
-    margin-bottom: 11px;
-    padding-bottom: 15px;
-    border-bottom: solid 2px #4589FF;
 }
 
 .form-section-login{
@@ -65,15 +88,45 @@
     align-items: center;
 }
 
-.inputfield-login{
+.inputfield-mail-login{
     padding: 10px 20px 10px 20px;
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
+
+    background-image: url("../img/mail.svg");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
 }
 
-.inputfield-login::placeholder {
-    color: #D1D1D1;
+        .inputfield-mail-login::placeholder {
+            color: #D1D1D1;
+        }
+
+        .inputfield-mail-login:focus {
+            outline: none;
+            border-bottom-color: #4589FF;
+        }
+
+.inputfield-password-login{
+    padding: 10px 20px 10px 20px;
+    border-width: 0px;
+    border-bottom: solid 2px #D1D1D1;
+
+    background-image: url("../img/lock.svg");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
 }
+
+        .inputfield-password-login::placeholder {
+            color: #D1D1D1;
+        }
+
+        .inputfield-password-login:focus {
+            outline: none;
+            border-bottom-color: #4589FF;
+        }
+
+
 
 .inputfield-login:focus {
     outline: none;
@@ -130,16 +183,14 @@
 bottom-section {
     position: fixed;
     bottom: 0;
-    width: 100%; /* Damit es die gesamte Breite einnimmt */
-    /*background-color: white;*/ /* Optional: Hintergrundfarbe */
-    /*text-align: center;*/ /* Optional: Zentrierter Text */
+    width: 100%;
 }
 
 .bottom-section-order{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 0 20px 0;
+    padding: 0px 0 39px 0;
 }
 
 .private-pollicy-legal-notice-element{
