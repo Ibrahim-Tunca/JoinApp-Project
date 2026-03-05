@@ -6,8 +6,17 @@ body{
     background-color: white;
 }
 
-.center-section{
+.center-formular-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formlar-size-signup{
     height: 586px;
+    width: 606px;
+    border-radius: 30px;
 }
 
 
@@ -16,6 +25,13 @@ body{
     margin-bottom: 11px;
     padding-bottom: 15px;
     border-bottom: solid 2px #4589FF;
+}
+
+.join-logo-signup{
+    height: 122px;
+    width: 100px;
+    margin: 67px;
+    position: absolute;
 }
 
 .headline-signup{
@@ -54,21 +70,65 @@ body{
     height: 48px;
 }
 
-.inputfield-signup{
+.inputfield-mail-signup{
     padding: 10px 20px 10px 20px;
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
     margin: 15px;
+
+    background-image: url("../img/mail.svg");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
 }
 
-.inputfield-signup::placeholder {
-    color: #D1D1D1;
+        .inputfield-mail-signup::placeholder {
+            color: #D1D1D1;
+        }
+
+        .inputfield-mail-signup:focus {
+            outline: none;
+            border-bottom-color: #4589FF;
+        }
+
+.inputfield-name-signup{
+    padding: 10px 20px 10px 20px;
+    border-width: 0px;
+    border-bottom: solid 2px #D1D1D1;
+    margin: 15px;
+
+    background-image: url("../img/person.svg");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
 }
 
-.inputfield-signup:focus {
-    outline: none;
-    border-bottom-color: #4589FF;
+        .inputfield-name-signup::placeholder {
+            color: #D1D1D1;
+        }
+
+        .inputfield-name-signup:focus {
+            outline: none;
+            border-bottom-color: #4589FF;
+        }
+
+.inputfield-password-signup{
+    padding: 10px 20px 10px 20px;
+    border-width: 0px;
+    border-bottom: solid 2px #D1D1D1;
+    margin: 15px;
+
+    background-image: url("../img/lock.svg");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
 }
+
+        .inputfield-password-signup::placeholder {
+            color: #D1D1D1;
+        }
+
+        .inputfield-password-signup:focus {
+            outline: none;
+            border-bottom-color: #4589FF;
+        }
 
 .checkbox-signup{
     display: flex;

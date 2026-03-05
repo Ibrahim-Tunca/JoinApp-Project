@@ -6,44 +6,53 @@
     <title>signup</title>
     <link rel="shortcut icon" href="./img/Capa 2.svg" type="image/x-icon">
     
-    <link rel="stylesheet" href="./style/login.css">
+    <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/signUp.css">
+
+    <script src="./script/signUp.js"></script>
+
 </head>
-<body>
+<body onload="signUp()">
 
-    <section class="center-section background-color-white-signup">
-
-        <div class="headline-signup">
-            <h2 class="h2-signup">
-                Sign Up
-            </h2>
-        </div>
-
-        <div class="form-container-signup">
-            <form class="form-section-signup">
-                <input class="inputfield-signup" type="text" placeholder="Name">
-                <input class="inputfield-signup" type="email" placeholder="Email">
-                <input class="inputfield-signup" type="password" placeholder="Password">
-                <input class="inputfield-signup" type="password" placeholder="Confirm Password">
-            </form>
-        </div>
-
-        <div class="checkbox-signup">
-            <form action="">
-                <input type="checkbox" id="acceptPolicyID" name="readpolicy">
-                <label for="readpolicy">i accept the <a class="checkbox-href" href="">Privacy policy</a></label>
-            </form>
-        </div>
-
-        <div class="button-container-signup">
-            <div class="button-order-signup">
-                <button class="blue-button-big">Sign up</button>   
-            </div>
-        </div>
-
-        
-
+    <section>
+        <img class="join-logo-signup" src="./img/Capa 1.svg" alt="">
     </section>
+
+    <formular class="center-formular-signup">
+
+            <section class="formlar-size-signup background-color-white-signup">
+
+                        <div class="headline-signup">
+                            <h2 class="h2-signup">
+                                Sign Up
+                            </h2>
+                        </div>
+
+                        <div class="form-container-signup">
+                            <form class="form-section-signup">
+                                <input class="inputfield-name-signup" type="text" placeholder="Name">
+                                <input class="inputfield-mail-signup" type="email" placeholder="Email">
+                                <input class="inputfield-password-signup" type="password" placeholder="Password">
+                                <input class="inputfield-password-signup" type="password" placeholder="Confirm Password">
+                            </form>
+                        </div>
+
+                        <div class="checkbox-signup">
+                            <form action="">
+                                <input type="checkbox" id="acceptPolicyID" name="readpolicy">
+                                <label for="readpolicy">i accept the <a class="checkbox-href" href="">Privacy policy</a></label>
+                            </form>
+                        </div>
+
+                        <div class="button-container-signup">
+                            <div class="button-order-signup">
+                                <button class="blue-button-big">Sign up</button>   
+                            </div>
+                        </div>
+
+            </section>
+
+    </formular>
 
     <bottom-section>
         <div class="bottom-section-order">
