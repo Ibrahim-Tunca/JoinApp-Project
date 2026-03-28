@@ -1,6 +1,9 @@
 body{
     background-color: #4589FF;
 }
+.d_none{
+    display: none;
+}
 
 .background-color-white-signup{
     background-color: white;
@@ -25,6 +28,24 @@ body{
     margin-bottom: 11px;
     padding-bottom: 15px;
     border-bottom: solid 2px #4589FF;
+}
+
+.arrow-signup{
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+        .arrow-signup:hover{
+            background-color: #D2E3FF;
+            cursor: pointer;
+            filter: opacity(0.8);
+        }
+
+.arrow-container-signup{
+    margin: 63px 43px;
+    position: fixed;
 }
 
 .join-logo-signup{
@@ -70,70 +91,11 @@ body{
     height: 48px;
 }
 
-.inputfield-mail-signup{
-    padding: 10px 20px 10px 20px;
-    border-width: 0px;
-    border-bottom: solid 2px #D1D1D1;
-    margin: 15px;
-
-    background-image: url("../img/mail.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-}
-
-        .inputfield-mail-signup::placeholder {
-            color: #D1D1D1;
-        }
-
-        .inputfield-mail-signup:focus {
-            outline: none;
-            border-bottom-color: #4589FF;
-        }
-
-.inputfield-name-signup{
-    padding: 10px 20px 10px 20px;
-    border-width: 0px;
-    border-bottom: solid 2px #D1D1D1;
-    margin: 15px;
-
-    background-image: url("../img/person.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-}
-
-        .inputfield-name-signup::placeholder {
-            color: #D1D1D1;
-        }
-
-        .inputfield-name-signup:focus {
-            outline: none;
-            border-bottom-color: #4589FF;
-        }
-
-.inputfield-password-signup{
-    padding: 10px 20px 10px 20px;
-    border-width: 0px;
-    border-bottom: solid 2px #D1D1D1;
-    margin: 15px;
-
-    background-image: url("../img/lock.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-}
-
-        .inputfield-password-signup::placeholder {
-            color: #D1D1D1;
-        }
-
-        .inputfield-password-signup:focus {
-            outline: none;
-            border-bottom-color: #4589FF;
-        }
 
 .checkbox-signup{
     display: flex;
     justify-content: center;
-    padding-top: 149px;
+    padding-top: 33px;
 }
 
 .checkbox-href{
@@ -155,4 +117,58 @@ body{
 .private-pollicy-legal-notice-element:hover{
     color: #005DFF;
     cursor: pointer;
+}
+
+.blue-button-settings-signup{
+    padding: 10px 20px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 19px;
+}
+
+.background-cloud-maker {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.582);
+    
+    /* WICHTIG: Statt d_none nutzen wir opacity und visibility */
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.8s ease-in-out;
+    z-index: 998; /* Damit es hinter dem Popup liegt */
+}
+
+.show-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.signup-popup{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 326px;
+    height: 74px;
+    border-radius: 24px;
+    background-color: #4589FF;
+    color: white;
+    font-size: 23px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    top: 120%; 
+    transition: top 0.4s ease-out;
+}
+
+.top-50-percent{
+    top: 50% !important;
+}
+
+.popup-under-window{
+    bottom: -150px;
 }

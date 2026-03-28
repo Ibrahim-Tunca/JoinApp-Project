@@ -6,13 +6,17 @@
     <title>signup</title>
     <link rel="shortcut icon" href="./img/Capa 2.svg" type="image/x-icon">
     
-    <link rel="stylesheet" href="./style/index.css">
-    <link rel="stylesheet" href="./style/signUp.css">
+    <link rel="stylesheet" href="./style/login-signup-style/index.css">
+    <link rel="stylesheet" href="./style/login-signup-style/signUp.css">
+    <link rel="stylesheet" href="./style/login-signup-style/inputfieldSignUp.css">
 
     <script src="./script/signUp.js"></script>
 
 </head>
-<body onload="signUp()">
+<body onload="onloadFunc()">
+
+    <div class="background-cloud-maker" id="blackgroundcloudID"></div>
+    <div class="signup-popup" id="popupSignupID">You Signed Up successfully</div>
 
     <section>
         <img class="join-logo-signup" src="./img/Capa 1.svg" alt="">
@@ -22,6 +26,12 @@
 
             <section class="formlar-size-signup background-color-white-signup">
 
+                        <div class="arrow-container-signup">
+                            <a href="./index.html">
+                                <img class="arrow-signup" src="./img/arrow-left-line.svg" alt="arrow.svg">
+                            </a>
+                        </div>
+
                         <div class="headline-signup">
                             <h2 class="h2-signup">
                                 Sign Up
@@ -29,26 +39,25 @@
                         </div>
 
                         <div class="form-container-signup">
-                            <form class="form-section-signup">
-                                <input class="inputfield-name-signup" type="text" placeholder="Name">
-                                <input class="inputfield-mail-signup" type="email" placeholder="Email">
-                                <input class="inputfield-password-signup" type="password" placeholder="Password">
-                                <input class="inputfield-password-signup" type="password" placeholder="Confirm Password">
-                            </form>
-                        </div>
+                            <form name="signUpForm"  class="form-section-signup">
+                                <input class="inputfield-name-signup" type="text" placeholder="Name" name="name" id="nameID">
+                                <input class="inputfield-mail-signup" type="email" placeholder="Email" name="mail" id="mailID" autocomplete="new-password">
+                                <input class="inputfield-password-signup" type="password" placeholder="Password" name="password" id="passwordID" autocomplete="new-password">
+                                <input class="inputfield-repeat-signup" type="password" placeholder="Confirm Password" name="repeat" id="repeatID" autocomplete="new-password">
+                                <div class="repeat-error-message" id="errorID"></div>
+                        
 
-                        <div class="checkbox-signup">
-                            <form action="">
-                                <input type="checkbox" id="acceptPolicyID" name="readpolicy">
-                                <label for="readpolicy">i accept the <a class="checkbox-href" href="">Privacy policy</a></label>
-                            </form>
-                        </div>
+                                <div class="checkbox-signup">
+                                    <input type="checkbox" id="acceptPolicyID" name="checkbox">
+                                    <label for="checkbox">i accept the <a class="checkbox-href" href="">Privacy policy</a></label>
+                                </div>
 
-                        <div class="button-container-signup">
-                            <div class="button-order-signup">
-                                <button class="blue-button-big">Sign up</button>   
-                            </div>
-                        </div>
+                                <div class="button-container-signup">
+                                    <div class="button-order-signup">
+                                        <button onclick="return validateForm(event)" class="blue-button-big blue-button-settings-signup">Sign Up</button>  
+                                    </div> 
+                                </div> 
+                            </form>
 
             </section>
 
