@@ -97,7 +97,6 @@ async function validateForm(event){
     let inputCheckbox = document.forms["signUpForm"]["checkbox"].checked;
 
     const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat, inputCheckbox);
-
     const passwordsAreSame = checkIfPasswordsAreSame(inputPassword, inputRepeat);
 
             if(everyThingisFilled == false || passwordsAreSame == false){

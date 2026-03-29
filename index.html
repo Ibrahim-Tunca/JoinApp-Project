@@ -7,10 +7,10 @@
     <link rel="shortcut icon" href="./img/Capa 2.svg" type="image/x-icon">
     <link rel="stylesheet" href="./style/login-signup-style/index.css">
 
-    <script src="script/signUp.js"></script>
+    <script src="script/index.js"></script>
 
 </head>
-<body onload="signUp()">
+<body onload="onloadFunc()">
 
     <top-section class="top-section">
             <div>
@@ -38,21 +38,28 @@
             </div>
 
             <div class="form-container-login">
-                <form class="form-section-login">
-                    <input class="inputfield-mail-login" type="email" placeholder="Email">
-                    <input class="inputfield-password-login" type="password" placeholder="Password">
-                </form>
-            </div>
-
-            <div class="button-container-login">
+                <form class="form-section-login" name="loginForm">
+                    <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email">
+                    <input class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" >
+                
+                <div class="button-container-login">
                 <div class="button-order-login">
-                    <button class="blue-button-big">Log in</button>
+                    <button  onclick="return validateForm(event)" class="blue-button-big">Log in</button>
                     <a href="./summary.html"> 
                         <button class="white-button-big">Guest Log in</button>
                     </a>  
                 </div>
             </div>
-        </div>
+                
+                
+                
+                
+                
+                </form>
+            </div>
+
+            
+        </div>  
 
     </section>
 

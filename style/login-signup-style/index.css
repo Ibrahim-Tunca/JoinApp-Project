@@ -93,7 +93,7 @@ body{
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
 
-    background-image: url("../img/mail.svg");
+    background-image: url("/img/mail.svg");
     background-repeat: no-repeat;
     background-position: right 16px center;
 }
@@ -112,7 +112,7 @@ body{
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
 
-    background-image: url("../img/lock.svg");
+    background-image: url("/img/lock.svg");
     background-repeat: no-repeat;
     background-position: right 16px center;
 }
