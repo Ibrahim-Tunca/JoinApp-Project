@@ -84,8 +84,6 @@ body{
     flex-direction: column;
     justify-content: space-around;
 
-    font-size: 23px;
-
     width: 422px;
     height: 152px;
 }
@@ -94,6 +92,8 @@ body{
     padding: 10px 20px 10px 20px;
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
+
+    font-size: 19px;
 
     background-image: url("/img/mail.svg");
     background-repeat: no-repeat;
@@ -109,10 +109,13 @@ body{
             border-bottom-color: #4589FF;
         }
 
+
 .inputfield-password-login{
     padding: 10px 20px 10px 20px;
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
+
+    font-size: 19px;
 
     background-image: url("/img/lock.svg");
     background-repeat: no-repeat;
@@ -129,10 +132,13 @@ body{
         }
 
 
-
 .inputfield-login:focus {
     outline: none;
     border-bottom-color: #4589FF;
+}
+
+.inputfield-error-login{
+    border-bottom: solid 2px #FF3D00;
 }
 
 .button-order-login{
@@ -207,3 +213,9 @@ bottom-section {
     cursor: pointer;
 }
 
+.error-class-login{
+    display: flex;
+    justify-content: center;
+    min-height: 24px;
+    color: #FF3D00;
+}
