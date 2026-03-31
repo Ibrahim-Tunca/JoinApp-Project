@@ -38,10 +38,11 @@
             </div>
 
             <div class="form-container-login">
-                <form class="form-section-login" name="loginForm">
-                    <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email">
-                    <input class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" >
-                
+                <form name="loginForm">
+                    <div class="inputfields-container-login">
+                        <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email">
+                        <input class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" >
+                    </div>    
                 <div class="button-container-login">
                 <div class="button-order-login">
                     <button  onclick="return validateForm(event)" class="blue-button-big">Log in</button>

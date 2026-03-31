@@ -73,19 +73,21 @@ body{
     align-items: center;
 }
 
-.form-section-login{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    width: 422px;
-    height: 152px;
-}
-
 .form-container-login{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.inputfields-container-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    font-size: 23px;
+
+    width: 422px;
+    height: 152px;
 }
 
 .inputfield-mail-login{
