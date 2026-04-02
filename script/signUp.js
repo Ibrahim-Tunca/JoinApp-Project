@@ -32,7 +32,8 @@ async function updateUser(name, mail, password) {
         return await putData("/user/" + name, {
         userName: name,
         email: mail,
-        password: password
+        password: password,
+        friendlist: []
         });
     }
 }
@@ -40,7 +41,7 @@ async function updateUser(name, mail, password) {
 
 function popUpSucces(){
 
-let popupWindow = document.getElementById("popupSignupID");
+    let popupWindow = document.getElementById("popupSignupID");
     let backgroundcloud = document.getElementById("blackgroundcloudID");
 
     backgroundcloud.classList.add("show-overlay");
