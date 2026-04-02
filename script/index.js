@@ -1,5 +1,6 @@
 let users = [];
 
+
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
@@ -9,6 +10,7 @@ async function showRegister(){
     users = Object.values(responseToJson || {});
     console.log(users);
 }
+
 
 function onloadFunc(){
     showRegister();
@@ -29,15 +31,14 @@ async function validateForm(event){
     let passwordRef = document.getElementById("passwordID");
     let errorRef = document.getElementById("errorID");
 
-    const fieldsAreFilled = checkIfEmailAndPasswordFieldIsFilled(inputMail, inputPassword, errorRef, emailRef, passwordRef);
+    checkIfEmailAndPasswordFieldIsFilled(inputMail, inputPassword, errorRef, emailRef, passwordRef);
 
-    if(!fieldsAreFilled){
-        return false;
-    }
 
     const userFound = CheckIfUserIsRegisteredAndIfPasswordIsCorrect(inputMail, inputPassword, users, errorRef, emailRef, passwordRef);
 
-        return userFound;
+        if(userFound){
+            window.location.href = "./summary.html";
+        }
 }
 
 
@@ -61,6 +62,7 @@ function checkIfEmailAndPasswordFieldIsFilled(mail, password, errorRef, emailRef
     return true;
 }
 
+
 function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users, errorRef, emailRef, passwordRef){
 
     emailRef.classList.remove("inputfield-error-login");
@@ -75,12 +77,19 @@ function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users, er
                 errorRef.innerHTML = "Password is wrong!";
                 passwordRef.classList.add("inputfield-error-login");
             }
+            setDataToLocalStorage(currentUser);
             return passwordCheck;
         }   
     }
     errorRef.innerHTML = "User is not registered!";
     emailRef.classList.add("inputfield-error-login");
     return false;
+}
+
+
+function setDataToLocalStorage(inputObject){
+    const objectString = JSON.stringify(inputObject);
+    localStorage.setItem("userData", objectString);
 }
 
 

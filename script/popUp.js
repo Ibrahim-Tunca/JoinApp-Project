@@ -3,7 +3,13 @@ function togglePopUpMenue(){
     contentRef.classList.toggle("d_none");
 }
 
-function onloadFunc(){
-    deleteData("/name/key")
+
+function logout(){
+    localStorage.removeItem("userData");
 }
+
+
+//function onloadFunc(){
+//    deleteData("/name/key")
+//}
 

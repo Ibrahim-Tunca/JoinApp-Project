@@ -156,6 +156,9 @@ body{
 }
 
 .blue-button-big{
+    display: flex;
+    align-items: center;
+
     color: white;
     height: 48px;
     padding: 0 37px 0 37px;
