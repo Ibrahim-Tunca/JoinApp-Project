@@ -10,14 +10,16 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/contacts.css">
     <link rel="stylesheet" href="./style/addContact.css">
+    <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script src="./script/popUp.js"></script>
     <script src="./script/contacts/buttonColorSwitch.js"></script>
+    <script src="./script/contacts/contact.js"></script>
 
 </head>
-<body>
+<body onload="renderContacts()">
 
     <div onclick="toggleAddContactWindow()" class="overlay-contacts" id="overlayID"></div>
 
@@ -86,7 +88,7 @@
 
         <bottom-section class="bottom-section-contact">
 
-            <div class="bottom-section-container-contact">
+            <form name="addContactForm" class="bottom-section-container-contact">
 
                 <div class="person-logo-container-contact">
                     <img class="person-logo-contact" src="./img/person.svg" alt="">
@@ -95,15 +97,15 @@
                 <div class="input-container-contact">
 
                     <div class="single-inputfield-container-contact">
-                        <input class="inputfield-contact" type="text" placeholder="Name">
+                        <input class="inputfield-contact" type="text" placeholder="Name" name="name" id="nameID">
                         <img class="inputfield-placeholder-img" src="./img/person.svg" alt="">
                     </div>
                     <div class="single-inputfield-container-contact">
-                        <input class="inputfield-contact" type="email" placeholder="Email">
+                        <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
                         <img class="inputfield-placeholder-img" src="./img/mail.svg" alt="">
                     </div>
                     <div class="single-inputfield-container-contact">
-                        <input class="inputfield-contact" type="tel" placeholder="Phone">
+                        <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
                         <img class="inputfield-placeholder-img" src="./img/call.svg" alt="">
                     </div>
 
@@ -113,11 +115,11 @@
 
                     <button onclick="toggleAddContactWindow()" class="white-button-big">Cancel <img class="white-button-x" src="./img/iconoir_cancel.svg" alt=""></button>
 
-                    <button class="blue-button-big">Create Contact <img class="blue-button-check" src="./img/check.svg" alt=""></button>
+                    <button onclick="return validateAddContactForm(event)" class="blue-button-big">Create Contact <img class="blue-button-check" src="./img/check.svg" alt=""></button>
 
                 </div>
 
-            </div>
+            </form>
 
         </bottom-section>
 
@@ -143,7 +145,7 @@
 
 
 
-                <contacts class="allcontacts-container">
+                <contact-section class="allcontacts-container">
 
                             <div class="button-background-white">
                                 <button onclick="toggleAddContactWindow()" class="contacts-button" id="contactsButtonID">Add new contact <img class="person-add-img" src="./img/contacts/person_add.svg" alt=""></button>
@@ -153,113 +155,10 @@
 
                             </div>
 
+                            <contact id="contactID"></contact>
+        
 
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball">
-                                    AM
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">Anton Mayer</span>
-                                    <span class="mail-font-contact">anton@gmail.com</span>
-                                </div>
-
-                            </contact>
-
-                </contacts>
+                </contact-section>
 
                 
 

@@ -33,7 +33,6 @@ async function updateUser(name, mail, password) {
         userName: name,
         email: mail,
         password: password,
-        friendlist: []
         });
     }
 }
@@ -83,7 +82,7 @@ async function putData(path = "", data = {}) {
         },
         body: JSON.stringify(data)
     });
-
+ 
     return await response.json();
 }
 
