@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="./style/contacts.css">
     <link rel="stylesheet" href="./style/addContact.css">
     <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
+    <link rel="stylesheet" href="./style/floatingContact.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script src="./script/popUp.js"></script>
-    <script src="./script/contacts/buttonColorSwitch.js"></script>
     <script src="./script/contacts/contact.js"></script>
+    <script src="./script/contacts/contactTemplates.js"></script>
+    <script src="./script/contacts/contactSpecialFunctions.js"></script>
 
 </head>
-<body onload="renderContacts()">
+<body onload="onloadFunc()">
 
     <div onclick="toggleAddContactWindow()" class="overlay-contacts" id="overlayID"></div>
 
@@ -69,7 +71,6 @@
 
 
 
-
     <addContact class="addcontact-maincontainer toggle-add-contact-card" id="addContactID">
 
         <top-section class="top-section-contact">
@@ -86,7 +87,7 @@
 
         </top-section>
 
-        <bottom-section class="bottom-section-contact">
+        <contact class="bottom-section-contact">
 
             <form name="addContactForm" class="bottom-section-container-contact">
 
@@ -121,7 +122,7 @@
 
             </form>
 
-        </bottom-section>
+        </contact>
 
 
 
@@ -164,6 +165,8 @@
 
 
         </maincontent>
+
+        <div id="contactDetailsID"></div>
 
     </main-container>
     

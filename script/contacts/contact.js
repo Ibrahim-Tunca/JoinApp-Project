@@ -1,183 +1,119 @@
 let contacts = [];
 
 
-let alphabeticalOrder = [ A = [], B = [], C = [], D = [], E = [], F = [], G = [], H = [],
-                          I = [], J = [], K = [], L = [], M = [], N = [], O = [], P = [],
-                          Q = [], R = [], S = [], T = [], U = [], V = [], W = [], X = [],
-                          Y = [], Z = [], other = [] ]
-
-
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
-async function sortIntoAlphabeticalOrder(){
+let alphabeticalOrder = [
+    { letter: "A", contacts: [] },
+    { letter: "B", contacts: [] },
+    { letter: "C", contacts: [] },
+    { letter: "D", contacts: [] },
+    { letter: "E", contacts: [] },
+    { letter: "F", contacts: [] },
+    { letter: "G", contacts: [] },
+    { letter: "H", contacts: [] },
+    { letter: "I", contacts: [] },
+    { letter: "J", contacts: [] },
+    { letter: "K", contacts: [] },
+    { letter: "L", contacts: [] },
+    { letter: "M", contacts: [] },
+    { letter: "N", contacts: [] },
+    { letter: "O", contacts: [] },
+    { letter: "P", contacts: [] },
+    { letter: "Q", contacts: [] },
+    { letter: "R", contacts: [] },
+    { letter: "S", contacts: [] },
+    { letter: "T", contacts: [] },
+    { letter: "U", contacts: [] },
+    { letter: "V", contacts: [] },
+    { letter: "W", contacts: [] },
+    { letter: "X", contacts: [] },
+    { letter: "Y", contacts: [] },
+    { letter: "Z", contacts: [] },
+    { letter: "Other", contacts: [] }
+];
+
+
+async function findContactIdByData(name, mail, phone) {
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
-
-    let contactFirstLetter;
 
     const entries = Object.entries(responseToJson);
 
     for (let index = 0; index < entries.length; index++) {
         const [id, contact] = entries[index];
+        if(contact.userName === name && contact.email === mail && contact.phone === phone){
+            return id;
+        }
+    }
+    return null; 
+}
 
-        contactFirstLetter = contact.userName.charAt(0).toUpperCase();
 
-        if(contactFirstLetter === "A"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "B"){
-            B.push(contact);
-        }
-        if(contactFirstLetter === "C"){
-            T.push(contact);
-        }
-        if(contactFirstLetter === "D"){
-            U.push(contact);
-        }
-        if(contactFirstLetter === "E"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "F"){
-            B.push(contact);
-        }
-        if(contactFirstLetter === "G"){
-            T.push(contact);
-        }
-        if(contactFirstLetter === "H"){
-            U.push(contact);
-        }
-        if(contactFirstLetter === "I"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "J"){
-            B.push(contact);
-        }
-        if(contactFirstLetter === "K"){
-            T.push(contact);
-        }
-        if(contactFirstLetter === "L"){
-            U.push(contact);
-        }
-        if(contactFirstLetter === "M"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "N"){
-            B.push(contact);
-        }
-        if(contactFirstLetter === "O"){
-            T.push(contact);
-        }
-        if(contactFirstLetter === "P"){
-            U.push(contact);
-        }
-        if(contactFirstLetter === "Q"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "R"){
-            B.push(contact);
-        }
-        if(contactFirstLetter === "S"){
-            T.push(contact);
-        }
-        if(contactFirstLetter === "T"){
-            U.push(contact);
-        }
-        if(contactFirstLetter === "U"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "V"){
-            B.push(contact);
-        }
-        if(contactFirstLetter === "W"){
-            T.push(contact);
-        }
-        if(contactFirstLetter === "X"){
-            U.push(contact);
-        }
-        if(contactFirstLetter === "Y"){
-            P.push(contact);
-        }
-        if(contactFirstLetter === "Z"){
-            B.push(contact);
-        }
-        else{
-            other.push(contact);
-        }   
+async function onloadFunc(){
+    let response = await fetch(BASE_URL + "contacts.json");
+    let responseToJson = await response.json();
+    let contactRef = document.getElementById("contactID")
+    const entries = Object.entries(responseToJson);
+
+    console.log(entries[0][1]);
+
+    
+    sortIntoAlphabeticalOrder(entries);
+
+    for (let index = 0; index < alphabeticalOrder.length; index++) {
+        const blog = alphabeticalOrder[index];
+
+        showBlogIfBlogIsNotEmpty(blog, contactRef);
+        renderContacts(blog, contactRef);
+    }    
+}
+
+
+async function renderContactDetails(name, mail, phone){
+    let response = await fetch(BASE_URL + "contacts.json");
+    let responseToJson = await response.json();
+
+    let contactDetailsRef = document.getElementById("contactDetailsID");
+
+    const entries = Object.entries(responseToJson);
+
+    let pickedContactID = await findContactIdByData(name, mail, phone);
+    
+
+    for (let index = 0; index < entries.length; index++) {
+        const currentContactID = entries[index][0];
+
+        if (currentContactID === pickedContactID){
+            const foundName = entries[index][1].userName;
+            const foundMail = entries[index][1].email;
+            const foundInitials = entries[index][1].userName.charAt(0).toUpperCase();
+            const foundColor = entries[index][1].color;
+            const foundPhone = entries[index][1].phone;
+            contactDetailsRef.innerHTML = contactDetailsTemplate(foundName, foundMail, foundInitials, foundColor, foundPhone)  
+            return;
+        } 
     }
 }
 
 
+function renderContacts(blog, contactRef){
+    for (let index = 0; index < blog.contacts.length; index++) {
+        const contact = blog.contacts[index];
+        const contactInital = contact.userName.charAt(0).toUpperCase();
+        contactRef.innerHTML += renderContactsTemplate(contact.userName, contact.email, contact.phone, contact.color, contactInital);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
 }
 
-function getContactColorType(){
-    let randomNumber = getRandomInt(100);
-    const colorCode = randomNumber % 8;  
 
-    if(colorCode === 0){
-        return "orange";
-    }
-    if(colorCode === 1){
-        return "lila";
-    }
-    if(colorCode === 2){
-        return "lavander";
-    }
-    if(colorCode === 3){
-        return "violette";
-    }
-    if(colorCode === 4){
-        return "pink";
-    }
-    if(colorCode === 5){
-        return "yellow";
-    }
-    if(colorCode === 6){
-        return "turquoise";
-    }
-    if(colorCode === 7){
-        return "red";
-    }
+function showBlogIfBlogIsNotEmpty(blog, contactRef){
+
+    if(blog.contacts.length > 0)
+        {
+            contactRef.innerHTML += `<div class="letter-container"><span class="letter">${blog.letter}</span></div>`
+        }
 }
 
 
@@ -220,45 +156,6 @@ async function addNewContact(name, mail, phone) {
 }
 
 
-async function renderContacts(){
-    let response = await fetch(BASE_URL + "contacts.json");
-    let responseToJson = await response.json();
-
-    let contactRef = document.getElementById("contactID")
-    let contactInital;
-
-    sortIntoAlphabeticalOrder();
-
-    console.log(alphabeticalOrder);
-    
-
-    const entries = Object.entries(responseToJson);
-
-    for (let index = 0; index < entries.length; index++) {
-        const [id, contact] = entries[index];
-
-        contactInital = contact.userName.charAt(0).toUpperCase();
-
-        contactRef.innerHTML += `
-
-                            <div class="letter-container"><span class="letter">A</span></div>
-
-                            <contact class="contact-container">
-
-                                <div class="inital-ball ${contact.color}">
-                                    ${contactInital}
-                                </div>
-
-                                <div class="name-mail-container">
-                                    <span class="name-font-contact">${contact.userName}</span>
-                                    <span class="mail-font-contact">${contact.email}</span>
-                                </div>
-
-                            </contact>
-
-        `  
-    }
-}
 
 
 
@@ -306,20 +203,8 @@ async function renderContacts(){
 
 
 
-async function findContactIdByData(name, mail, phone) {
-    let response = await fetch(BASE_URL + "contact.json");
-    let responseToJson = await response.json();
 
-    const entries = Object.entries(responseToJson);
 
-    for (let index = 0; index < entries.length; index++) {
-        const [id, contact] = entries[index];
-        if(contact.userName === name && contact.email === mail && contact.phone === phone){
-            return id;
-        }
-    }
-    return null; 
-}
 
 
 async function loadContacts() {
