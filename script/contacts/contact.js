@@ -57,13 +57,12 @@ async function onloadFunc(){
     let contactRef = document.getElementById("contactID")
     const entries = Object.entries(responseToJson);
 
-    console.log(entries[0][1]);
 
-    
-    sortIntoAlphabeticalOrder(entries);
+    sortIntoAlphabeticalOrder(entries);  
 
     for (let index = 0; index < alphabeticalOrder.length; index++) {
         const blog = alphabeticalOrder[index];
+
 
         showBlogIfBlogIsNotEmpty(blog, contactRef);
         renderContacts(blog, contactRef);
@@ -98,36 +97,18 @@ async function renderContactDetails(name, mail, phone){
 }
 
 
-function renderContacts(blog, contactRef){
+async function renderContacts(blog, contactRef){
     for (let index = 0; index < blog.contacts.length; index++) {
         const contact = blog.contacts[index];
         const contactInital = contact.userName.charAt(0).toUpperCase();
-        contactRef.innerHTML += renderContactsTemplate(contact.userName, contact.email, contact.phone, contact.color, contactInital);
+        
+        contactRef.innerHTML += renderContactsTemplate(contact.userName, contact.email, contact.phone, contact.color, contact.id, contactInital);
     }
 
 }
 
 
-function showBlogIfBlogIsNotEmpty(blog, contactRef){
 
-    if(blog.contacts.length > 0)
-        {
-            contactRef.innerHTML += `<div class="letter-container"><span class="letter">${blog.letter}</span></div>`
-        }
-}
-
-
-function validateAddContactForm(event){
-    event.preventDefault();
-
-    const contactNameRef = document.forms["addContactForm"]["name"].value;
-    const contactMailRef = document.forms["addContactForm"]["mail"].value
-    const contactPhoneNumberRef = document.forms["addContactForm"]["phone"].value;
-
-    addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
-    
-    return true;
-}
 
 
 async function postData(path = "", data = {}){

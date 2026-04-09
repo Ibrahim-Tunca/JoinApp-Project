@@ -1,8 +1,8 @@
-function renderContactsTemplate(userName, email, phone, color, initial){
+function renderContactsTemplate(userName, email, phone, color, id, initial){
 
         return `
             
-                    <contact onclick="renderContactDetails('${userName}', '${email}', '${phone}')" class="contact-container">
+                    <contact onclick="renderContactDetails('${userName}', '${email}', '${phone}')" class="contact-container" id="${id}">
 
                         <div class="inital-ball ${color}">
                             ${initial}
