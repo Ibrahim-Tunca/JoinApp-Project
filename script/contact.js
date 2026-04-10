@@ -75,18 +75,15 @@ async function onloadFunc(){
 async function renderContactDetails(name, mail, phone){
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
-
     let contactDetailsRef = document.getElementById("contactDetailsID");
-
     const entries = Object.entries(responseToJson);
-
     let pickedContactID = await findContactIdByData(name, mail, phone);
-    
 
     for (let index = 0; index < entries.length; index++) {
-        setLastContactBackToUnfocused();
+        
         const currentContactID = entries[index][0];
-        choosedContactID = currentContactID;
+
+        setLastContactBackToUnfocused();
 
         if (currentContactID === pickedContactID){
             const foundName = entries[index][1].userName;
@@ -95,13 +92,59 @@ async function renderContactDetails(name, mail, phone){
             const foundColor = entries[index][1].color;
             const foundPhone = entries[index][1].phone;
 
-            setContactInFocusMode(currentContactID);
-
-            contactDetailsRef.innerHTML = contactDetailsTemplate(foundName, foundMail, foundInitials, foundColor, foundPhone)  
+            contactDetailsRef.innerHTML = contactDetailsTemplate(foundName, foundMail, foundInitials, foundColor, foundPhone, currentContactID);
+            floatContactDetails(currentContactID);  
             return;
         } 
     }
 }
+
+
+function floatContactDetails(id){
+        const floatingCard = document.getElementById(id + "-floatingContact")
+
+    if(id != choosedContactID){
+    
+        requestAnimationFrame(() => {
+        floatingCard.classList.toggle("is-visible");
+        });
+        setContactInFocusMode(id);
+        choosedContactID = id;
+        return;
+    }
+    setLastContactBackToUnfocused();
+    choosedContactID = "";
+    return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function setContactInFocusMode(id){

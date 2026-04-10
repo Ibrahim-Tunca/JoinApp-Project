@@ -38,11 +38,6 @@
             cursor: pointer;
         }
 
-        .toggle-color-contacts-button{
-            color: #4589FF;
-            background-color: white;
-        }
-
 .button-background-white{
     background: white;
     height: 89px;
@@ -149,6 +144,15 @@
 .hide-and-show-overlay-contacts{
     opacity: 1;
     visibility: visible;
+}
+
+.toggle-color-contacts-button{
+    color: #4589FF;
+    background-color: white;
+}
+
+.toggle-add-contact-card{
+    transform: translateX(100%);
 }
 
 .backgroundcolor-blue{

@@ -1,11 +1,18 @@
 .floating-contact-container{
-    display: flex;
-    flex-direction: column;
     width: 472px;
     height: 350px;
+
+    position: fixed;
+    top: 60px;
+    transform: translateX(calc(100% + 860px));
+    transition: transform 0.8s ease;
+
     margin: 60px;
-    background-color: bisque;
 }
+
+    .is-visible {
+        transform: translateX(0);
+    }
 
 .top-section-floating-contact{
     display: flex;
