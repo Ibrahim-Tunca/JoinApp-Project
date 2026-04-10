@@ -82,7 +82,7 @@
 
 .allcontacts-container{
     overflow-y: auto;
-    width:100%;
+    width: 100%;
 }
 
 .contact-container{
@@ -91,10 +91,11 @@
     height: 77px;
     width: 352px;
     border-radius: 10px;
-    margin: 7px 44px
+    margin: 7px 44px;
+    cursor: pointer;
 }
 
-        .contact-container:hover{
+        .contact-container:hover:not(.backgroundcolor-blue){
             background-color: #D2E3FF;
             cursor: pointer;
         }
@@ -148,4 +149,12 @@
 .hide-and-show-overlay-contacts{
     opacity: 1;
     visibility: visible;
+}
+
+.backgroundcolor-blue{
+    background-color: #4589FF;
+}
+
+.font-color-white{
+    color:white;
 }

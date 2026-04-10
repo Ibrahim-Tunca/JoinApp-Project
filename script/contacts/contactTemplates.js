@@ -9,8 +9,8 @@ function renderContactsTemplate(userName, email, phone, color, id, initial){
                         </div>
 
                         <div class="name-mail-container">
-                            <span class="name-font-contact">${userName}</span>
-                            <span class="mail-font-contact">${email}</span>
+                            <span class="name-font-contact" id="${id}-userName">${userName}</span>
+                            <span class="mail-font-contact" id="${id}-email">${email}</span>
                         </div>
 
                     </contact>

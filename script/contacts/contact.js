@@ -1,5 +1,7 @@
 let contacts = [];
 
+let choosedContactID = "";
+
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
 
@@ -82,7 +84,9 @@ async function renderContactDetails(name, mail, phone){
     
 
     for (let index = 0; index < entries.length; index++) {
+        setLastContactBackToUnfocused();
         const currentContactID = entries[index][0];
+        choosedContactID = currentContactID;
 
         if (currentContactID === pickedContactID){
             const foundName = entries[index][1].userName;
@@ -90,10 +94,38 @@ async function renderContactDetails(name, mail, phone){
             const foundInitials = entries[index][1].userName.charAt(0).toUpperCase();
             const foundColor = entries[index][1].color;
             const foundPhone = entries[index][1].phone;
+
+            setContactInFocusMode(currentContactID);
+
             contactDetailsRef.innerHTML = contactDetailsTemplate(foundName, foundMail, foundInitials, foundColor, foundPhone)  
             return;
         } 
     }
+}
+
+
+function setContactInFocusMode(id){
+    const contactRef = document.getElementById(id);
+    const contactNameRef = document.getElementById(id + "-userName");
+    const contactMailRef = document.getElementById(id + "-email");
+
+    contactRef.classList.toggle("backgroundcolor-blue");
+    contactNameRef.classList.toggle("font-color-white");
+    contactMailRef.classList.toggle("font-color-white");
+}
+
+
+function setLastContactBackToUnfocused(){
+    if(choosedContactID != ""){
+        const contactRef = document.getElementById(choosedContactID);
+        const contactNameRef = document.getElementById(choosedContactID + "-userName");
+        const contactMailRef = document.getElementById(choosedContactID + "-email");
+        contactRef.classList.remove("backgroundcolor-blue");
+        contactNameRef.classList.remove("font-color-white");
+        contactMailRef.classList.remove("font-color-white");
+        return;
+    }
+    return;
 }
 
 
