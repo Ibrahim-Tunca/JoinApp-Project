@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/contacts.css">
     <link rel="stylesheet" href="./style/addContact.css">
+    <link rel="stylesheet" href="./style/editContact.css">
     <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
-    <link rel="stylesheet" href="./style/floatingContact.css">
+    <link rel="stylesheet" href="./style/small-styles/floatingContact.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
@@ -23,7 +24,7 @@
 </head>
 <body onload="onloadFunc()">
 
-    <div onclick="toggleAddContactWindow()" class="overlay-contacts" id="overlayID"></div>
+    <div onclick="hideAddContactAndEditContactWindow()" class="overlay-contacts" id="overlayID"></div>
 
     <header>
             <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
@@ -71,14 +72,14 @@
 
 
 
-    <addContact class="addcontact-maincontainer toggle-add-contact-card" id="addContactID">
+    <addContact class="addcontact-maincontainer toggle-addContact-card" id="addContactID">
 
-        <top-section class="top-section-contact">
+        <top-section class="top-section-addContact">
 
             <div onclick="toggleAddContactWindow()" class="close-button-container-add-contact"><img class="close-button" src="./img/close.svg" alt=""></div>
 
 
-            <div class="top-section-inside-container">
+            <div class="top-section-inside-addContact-ontainer">
                 <div class="join-logo-contact-container"><img class="join-logo-contact" src="./img/Capa 1.svg" alt=""></div>
                 <h2 class="h2-font-contact">Add Task</h2>
                 <span class="top-section-contact-font">Tasks are better with a team!</span>
@@ -127,6 +128,104 @@
 
 
     </addContact>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <editContact class="editContact-maincontainer toggle-editContact-card" id="editContactID">
+
+        <top-section class="top-section-editContact">
+
+            <div onclick="hideAddContactAndEditContactWindow()" class="close-button-container-add-contact"><img class="close-button" src="./img/close.svg" alt=""></div>
+
+
+            <div class="top-section-inside-editContact-ontainer">
+                <div class="join-logo-contact-container"><img class="join-logo-contact" src="./img/Capa 1.svg" alt=""></div>
+                <h2 class="h2-font-contact">Edit contact</h2>
+            </div>
+
+
+        </top-section>
+
+        <contact class="bottom-section-contact">
+
+            <form name="addContactForm" class="bottom-section-container-contact">
+
+                <div class="person-logo-container-contact">
+                    <span id="editContactInitialID"></span>
+                </div>
+
+                <div class="input-container-contact">
+
+                    <div class="single-inputfield-container-contact">
+                        <input class="inputfield-contact" type="text" placeholder="Name" name="name" id="editContactNameID">
+                        <img class="inputfield-placeholder-img" src="./img/person.svg" alt="">
+                    </div>
+                    <div class="single-inputfield-container-contact">
+                        <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="editContactMailID">
+                        <img class="inputfield-placeholder-img" src="./img/mail.svg" alt="">
+                    </div>
+                    <div class="single-inputfield-container-contact">
+                        <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="editContactPhoneID">
+                        <img class="inputfield-placeholder-img" src="./img/call.svg" alt="">
+                    </div>
+
+                </div>
+
+                <div class="button-order-contact">
+
+                    <button onclick="toggleEditContactWindow()" class="white-button-big">Cancel <img class="white-button-x" src="./img/iconoir_cancel.svg" alt=""></button>
+
+                    <button onclick="return validateAddContactForm(event)" class="blue-button-big">Create Contact <img class="blue-button-check" src="./img/check.svg" alt=""></button>
+
+                </div>
+
+            </form>
+
+        </contact>
+
+    </editContact>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
 

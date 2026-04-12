@@ -7,6 +7,8 @@
 
     position: fixed;
 
+    background-color: white;
+
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 30px;
@@ -20,7 +22,7 @@
 }
 
 
-.top-section-contact{
+.top-section-addContact{
     display: flex;
     flex-direction: column;
     background-color: #005DFF;
@@ -28,7 +30,7 @@
     height: 362px;
 }
 
-.top-section-inside-container{
+.top-section-inside-addContact-ontainer{
     display: flex;
     flex-direction: column;
     justify-content: center;

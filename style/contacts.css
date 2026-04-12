@@ -151,8 +151,12 @@
     background-color: white;
 }
 
-.toggle-add-contact-card{
+.toggle-addContact-card{
     transform: translateX(100%);
+}
+
+.toggle-editContact-card{
+    transform: translateX(-100%);
 }
 
 .backgroundcolor-blue{

@@ -31,7 +31,7 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                             <div class="edit-and-delete-container-floating-contact">
                                 <div class="edit-and-delete-single-container-floating-contact">
                                     <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg" alt="">
-                                    <span class="edit-delete-font-float-contaier">Edit</span>
+                                    <span onclick="showEditContactWindow('${name}', '${mail}', '${initials}', '${color}', '${phone}')" class="edit-delete-font-float-contaier">Edit</span>
                                 </div>
                                 <div class="edit-and-delete-single-container-floating-contact">
                                     <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg" alt="">
