@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
 
-    height: calc(100vh - 96px);
+    height:100vh;
     width: 584px;
 
     position: fixed;
@@ -12,6 +12,9 @@
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
+
+    border-right: solid 3px #DFDFDF;
+    border-bottom: solid 3px #DFDFDF;
 
     top: 0px;
     left: 0px;
@@ -27,6 +30,7 @@
     background-color: #005DFF;
     border-top-right-radius: 30px;
     height: 362px;
+    width: 587px;
 }
 
 .top-section-inside-editContact-ontainer{
@@ -34,4 +38,57 @@
     flex-direction: column;
     justify-content: center;
     height: 240px;
+}
+
+.initial-container-edit-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 120px;
+    width: 120px;
+
+    border: solid 3px white;
+    border-radius: 63px;
+}
+
+.inital-font-edit-contact{
+    color: white;
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.blue-button-editContact-big{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 48px;
+    background-color: #4589FF;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 20px;
+    transition: 0.2s;
+    width: 153px;
+    padding-left: 35px;
+}
+
+        .blue-button-editContact-big:hover {
+            background-color: #005DFF;
+            cursor: pointer;
+        }
+
+.blue-button-check-editContact{
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+    margin-left: 28px;
+}
+
+.button-order-editContact{
+    display: flex;
+    justify-content: space-evenly;
+    width: 296px;
+
+    margin-top: 40px;
 }

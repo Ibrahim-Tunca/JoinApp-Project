@@ -33,18 +33,18 @@ function showEditContactWindow(name, mail, initials, color, phone){
     const nameRef = document.getElementById("editContactNameID");
     const mailRef = document.getElementById("editContactMailID");
     const initalRef = document.getElementById("editContactInitialID");
+    const colorRef = document.getElementById("editContactColorID");
     const phoneRef = document.getElementById("editContactPhoneID");
 
     overlayRef.classList.add("hide-and-show-overlay-contacts");
     contentRef.classList.remove("toggle-editContact-card");
 
-    nameRef.innerHTML = `${name}`;
-    mailRef.innerHTML = `${mail}`;
-    initalRef.innerHTML = `${initials}`;
-    initalRef.classList.add(color);
-    phoneRef.innerHTML = `${phone}`;
+    nameRef.value = name;
+    mailRef.value = mail;
+    initalRef.textContent = initials;
+    phoneRef.value = phone;
 
-
+    colorRef.classList.add(color);
 }
 
 
