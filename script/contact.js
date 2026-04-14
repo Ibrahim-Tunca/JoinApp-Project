@@ -211,6 +211,39 @@ async function addNewContact(name, mail, phone) {
     
 }
 
+async function validateEditContactForm(event, id){
+    event.preventDefault();
+    await updateUser(id);
+    onloadFunc();
+    hideAddContactAndEditContactWindow();
+    return false;
+}
+
+async function updateUser(id){
+
+    const nameValue = document.getElementById("editContactNameID").value;
+    const mailValue = document.getElementById("editContactMailID").value;
+    const phoneValue = document.getElementById("editContactPhoneID").value;
+
+    return await patchData("/contacts/" + id,{
+        userName: nameValue,
+        email: mailValue,
+        phone: phoneValue
+    });
+}
+
+async function patchData(path="", data={}){
+   	 let response = await fetch(BASE_URL + path + ".json",{
+        		method: "PATCH",
+        		headers: {
+            	"Content-Type": "application/json",
+        		},
+        		body: JSON.stringify(data)
+   	});
+    return await response.json();
+}
+
+
 
 
 

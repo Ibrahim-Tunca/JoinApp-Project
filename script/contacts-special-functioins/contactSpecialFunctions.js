@@ -26,14 +26,14 @@ function toggleAddContactWindow(){
     contentRef.classList.toggle("toggle-addContact-card");
 }
 
-function showEditContactWindow(name, mail, initials, color, phone){
+function showEditContactWindow(name, mail, initials, color, phone, id){
     let overlayRef = document.getElementById("overlayID");
     let contentRef = document.getElementById("editContactID");
+
+    contentRef.innerHTML = editContactTemplate(initials, color, id);
     
     const nameRef = document.getElementById("editContactNameID");
     const mailRef = document.getElementById("editContactMailID");
-    const initalRef = document.getElementById("editContactInitialID");
-    const colorRef = document.getElementById("editContactColorID");
     const phoneRef = document.getElementById("editContactPhoneID");
 
     overlayRef.classList.add("hide-and-show-overlay-contacts");
@@ -41,10 +41,7 @@ function showEditContactWindow(name, mail, initials, color, phone){
 
     nameRef.value = name;
     mailRef.value = mail;
-    initalRef.textContent = initials;
     phoneRef.value = phone;
-
-    colorRef.classList.add(color);
 }
 
 

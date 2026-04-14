@@ -76,14 +76,14 @@ async function checkIfUserExist(inputUsername){
 
 async function putData(path = "", data = {}) {
     let response = await fetch(BASE_URL + path + ".json", {
-        method: "PUT",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data)
     });
  
-    return await response.json();
+      
 }
 
 
