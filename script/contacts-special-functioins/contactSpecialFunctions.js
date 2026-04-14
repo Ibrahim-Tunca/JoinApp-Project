@@ -3,46 +3,7 @@ function getRandomInt(max) {
 }
 
 
-function hideAddContactAndEditContactWindow(){
-    let buttonRef = document.getElementById("contactsButtonID");
-    let overlayRef = document.getElementById("overlayID");
-    let addContactRef = document.getElementById("addContactID");
-    let editContactRef = document.getElementById("editContactID");
 
-    buttonRef.classList.remove("toggle-color-contacts-button");
-    overlayRef.classList.remove("hide-and-show-overlay-contacts");
-    addContactRef.classList.add("toggle-addContact-card");
-    editContactRef.classList.add("toggle-editContact-card");
-}
-
-
-function toggleAddContactWindow(){
-    let buttonRef = document.getElementById("contactsButtonID");
-    let overlayRef = document.getElementById("overlayID");
-    let contentRef = document.getElementById("addContactID");
-
-    buttonRef.classList.toggle("toggle-color-contacts-button");
-    overlayRef.classList.toggle("hide-and-show-overlay-contacts");
-    contentRef.classList.toggle("toggle-addContact-card");
-}
-
-function showEditContactWindow(name, mail, initials, color, phone, id){
-    let overlayRef = document.getElementById("overlayID");
-    let contentRef = document.getElementById("editContactID");
-
-    contentRef.innerHTML = editContactTemplate(initials, color, id);
-    
-    const nameRef = document.getElementById("editContactNameID");
-    const mailRef = document.getElementById("editContactMailID");
-    const phoneRef = document.getElementById("editContactPhoneID");
-
-    overlayRef.classList.add("hide-and-show-overlay-contacts");
-    contentRef.classList.remove("toggle-editContact-card");
-
-    nameRef.value = name;
-    mailRef.value = mail;
-    phoneRef.value = phone;
-}
 
 
 function showBlogIfBlogIsNotEmpty(blog, contactRef){
@@ -64,6 +25,30 @@ function validateAddContactForm(event){
     addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
     
     return true;
+}
+
+function setContactInFocusMode(id){
+    const contactRef = document.getElementById(id);
+    const contactNameRef = document.getElementById(id + "-userName");
+    const contactMailRef = document.getElementById(id + "-email");
+
+    contactRef.classList.toggle("backgroundcolor-blue");
+    contactNameRef.classList.toggle("font-color-white");
+    contactMailRef.classList.toggle("font-color-white");
+}
+
+
+function setLastContactBackToUnfocused(){
+    if(choosedContactID != ""){
+        const contactRef = document.getElementById(choosedContactID);
+        const contactNameRef = document.getElementById(choosedContactID + "-userName");
+        const contactMailRef = document.getElementById(choosedContactID + "-email");
+        contactRef.classList.remove("backgroundcolor-blue");
+        contactNameRef.classList.remove("font-color-white");
+        contactMailRef.classList.remove("font-color-white");
+        return;
+    }
+    return;
 }
 
 
