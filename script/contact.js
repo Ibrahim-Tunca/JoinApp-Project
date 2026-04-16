@@ -123,7 +123,7 @@ async function validateAddContactForm(event){
 
     await addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
     renderContacts();
-    hideAddContactAndEditContactWindow();
+    popUpAddContactSucces();
     
     return true;
 }

@@ -80,7 +80,7 @@ async function deleteContact(id){
     floatingCard.classList.toggle("is-visible");
     choosedContactID = "";
 
-    hideAddContactAndEditContactWindow();
+    popUpDeleteContactSucces();
     
     await renderContacts();
 }

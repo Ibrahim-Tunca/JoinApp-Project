@@ -172,6 +172,8 @@ body{
     top: 50% !important;
 }
 
+ /* Maybe this must be deleted */
+
 .popup-under-window{
     bottom: -150px;
 }
