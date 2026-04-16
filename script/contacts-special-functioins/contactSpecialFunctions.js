@@ -245,5 +245,16 @@ function sortIntoAlphabeticalOrder(entries){
         }
 
     }
+
+    sortContactsInsideBlogs();
+    
     return;
+}
+
+function sortContactsInsideBlogs() {
+    alphabeticalOrder.forEach((blog) => {
+        blog.contacts.sort((a, b) =>
+            a.userName.localeCompare(b.userName, "de", { sensitivity: "base" })
+        );
+    });
 }
