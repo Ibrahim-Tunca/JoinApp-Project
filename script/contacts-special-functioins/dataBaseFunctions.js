@@ -61,6 +61,31 @@ async function patchData(path="", data={}){
     return await response.json();
 }
 
+
+async function deleteData(path=""){
+    let response = await fetch(BASE_URL + path + ".json",{
+        method: "DELETE",
+    });
+    const responseToJson = await response.json();
+    return responseToJson;
+}
+
+
+async function deleteContact(id){
+    const floatingCard = document.getElementById(id + "-floatingContact")
+
+    clearAllBlogs();
+    await deleteData("/contacts/" + id);
+
+    floatingCard.classList.toggle("is-visible");
+    choosedContactID = "";
+
+    hideAddContactAndEditContactWindow();
+    
+    await renderContacts();
+}
+
+
 //This function is not in use!!!!
 async function loadContacts() {
     let response = await fetch(BASE_URL + "contacts.json");

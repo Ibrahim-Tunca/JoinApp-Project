@@ -15,17 +15,7 @@ function showBlogIfBlogIsNotEmpty(blog, contactRef){
 }
 
 
-function validateAddContactForm(event){
-    event.preventDefault();
 
-    const contactNameRef = document.forms["addContactForm"]["name"].value;
-    const contactMailRef = document.forms["addContactForm"]["mail"].value
-    const contactPhoneNumberRef = document.forms["addContactForm"]["phone"].value;
-
-    addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
-    
-    return true;
-}
 
 function setContactInFocusMode(id){
     const contactRef = document.getElementById(id);

@@ -11,14 +11,16 @@ function hideAddContactAndEditContactWindow(){
 }
 
 
-function toggleAddContactWindow(){
+function showAddContactWindow(){
     let buttonRef = document.getElementById("contactsButtonID");
     let overlayRef = document.getElementById("overlayID");
     let contentRef = document.getElementById("addContactID");
 
-    buttonRef.classList.toggle("toggle-color-contacts-button");
-    overlayRef.classList.toggle("hide-and-show-overlay-contacts");
-    contentRef.classList.toggle("toggle-addContact-card");
+    contentRef.innerHTML = addContactTemplate(); 
+
+    buttonRef.classList.add("toggle-color-contacts-button");
+    overlayRef.classList.add("hide-and-show-overlay-contacts");
+    contentRef.classList.remove("toggle-addContact-card");
 }
 
 function showEditContactWindow(name, mail, initials, color, phone, id){
@@ -38,3 +40,4 @@ function showEditContactWindow(name, mail, initials, color, phone, id){
     mailRef.value = mail;
     phoneRef.value = phone;
 }
+

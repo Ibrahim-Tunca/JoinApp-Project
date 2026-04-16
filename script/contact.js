@@ -15,22 +15,45 @@ let alphabeticalOrder = [
 ];
 
 
-async function onloadFunc(){
+function onloadFunc(){
+    renderContacts();        
+}
+
+
+function clearAllBlogs(){
+    for (let index = 0; index < alphabeticalOrder.length; index++) {
+        const blog = alphabeticalOrder[index];
+        blog.contacts = [];
+    }
+}
+
+
+async function renderContacts(){
+    let contactRef = document.getElementById("contactID")
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
-    let contactRef = document.getElementById("contactID")
     const entries = Object.entries(responseToJson);
-
 
     sortIntoAlphabeticalOrder(entries);  
 
+    contactRef.innerHTML = "";
+
     for (let index = 0; index < alphabeticalOrder.length; index++) {
         const blog = alphabeticalOrder[index];
-
-
         showBlogIfBlogIsNotEmpty(blog, contactRef);
-        renderContacts(blog, contactRef);
-    }    
+
+        renderContact(blog, contactRef);
+        
+}
+
+function renderContact(blog, contactRef){
+    for (let index = 0; index < blog.contacts.length; index++) {
+            const contact = blog.contacts[index];
+            const contactInital = contact.userName.charAt(0).toUpperCase();
+            
+            contactRef.innerHTML += renderContactsTemplate(contact.userName, contact.email, contact.phone, contact.color, contact.id, contactInital);
+        }
+    }
 }
 
 
@@ -76,26 +99,31 @@ function floatContactDetails(id){
     }
     setLastContactBackToUnfocused();
     choosedContactID = "";
+    hideAddContactAndEditContactWindow();
     return;
-}
-
-
-async function renderContacts(blog, contactRef){
-    for (let index = 0; index < blog.contacts.length; index++) {
-        const contact = blog.contacts[index];
-        const contactInital = contact.userName.charAt(0).toUpperCase();
-        
-        contactRef.innerHTML += renderContactsTemplate(contact.userName, contact.email, contact.phone, contact.color, contact.id, contactInital);
-    }
-
 }
 
 
 async function validateEditContactForm(event, id){
     event.preventDefault();
+    clearAllBlogs();
     await updateUser(id);
-    onloadFunc();
+    renderContacts();
     hideAddContactAndEditContactWindow();
     return false;
 }
 
+async function validateAddContactForm(event){
+    event.preventDefault();
+    clearAllBlogs();
+
+    const contactNameRef = document.forms["addContactForm"]["name"].value;
+    const contactMailRef = document.forms["addContactForm"]["mail"].value
+    const contactPhoneNumberRef = document.forms["addContactForm"]["phone"].value;
+
+    await addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
+    renderContacts();
+    hideAddContactAndEditContactWindow();
+    
+    return true;
+}

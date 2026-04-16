@@ -35,7 +35,7 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                                 </div>
                                 <div class="edit-and-delete-single-container-floating-contact">
                                     <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg" alt="">
-                                    <span class="edit-delete-font-float-contaier">Delete</span>
+                                    <span onclick="deleteContact('${id}')" class="edit-delete-font-float-contaier">Delete</span>
                                 </div>
                             </div>
                         </div>
@@ -51,6 +51,63 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
 
             `
 }
+
+
+function addContactTemplate(){
+    return  `
+                <top-section class="top-section-addContact">
+
+                    <div onclick="hideAddContactAndEditContactWindow()" class="close-button-container-add-contact"><img class="close-button" src="./img/close.svg" alt=""></div>
+
+
+                    <div class="top-section-inside-addContact-ontainer">
+                        <div class="join-logo-contact-container"><img class="join-logo-contact" src="./img/Capa 1.svg" alt=""></div>
+                        <h2 class="h2-font-contact">Add Task</h2>
+                        <span class="top-section-contact-font">Tasks are better with a team!</span>
+                    </div>
+
+
+                </top-section>
+
+                <contact class="bottom-section-contact">
+
+                        <form onsubmit="return validateAddContactForm(event)" name="addContactForm" class="bottom-section-container-contact">
+
+                            <div class="person-logo-container-contact">
+                                <img class="person-logo-contact" src="./img/person.svg" alt="">
+                            </div>
+
+                            <div class="input-container-contact">
+
+                                <div class="single-inputfield-container-contact">
+                                    <input class="inputfield-contact" type="text" placeholder="Name" name="name" id="nameID">
+                                    <img class="inputfield-placeholder-img" src="./img/person.svg" alt="">
+                                </div>
+                                <div class="single-inputfield-container-contact">
+                                    <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
+                                    <img class="inputfield-placeholder-img" src="./img/mail.svg" alt="">
+                                </div>
+                                <div class="single-inputfield-container-contact">
+                                    <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
+                                    <img class="inputfield-placeholder-img" src="./img/call.svg" alt="">
+                                </div>
+
+                            </div>
+
+                            <div class="button-order-addContact">
+
+                                <button type="button" onclick="hideAddContactAndEditContactWindow()" class="white-button-big">Cancel <img class="white-button-x" src="./img/iconoir_cancel.svg" alt=""></button>
+
+                                <button type="submit" class="blue-button-big">Create Contact <img class="blue-button-check" src="./img/check.svg" alt=""></button>
+
+                            </div>
+
+                        </form>
+
+                </contact>
+            `
+}
+
 
 function editContactTemplate(initials, color, id){
     return `
@@ -94,7 +151,7 @@ function editContactTemplate(initials, color, id){
                         </div>
 
                         <div class="button-order-editContact">
-                            <button type="button" onclick="hideAddContactAndEditContactWindow()" class="white-button-big">
+                            <button type="button" onclick="deleteContact('${id}')" class="white-button-big">
                                 Delete
                             </button>
 
