@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script src="./script/popUp.js"></script>
+    <script src="./script/addTask.js"></script>
 
 </head>
 <body>
@@ -80,9 +81,9 @@
                         <priority class="margin-top-bigger-add-task">
                             <span class="font-bold-add-task">Priority</span>
                             <div class="prio-buttons-order-addTask margin-top-add-task">
-                                <button class="prio-buttons-addTask high-prio-button-addTask">Urgent<img class="prio-icons-addTask" src="./img/addTask/prio-high.svg"></button>
-                                <button class="prio-buttons-addTask mid-prio-button-addTask">Medium<img class="prio-icons-addTask" src="./img/addTask/prio-medium.svg"></button>
-                                <button class="prio-buttons-addTask low-prio-button-addTask">Low<img class="prio-icons-addTask" src="./img/addTask/prio-low.svg"></button>
+                                <button onclick="setPrioToUrgent()" class="prio-buttons-addTask high-prio-button-addTask" id="urgentPrioID">Urgent<img class="prio-icons-addTask" src="./img/addTask/prio-high.svg" id="urgentPrioIMGID"></button>
+                                <button onclick="setPrioToMedium()" class="prio-buttons-addTask mid-prio-button-addTask" id="mediumPrioID">Medium<img class="prio-icons-addTask" src="./img/addTask/prio-medium.svg" id="midPrioIMGID"></button>
+                                <button onclick="setPrioToLow()" class="prio-buttons-addTask low-prio-button-addTask" id="lowPrioID">Low<img class="prio-icons-addTask" src="./img/addTask/prio-low.svg" id="lowPrioIMGID"></button>
                             </div>
                         </priority>
 
