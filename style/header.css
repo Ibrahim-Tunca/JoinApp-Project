@@ -71,5 +71,6 @@ header{
 }
 
 .user-button:hover{
+    background-color: #D2E3FF;
     cursor: pointer;
 }
