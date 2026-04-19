@@ -33,6 +33,43 @@
     cursor: pointer;
 }
 
+.navbar-element-selected{
+    background-color: #D2E3FF;
+}
+
+.navbar-element-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    margin: 5px 0 5px 0;
+    color: #42526E;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.navbar-element-bottom:hover{
+    color: #005DFF;
+    cursor: pointer;
+}
+
+.navbar-element-bottom-selected{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    margin: 5px 0 5px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.2s;
+    background-color: #4589FF;
+}
+
+
 .navbar-icons{
     height: 24px;
     width: 24px;
@@ -44,3 +81,4 @@
     flex-direction: column;
     padding: 10px 30px 10px 30px;
 }
+
