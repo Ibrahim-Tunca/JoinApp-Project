@@ -57,7 +57,7 @@
 
         <scrollcontainer style="overflow: hidden; display: flex;">
 
-            <maincontent class="main-container-addTask">
+            <form name="addTaskForm" class="main-container-addTask">
 
 
 
@@ -138,14 +138,24 @@
 
                         <subtask class="margin-top-bigger-add-task">
                             <span class="font-bold-add-task">Subtask</span><span class="font-normal-add-task"> (optional)</span>
+                            
                         </subtask>
 
-                        <input class="input-subtask-addTask margin-top-add-task margin-bottom-add-task" type="text" placeholder="add new subtask">
-                    
+                        <div class="wrapper-div-container margin-top-add-task margin-bottom-add-task">
+                            <input onkeyup="showButtons()" name="subtaskform" class="input-subtask-addTask" type="text" placeholder="add new subtask" id="subtaskValueID">
+                            
+                            <div class="cancel-and-confirm-container d_none" id="subtasksInputfieldButtonContainerID">
+                                    <img onclick="deleteInputValueSubtask()" class="cancel-icon" src="./img/addTask/cancel.svg" alt="">
+                                    <span class="cancel-and-confirm-separator"></span>
+                                    <img onclick="pasteSubtaskUnderInputfield()" class="confirm-icon" src="./img/addTask/confirm.svg" alt="">
+                            </div>
+                        </div>
 
+                        <div class="subtasks-container" id="createdSubtasksContainerID"></div>
 
+                        
 
-            </maincontent>
+                    </form>
 
         </scrollcontainer>
 
