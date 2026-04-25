@@ -132,10 +132,21 @@ function editSingleSubtask(id, value){
                                     placeholder="add new subtask" 
                                     id="editSubtask${id}">
                             
-                                <div class="cancel-and-confirm-container">
-                                    <img onclick="deleteSingleSubtask(${id})" class="cancel-icon" src="./img/trashcan.svg" alt="">
+                                <div class="cancel-and-confirm-container" style="gap: 5px;">
+                                    <img 
+                                        onclick="deleteSingleSubtask(${id})" 
+                                        class="edit-subtask-trashcan-icon" 
+                                        src="./img/trashcan.svg"
+                                        onmouseenter="this.src='./img/addTask/trashcan-blue.svg'"
+                                        onmouseleave="this.src='./img/trashcan.svg'"
+                                    >
                                     <span class="cancel-and-confirm-separator"></span>
-                                    <img onclick="confirmEditSubtask(${id})" class="confirm-icon" src="./img/addTask/confirm.svg" alt="">
+                                    <img 
+                                        onclick="confirmEditSubtask(${id})" 
+                                        class="edit-subtask-confirm-icon" 
+                                        src="./img/addTask/confirm.svg"
+                                        onmouseenter="this.src='./img/addTask/confirm-blue.svg'"
+                                        onmouseleave="this.src='./img/addTask/confirm.svg'">
                                 </div>
                             </div>`
 
