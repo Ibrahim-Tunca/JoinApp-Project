@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/addTasks.css">
     <link rel="stylesheet" href="./style/addTask-sidebuttons.css">
+    <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script defer src="./script/popUp.js"></script>
     <script defer src="./script/addTask.js"></script>
+    <script src="./script/addTask-special-functions/inputAndSelectFields.js"></script>
+    <script src="./script/addTask-special-functions/addTask-templates.js"></script>
 
 </head>
-<body>
+<body onload="loadContacts()">
 
     <header>
             <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
@@ -107,10 +110,7 @@
                                 </span>
                             </button>
 
-                            <div class="custom-select-menu-addTask d_none">
-                                <button type="button" class="custom-select-option-addTask" data-value="ahmet">ahmet</button>
-                                <button type="button" class="custom-select-option-addTask" data-value="bibor">bibor</button>
-                                <button type="button" class="custom-select-option-addTask" data-value="günther">günther</button>
+                            <div class="custom-select-menu-addTask d_none" id="contactSelectionID">
                             </div>
                         </div>
 

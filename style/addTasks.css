@@ -292,14 +292,71 @@
     cursor: pointer;
 }
 
-.custom-select-option-addTask:hover {
-    background-color: #D2E3FF;
+        .custom-select-option-addTask:hover {
+            background-color: #D2E3FF;
+        }
+
+        .custom-select-option-addTask:focus {
+            outline: none;
+            background-color: #D2E3FF;
+        }
+
+
+.contact-option-addTask {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 23px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.custom-select-option-addTask:focus {
-    outline: none;
-    background-color: #D2E3FF;
+        .contact-option-addTask:hover {
+            background-color: #D2E3FF;
+        }
+
+.contact-option-left-container-addTask {
+    display: flex;
+    align-items: center;
+    width: 245px;
 }
+
+.contact-initial-ball{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    margin-right: 16px;
+
+    color: white;
+    font-size: 18px;
+
+    border-radius: 30px;
+    border: solid 2px white;
+}
+
+.contact-checkbox-addTask {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contact-checkbox-visual-addTask {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-image: url("../img/checkbox_unchecked.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+        .contact-checkbox-addTask:checked ~ .contact-checkbox-visual-addTask {
+            background-image: url("../img/checkbox_checked.svg");
+        }
 
 .input-subtask-addTask{
     height: 48px;
