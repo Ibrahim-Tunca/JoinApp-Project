@@ -24,7 +24,7 @@ async function loadContacts(){
 
         
 
-        contactSelectionContainerRef.innerHTML += ` <label class="contact-option-addTask">
+        contactSelectionContainerRef.innerHTML += ` <label class="contact-option-addTask" id="contactID${contactKey}">
                                                         <input
                                                             class="contact-checkbox-addTask"
                                                             type="checkbox"
