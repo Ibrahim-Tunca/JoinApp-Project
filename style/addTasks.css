@@ -339,13 +339,16 @@
     width: 32px;
     height: 32px;
     padding: 5px;
-    margin-right: 16px;
 
     color: white;
     font-size: 18px;
 
     border-radius: 30px;
     border: solid 2px white;
+}
+
+.contact-option-font{
+    margin-left: 16px;
 }
 
 .contact-checkbox-addTask {
@@ -362,6 +365,11 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+.contact-inital-ball-container-under-contact-option{
+    display: flex;
+    margin: 3px;
 }
 
 .input-subtask-addTask{

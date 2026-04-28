@@ -26,7 +26,7 @@ async function loadContacts(){
 
         contactSelectionContainerRef.innerHTML += ` <label class="contact-option-addTask" id="contactID${contactKey}">
                                                         <input
-                                                            onchange="addContactInTask('${contactKey}', '${contactInitals}', '${contactColor}')"
+                                                            onchange="addContactInTask('${contactKey}', '${contactInitals}', '${contactColor}'), generateInitalBallUnderContactOption()"
                                                             class="contact-checkbox-addTask"
                                                             type="checkbox"
                                                             name="contacts"
@@ -34,7 +34,7 @@ async function loadContacts(){
                                                         >
                                                         <div class="contact-option-left-container-addTask">
                                                             <div class="contact-initial-ball ${contactColor}">${contactInitals}</div>
-                                                            ${contactName}
+                                                            <span class="contact-option-font">${contactName}</span>
                                                         </div>
                                                         <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxID${contactKey}"></span>
                                                     </label>`
@@ -93,6 +93,19 @@ function setContactInUnfocus(id){
 }
 
 
+function generateInitalBallUnderContactOption(){
+    contentRef = document.getElementById("initialBallContainerID");
+
+    contentRef.innerHTML = "";
+    for (let index = 0; index < choosedContacts.length; index++) {
+        const currentContact = choosedContacts[index];
+        
+        const initials = currentContact.initals;
+        const color = currentContact.color;
+        contentRef.innerHTML += `<div class="contact-initial-ball ${color}">${initials}</div>`
+    }
+
+}
 
 
 
