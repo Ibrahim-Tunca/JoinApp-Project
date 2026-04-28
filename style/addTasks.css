@@ -307,12 +307,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px 23px;
+    margin: 1px 0;
     border-radius: 8px;
     cursor: pointer;
 }
 
         .contact-option-addTask:hover {
             background-color: #D2E3FF;
+        }
+
+.contact-option-addTask-focused {
+    background-color: #4589FF;
+    color: white;
+}
+
+        .contact-option-addTask-focused:hover {
+            background-color: #005DFF;
         }
 
 .contact-option-left-container-addTask {
@@ -353,10 +363,6 @@
     background-position: center;
     background-size: contain;
 }
-
-        .contact-checkbox-addTask:checked ~ .contact-checkbox-visual-addTask {
-            background-image: url("../img/checkbox_checked.svg");
-        }
 
 .input-subtask-addTask{
     height: 48px;
