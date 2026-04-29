@@ -2,6 +2,8 @@ let priority = "";
 
 let subtaskID = 0;
 
+let subtasks = [];
+
 let choosedContacts = [];
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -32,12 +34,10 @@ function addContactInTask(id, initials, color){
     let contactFound = checkIfContactAreAlreadyInArray(id);
 
     if(contactFound){
-        console.log(choosedContacts);
         return;
     }
 
     choosedContacts.push({id: id, initals: initials, color: color});
-    console.log(choosedContacts);
     return;
 }
 
@@ -89,5 +89,39 @@ function generateInitalBallUnderContactOption(){
 
 }
 
+function validateAddTaskForm(event){
+    event.preventDefault();
+
+    const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
+    const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
+    const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
+    const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
+
+    console.log("Title:" + titleRef);
+    console.log("Description:" + descriptionRef);
+    console.log("Date:" + dateRef);
+    console.log("TaskKind:" + taskCategory);
+    console.log("Priority: " + priority);    
+    showNameOfAllContacts();
+    showAllSubtasks();
+    
+    return false;
+}
+
+function showNameOfAllContacts(){
+    for (let index = 0; index < choosedContacts.length; index++) {
+        const contactID = choosedContacts[index].id;
+        console.log("contact: " + contactID);
+        
+    }
+}
+
+function showAllSubtasks(){
+    for (let index = 0; index < subtasks.length; index++) {
+        const currentSubtask = subtasks[index].value;
+        console.log("subtask " + index + ": " + currentSubtask);
+        
+    }
+}
 
 

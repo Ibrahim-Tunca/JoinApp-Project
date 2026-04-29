@@ -80,6 +80,7 @@ function pasteSubtaskUnderInputfield(){
     const subtaskValue = document.forms["addTaskForm"]["subtaskform"].value;
     const createdSubtasksContainer = document.getElementById("createdSubtasksContainerID");
 
+    subtasks.push({id: subtaskID, value: subtaskValue});
     createdSubtasksContainer.innerHTML += pasteSubtaskUnderInputfieldTemplate(subtaskID, subtaskValue);
 
     subtaskID++;
@@ -97,7 +98,30 @@ function deleteInputValueSubtask(){
 
 function deleteSingleSubtask(id){
     const subTaskRef = document.getElementById("subtaskNr" + id + "ID");
+    deleteSingleSubtaskFromGlobalArray(id);
     subTaskRef.remove();
+}
+
+
+function deleteSingleSubtaskFromGlobalArray(id){
+    for (let index = 0; index < subtasks.length; index++) {
+        const currentTaskID = subtasks[index].id;
+        if(currentTaskID === id){
+            subtasks.splice(index, 1);
+            return;
+        }
+    }
+}
+
+
+function overwriteAnSubtaskFromGlobalArray(id, value){
+    for (let index = 0; index < subtasks.length; index++) {
+        const currentTaskID = subtasks[index].id;
+        if(currentTaskID === id){
+            subtasks[index].value = value;
+            return;
+        }
+    }
 }
 
 
@@ -133,6 +157,7 @@ function confirmEditSubtask(id){
     const subTaskRef = document.getElementById("subtaskNr" + id + "ID");
     const subTaskValue = document.getElementById("editSubtask" + id).value;
 
+    overwriteAnSubtaskFromGlobalArray(id, subTaskValue);
     subTaskRef.innerHTML =  confirmEditSubtaskTemplate(id, subTaskValue);
 }
 
