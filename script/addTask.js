@@ -8,15 +8,13 @@ const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebaseda
 
 initCustomSelects();
 
+
 async function loadContacts(){
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
     const entries = Object.entries(responseToJson);
 
-    
-
     const contactSelectionContainerRef = document.getElementById("contactSelectionID");
-
 
     for (let index = 0; index < entries.length; index++) {
         const contactName = entries[index][1].userName;
@@ -24,26 +22,10 @@ async function loadContacts(){
         const contactInitals = entries[index][1].userName.charAt(0).toUpperCase();
         const contactKey = entries[index][0];        
 
-        contactSelectionContainerRef.innerHTML += ` <label class="contact-option-addTask" id="contactID${contactKey}">
-                                                        <input
-                                                            onchange="addContactInTask('${contactKey}', '${contactInitals}', '${contactColor}'), generateInitalBallUnderContactOption()"
-                                                            class="contact-checkbox-addTask"
-                                                            type="checkbox"
-                                                            name="contacts"
-                                                            value="${contactName}"
-                                                        >
-                                                        <div class="contact-option-left-container-addTask">
-                                                            <div class="contact-initial-ball ${contactColor}">${contactInitals}</div>
-                                                            <span class="contact-option-font">${contactName}</span>
-                                                        </div>
-                                                        <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxID${contactKey}"></span>
-                                                    </label>`
+        contactSelectionContainerRef.innerHTML += contactSelectionTemplate(contactKey, contactInitals, contactColor, contactName);
     }
     
 }
-
-
-
 
 
 function addContactInTask(id, initials, color){
@@ -102,7 +84,7 @@ function generateInitalBallUnderContactOption(){
         
         const initials = currentContact.initals;
         const color = currentContact.color;
-        contentRef.innerHTML += `<div class="contact-initial-ball ${color}">${initials}</div>`
+        contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
     }
 
 }

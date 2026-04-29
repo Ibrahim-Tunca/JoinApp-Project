@@ -37,6 +37,10 @@
     margin-top: 16px;
 }
 
+.margin-right-add-task{
+    margin-right: 7px;
+}
+
 
 .input-title-addTask{
     height: 64px;
@@ -369,7 +373,7 @@
 
 .contact-inital-ball-container-under-contact-option{
     display: flex;
-    margin: 3px;
+    margin: 13px 0;
 }
 
 .input-subtask-addTask{

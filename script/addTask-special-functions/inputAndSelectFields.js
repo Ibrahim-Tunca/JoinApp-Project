@@ -133,9 +133,7 @@ function confirmEditSubtask(id){
     const subTaskRef = document.getElementById("subtaskNr" + id + "ID");
     const subTaskValue = document.getElementById("editSubtask" + id).value;
 
-
     subTaskRef.innerHTML =  confirmEditSubtaskTemplate(id, subTaskValue);
-    
 }
 
 

@@ -72,3 +72,20 @@ function confirmEditSubtaskTemplate(id, value){
                         </div>
             </div> `;
 }
+
+function contactSelectionTemplate(id, initials, color, name){
+    return `<label class="contact-option-addTask" id="contactID${id}">
+                <input
+                    onchange="addContactInTask('${id}', '${initials}', '${color}'), generateInitalBallUnderContactOption()"
+                    class="contact-checkbox-addTask"
+                    type="checkbox"
+                    name="contacts"
+                    value="${name}"
+                >
+                <div class="contact-option-left-container-addTask">
+                    <div class="contact-initial-ball ${color}">${initials}</div>
+                    <span class="contact-option-font">${name}</span>
+                </div>
+                <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxID${id}"></span>
+            </label>`
+}
