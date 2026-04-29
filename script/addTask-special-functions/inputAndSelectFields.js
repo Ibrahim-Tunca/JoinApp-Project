@@ -61,6 +61,24 @@ function setPrioToUrgent(){
 }
 
 
+function setContactInFocus(id){
+    contactRef = document.getElementById("contactID" + id);
+    checkBoxRef = document.getElementById("checkBoxID" + id);
+
+    contactRef.classList.add("contact-option-addTask-focused");
+    checkBoxRef.style.backgroundImage = 'url("./img/addTask/checkbox_checked_white.svg")';
+}
+
+
+function setContactInUnfocus(id){
+    contactRef = document.getElementById("contactID" + id);
+    checkBoxRef = document.getElementById("checkBoxID" + id);
+
+    contactRef.classList.remove("contact-option-addTask-focused");
+    checkBoxRef.style.backgroundImage = 'url("../img/checkbox_unchecked.svg")';
+}
+
+
 function showButtons(){
     const subtasksInputfieldButtonContainerRef = document.getElementById("subtasksInputfieldButtonContainerID");
     const subtaskValue = document.forms["addTaskForm"]["subtaskform"].value;

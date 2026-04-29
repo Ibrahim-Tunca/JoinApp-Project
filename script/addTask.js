@@ -1,9 +1,6 @@
 let priority = "";
-
 let subtaskID = 0;
-
 let subtasks = [];
-
 let choosedContacts = [];
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -30,18 +27,6 @@ async function loadContacts(){
 }
 
 
-function addContactInTask(id, initials, color){
-    let contactFound = checkIfContactAreAlreadyInArray(id);
-
-    if(contactFound){
-        return;
-    }
-
-    choosedContacts.push({id: id, initals: initials, color: color});
-    return;
-}
-
-
 function checkIfContactAreAlreadyInArray(id){
 
     for (let index = 0; index < choosedContacts.length; index++) {
@@ -54,24 +39,6 @@ function checkIfContactAreAlreadyInArray(id){
     }
     setContactInFocus(id);
     return false;
-}
-
-
-function setContactInFocus(id){
-    contactRef = document.getElementById("contactID" + id);
-    checkBoxRef = document.getElementById("checkBoxID" + id);
-
-    contactRef.classList.add("contact-option-addTask-focused");
-    checkBoxRef.style.backgroundImage = 'url("./img/addTask/checkbox_checked_white.svg")';
-}
-
-
-function setContactInUnfocus(id){
-    contactRef = document.getElementById("contactID" + id);
-    checkBoxRef = document.getElementById("checkBoxID" + id);
-
-    contactRef.classList.remove("contact-option-addTask-focused");
-    checkBoxRef.style.backgroundImage = 'url("../img/checkbox_unchecked.svg")';
 }
 
 
@@ -89,7 +56,8 @@ function generateInitalBallUnderContactOption(){
 
 }
 
-function validateAddTaskForm(event){
+
+async function validateAddTaskForm(event){
     event.preventDefault();
 
     const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
@@ -97,31 +65,10 @@ function validateAddTaskForm(event){
     const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
     const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
 
-    console.log("Title:" + titleRef);
-    console.log("Description:" + descriptionRef);
-    console.log("Date:" + dateRef);
-    console.log("TaskKind:" + taskCategory);
-    console.log("Priority: " + priority);    
-    showNameOfAllContacts();
-    showAllSubtasks();
-    
-    return false;
+    await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
 }
 
-function showNameOfAllContacts(){
-    for (let index = 0; index < choosedContacts.length; index++) {
-        const contactID = choosedContacts[index].id;
-        console.log("contact: " + contactID);
-        
-    }
-}
 
-function showAllSubtasks(){
-    for (let index = 0; index < subtasks.length; index++) {
-        const currentSubtask = subtasks[index].value;
-        console.log("subtask " + index + ": " + currentSubtask);
-        
-    }
-}
+
 
 
