@@ -42,6 +42,18 @@ function checkIfContactAreAlreadyInArray(id){
 }
 
 
+function addContactInTask(id, initials, color){
+    let contactFound = checkIfContactAreAlreadyInArray(id);
+
+    if(contactFound){
+        return;
+    }
+
+    choosedContacts.push({id: id, initals: initials, color: color});
+    return;
+}
+
+
 function generateInitalBallUnderContactOption(){
     contentRef = document.getElementById("initialBallContainerID");
 
@@ -65,9 +77,47 @@ async function validateAddTaskForm(event){
     const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
     const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
 
-    await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
+    const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
+
+    if(requiredFieldsAreFilled){
+        await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
+        return true;
+    }
+    return false;
 }
 
+function checkIfEverthingImportantIsFillingdOut(title, date, category){
+    const titleRef = document.getElementById("titleID");
+    const dateRef = document.getElementById("dateID");
+    const prioContainerRef = document.getElementById("prioID");
+
+    const titleFontRef = document.getElementById("titleFontID");
+    const dateFontRef = document.getElementById("dateFontID");
+
+    titleFontRef.style.color = "black";
+    dateFontRef.style.color = "black";
+
+    
+    titleRef.classList.remove("input-title-error-addTask");
+    dateRef.classList.remove("input-date-error-addTask");
+    prioContainerRef.classList.remove("prio-buttons-order-error-addTask");
+
+    if(title === ""){
+        titleRef.classList.add("input-title-error-addTask");
+        titleFontRef.style.color = "#FF3D00";
+        return false;
+    }
+    if(date === ""){
+        dateRef.classList.add("input-date-error-addTask");
+        dateFontRef.style.color = "#FF3D00";
+        return false;
+    }
+    if(priority === ""){
+        prioContainerRef.classList.add("prio-buttons-order-error-addTask");
+        return false;
+    }
+    return true;
+}
 
 
 

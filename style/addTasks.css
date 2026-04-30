@@ -232,13 +232,17 @@
     cursor: pointer;
 }
 
-.custom-select-toggle-addTask:hover {
-    border-color: #4589FF;
+.underline-color-select-category{
+    border-bottom: solid 2px #D1D1D1;
 }
 
-.custom-select-toggle-addTask:focus {
-    outline: none;
-}
+        .custom-select-toggle-addTask:hover {
+            border-color: #4589FF;
+        }
+
+        .custom-select-toggle-addTask:focus {
+            outline: none;
+        }
 
 .custom-select-label-addTask {
     color: #000000;

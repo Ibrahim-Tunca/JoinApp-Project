@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/addTasks.css">
     <link rel="stylesheet" href="./style/addTask-sidebuttons.css">
+    <link rel="stylesheet" href="./style/add-task-styles/addTask-Error-Message.css">
     <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
@@ -65,8 +66,8 @@
 
 
 
-                        <input name="addTaskTitle" class="input-title-addTask" type="text" placeholder="Enter a title">
-                        <span>This field is required</span>
+                        <input name="addTaskTitle" class="input-title-addTask" type="text" placeholder="Enter a title" id="titleID">
+                        <span id="titleFontID">This field is required</span>
 
                         <div class="margin-top-add-task">
                             <span class="font-bold-add-task">Description</span><span class="font-normal-add-task"> (optional)</span>
@@ -78,13 +79,13 @@
                         <div class="margin-top-add-task">
                             <span class="font-bold-add-task">Due date</span>
                         </div>
-                        <input class="input-date-addTask" type="date" name="addTaskDate" placeholder="tt/mm/jjjj">
-                        <span>This field is required</span>
+                        <input class="input-date-addTask" type="date" name="addTaskDate" placeholder="tt/mm/jjjj" id="dateID">
+                        <span id="dateFontID">This field is required</span>
 
 
                         <priority class="margin-top-bigger-add-task">
                             <span class="font-bold-add-task">Priority</span>
-                            <div class="prio-buttons-order-addTask margin-top-add-task">
+                            <div class="prio-buttons-order-addTask margin-top-add-task" id="prioID">
                                 <button onclick="setPrioToUrgent()" type="button" class="prio-buttons-addTask high-prio-button-addTask" id="urgentPrioID">Urgent<img class="prio-icons-addTask" src="./img/addTask/prio-high.svg" id="urgentPrioIMGID"></button>
                                 <button onclick="setPrioToMedium()" type="button" class="prio-buttons-addTask mid-prio-button-addTask" id="mediumPrioID">Medium<img class="prio-icons-addTask" src="./img/addTask/prio-medium.svg" id="midPrioIMGID"></button>
                                 <button onclick="setPrioToLow()" type="button" class="prio-buttons-addTask low-prio-button-addTask" id="lowPrioID">Low<img class="prio-icons-addTask" src="./img/addTask/prio-low.svg" id="lowPrioIMGID"></button>
@@ -118,10 +119,10 @@
                         <div class="contact-inital-ball-container-under-contact-option" id="initialBallContainerID"></div>
 
 
-                        <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category">
+                        <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category" id="categoryID">
                             <input type="hidden" name="taskCategory">
                             
-                            <button type="button" class="custom-select-toggle-addTask">
+                            <button type="button" class="custom-select-toggle-addTask underline-color-select-category">
                                 <span class="custom-select-label-addTask">Select task category</span>
                                 <span class="custom-select-arrow-wrap-addTask">
                                     <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg" alt="">

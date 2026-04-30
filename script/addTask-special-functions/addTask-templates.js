@@ -89,3 +89,4 @@ function contactSelectionTemplate(id, initials, color, name){
                 <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxID${id}"></span>
             </label>`
 }
+

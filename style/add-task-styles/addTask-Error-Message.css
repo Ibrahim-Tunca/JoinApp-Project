@@ -1,0 +1,19 @@
+.input-title-error-addTask{
+
+    border-bottom: solid 2px #FF3D00;
+}
+
+    .input-title-error-addTask::placeholder{
+            color: #D1D1D1;
+        }
+
+.input-date-error-addTask{
+
+    border-bottom: solid 2px #FF3D00;
+}
+
+.prio-buttons-order-error-addTask{
+    border: solid 2px #FF3D00;
+    border-radius: 5px;
+}
+
