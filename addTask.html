@@ -24,6 +24,9 @@
 </head>
 <body onload="loadContacts()">
 
+    <div  class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
+    <div class="succesfull-popup" id="popUpSuccesID">Task added to board <img class="board-icon-add-task" src="./img/addTask/Board_white.svg"></div>
+
     <header>
             <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
             <div class="header-right-section-container">
@@ -62,7 +65,7 @@
 
         <scrollcontainer style="overflow: hidden; display: flex;">
 
-            <form onsubmit="return validateAddTaskForm(event)" name="addTaskForm" id="addTaskForm" class="main-container-addTask">
+            <form onsubmit="validateAddTaskForm(event)" name="addTaskForm" id="addTaskForm" class="main-container-addTask">
 
 
 
@@ -164,7 +167,7 @@
         </scrollcontainer>
 
                         <buttons class="button-order-addtask">
-                            <button type="reset" form="addTaskForm" class="button-white-addtask">
+                            <button onclick="relodePage();" type="reset" form="addTaskForm" class="button-white-addtask">
                                 Clear
                                 <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg" alt="">
                             </button>

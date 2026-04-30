@@ -13,7 +13,6 @@ async function addNewTask(title, description, date, category) {
     choosedContacts = [];
     subtasks = [];
 
-    window.location.reload();
     return response;
 }
 

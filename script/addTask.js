@@ -79,12 +79,24 @@ async function validateAddTaskForm(event){
 
     const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
 
-    if(requiredFieldsAreFilled){
-        await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
-        return true;
+    if (!requiredFieldsAreFilled) {
+        return;
     }
-    return false;
+
+    await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
+    popUpSuccesAddTask();
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 2500);
 }
+
+
+
+function relodePage(){
+    window.location.reload();
+}
+
 
 function checkIfEverthingImportantIsFillingdOut(title, date, category){
     const titleRef = document.getElementById("titleID");
@@ -117,6 +129,18 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
         return false;
     }
     return true;
+}
+
+
+function popUpSuccesAddTask(){
+
+    const popUpWindowRef = document.getElementById("popUpSuccesID");
+    const whiteTransparentOverlayRef = document.getElementById("whiteTransparentOverlayID");
+
+    popUpWindowRef.classList.add("top-50-percent");
+    whiteTransparentOverlayRef.classList.add("show-overlay-add-task");
+
+    return;
 }
 
 
