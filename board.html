@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/board.css">
-    <link rel="stylesheet" href="./style/boardCards.css">
+    <link rel="stylesheet" href="./style/board-styles/board-cards.css">
     
 
     <link rel="stylesheet" href="./style/addTasks.css">
@@ -31,7 +31,7 @@
 
 
 </head>
-<body onload="loadContacts()">
+<body onload="loadContacts(),  onloadFunc()">
 
     <div onclick="hideAddTaskWindow()" class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
     <div class="succesfull-popup" id="popUpSuccesID">Task added to board <img class="board-icon-add-task" src="./img/addTask/Board_white.svg"></div>
@@ -96,8 +96,8 @@
                         </div>
                     </div>
 
-                    <div class="no-task-to-do">
-                        No Task To do
+                    <div id="toDoContainerID">
+                        
                     </div>
 
                 </div>
@@ -112,41 +112,7 @@
                         </div>
                     </div>
 
-                    <div class="filled-card-board">
-
-                        <div class="headline-card-container-board">
-                            <span class="headline-card-board">User Story</span>
-                        </div>
-
-                        <span class="headline-font-task-card">
-                            Kochwelt Page & Recipe Recommender 
-                        </span>
-
-                        <span class="description-font-card">
-                            Build Start Page with start Recommendation
-                        </span>
-
-                        <div class="progress-container-card">
-                            <progress class="progress-bar-style-board" value="32" max="100"></progress>
-                            <span >1/2 Subtasks</span>
-                        </div>
-
-                        <div class="letter-ball-and-priority-container">
-                            <div class="letter-ball-container">
-                                <div class="letter-ball-card-1">
-                                    AM
-                                </div>
-                                <div class="letter-ball-card-2">
-                                    AM
-                                </div>
-                                <div class="letter-ball-card-3">
-                                    AM
-                                </div>
-                            </div>
-                            <img class="prio-icon-card" src="./img/addTask/prio-medium.svg" alt="">
-                        </div>
-
-                    </div>
+                    
 
                 </div>
 
@@ -335,8 +301,8 @@
                             </button>
 
                             <div class="custom-select-menu-addTask d_none">
-                                <button type="button" class="custom-select-option-addTask" data-value="technical">Technical Task</button>
-                                <button type="button" class="custom-select-option-addTask" data-value="story">User Story</button>
+                                <button type="button" class="custom-select-option-addTask" data-value="Technical Task">Technical Task</button>
+                                <button type="button" class="custom-select-option-addTask" data-value="User Story">User Story</button>
                             </div>
                         </div>
 

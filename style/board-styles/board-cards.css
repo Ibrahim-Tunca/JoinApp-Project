@@ -1,0 +1,146 @@
+.no-task-to-do{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+
+    font-size: 16px;
+    color: #A8A8A8;
+
+    border-radius: 10px;
+    border-style: dotted;
+
+    background-color: #E7E7E7;
+}
+
+.filled-card-board{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 10px;
+    margin-bottom: 16px;
+
+    border-radius: 24px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.headline-card-container-board{
+    display: flex;
+}
+
+.headline-card-board{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    border-radius: 8px;
+    padding: 4px 16px;
+}
+
+        .background-color-orange{
+            background-color: #FF7A00;
+        }
+
+        .background-color-blue{
+            background-color: #005DFF;
+        }
+
+.headline-font-task-card{
+    font-weight: 700;
+    font-size: 16px;
+    color: #4589FF;
+}
+
+.description-font-card{
+    font-size: 16px;
+    color: #A8A8A8;
+}
+
+.progress-container-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress-bar-style-board{
+    width: 86px;
+}
+
+.letter-ball-and-priority-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.letter-ball-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+
+    width: 32px;
+    height:32px;
+
+    color: white;
+
+    border: solid 2px white;
+    border-radius: 20px;
+    background-color: #FF7A00;
+}
+
+.letter-ball-card-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    left: 26px;
+
+    width: 32px;
+    height:32px;
+
+    color: white;
+
+    border: solid 2px white;
+    border-radius: 20px;
+    background-color: #FF7A00;
+}
+
+.letter-ball-card-3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    left: 52px;
+
+    width: 32px;
+    height:32px;
+
+    color: white;
+
+    border: solid 2px white;
+    border-radius: 20px;
+    background-color: #FF7A00;
+}
+
+.mid-prio-icon-card{
+    width: 17px;
+    height: 11px;
+    margin: 0 6px;
+}
+
+.other-prio-icon-card{
+    width: 17px;
+    height: 12px;
+    margin: 0 6px;
+}
+
+.letter-ball-container{
+    display: flex;
+    position: relative;
+    height: 30px;
+}
+
