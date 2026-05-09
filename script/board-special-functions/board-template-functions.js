@@ -24,6 +24,35 @@ function getHeadlineCardColor(category, id){
     }
 }
 
+function getHeadlineCardDetailColor(category){
+    const categoryRef = document.getElementById("cardDetailCategoryID");
+    categoryRef.classList.remove("background-color-orange");
+    categoryRef.classList.remove("background-color-blue");
+
+    if(category === "User Story"){
+        categoryRef.classList.add("background-color-orange");
+    }
+    if(category === "Technical Task"){
+        categoryRef.classList.add("background-color-blue");
+    }
+}
+
+
+function getCardDetailPriorityImage(priority){
+    const priorityImageRef = document.getElementById("cardDetailPriorityID");
+
+    if(priority === "low"){
+        priorityImageRef.innerHTML = `<span class="regular-span-font-userstory">Low<img class="priotity-other-icon-userstory" src="./img/userstory/prio-low.svg" alt=""></span>`
+    }
+    if(priority === "medium"){
+        priorityImageRef.innerHTML = `<span class="regular-span-font-userstory">Medium<img class="priotity-medium-icon-userstory" src="./img/userstory/prio-medium.svg" alt=""></span>`
+    }
+    if(priority === "urgent"){
+        priorityImageRef.innerHTML = `<span class="regular-span-font-userstory">Urgent<img class="priotity-other-icon-userstory" src="./img/userstory/prio-high.svg" alt=""></span>`
+    }
+
+}
+
 
 function showSubtaskProgress(subtasks, id){
     const subTaskContainerRef = document.getElementById("subTaskContainerNr" + id);
@@ -82,15 +111,10 @@ async function getContactsContainerFromTaskByID(id){
 async function getContacts(id){
     const contactsInDataBase = await getContactEntriesFromDataBase();
     const contactsInTask = await getContactsContainerFromTaskByID(id) || [];
-    
-
     const cardDetailContactContainerRef = document.getElementById("cardDetailContactContainerID");
-    
 
-    
     cardDetailContactContainerRef.innerHTML = "";
 
-    
     for (let index = 0; index < contactsInTask.length; index++) {
         const contactTaskID = contactsInTask[index].id;
         for (let index = 0; index < contactsInDataBase.length; index++) {
@@ -118,6 +142,12 @@ async function getContacts(id){
 }
 
 
+function subTaskDone(subtaskID){
+    const subTaskRef = document.getElementById("subTaskNr" + subtaskID);
+    subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
+    
+}
+
 
 async function getSubtasks(id){
     const tasks = await getTaskEntriesFromDataBase();
@@ -132,11 +162,11 @@ async function getSubtasks(id){
         if(taskID === id){
             for (let index = 0; index < subtasksArray.length; index++) {
                 const subtask = subtasksArray[index].value;
-                
+                const subtaskID = subtasksArray[index].id;
                 
                 cardDetailSubtaskContainerRef.innerHTML +=  `
                                                                 <div class="subtask-single-container-userstory">
-                                                                    <span class="subtask-checkbox-cardDetail" aria-hidden="true"></span>
+                                                                    <span onclick="subTaskDone(${subtaskID})" class="subtask-checkbox-cardDetail" id="subTaskNr${subtaskID}"></span>
                                                                     <span class="regular-span-font-userstory">${subtask}</span>
                                                                 </div>
                                                             `
@@ -167,9 +197,10 @@ async function showCardDetail(id, title, description, category, date, priority){
     titleRef.innerHTML = title;
     descriptionRef.innerHTML = description;
     dateRef.innerHTML = date;
-    priorityRef.innerHTML = priority;
+    getCardDetailPriorityImage(priority);
     getContacts(id);
     getSubtasks(id);
+    getHeadlineCardDetailColor(category, id);
     cardDetailContainerRef.classList.add("top-50-percent");
 }
 

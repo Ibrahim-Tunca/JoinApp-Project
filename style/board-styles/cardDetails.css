@@ -42,7 +42,6 @@
 }
 
 .userstory-category-tag{
-    background-color: #FF7A00;
     padding: 4px 24px;
     font-size: 23px;
     color: white;
@@ -68,9 +67,15 @@
     margin: 0;
 }
 
-.priotity-icon-userstory{
+.priotity-medium-icon-userstory{
     width: 17px;
     height: 7px;
+    margin: 0 9px;
+}
+
+.priotity-other-icon-userstory{
+    width: 23px;
+    height: 13px;
     margin: 0 9px;
 }
 
