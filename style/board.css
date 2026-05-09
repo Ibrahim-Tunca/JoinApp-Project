@@ -1,5 +1,8 @@
 .maincontent-container-board{
-    padding: 76px 56px;
+    padding: 76px 0 0 56px;
+    height: calc(100vh - 172px);
+    overflow-y: auto;
+    width: 100%;
 }
 
 .bottom-section-board{

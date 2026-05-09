@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
 
-    width: 528px;
-    height: 932px;
+    width: 448px;
+    height: 778px;
 
     gap: 24px;
     padding: 48px 40px;
@@ -12,7 +12,19 @@
     border:solid 2px #D1D1D1;
 
     background-color: bisque;
+
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 1000;
+    top: 150%; 
+    transition: top 0.4s ease-out;
 }
+
+        .top-50-percent{
+            top: 50% !important;
+        }
 
 .regular-span-font-userstory{
     font-size: 19px;
@@ -26,7 +38,7 @@
 
 .bold-span-font-space-userstory{
     display: flex;
-    width: 128px;
+    width: 140px;
 }
 
 .userstory-category-tag{
@@ -48,13 +60,12 @@
             background-color: #D2E3FF;
             cursor: pointer;
             transform: scale(1.2); 
-            filter: contrast(2.0);
         }
 
 .h1-font-userstory{
     font-size: 61px;
     font-weight: 700;
-    margin: 22px 0;
+    margin: 0;
 }
 
 .priotity-icon-userstory{
@@ -71,25 +82,51 @@
     margin: 0 25px;
 
     border-radius: 21px;
-    background-color: #1FD7C1;
     height: 42px;
     width: 42px;
     color: white;
     font-size: 16px;
 }
 
+
 .assigned-to-content-order{
     display: flex;
+    flex-direction: column;
+}
+
+.assigned-to-single-container{
+    display: flex;
     align-items: center;
-    margin: 15px 0 0 0;
+    margin-top: 15px;
 }
 
 .subtasks-inputfield-userstory{
     margin: 0 18px;
 }
 
-.subtasks-single-container-userstory{
+.subtasks-container-userstory{
     margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.subtask-single-container-userstory{
+    display: flex;
+    align-items: center;
+    margin-top: 11px;
+}
+
+.subtask-checkbox-cardDetail{
+    display: flex;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-image: url("../../img/checkbox_unchecked.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 18px;
+    cursor: pointer;
 }
 
 .edit-delete-container-userstory{
@@ -99,9 +136,16 @@
     height: 100%;
 }
 
-.edit-delete-single-container-userstory{
+.edit-single-container-userstory{
+    display: flex;
+    align-items: center;  
+    cursor: pointer; 
+}
+
+.delete-single-container-userstory{
     display: flex;
     align-items: center;   
+    cursor: pointer;
 }
 
 .edit-delete-separator-userstory{
@@ -111,10 +155,18 @@
     margin: 0 20px;
 }
 
-.edit-delete-icon-userstory{
+.edit-icon-userstory{
     width: 24px;
     height: 24px;
-    margin: 0 11px 0 0;
+    margin-right: 11px;
+    transition: 0.2s;
+}
+
+.delete-icon-userstory{
+    width: 24px;
+    height: 24px;
+    margin-right: 11px;
+    transition: 0.2s;
 }
 
 .edit-delete-font-userstory{
@@ -122,11 +174,26 @@
     transition: 0.2s;
 }
 
-        .edit-delete-single-container-userstory:hover .edit-delete-font-userstory{
+        .edit-single-container-userstory:hover .edit-delete-font-userstory{
             color: #005DFF;
             font-weight: 600;
+        }
+        .edit-single-container-userstory:hover .edit-icon-userstory{
+            transform: scale(1.1);
+            filter: brightness(0.9);
+        }
+
+        .delete-single-container-userstory:hover .edit-delete-font-userstory{
+            color: #005DFF;
+            font-weight: 600;
+        }
+
+        .delete-single-container-userstory:hover .delete-icon-userstory{
+            transform: scale(1.1);
+            filter: brightness(0.9);
         }
 
         .edit-delete-single-container-userstory:hover{
             cursor: pointer;
         }
+

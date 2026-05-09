@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/board.css">
     <link rel="stylesheet" href="./style/board-styles/board-cards.css">
+    <link rel="stylesheet" href="./style/board-styles/cardDetails.css">
     
 
     <link rel="stylesheet" href="./style/addTasks.css">
@@ -23,6 +24,7 @@
 
     <script src="./script/popUp.js"></script>
     <script src="./script/board.js"></script>
+    <script src="./script/board-special-functions/board-template-functions.js"></script>
 
     <script defer src="./script/addTask.js"></script>
     <script src="./script/addTask-special-functions/inputAndSelectFields.js"></script>
@@ -31,9 +33,9 @@
 
 
 </head>
-<body onload="loadContacts(),  onloadFunc()">
+<body onload="loadContacts(),  loadCardsToDo()">
 
-    <div onclick="hideAddTaskWindow()" class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
+    <div onclick="hideAddTaskWindow(), hideCardDetailWindow()" class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
     <div class="succesfull-popup" id="popUpSuccesID">Task added to board <img class="board-icon-add-task" src="./img/addTask/Board_white.svg"></div>
 
 
@@ -46,7 +48,7 @@
             </div>
     </header>
 
-    <main-container style="display: flex;">
+    <main-container style="display: flex; overflow: hidden;">
 
         <popupmenue class="popup-menue-position d_none" id="popUpID">
                 <div class="popup-menue-container">
@@ -337,6 +339,68 @@
 
                     </form>
             
+        </section>
+
+
+
+
+
+
+        <section class="main-container-userstory" id="cardDetailContainerID">
+
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="userstory-category-tag" id="cardDetailCategoryID">User Story</span>
+                    <img 
+                            class="close-button-userstory" 
+                            src="./img/close-blue.svg"
+                            onclick="hideCardDetailWindow()"
+                            onmouseenter="this.src='./img/close-deep-blue.svg'"
+                            onmouseleave="this.src='./img/close-blue.svg'"
+                    >
+                </div>
+
+                <h1 class="h1-font-userstory" id="cardDetailTitleID">Kochwelt Page & Recipe Recommander</h1>
+
+                <span class="regular-span-font-userstory" id="cardDetailDescriptionID">Build start page with recipe recommendation.</span>
+
+                <date style=" display: flex;">
+                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Due Date:</span>
+                    <span class="regular-span-font-userstory" id="cardDetailDateID">29.02.1988</span>
+                </date>
+
+                <priotity style=" display: flex;">
+                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Priority:</span>
+                    <span class="regular-span-font-userstory" id="cardDetailPriorityID">Medium <img class="priotity-icon-userstory" src="./img/userstory/prio-medium.svg" alt=""></span>
+                </priotity>
+
+                <assignedTo style="display: flex; flex-direction: column;">
+                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Assigned To:</span>
+                    <div class="assigned-to-content-order" id="cardDetailContactContainerID">
+
+                    </div>
+                </assignedTo>
+
+                <subtasks>
+                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Subtaks:</span>
+                    <div class="subtasks-single-container-userstory" id="cardDetailSubtaskContainerID">
+                        
+                    </div>
+                    
+                </subtasks>
+
+                <edit-delete class="edit-delete-container-userstory">
+                    <div class="delete-single-container-userstory">
+                        <img class="delete-icon-userstory" src="./img/trashcan.svg">
+                        <span class="edit-delete-font-userstory">Delete</span>
+                    </div>
+                    <separator class="edit-delete-separator-userstory"></separator>
+                    <div class="edit-single-container-userstory">
+                        <img class="edit-icon-userstory" src="./img/pencil.svg" alt="">
+                        <span class="edit-delete-font-userstory">Edit</span>
+                    </div>
+
+                </edit-delete>
+        
         </section>
             
 
