@@ -1,3 +1,5 @@
+let globalSubtasks = [];
+
 function showWhiteTransparentOverlay(){
     const overlayRef = document.getElementById("whiteTransparentOverlayID");
     overlayRef.classList.add("show-overlay-board");
@@ -38,21 +40,30 @@ async function loadData(path=""){
 }
 
 
+async function patchData(path="", data={}){
+   	 let response = await fetch(BASE_URL + path + ".json",{
+        		method: "PATCH",
+        		headers: {
+            	"Content-Type": "application/json",
+        		},
+        		body: JSON.stringify(data)
+   	});
+    return await response.json();
+}
+
+
 async function getTaskEntriesFromDataBase(){
-    let variable;
-    variable = await loadData("/tasks");
+    const variable = await loadData("/tasks");
     const entries = Object.entries(variable ?? {});
     return entries;
 }
 
 
 async function getContactEntriesFromDataBase(){
-    let variable;
-    variable = await loadData("/contacts");
+    const variable = await loadData("/contacts");
     const entries = Object.entries(variable ?? {});
     return entries;
 }
-
 
 
 async function loadCardsToDo() {

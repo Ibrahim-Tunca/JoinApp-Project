@@ -142,9 +142,40 @@ async function getContacts(id){
 }
 
 
-function subTaskDone(subtaskID){
+async function updateStatusFromSubtask(subtaskID, taskID, bool){
+    return await patchData("/tasks/" + taskID + "/subtasks/" + subtaskID,{
+        status: bool
+    });
+}
+
+
+async function subTaskDone(subtaskID, taskID){
     const subTaskRef = document.getElementById("subTaskNr" + subtaskID);
-    subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
+    
+
+    for (let index = 0; index < globalSubtasks.length; index++) {
+        const currentSubtaskID = globalSubtasks[index].id;
+
+        if(currentSubtaskID === subtaskID){
+            const subtaskStatus = globalSubtasks[index].status;
+            if(subtaskStatus == false){
+                subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
+                const trueBool = true;
+                globalSubtasks[index].status = trueBool;
+                updateStatusFromSubtask(subtaskID, taskID, trueBool);
+            }
+            if(subtaskStatus == true){
+                subTaskRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
+                const falseBool = false;
+                globalSubtasks[index].status = falseBool;
+                updateStatusFromSubtask(subtaskID, taskID, falseBool); 
+            }
+            
+        }
+        
+        
+    }
+    
     
 }
 
@@ -158,20 +189,23 @@ async function getSubtasks(id){
     for (let index = 0; index < tasks.length; index++) {
         const taskID = tasks[index][0];
         const subtasksArray = tasks[index][1].subtasks || [];
-        
         if(taskID === id){
             for (let index = 0; index < subtasksArray.length; index++) {
                 const subtask = subtasksArray[index].value;
                 const subtaskID = subtasksArray[index].id;
+                globalSubtasks = subtasksArray;
+                
+                
                 
                 cardDetailSubtaskContainerRef.innerHTML +=  `
                                                                 <div class="subtask-single-container-userstory">
-                                                                    <span onclick="subTaskDone(${subtaskID})" class="subtask-checkbox-cardDetail" id="subTaskNr${subtaskID}"></span>
+                                                                    <span onclick="subTaskDone(${subtaskID}, '${id}')" class="subtask-checkbox-cardDetail" id="subTaskNr${subtaskID}"></span>
                                                                     <span class="regular-span-font-userstory">${subtask}</span>
                                                                 </div>
                                                             `
                 
             }
+            
             
             
         }
@@ -190,7 +224,7 @@ async function showCardDetail(id, title, description, category, date, priority){
     const priorityRef = document.getElementById("cardDetailPriorityID");
     
     
-
+    
 
 
     categoryRef.innerHTML = category;

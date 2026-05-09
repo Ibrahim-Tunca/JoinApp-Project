@@ -98,7 +98,7 @@ function pasteSubtaskUnderInputfield(){
     const subtaskValue = document.forms["addTaskForm"]["subtaskform"].value;
     const createdSubtasksContainer = document.getElementById("createdSubtasksContainerID");
 
-    subtasks.push({id: subtaskID, value: subtaskValue});
+    subtasks.push({id: subtaskID, value: subtaskValue, status: false});
     createdSubtasksContainer.innerHTML += pasteSubtaskUnderInputfieldTemplate(subtaskID, subtaskValue);
 
     subtaskID++;
