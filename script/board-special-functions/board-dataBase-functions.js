@@ -17,6 +17,26 @@ async function patchData(path="", data={}){
 }
 
 
+async function getData(path="", taskID = ""){
+	const requestPath = taskID ? `${path}/${taskID}` : path;
+
+	const response = await fetch(BASE_URL + path + ".json", {
+				method: "GET",
+				headers: {
+				"Content-Type": "application/json",	
+				},
+
+	});
+	const responseToJson = await response.json();
+	return responseToJson;
+}
+
+
+async function getTaskById(taskID) {
+    return await loadData(`/tasks/${taskID}`);
+}
+
+
 async function getTaskEntriesFromDataBase(){
     const variable = await loadData("/tasks");
     const entries = Object.entries(variable ?? {});

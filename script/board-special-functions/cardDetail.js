@@ -73,26 +73,35 @@ async function getContacts(id){
 }
 
 
+async function getSubtaskArrayFromDataBaseByID(taskID){
+    const task = await getTaskById(taskID);
+    const subtaskArray = task.subtasks;
+    return subtaskArray;
+}
+
+
 async function subTaskDone(subtaskID, taskID){
     const subTaskRef = document.getElementById("subTaskNr" + subtaskID);
+    const subtaskArray = await getSubtaskArrayFromDataBaseByID(taskID);
+    
     
 
-    for (let index = 0; index < globalSubtasks.length; index++) {
-        const currentSubtaskID = globalSubtasks[index].id;
+    for (let index = 0; index < subtaskArray.length; index++) {
+        const currentSubtaskID = subtaskArray[index].id;
 
         if(currentSubtaskID === subtaskID){
-            const subtaskStatus = globalSubtasks[index].status;
+            const subtaskStatus = subtaskArray[index].status;
             if(subtaskStatus == false){
                 subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
                 const trueBool = true;
-                globalSubtasks[index].status = trueBool;
                 updateStatusFromSubtask(subtaskID, taskID, trueBool);
+                await loadCardsToDo();
             }
             if(subtaskStatus == true){
                 subTaskRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
                 const falseBool = false;
-                globalSubtasks[index].status = falseBool;
                 updateStatusFromSubtask(subtaskID, taskID, falseBool); 
+                await loadCardsToDo();
             }
             
 
@@ -119,8 +128,6 @@ async function getSubtasks(id){
                 const subtask = subtasksArray[index];
                 const subtaskValue = subtasksArray[index].value;
                 const subtaskID = subtasksArray[index].id;
-                
-                globalSubtasks = subtasksArray;
                 
                 
                 
@@ -165,7 +172,7 @@ async function showCardDetail(id, title, description, category, date, priority){
     const descriptionRef = document.getElementById("cardDetailDescriptionID");
     const dateRef = document.getElementById("cardDetailDateID");
     const priorityRef = document.getElementById("cardDetailPriorityID");
-    
+
 
     categoryRef.innerHTML = category;
     titleRef.innerHTML = title;

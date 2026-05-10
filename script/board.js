@@ -1,5 +1,3 @@
-let globalSubtasks = [];
-
 function showWhiteTransparentOverlay(){
     const overlayRef = document.getElementById("whiteTransparentOverlayID");
     overlayRef.classList.add("show-overlay-board");
@@ -33,12 +31,11 @@ function hideCardDetailWindow(){
 }
 
 
-
-
-
 async function loadCardsToDo() {
     const toDoContainerRef = document.getElementById("toDoContainerID");
     const entries = await getTaskEntriesFromDataBase(); 
+
+    toDoContainerRef.innerHTML = "";
 
     for (let index = 0; index < entries.length; index++) {
         const taskID = entries[index][0];

@@ -25,16 +25,29 @@ function getHeadlineCardColor(category, id){
 }
 
 
+function countFinishedSubtasks(subtasks){
+    let subtaskCounter = 0;
+    for (let index = 0; index < subtasks.length; index++) {
+        const currentSubtaskStatus = subtasks[index].status;
+        if(currentSubtaskStatus == true){
+            subtaskCounter++
+        }
+    }
+    return subtaskCounter;
+}
+
+
 function showSubtaskProgress(subtasks, id){
     const subTaskContainerRef = document.getElementById("subTaskContainerNr" + id);
+    const finishedSubTasks = countFinishedSubtasks(subtasks);
 
     if(subtasks.length < 1){
         return;
     }
 
     subTaskContainerRef.innerHTML = `
-                                        <progress class="progress-bar-style-board" value="0" max="100"></progress>
-                                        <span >0/${subtasks.length} Subtasks</span>
+                                        <progress class="progress-bar-style-board" value="${finishedSubTasks}" max="${subtasks.length}"></progress>
+                                        <span >${finishedSubTasks}/${subtasks.length} Subtasks</span>
                                     `
     return;
 }
