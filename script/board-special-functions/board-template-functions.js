@@ -171,12 +171,29 @@ async function subTaskDone(subtaskID, taskID){
                 updateStatusFromSubtask(subtaskID, taskID, falseBool); 
             }
             
+
         }
         
         
     }
     
     
+}
+
+
+function subtaskSetTheRigthCheckBoxImg(subtask){
+    const subTaskRef = document.getElementById("subTaskNr" + subtask.id);
+
+    if(subtask.status == false){
+        subTaskRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
+        return;
+    }
+    if(subtask.status == true){
+        subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
+        return;
+    }
+    
+
 }
 
 
@@ -191,8 +208,10 @@ async function getSubtasks(id){
         const subtasksArray = tasks[index][1].subtasks || [];
         if(taskID === id){
             for (let index = 0; index < subtasksArray.length; index++) {
-                const subtask = subtasksArray[index].value;
+                const subtask = subtasksArray[index];
+                const subtaskValue = subtasksArray[index].value;
                 const subtaskID = subtasksArray[index].id;
+                
                 globalSubtasks = subtasksArray;
                 
                 
@@ -200,10 +219,10 @@ async function getSubtasks(id){
                 cardDetailSubtaskContainerRef.innerHTML +=  `
                                                                 <div class="subtask-single-container-userstory">
                                                                     <span onclick="subTaskDone(${subtaskID}, '${id}')" class="subtask-checkbox-cardDetail" id="subTaskNr${subtaskID}"></span>
-                                                                    <span class="regular-span-font-userstory">${subtask}</span>
+                                                                    <span class="regular-span-font-userstory">${subtaskValue}</span>
                                                                 </div>
                                                             `
-                
+                subtaskSetTheRigthCheckBoxImg(subtask);
             }
             
             
