@@ -25,7 +25,8 @@ async function addNewTask(title, description, date, category) {
             priority: priority,
             category: category,
             contacts: choosedContacts,
-            subtasks: subtasks
+            subtasks: subtasks,
+            status: "todo"
         });
     priority = "";
     choosedContacts = [];

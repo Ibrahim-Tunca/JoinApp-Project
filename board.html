@@ -27,6 +27,7 @@
     <script src="./script/board-special-functions/cardDetail.js"></script>
     <script src="./script/board-special-functions/board-dataBase-functions.js"></script>
     <script src="./script/board-special-functions/board-template-functions.js"></script>
+    <script src="./script/board-special-functions/sortCardsInCorrectContainer.js"></script>
 
     <script defer src="./script/addTask.js"></script>
     <script src="./script/addTask-special-functions/inputAndSelectFields.js"></script>
@@ -35,7 +36,7 @@
 
 
 </head>
-<body onload="loadContacts(),  loadCardsToDo()">
+<body onload="loadContacts(),  renderAllCards()">
 
     <div onclick="hideAddTaskWindow(), hideCardDetailWindow()" class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
     <div class="succesfull-popup" id="popUpSuccesID">Task added to board <img class="board-icon-add-task" src="./img/addTask/Board_white.svg"></div>
@@ -100,7 +101,7 @@
                         </div>
                     </div>
 
-                    <div id="toDoContainerID">
+                    <div class="cards-container-board" id="toDoContainerID" ondrop="moveTo('toDoContainerID')" ondragleave="removeContainerDragHover('toDoContainerID')" ondragover="allowDrop(event), getContainerDragHover('toDoContainerID')">
                         
                     </div>
 
@@ -116,13 +117,15 @@
                         </div>
                     </div>
 
-                    
+                    <div class="cards-container-board" id="inProgressContainerID" ondrop="moveTo('inProgressContainerID')" ondragleave="removeContainerDragHover('inProgressContainerID')" ondragover="allowDrop(event), getContainerDragHover('inProgressContainerID')">
+                        
+                    </div>
 
                 </div>
 
 
 
-                 <div class="bottom-section-single-container-board">
+                <div class="bottom-section-single-container-board">
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">Await feedback</h2>
@@ -131,81 +134,13 @@
                         </div>
                     </div>
 
-                    <div class="filled-card-board">
-
-                        <div class="headline-card-container-board">
-                            <span class="headline-card-board">User Story</span>
-                        </div>
-
-                        <span class="headline-font-task-card">
-                            Kochwelt Page & Recipe Recommender 
-                        </span>
-
-                        <span class="description-font-card">
-                            Build Start Page with start Recommendation
-                        </span>
-
-                        <div class="progress-container-card">
-                            <progress class="progress-bar-style-board" value="32" max="100"></progress>
-                            <span >1/2 Subtasks</span>
-                        </div>
-
-                        <div class="letter-ball-and-priority-container">
-                            <div class="letter-ball-container">
-                                <div class="letter-ball-card-1">
-                                    AM
-                                </div>
-                                <div class="letter-ball-card-2">
-                                    AM
-                                </div>
-                                <div class="letter-ball-card-3">
-                                    AM
-                                </div>
-                            </div>
-                            <img class="prio-icon-card" src="./img/addTask/prio-medium.svg" alt="">
-                        </div>
-
-                    </div>
-
-
-                    <div class="filled-card-board">
-
-                        <div class="headline-card-container-board">
-                            <span class="headline-card-board">User Story</span>
-                        </div>
-
-                        <span class="headline-font-task-card">
-                            Kochwelt Page & Recipe Recommender 
-                        </span>
-
-                        <span class="description-font-card">
-                            Build Start Page with start Recommendation
-                        </span>
-
-                        <div class="progress-container-card">
-                            <progress class="progress-bar-style-board" value="32" max="100"></progress>
-                            <span >1/2 Subtasks</span>
-                        </div>
-
-                        <div class="letter-ball-and-priority-container">
-                            <div class="letter-ball-container">
-                                <div class="letter-ball-card-1">
-                                    AM
-                                </div>
-                                <div class="letter-ball-card-2">
-                                    AM
-                                </div>
-                                <div class="letter-ball-card-3">
-                                    AM
-                                </div>
-                            </div>
-                            <img class="prio-icon-card" src="./img/addTask/prio-medium.svg" alt="">
-                        </div>
-
+                    <div class="cards-container-board" id="awaitFeedbackContainerID" ondrop="moveTo('awaitFeedbackContainerID')" ondragleave="removeContainerDragHover('awaitFeedbackContainerID')" ondragover="allowDrop(event), getContainerDragHover('awaitFeedbackContainerID')">
+                        
                     </div>
 
                 </div>
 
+        
                 <div class="bottom-section-single-container-board">
 
                         <div class="headline-container-board">
@@ -215,8 +150,8 @@
                             </div>
                         </div>
 
-                        <div class="no-task-to-do">
-                            No Task To do
+                        <div class="cards-container-board" id="doneContainerID" ondrop="moveTo('doneContainerID')" ondragleave="removeContainerDragHover('doneContainerID')" ondragover="allowDrop(event), getContainerDragHover('doneContainerID')">
+                        
                         </div>
 
                     </div>

@@ -140,3 +140,11 @@
             color: #005DFF;
         }
 
+.cards-container-board{
+    height: 536px;
+}
+
+.cards-container-drag-hover-board{
+    background-color: #D2E3FF;
+    border-radius: 22px;
+}

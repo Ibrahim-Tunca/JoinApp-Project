@@ -88,10 +88,19 @@ async function updateStatusFromSubtask(subtaskID, taskID, bool){
     });
 }
 
+async function updateStatusFromTask(taskID, status){
+    return await patchData("/tasks/" + taskID,{
+        status: status
+    });
+}
+
+
+
+
 
 function getCardTemplate(id, title, description, category, date, priority){
     return  `
-                <div class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
+                <div draggable="true" ondragstart="moveTask('${id}')" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
 
                     <div class="headline-card-container-board">
                         <span class="headline-card-board" id="categoryNr${id}">${category}</span>

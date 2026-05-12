@@ -95,13 +95,13 @@ async function subTaskDone(subtaskID, taskID){
                 subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
                 const trueBool = true;
                 await updateStatusFromSubtask(subtaskID, taskID, trueBool);
-                await loadCardsToDo();
+                await renderAllCards();
             }
             if(subtaskStatus == true){
                 subTaskRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
                 const falseBool = false;
                 await updateStatusFromSubtask(subtaskID, taskID, falseBool); 
-                await loadCardsToDo();
+                await renderAllCards();
             }
             
 
