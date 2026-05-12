@@ -25,6 +25,7 @@
     <script src="./script/popUp.js"></script>
     <script src="./script/board.js"></script>
     <script src="./script/board-special-functions/cardDetail.js"></script>
+    <script src="./script/board-special-functions/drag-and-drop-functions.js"></script>
     <script src="./script/board-special-functions/board-dataBase-functions.js"></script>
     <script src="./script/board-special-functions/board-template-functions.js"></script>
     <script src="./script/board-special-functions/sortCardsInCorrectContainer.js"></script>
@@ -101,7 +102,7 @@
                         </div>
                     </div>
 
-                    <div class="cards-container-board" id="toDoContainerID" ondrop="moveTo('toDoContainerID')" ondragleave="removeContainerDragHover('toDoContainerID')" ondragover="allowDrop(event), getContainerDragHover('toDoContainerID')">
+                    <div class="cards-container-board" id="toDoContainerID" ondrop="moveTo('toDoContainerID')" onmouseleave="removeContainerDragHover('toDoContainerID')" ondragleave="removeContainerDragHover('toDoContainerID')" ondragover="allowDrop(event), getContainerDragHover('toDoContainerID')">
                         
                     </div>
 
@@ -117,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div class="cards-container-board" id="inProgressContainerID" ondrop="moveTo('inProgressContainerID')" ondragleave="removeContainerDragHover('inProgressContainerID')" ondragover="allowDrop(event), getContainerDragHover('inProgressContainerID')">
+                    <div class="cards-container-board" id="inProgressContainerID" ondrop="moveTo('inProgressContainerID')" onmouseleave="removeContainerDragHover('inProgressContainerID')" ondragleave="removeContainerDragHover('inProgressContainerID')" ondragover="allowDrop(event), getContainerDragHover('inProgressContainerID')">
                         
                     </div>
 
@@ -134,7 +135,7 @@
                         </div>
                     </div>
 
-                    <div class="cards-container-board" id="awaitFeedbackContainerID" ondrop="moveTo('awaitFeedbackContainerID')" ondragleave="removeContainerDragHover('awaitFeedbackContainerID')" ondragover="allowDrop(event), getContainerDragHover('awaitFeedbackContainerID')">
+                    <div class="cards-container-board" id="awaitFeedbackContainerID" ondrop="moveTo('awaitFeedbackContainerID')" onmouseleave="removeContainerDragHover('awaitFeedbackContainerID')" ondragleave="removeContainerDragHover('awaitFeedbackContainerID')" ondragover="allowDrop(event), getContainerDragHover('awaitFeedbackContainerID')">
                         
                     </div>
 
@@ -150,7 +151,7 @@
                             </div>
                         </div>
 
-                        <div class="cards-container-board" id="doneContainerID" ondrop="moveTo('doneContainerID')" ondragleave="removeContainerDragHover('doneContainerID')" ondragover="allowDrop(event), getContainerDragHover('doneContainerID')">
+                        <div class="cards-container-board" id="doneContainerID" ondrop="moveTo('doneContainerID')" onmouseleave="removeContainerDragHover('doneContainerID')" ondragleave="removeContainerDragHover('doneContainerID')" ondragover="allowDrop(event), getContainerDragHover('doneContainerID')">
                         
                         </div>
 
