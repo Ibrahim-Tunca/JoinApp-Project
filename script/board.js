@@ -1,5 +1,7 @@
 let currentDraggedTaskID;
 
+let currentClickedTaskID;
+
 function showWhiteTransparentOverlay(){
     const overlayRef = document.getElementById("whiteTransparentOverlayID");
     overlayRef.classList.add("show-overlay-board");
@@ -80,3 +82,4 @@ function getCardValues(tasks, containerRef){
     }
 
 }
+

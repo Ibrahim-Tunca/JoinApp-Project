@@ -37,7 +37,7 @@
 
 
 </head>
-<body onload="loadContacts(),  renderAllCards()">
+<body onload="loadContacts(), renderAllCards()">
 
     <div onclick="hideAddTaskWindow(), hideCardDetailWindow()" class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
     <div class="succesfull-popup" id="popUpSuccesID">Task added to board <img class="board-icon-add-task" src="./img/addTask/Board_white.svg"></div>
@@ -334,7 +334,7 @@
                         <span class="edit-delete-font-userstory">Delete</span>
                     </div>
                     <separator class="edit-delete-separator-userstory"></separator>
-                    <div class="edit-single-container-userstory">
+                    <div onclick="editCardDetail()" class="edit-single-container-userstory">
                         <img class="edit-icon-userstory" src="./img/pencil.svg" alt="">
                         <span class="edit-delete-font-userstory">Edit</span>
                     </div>

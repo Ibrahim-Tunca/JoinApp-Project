@@ -172,7 +172,7 @@ async function showCardDetail(id, title, description, category, date, priority){
     const descriptionRef = document.getElementById("cardDetailDescriptionID");
     const dateRef = document.getElementById("cardDetailDateID");
     const priorityRef = document.getElementById("cardDetailPriorityID");
-
+    currentClickedTaskID = id;
 
     categoryRef.innerHTML = category;
     titleRef.innerHTML = title;
@@ -183,4 +183,102 @@ async function showCardDetail(id, title, description, category, date, priority){
     getSubtasks(id);
     getHeadlineCardDetailColor(category, id);
     cardDetailContainerRef.classList.add("top-50-percent");
+}
+
+async function editCardDetail(){
+    const cardDetailRef = document.getElementById("cardDetailContainerID");
+    const task = await getTaskById(currentClickedTaskID);
+
+    const title = task.title;
+    const description = task.description;
+    const date = task.date;
+    const priority = task.priority;
+    const subtaskArray = task.subtasks;
+    const contacts = task.contacts;
+
+    
+    
+    
+    subtasks = subtaskArray;
+    choosedContacts = contacts;
+
+
+    cardDetailRef.innerHTML =   `
+                                    <div style="display: flex; justify-content: flex-end">
+                                        <img 
+                                                class="close-button-userstory" 
+                                                src="./img/close-blue.svg"
+                                                onclick="hideCardDetailWindow()"
+                                                onmouseenter="this.src='./img/close-deep-blue.svg'"
+                                                onmouseleave="this.src='./img/close-blue.svg'"
+                                        >
+                                    </div>
+
+                                    <input name="addTaskTitle" class="input-title-addTask" type="text" value="${title}" id="titleID">
+
+                                    <div class="margin-top-add-task">
+                                        <span class="font-bold-add-task">Description</span>
+                                    </div>
+                                    <textarea class="textarea-description-addtask" name="addTaskDescription">${description}</textarea>
+
+                                    <div class="margin-top-add-task">
+                                        <span class="font-bold-add-task">Due date</span>
+                                    </div>
+                                    <input class="input-date-addTask" type="date" name="addTaskDate" value="${date}" id="dateID">
+
+                                    <priority class="margin-top-bigger-add-task">
+                                        <span class="font-bold-add-task">Priority</span>
+                                        <div class="prio-buttons-order-addTask margin-top-add-task" id="prioID">
+                                            <button onclick="setPrioToUrgent()" type="button" class="prio-buttons-addTask high-prio-button-addTask" id="urgentPrioID">Urgent<img class="prio-icons-addTask" src="./img/addTask/prio-high.svg" id="urgentPrioIMGID"></button>
+                                            <button onclick="setPrioToMedium()" type="button" class="prio-buttons-addTask mid-prio-button-addTask" id="mediumPrioID">Medium<img class="prio-icons-addTask" src="./img/addTask/prio-medium.svg" id="midPrioIMGID"></button>
+                                            <button onclick="setPrioToLow()" type="button" class="prio-buttons-addTask low-prio-button-addTask" id="lowPrioID">Low<img class="prio-icons-addTask" src="./img/addTask/prio-low.svg" id="lowPrioIMGID"></button>
+                                        </div>
+                                    </priority>
+
+                                    <assignedTo class="margin-top-bigger-add-task">
+                                        <span class="font-bold-add-task">Assigned to</span>
+                                    </assignedTo>
+
+                                    
+
+
+                                    <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select contacts to assign">
+                                        <input type="hidden" name="contacts" value="">
+                                        
+                                        <button type="button" class="custom-select-toggle-addTask">
+                                            <span class="custom-select-label-addTask">Select contacts to assign</span>
+                                            <span class="custom-select-arrow-wrap-addTask">
+                                                <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg" alt="">
+                                            </span>
+                                        </button>
+
+                                        <div class="custom-select-menu-addTask d_none" id="contactSelectionCardDetailID">
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-inital-ball-container-under-contact-option" id="initialBallContainerCardDetailID"></div>
+
+
+                                    <subtask class="margin-top-bigger-add-task">
+                                        <span class="font-bold-add-task">Subtask</span><span class="font-normal-add-task"> (optional)</span>
+                                        
+                                    </subtask>
+
+                                    <div class="wrapper-div-container margin-top-add-task margin-bottom-add-task">
+                                        <input onkeyup="showButtons()" name="subtaskform" class="input-subtask-addTask" type="text" placeholder="add new subtask" id="subtaskValueID">
+                                        
+                                        <div class="cancel-and-confirm-container d_none" id="subtasksInputfieldButtonContainerID">
+                                                <img onclick="deleteInputValueSubtask()" class="cancel-icon" src="./img/addTask/cancel.svg">
+                                                <span class="cancel-and-confirm-separator"></span>
+                                                <img onclick="pasteSubtaskUnderInputfield()" class="confirm-icon" src="./img/addTask/confirm.svg">
+                                        </div>
+                                    </div>
+                                `
+                                  
+                                initCustomSelects();
+                                await loadContactsInCardDetailWindow(); 
+                                generateInitalBallUnderContactOptionCardDetail();
+                                
+                                
+                                 
 }

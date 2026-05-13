@@ -16,6 +16,7 @@ async function loadContacts(){
     
 }
 
+
 async function addNewTask(title, description, date, category) {
 
         const response = await postData("/tasks/",{
