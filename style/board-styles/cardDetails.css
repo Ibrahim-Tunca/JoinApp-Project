@@ -65,6 +65,8 @@
     font-size: 61px;
     font-weight: 700;
     margin: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .priotity-medium-icon-userstory{
