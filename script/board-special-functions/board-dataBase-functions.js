@@ -12,6 +12,8 @@ async function loadContactsInCardDetailWindow(){
         const contactKey = entries[index][0];                
 
         contactSelectionContainerRef.innerHTML += contactSelectionTemplateCardDetail(contactKey, contactInitals, contactColor, contactName);
+        setContactInFocusWhenContactIsAlreadyInTheArray(contactKey);
+        
     }
     
 }
@@ -33,9 +35,9 @@ function generateInitalBallUnderContactOptionCardDetail(){
 
 
 function contactSelectionTemplateCardDetail(id, initials, color, name){
-    return `<label class="contact-option-addTask" id="contactID${id}">
+    return `<label class="contact-option-addTask" id="contactCardDetailID${id}">
                 <input
-                    onchange="addContactInTask('${id}', '${initials}', '${color}', generateInitalBallUnderContactOptionCardDetail())"
+                    onchange="addContactInCardDetailTask('${id}', '${initials}', '${color}', generateInitalBallUnderContactOptionCardDetail())"
                     class="contact-checkbox-addTask"
                     type="checkbox"
                     name="contacts"
@@ -45,9 +47,80 @@ function contactSelectionTemplateCardDetail(id, initials, color, name){
                     <div class="contact-initial-ball ${color}">${initials}</div>
                     <span class="contact-option-font">${name}</span>
                 </div>
-                <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxID${id}"></span>
+                <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxCarddetailID${id}"></span>
             </label>`
+            
 }
+
+function addContactInCardDetailTask(id, initials, color){
+    let contactFound = checkIfContactAreAlreadyInArrayCardDetail(id);
+
+    if(contactFound){
+        return;
+    }
+    
+    choosedContacts.push({id: id, initals: initials, color: color});
+    console.log(choosedContacts);
+    return;
+}
+
+
+function checkIfContactAreAlreadyInArrayCardDetail(id){
+
+    for (let index = 0; index < choosedContacts.length; index++) {
+        const currentContactID = choosedContacts[index].id;
+        if(currentContactID === id){
+            setContactInUnfocusInCardetail(id);
+            choosedContacts.splice(index, 1);
+            return true;
+        }
+    }
+    setContactInFocusInCardetail(id);
+    return false;
+}
+
+function setContactInFocusWhenContactIsAlreadyInTheArray(id){
+    for (let index = 0; index < choosedContacts.length; index++) {
+        const currentContactID = choosedContacts[index].id;
+        if(currentContactID === id){
+            setContactInFocusInCardetail(id);
+        }
+    }
+}
+
+function setContactInFocusInCardetail(id){
+    contactRef = document.getElementById("contactCardDetailID" + id);
+    checkBoxRef = document.getElementById("checkBoxCarddetailID" + id);
+
+    contactRef.classList.add("contact-option-addTask-focused");
+    checkBoxRef.style.backgroundImage = 'url("./img/addTask/checkbox_checked_white.svg")';
+}
+
+
+function setContactInUnfocusInCardetail(id){
+    contactRef = document.getElementById("contactCardDetailID" + id);
+    checkBoxRef = document.getElementById("checkBoxCarddetailID" + id);
+
+    contactRef.classList.remove("contact-option-addTask-focused");
+    checkBoxRef.style.backgroundImage = 'url("../img/checkbox_unchecked.svg")';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 async function loadData(path=""){
@@ -67,7 +140,6 @@ async function patchData(path="", data={}){
    	});
     return await response.json();
 }
-
 
 async function getData(path="", taskID = ""){
 	const requestPath = taskID ? `${path}/${taskID}` : path;

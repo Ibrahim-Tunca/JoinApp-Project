@@ -204,6 +204,7 @@ async function editCardDetail(){
 
 
     cardDetailRef.innerHTML =   `
+                                <form onsubmit="validateAddTaskForm(event)" name="addTaskFormInCardDetail" class="addTask-maincontainer-board slide-addTask-window-board" id="addTaskFormInCardDetail">
                                     <div style="display: flex; justify-content: flex-end">
                                         <img 
                                                 class="close-button-userstory" 
@@ -260,19 +261,22 @@ async function editCardDetail(){
 
 
                                     <subtask class="margin-top-bigger-add-task">
-                                        <span class="font-bold-add-task">Subtask</span><span class="font-normal-add-task"> (optional)</span>
-                                        
+                                        <span class="font-bold-add-task">Subtask</span>
                                     </subtask>
 
                                     <div class="wrapper-div-container margin-top-add-task margin-bottom-add-task">
-                                        <input onkeyup="showButtons()" name="subtaskform" class="input-subtask-addTask" type="text" placeholder="add new subtask" id="subtaskValueID">
+                                        <input onkeyup="showButtonsCardDetail" name="subtaskformInCardDetail" class="input-subtask-addTask" type="text" placeholder="add new subtask" id="subtaskValueID">
                                         
-                                        <div class="cancel-and-confirm-container d_none" id="subtasksInputfieldButtonContainerID">
+                                        <div class="cancel-and-confirm-container d_none" id="subtasksInputfieldButtonCardDetailContainerID">
                                                 <img onclick="deleteInputValueSubtask()" class="cancel-icon" src="./img/addTask/cancel.svg">
                                                 <span class="cancel-and-confirm-separator"></span>
-                                                <img onclick="pasteSubtaskUnderInputfield()" class="confirm-icon" src="./img/addTask/confirm.svg">
+                                                <img onclick="pasteSubtaskUnderInputfieldCardDetail()" class="confirm-icon" src="./img/addTask/confirm.svg">
                                         </div>
                                     </div>
+
+                                    <div class="subtask-container-window" id="createdSubtasksInCardDetailContainerID"></div>
+                                
+                                </form>
                                 `
                                   
                                 initCustomSelects();

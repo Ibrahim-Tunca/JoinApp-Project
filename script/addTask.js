@@ -38,7 +38,6 @@ function addContactInTask(id, initials, color){
     }
     
     choosedContacts.push({id: id, initals: initials, color: color});
-    console.log(choosedContacts);
     return;
 }
 
