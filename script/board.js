@@ -14,15 +14,33 @@ function hideWhiteTransparentOverlay(){
 }
 
 
-function showAddTaskWindow(){
+function showAddTaskWindow() {
+    const sectionContainerRef = document.getElementById("formContainerID");
+    sectionContainerRef.innerHTML = getAddTaskFormTemplate();
+
     const addTaskWindowRef = document.getElementById("addTaskForm");
-    addTaskWindowRef.classList.remove("slide-addTask-window-board");
+
     showWhiteTransparentOverlay();
+    initCustomSelects();
+    loadContacts();
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            addTaskWindowRef.classList.remove("slide-addTask-window-board");
+        });
+    });
 }
+
+
 
 
 function hideAddTaskWindow(){
     const addTaskWindowRef = document.getElementById("addTaskForm");
+
+    if(!addTaskWindowRef){
+        return
+    }
+
     addTaskWindowRef.classList.add("slide-addTask-window-board");
     hideWhiteTransparentOverlay();
 }
@@ -30,6 +48,11 @@ function hideAddTaskWindow(){
 
 function hideCardDetailWindow(){
     const cardDetailContainerRef = document.getElementById("cardDetailContainerID");
+
+    if(!cardDetailContainerRef){
+        return
+    }
+
     cardDetailContainerRef.classList.remove("top-50-percent");
     hideWhiteTransparentOverlay();
 }

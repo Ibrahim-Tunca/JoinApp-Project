@@ -146,6 +146,18 @@ async function getSubtasks(id){
     }
 } 
 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+/*==========================================================================================================================================*/ 
+
+
+
+
 
 function subtaskSetTheRigthCheckBoxImg(subtask){
     const subTaskRef = document.getElementById("subTaskNr" + subtask.id);
@@ -165,7 +177,9 @@ function subtaskSetTheRigthCheckBoxImg(subtask){
 
 async function showCardDetail(id, title, description, category, date, priority){
     showWhiteTransparentOverlay();
-    const cardDetailContainerRef = document.getElementById("cardDetailContainerID");
+    const formContainerRef = document.getElementById("formContainerID");
+    formContainerRef.innerHTML = getCardDetailTemplate();
+    const cardDetailContainer = document.getElementById("cardDetailContainerID");
 
     const categoryRef = document.getElementById("cardDetailCategoryID");
     const titleRef = document.getElementById("cardDetailTitleID");
@@ -182,7 +196,13 @@ async function showCardDetail(id, title, description, category, date, priority){
     getContacts(id);
     getSubtasks(id);
     getHeadlineCardDetailColor(category, id);
-    cardDetailContainerRef.classList.add("top-50-percent");
+    
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            cardDetailContainer.classList.add("top-50-percent");
+        });
+    });
+   
 }
 
 async function editCardDetail(){
