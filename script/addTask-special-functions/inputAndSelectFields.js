@@ -61,7 +61,7 @@ function setPrioToUrgent(){
 }
 
 
-function setContactInFocus(id){
+function setContactInFocus(id){    
     contactRef = document.getElementById("contactID" + id);
     checkBoxRef = document.getElementById("checkBoxID" + id);
 
