@@ -78,7 +78,7 @@ function getCardDetailTemplate(){
                         </subtasks>
 
                         <edit-delete class="edit-delete-container-userstory">
-                            <div class="delete-single-container-userstory">
+                            <div onclick="deleteTask()" class="delete-single-container-userstory">
                                 <img class="delete-icon-userstory" src="./img/trashcan.svg">
                                 <span class="edit-delete-font-userstory">Delete</span>
                             </div>
@@ -95,7 +95,7 @@ function getCardDetailTemplate(){
 }
 
 
-function getCardDetailEditTemplate(title, description, date){
+function getCardDetailEditTemplate(title, description, date, category){
     return  `
                     <div class="close-button-carddetail-edit">
                             <img 
@@ -107,7 +107,7 @@ function getCardDetailEditTemplate(title, description, date){
                             >
                     </div>
 
-                    <form onsubmit="validateAddTaskForm(event)" name="addTaskForm" class="addTask-cardDetailContainer-board" id="addTaskForm">
+                    <form onsubmit="updateTask(event)" name="addTaskForm" class="addTask-cardDetailContainer-board" id="addTaskForm">
 
                         
 
@@ -141,7 +141,7 @@ function getCardDetailEditTemplate(title, description, date){
 
 
                         <assignedTo class="margin-top-bigger-add-task">
-                            <span class="font-bold-add-task">Assigned to</span><span class="font-normal-add-task"> (optional)</span>
+                            <span class="font-bold-add-task">Assigned to</span>
                         </assignedTo>
 
 
@@ -164,7 +164,7 @@ function getCardDetailEditTemplate(title, description, date){
 
 
                         <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category" id="categoryID">
-                            <input type="hidden" name="taskCategory">
+                            <input type="hidden" value="${category}" name="taskCategory">
                             
                             <button type="button" class="custom-select-toggle-addTask underline-color-select-category">
                                 <span class="custom-select-label-addTask">Select task category</span>
@@ -183,7 +183,7 @@ function getCardDetailEditTemplate(title, description, date){
 
 
                         <subtask class="margin-top-bigger-add-task">
-                            <span class="font-bold-add-task">Subtask</span><span class="font-normal-add-task"> (optional)</span>
+                            <span class="font-bold-add-task">Subtask</span>
                             
                         </subtask>
 

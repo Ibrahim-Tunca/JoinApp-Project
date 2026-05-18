@@ -38,6 +38,14 @@ async function patchData(path="", data={}){
 }
 
 
+async function deleteData(path=""){
+    let response = await fetch(BASE_URL + path + ".json",{
+        method: "DELETE",
+    });
+    return responseToJson = await response.json();
+}
+
+
 async function getData(path="", taskID = ""){
 	const requestPath = taskID ? `${path}/${taskID}` : path;
 
@@ -78,12 +86,19 @@ async function updateStatusFromSubtask(subtaskID, taskID, bool){
     });
 }
 
+
 async function updateStatusFromTask(taskID, status){
     return await patchData("/tasks/" + taskID,{
         status: status
     });
 }
 
+
+async function deleteTask(){
+    await deleteData("/tasks/" + currentClickedTaskID);
+    hideCardDetailWindow();
+    renderAllCards();
+}
 
 
 

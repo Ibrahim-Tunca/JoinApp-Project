@@ -3,10 +3,10 @@ function loadPriorityButton(prio){
         setPrioToLow();
     }
     if(prio === "medium"){
-        setPrioToMedium
+        setPrioToMedium();
     }
     if(prio === "urgent"){
-        setPrioToUrgent
+        setPrioToUrgent();
     }
 }
 
@@ -61,6 +61,7 @@ function showButtonsCardDetail(){
     return;
 }
 
+
 function pasteSubtaskUnderInputfieldCardDetail(){
     const subtasksInputfieldButtonContainerRef = document.getElementById("subtasksInputfieldButtonCardDetailContainerID");
     const subtaskValue = document.forms["addTaskForm"]["subtaskform"].value;
@@ -82,15 +83,25 @@ async function updateStatusFromTask(taskID, status){
 }
 
 
-async function updateTask(){
-    const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
-    const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
-    const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
+async function updateTask(event){
+    event.preventDefault();
+    
+    const titleValue = document.forms["addTaskForm"]["addTaskTitle"].value;
+    const descriptionValue = document.forms["addTaskForm"]["addTaskDescription"].value;
+    const dateValue = document.forms["addTaskForm"]["addTaskDate"].value;
     const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
 
-    return await patchData("/tasks/" + taskID,{
-        status: status
+    await patchData("/tasks/" + currentClickedTaskID,{
+        title: titleValue,
+        description: descriptionValue,
+        date: dateValue,
+        category: taskCategory,
+        priority: priority,
+        contacts: choosedContacts,
+        subtasks: subtasks
     });
+    hideCardDetailWindow();
+    renderAllCards();
 }
 
 
@@ -102,22 +113,20 @@ async function editCardDetail(){
     const description = task.description;
     const date = task.date;
     const priority = task.priority;
+    const category = task.category;
     const subtaskArray = task.subtasks;
     const contacts = task.contacts;
 
     subtasks = subtaskArray;
     choosedContacts = contacts;
 
-
-    cardDetailRef.innerHTML =   getCardDetailEditTemplate(title, description, date);
+    cardDetailRef.innerHTML =   getCardDetailEditTemplate(title, description, date, category);
                                 initCustomSelects();
                                 await loadContacts();
                                 loadPriorityButton(priority);
-
                                 setAllContactsInFocusThatAreAlreadyChoosed();
                                 generateInitalBallUnderContactOption();
-                                renderSubtasks();
-                                                                                            
+                                renderSubtasks();                                                                     
 }
 
 
