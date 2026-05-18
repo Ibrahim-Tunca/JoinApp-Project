@@ -28,8 +28,6 @@ function showAddTaskWindow() {
 }
 
 
-
-
 function hideAddTaskWindow(){
     const addTaskWindowRef = document.getElementById("addTaskForm");
 
