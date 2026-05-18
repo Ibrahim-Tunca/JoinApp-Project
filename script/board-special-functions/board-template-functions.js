@@ -82,19 +82,6 @@ async function getContactsContainerFromTaskByID(id){
 }
 
 
-async function updateStatusFromSubtask(subtaskID, taskID, bool){
-    return await patchData("/tasks/" + taskID + "/subtasks/" + subtaskID,{
-        status: bool
-    });
-}
-
-async function updateStatusFromTask(taskID, status){
-    return await patchData("/tasks/" + taskID,{
-        status: status
-    });
-}
-
-
 function getCardTemplate(id, title, description, category, date, priority){
     return  `
                 <div draggable="true" ondragstart="moveTask('${id}')" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">

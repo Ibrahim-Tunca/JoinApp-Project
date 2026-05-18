@@ -75,6 +75,25 @@ function pasteSubtaskUnderInputfieldCardDetail(){
 }
 
 
+async function updateStatusFromTask(taskID, status){
+    return await patchData("/tasks/" + taskID,{
+        status: status
+    });
+}
+
+
+async function updateTask(){
+    const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
+    const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
+    const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
+    const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
+
+    return await patchData("/tasks/" + taskID,{
+        status: status
+    });
+}
+
+
 async function editCardDetail(){
     const cardDetailRef = document.getElementById("cardDetailContainerID");
     const task = await getTaskById(currentClickedTaskID);
