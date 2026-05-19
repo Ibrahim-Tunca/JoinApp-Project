@@ -53,3 +53,40 @@ function getCardValues(tasks, containerRef){
 
 }
 
+
+async function searchCards() {
+    const searchBarRef = document.getElementById("searchBarID");
+    const searchValue = searchBarRef.value.trim().toLowerCase();
+
+    if (searchValue === "") {
+        renderAllCards();
+        return;
+    }
+
+    const toDoContainerRef = document.getElementById("toDoContainerID");
+    const inProgressContainerRef = document.getElementById("inProgressContainerID");
+    const awaitFeedbackContainerRef = document.getElementById("awaitFeedbackContainerID");
+    const doneContainerRef = document.getElementById("doneContainerID");
+
+    const allTasks = await getTaskEntriesFromDataBase();
+
+    const filteredTasks = allTasks.filter(([, task]) => {
+        const title = (task.title || "").toLowerCase();
+        const description = (task.description || "").toLowerCase();
+        const category = (task.category || "").toLowerCase();
+
+        return title.includes(searchValue) ||
+               description.includes(searchValue) ||
+               category.includes(searchValue);
+    });
+
+    const toDoTasks = filteredTasks.filter(([, task]) => task.status === "todo");
+    const inProgressTasks = filteredTasks.filter(([, task]) => task.status === "inProgress");
+    const awaitFeedbackTasks = filteredTasks.filter(([, task]) => task.status === "awaitFeedback");
+    const doneTasks = filteredTasks.filter(([, task]) => task.status === "done");
+
+    getCardValues(toDoTasks, toDoContainerRef);
+    getCardValues(inProgressTasks, inProgressContainerRef);
+    getCardValues(awaitFeedbackTasks, awaitFeedbackContainerRef);
+    getCardValues(doneTasks, doneContainerRef);
+}
