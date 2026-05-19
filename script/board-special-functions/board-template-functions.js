@@ -78,13 +78,25 @@ function getCardDetailTemplate(){
                         </subtasks>
 
                         <edit-delete class="edit-delete-container-userstory">
-                            <div onclick="deleteTask()" class="delete-single-container-userstory">
+
+                            <div 
+                                onclick="deleteTask()" 
+                                class="delete-single-container-userstory" 
+                                onmouseenter="this.querySelector('.delete-icon-userstory').src='./img/userstory/delete-blue.svg'"
+                                onmouseleave="this.querySelector('.delete-icon-userstory').src='./img/trashcan.svg'" 
+                            >
                                 <img class="delete-icon-userstory" src="./img/trashcan.svg">
                                 <span class="edit-delete-font-userstory">Delete</span>
                             </div>
                             <separator class="edit-delete-separator-userstory"></separator>
-                            <div onclick="editCardDetail()" class="edit-single-container-userstory">
-                                <img class="edit-icon-userstory" src="./img/pencil.svg" alt="">
+                            <div 
+                                onclick="editCardDetail()" 
+                                class="edit-single-container-userstory"
+                                onmouseenter="this.querySelector('.edit-icon-userstory').src='./img/userstory/edit-blue.svg'"
+                                onmouseleave="this.querySelector('.edit-icon-userstory').src='./img/userstory/edit.svg'" 
+                            >
+                                <img class="edit-icon-userstory" 
+                                src="./img/pencil.svg">
                                 <span class="edit-delete-font-userstory">Edit</span>
                             </div>
 

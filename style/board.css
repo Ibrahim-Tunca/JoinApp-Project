@@ -83,7 +83,7 @@
             background-color: #D2E3FF;
         }
 
-.blue-button-borad{
+.addTask-Button-board{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -96,13 +96,19 @@
     background-color: #4589FF;
     border-radius: 8px;
     border-style: none;
+    border: solid 2px #4589FF;
     font-size: 23px;
     transition: 0.2s;
 }
 
-        .blue-button-borad:hover{
+        .addTask-Button-board:hover{
             background-color: #005DFF;
+            border: solid 2px #005DFF;
             cursor: pointer;
+        }
+
+        .addTask-Button-toggle-board{
+            background-color: #091931;
         }
 
 .plus-icon-board{

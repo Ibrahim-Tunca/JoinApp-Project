@@ -188,7 +188,6 @@
         }
         .edit-single-container-userstory:hover .edit-icon-userstory{
             transform: scale(1.1);
-            filter: brightness(0.9);
         }
 
         .delete-single-container-userstory:hover .edit-delete-font-userstory{
@@ -198,7 +197,6 @@
 
         .delete-single-container-userstory:hover .delete-icon-userstory{
             transform: scale(1.1);
-            filter: brightness(0.9);
         }
 
         .edit-delete-single-container-userstory:hover{

@@ -17,6 +17,7 @@ function showAddTaskWindow() {
     const addTaskWindowRef = document.getElementById("addTaskForm");
 
     showWhiteTransparentOverlay();
+    toggleBlackAddTaksButtonColor();
     initCustomSelects();
     loadContacts();
 
@@ -37,6 +38,7 @@ function hideAddTaskWindow(){
 
     addTaskWindowRef.classList.add("slide-addTask-window-board");
     hideWhiteTransparentOverlay();
+    toggleBlueAddTaksButtonColor();
 }
 
 
@@ -49,4 +51,16 @@ function hideCardDetailWindow(){
 
     cardDetailContainerRef.classList.remove("top-50-percent");
     hideWhiteTransparentOverlay();
+}
+
+
+function toggleBlackAddTaksButtonColor(){
+    const addTaskButtonRef = document.getElementById("addTaskButtonID");
+    addTaskButtonRef.classList.add("addTask-Button-toggle-board");
+}
+
+
+function toggleBlueAddTaksButtonColor(){
+    const addTaskButtonRef = document.getElementById("addTaskButtonID");
+    addTaskButtonRef.classList.remove("addTask-Button-toggle-board");
 }

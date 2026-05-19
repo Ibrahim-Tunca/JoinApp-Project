@@ -87,9 +87,13 @@
             <section class="input-addtask-button-container">
                 <div class="inputfield-container-board">
                     <input class="inputfield-board" type="text" name="search" id="" placeholder="Find Task">
-                    <img class="search-icon-board" src="./img/search.svg" alt="">
+                    <img 
+                        class="search-icon-board" 
+                        onmouseenter="this.src='./img/search-blue.svg'"
+                        onmouseleave="this.src='./img/search.svg'"
+                        src="./img/search.svg">
                 </div>
-                <button onclick="showAddTaskWindow()" class="blue-button-borad">
+                <button onclick="showAddTaskWindow()" class="addTask-Button-board" id="addTaskButtonID">
                     Add Task
                     <img class="plus-icon-board" src="./img/plus.svg" alt="">
                 </button>
