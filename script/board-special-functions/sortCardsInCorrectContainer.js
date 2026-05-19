@@ -21,9 +21,22 @@ async function getAwaitFeedbackCards(){
     return cardsArray; 
 }
 
+
 async function getDoneCards(){
     const tasks = await getTaskEntriesFromDataBase();
     const cardsArray = tasks.filter(([, task]) => task.status === "done");
 
     return cardsArray; 
+}
+
+
+function addTaskInInProgressContainer(){
+    currentTaskStatus = "inProgress";
+    showAddTaskWindow();
+}
+
+
+function addTaskInAwaitFeedbackContainer(){
+    currentTaskStatus = "awaitFeedback";
+    showAddTaskWindow();
 }

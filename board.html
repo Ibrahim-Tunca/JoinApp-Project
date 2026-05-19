@@ -101,7 +101,7 @@
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">To do</h2>
-                        <div class="plus-button-board">
+                        <div onclick="showAddTaskWindow()" class="plus-button-board">
                             +
                         </div>
                     </div>
@@ -117,7 +117,7 @@
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">In progress</h2>
-                        <div class="plus-button-board">
+                        <div onclick="addTaskInInProgressContainer()" class="plus-button-board">
                             +
                         </div>
                     </div>
@@ -134,7 +134,7 @@
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">Await feedback</h2>
-                        <div class="plus-button-board">
+                        <div onclick="addTaskInAwaitFeedbackContainer()" class="plus-button-board">
                             +
                         </div>
                     </div>
@@ -150,9 +150,7 @@
 
                         <div class="headline-container-board">
                             <h2 class="h2-font-board">Done</h2>
-                            <div class="plus-button-board">
-                                +
-                            </div>
+                            
                         </div>
 
                         <div class="cards-container-board" id="doneContainerID" ondrop="moveTo('doneContainerID')" onmouseleave="removeContainerDragHover('doneContainerID')" ondragleave="removeContainerDragHover('doneContainerID')" ondragover="allowDrop(event), getContainerDragHover('doneContainerID')">

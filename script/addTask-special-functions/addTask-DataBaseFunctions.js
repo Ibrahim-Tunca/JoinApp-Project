@@ -18,6 +18,7 @@ async function loadContacts(){
 
 
 async function addNewTask(title, description, date, category) {
+    const status = currentTaskStatus || "todo";
 
         const response = await postData("/tasks/",{
             title: title,
@@ -27,11 +28,12 @@ async function addNewTask(title, description, date, category) {
             category: category,
             contacts: choosedContacts,
             subtasks: subtasks,
-            status: "todo"
+            status: status
         });
     priority = "";
     choosedContacts = [];
     subtasks = [];
+    currentTaskStatus = "";
 
     return response;
 }
