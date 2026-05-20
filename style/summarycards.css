@@ -14,6 +14,7 @@
     justify-content: center;
     text-align: center;
     margin-top: 10px;
+    text-decoration: none;
 }
 
 .img-size-border{
@@ -39,8 +40,7 @@
     cursor: pointer;
     background-color: white;
     border-top-left-radius: 0;
-    transform: scale(1.05); /* Vergrößert den Container */
-    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: fügt einen Schatten hinzu */
+    transform: scale(1.05);
 }
                 .urgency-container:hover .img-size-border{
                     width: 79px;
