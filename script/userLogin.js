@@ -1,5 +1,4 @@
 function checkIfUserIsLogged(){
-    // Gibt true zurück, wenn der Key existiert, sonst false
     return localStorage.getItem("userData") !== null;
 }
 

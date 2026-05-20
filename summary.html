@@ -15,9 +15,10 @@
 
     <script src="./script/popUp.js"></script>
     <script src="./script/userLogin.js"></script>
+    <script src="./script/summary.js"></script>
 
 </head>
-<body onload="setNameInitialButton()">
+<body onload="setNameInitialButton(), loadTaskStats()">
 
     <header>
             <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
@@ -62,7 +63,10 @@
             
 
             <div class="maincontent-inside-container-summary">
-                <h1 class="h1-summary">Good morning</h1>
+                <div class="headline-container-summary" id="greetingID">
+
+                </div>
+                
                 <div>
                     <div class="upper-container ">
 
@@ -70,8 +74,8 @@
                         <div class="urgency-container border-radius-summary border-color-summary transition-quick">
                                 <div>
                                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
-                                        <img class="img-size-border transition-quick" src="./img/summary-urgent.svg" alt="">
-                                        <span class="urgency-number">1</span>
+                                        <img class="img-size-border transition-quick" src="./img/summary-urgent.svg">
+                                        <span class="urgency-number" id="urgentTasksNumberID">1</span>
                                     </div>
                                     <span class="urgency-font transition-quick">Tasks Urgent</span>
                                 </div>
@@ -87,7 +91,7 @@
                             <div class="tasks-on-board-inside-container">
                                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
                                         <img class="img-size-border transition-quick" src="./img/summary-board.svg" alt="">
-                                        <span class="number-size transition-quick">5</span>
+                                        <span class="number-size transition-quick" id="tasksBoardNumberID">5</span>
                                     </div>
                                     <span class="regular-container-font transition-quick">Tasks in Board</span>
                             </div>
@@ -106,7 +110,7 @@
                             <div class="tasks-to-do-inside-container">
                                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
                                         <img class="img-size-border transition-quick" src="./img/summary-todo.svg" alt="">
-                                        <span class="number-size transition-quick">5</span>
+                                        <span class="number-size transition-quick" id="tasksTodoNumberID">5</span>
                                     </div>
                                     <span class="regular-container-font transition-quick">Tasks To-do</span>
                             </div>
@@ -117,7 +121,7 @@
                             <div class="other-inside-container">
                                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
                                         <img class="img-size-border transition-quick" src="./img/summary-progress.svg" alt="">
-                                        <span class="number-size transition-quick">5</span>
+                                        <span class="number-size transition-quick" id="tasksInProgressNumberID">5</span>
                                     </div>
                                     <span class="regular-container-font transition-quick">Tasks in Progress</span>
                             </div>
@@ -128,7 +132,7 @@
                             <div class="other-inside-container">
                                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
                                         <img class="img-size-border transition-quick" src="./img/summary-feedback.svg" alt="">
-                                        <span class="number-size transition-quick">5</span>
+                                        <span class="number-size transition-quick" id="tasksAwaitingFeedbackNumberID">5</span>
                                     </div>
                                     <span class="regular-container-font">Awaiting Feedback</span>
                             </div>
@@ -139,7 +143,7 @@
                             <div class="other-inside-container">
                                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
                                         <img class="img-size-border transition-quick" src="./img/summary-done.svg" alt="">
-                                        <span class="number-size transition-quick">5</span>
+                                        <span class="number-size transition-quick" id="tasksDoneNumberID">5</span>
                                     </div>
                                     <span class="regular-container-font">Tasks done</span>
                             </div>
