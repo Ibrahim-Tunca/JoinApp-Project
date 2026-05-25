@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script src="./script/popUp.js"></script>
+    <script src="./script/userLogin.js"></script>
+
     <script src="./script/contact.js"></script>
     <script src="./script/contacts-special-functioins/dataBaseFunctions.js"></script>
     <script src="./script/contacts-special-functioins/contactTemplates.js"></script>
@@ -24,7 +26,7 @@
     <script src="./script/contacts-special-functioins/slidingWindows.js"></script>
 
 </head>
-<body onload="onloadFunc()">
+<body onload="setNameInitialButton(), onloadFunc()">
 
     <div onclick="hideAddContactAndEditContactWindow()" class="overlay-contacts" id="overlayID"></div>
 
@@ -35,7 +37,7 @@
             <div class="header-right-section-container">
                 <span class="header-font">Kanban Project Management Tool</span>
                 <a href="./help.html"><img  class="help-icon" src="./img/help.svg" alt=""></a>
-                <button class="user-button" onclick="togglePopUpMenue()">G</button>
+                <button class="user-button" onclick="togglePopUpMenue()" id="userInitialButtonID">G</button>
             </div>
     </header>
 
@@ -45,7 +47,7 @@
                 <div class="popup-menue-container">
                     <a class="popup-menue-font" href="./legal.html">Legal Notice</a>
                     <a class="popup-menue-font" href="./privacy.html">Private Policy</a>
-                    <a class="popup-menue-font" href="./index.html">Log out</a>
+                    <a onclick="logout()" class="popup-menue-font" href="./index.html">Log out</a>
                 </div>
         </popupmenue>
 

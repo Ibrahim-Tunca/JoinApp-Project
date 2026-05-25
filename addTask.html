@@ -17,12 +17,13 @@
 
     <script defer src="./script/popUp.js"></script>
     <script defer src="./script/addTask.js"></script>
+    <script src="./script/userLogin.js"></script>
     <script src="./script/addTask-special-functions/inputAndSelectFields.js"></script>
     <script src="./script/addTask-special-functions/addTask-templates.js"></script>
     <script src="./script/addTask-special-functions/addTask-DataBaseFunctions.js"></script>
 
 </head>
-<body onload="loadContacts()">
+<body onload="setNameInitialButton(), loadContacts()">
 
     <div  class="white-transparent-overlay" id="whiteTransparentOverlayID"></div>
     <div class="succesfull-popup" id="popUpSuccesID">Task added to board <img class="board-icon-add-task" src="./img/addTask/Board_white.svg"></div>
@@ -32,7 +33,7 @@
             <div class="header-right-section-container">
                 <span class="header-font">Kanban Project Management Tool</span>
                 <a href="./help.html"><img  class="help-icon" src="./img/help.svg" alt=""></a>
-                <button class="user-button" onclick="togglePopUpMenue()">G</button>
+                <button class="user-button" onclick="togglePopUpMenue()" id="userInitialButtonID">G</button>
             </div>
     </header>
 
@@ -42,7 +43,7 @@
                 <div class="popup-menue-container">
                     <a class="popup-menue-font" href="./legal.html">Legal Notice</a>
                     <a class="popup-menue-font" href="./privacy.html">Private Policy</a>
-                    <a class="popup-menue-font" href="./index.html">Log out</a>
+                    <a onclick="logout()" class="popup-menue-font" href="./index.html">Log out</a>
                 </div>
         </popupmenue>
 

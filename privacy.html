@@ -13,17 +13,18 @@
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script src="./script/popUp.js"></script>
+    <script src="./script/userLogin.js"></script>
 
 
 </head>
-<body>
+<body onload="setNameInitialButton()">
 
     <header>
             <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
             <div class="header-right-section-container">
                 <span class="header-font">Kanban Project Management Tool</span>
-                 <a href="./help.html"><img  class="help-icon" src="./img/help.svg" alt=""></a>
-                <button class="user-button" onclick="togglePopUpMenue()">G</button>
+                <a href="./help.html"><img  class="help-icon" src="./img/help.svg" alt=""></a>
+                <button class="user-button" onclick="togglePopUpMenue()" id="userInitialButtonID">G</button>
             </div>
     </header>
 
@@ -33,7 +34,7 @@
                 <div class="popup-menue-container">
                     <a class="popup-menue-font" href="./legal.html">Legal Notice</a>
                     <a class="popup-menue-font" href="./privacy.html">Private Policy</a>
-                    <a class="popup-menue-font" href="./index.html">Log out</a>
+                    <a onclick="logout()" class="popup-menue-font" href="./index.html">Log out</a>
                 </div>
         </popupmenue>
 
