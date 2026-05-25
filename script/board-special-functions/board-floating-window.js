@@ -17,7 +17,6 @@ function showAddTaskWindow() {
     const addTaskWindowRef = document.getElementById("addTaskForm");
 
     showWhiteTransparentOverlay();
-    toggleBlackAddTaksButtonColor();
     initCustomSelects();
     loadContacts();
 
@@ -38,7 +37,10 @@ function hideAddTaskWindow(){
 
     addTaskWindowRef.classList.add("slide-addTask-window-board");
     hideWhiteTransparentOverlay();
-    toggleBlueAddTaksButtonColor();
+    makeAddTaksButtonBlue();
+    setFirstButtonBlue();
+    setSecondButtonBlue();
+    setThirdButtonBlue();
 }
 
 
@@ -54,13 +56,49 @@ function hideCardDetailWindow(){
 }
 
 
-function toggleBlackAddTaksButtonColor(){
+function makeAddTaksButtonBlack(){
     const addTaskButtonRef = document.getElementById("addTaskButtonID");
     addTaskButtonRef.classList.add("addTask-Button-toggle-board");
 }
 
 
-function toggleBlueAddTaksButtonColor(){
+function makeAddTaksButtonBlue(){
     const addTaskButtonRef = document.getElementById("addTaskButtonID");
     addTaskButtonRef.classList.remove("addTask-Button-toggle-board");
+}
+
+
+function setFirstButtonGrey(){
+    const buttonRef = document.getElementById("firstPLusID");
+    buttonRef.classList.add("plus-button-board-focus");
+}
+
+
+function setFirstButtonBlue(){
+    const buttonRef = document.getElementById("firstPLusID");
+    buttonRef.classList.remove("plus-button-board-focus");
+}
+
+
+function setSecondButtonGrey(){
+    const buttonRef = document.getElementById("secondPlusID");
+    buttonRef.classList.add("plus-button-board-focus");
+}
+
+
+function setSecondButtonBlue(){
+    const buttonRef = document.getElementById("secondPlusID");
+    buttonRef.classList.remove("plus-button-board-focus");
+}
+
+
+function setThirdButtonGrey(){
+    const buttonRef = document.getElementById("thirdPlusID");
+    buttonRef.classList.add("plus-button-board-focus");
+}
+
+
+function setThirdButtonBlue(){
+    const buttonRef = document.getElementById("thirdPlusID");
+    buttonRef.classList.remove("plus-button-board-focus");
 }

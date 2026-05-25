@@ -61,6 +61,10 @@ body{
     width: 912px;
 }
 
+.upper-container a{
+    text-decoration: none;
+}
+
 .lower-container{
     display: flex;
     justify-content: space-between;
@@ -68,3 +72,6 @@ body{
     margin-top: 20px;
 }
 
+.lower-container a{
+    text-decoration: none;
+}
