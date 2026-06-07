@@ -85,8 +85,7 @@
 }
 
         .edit-and-delete-single-container-floating-contact:hover .edit-delete-icons-floating-contact {
-            color: #005DFF;  
-            fill: #005DFF;
+            transform: scale(1.1);
         }
 
 

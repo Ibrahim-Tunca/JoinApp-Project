@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summary</title>
+    <link rel="shortcut icon" href="./img/Capa 2.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/navbar.css">
+    <link rel="stylesheet" href="./style/help.css">
+
+    <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
+
+    <link rel="stylesheet" href="./style/responsiveness/privacy-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/navbar-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/header-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/legal-privacy-unlogged-responsive.css">
+
+    <script src="./script/popUp.js"></script>
+    <script src="./script/userLogin.js"></script>
+
+
+</head>
+<body>
+
+    <header>
+            <img class="capa-icon-header" src="./img/Capa 1.svg" alt="">
+            <div style="justify-content: end;" class="header-right-section-container">
+                <span class="header-font">Kanban Project Management Tool</span>
+            </div>
+    </header>
+
+    <main-container class="main-container">
+
+        <popupmenue class="popup-menue-position d_none" id="popUpID">
+                <div class="popup-menue-container">
+                    <a class="popup-menue-font" href="./legal.html">Legal Notice</a>
+                    <a class="popup-menue-font" href="./privacy.html">Private Policy</a>
+                    <a onclick="logout()" class="popup-menue-font" href="./index.html">Log out</a>
+                </div>
+        </popupmenue>
+
+
+        <navbar class="navbar">
+
+            <div class="first-navcontainer">
+                <a class="navbar-element" href="./index.html"><img class="navbar-icons" src="./img/login.svg"><img class="navbar-icons-responsive" src="./img/login.svg">Log in</a>
+            </div>
+
+            <div class="second-navcontainer" style="display: flex">
+                <a class="navbar-element-bottom-selected" href="./privacy-unlogged.html">Privacy Policy</a>
+                <a class="navbar-element-bottom" href="./legal-unlogged.html">Legal Notice</a>
+            </div>
+
+        </navbar>
+
+      <help class="help-body">
+
+
+
+            <margin-content class="margin-content-help">
+
+
+                    <div class="headline-container-help">
+                        <h1 class="h1-font-help">Privacy Policy</h1>
+                        <img onclick="history.back()" class="arrow-button-help display_none" src="./img/arrow.svg">
+                    </div>
+
+
+                    <h3 class="h3-font-help">Subtitle</h2>
+                    <span>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
+                    </span>
+
+                    <h3 class="h3-font-help">Subtitle</h2>
+                    <span>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
+                    </span>
+
+                
+
+
+            </margin-content>
+
+
+
+      </help>
+
+    </main-container>
+    
+</body>
+</html>

@@ -46,36 +46,40 @@ function getCardDetailTemplate(){
                             >
                         </div>
 
-                        <h1 class="h1-font-userstory" id="cardDetailTitleID">Kochwelt Page & Recipe Recommander</h1>
+                            <div class="scroll-container-userstory">
 
-                        <span class="regular-span-font-userstory" id="cardDetailDescriptionID">Build start page with recipe recommendation.</span>
+                                <h1 class="h1-font-userstory" id="cardDetailTitleID">Kochwelt Page & Recipe Recommander</h1>
 
-                        <date style=" display: flex;">
-                            <span class="bold-span-font-userstory bold-span-font-space-userstory">Due Date:</span>
-                            <span class="regular-span-font-userstory" id="cardDetailDateID">29.02.1988</span>
-                        </date>
+                                <span class="regular-span-font-userstory" id="cardDetailDescriptionID">Build start page with recipe recommendation.</span>
 
-                        <priotity style=" display: flex;">
-                            <span class="bold-span-font-userstory bold-span-font-space-userstory">Priority:</span>
-                            <div id="cardDetailPriorityID">
+                                <date style=" display: flex;">
+                                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Due Date:</span>
+                                    <span class="regular-span-font-userstory" id="cardDetailDateID">29.02.1988</span>
+                                </date>
+
+                                <priotity style=" display: flex;">
+                                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Priority:</span>
+                                    <div id="cardDetailPriorityID">
+
+                                    </div>
+                                </priotity>
+
+                                <assignedTo style="display: flex; flex-direction: column;">
+                                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Assigned To:</span>
+                                    <div class="assigned-to-content-order" id="cardDetailContactContainerID">
+
+                                    </div>
+                                </assignedTo>
+
+                                <subtasks>
+                                    <span class="bold-span-font-userstory bold-span-font-space-userstory">Subtaks:</span>
+                                    <div class="subtasks-single-container-userstory" id="cardDetailSubtaskContainerID">
+                                        
+                                    </div>
+                                    
+                                </subtasks>
 
                             </div>
-                        </priotity>
-
-                        <assignedTo style="display: flex; flex-direction: column;">
-                            <span class="bold-span-font-userstory bold-span-font-space-userstory">Assigned To:</span>
-                            <div class="assigned-to-content-order" id="cardDetailContactContainerID">
-
-                            </div>
-                        </assignedTo>
-
-                        <subtasks>
-                            <span class="bold-span-font-userstory bold-span-font-space-userstory">Subtaks:</span>
-                            <div class="subtasks-single-container-userstory" id="cardDetailSubtaskContainerID">
-                                
-                            </div>
-                            
-                        </subtasks>
 
                         <edit-delete class="edit-delete-container-userstory">
 

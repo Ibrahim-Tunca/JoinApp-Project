@@ -34,13 +34,23 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                         <div class="name-and-edit-delete-button-container-floating-contanct">
                             <h2 class="h2-floating-contact">${name}</h2>
                             <div class="edit-and-delete-container-floating-contact">
-                                <div class="edit-and-delete-single-container-floating-contact">
-                                    <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg">
-                                    <span onclick="showEditContactWindow('${name}', '${mail}', '${initials}', '${color}', '${phone}', '${id}')" class="edit-delete-font-float-contaier">Edit</span>
+                                <div 
+                                        class="edit-and-delete-single-container-floating-contact"
+                                        onclick="showEditContactWindow('${name}', '${mail}', '${initials}', '${color}', '${phone}', '${id}')"
+                                        onmouseenter="this.querySelector('.edit-delete-icons-floating-contact').src='./img/userstory/edit-blue.svg'"
+                                        onmouseleave="this.querySelector('.edit-delete-icons-floating-contact').src='./img/contacts/edit.svg'" 
+                                    >
+                                        <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg">
+                                        <span class="edit-delete-font-float-contaier">Edit</span>
                                 </div>
-                                <div class="edit-and-delete-single-container-floating-contact">
+                                <div 
+                                        class="edit-and-delete-single-container-floating-contact"
+                                        onclick="deleteContact('${id}')"
+                                        onmouseenter="this.querySelector('.edit-delete-icons-floating-contact').src='./img/userstory/delete-blue.svg'"
+                                        onmouseleave="this.querySelector('.edit-delete-icons-floating-contact').src='./img/contacts/delete.svg'" 
+                                    >
                                     <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg">
-                                    <span onclick="deleteContact('${id}')" class="edit-delete-font-float-contaier">Delete</span>
+                                    <span class="edit-delete-font-float-contaier">Delete</span>
                                 </div>
                             </div>
                         </div>
