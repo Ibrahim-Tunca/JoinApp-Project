@@ -153,21 +153,6 @@ function editSingleSubtask(id, value){
         inputRef.focus();
         inputRef.setSelectionRange(value.length, value.length);
 
-        setTimeout(() => {
-        document.addEventListener("click", handleOutsideClick);
-    }, 0);
-
-    function handleOutsideClick(event) {
-        if (subTaskRef.contains(event.target)) {
-            return;
-        }
-
-        const currentValue = inputRef.value.trim();
-        subTaskRef.innerHTML = pasteSubtaskUnderInputfieldTemplate(id, currentValue);
-        subTaskRef.style.paddingLeft = "";
-
-        document.removeEventListener("click", handleOutsideClick);
-    }
 }
 
 
@@ -176,7 +161,7 @@ function confirmEditSubtask(id){
     const subTaskValue = document.getElementById("editSubtask" + id).value;
 
     overwriteAnSubtaskFromGlobalArray(id, subTaskValue);
-    subTaskRef.innerHTML =  confirmEditSubtaskTemplate(id, subTaskValue);
+    subTaskRef.innerHTML = confirmEditSubtaskTemplate(id, subTaskValue);
 }
 
 
