@@ -1,0 +1,275 @@
+@media(max-width:  1150px){
+
+
+    .maincontent-outside-container-summary {
+        height: calc(100vh - 177px);
+    }
+
+
+    .headline-container-summary {
+        margin-bottom: 50px;
+    }
+
+    .upper-container{
+        flex-direction: column;
+        align-items: center;
+        height: 420px;
+    }
+
+    .urgency-container {
+        width: 100%;
+    }
+
+            .urgency-container:hover{
+                border-top-left-radius: 30px;
+            }
+
+    .tasks-on-board-container {
+        border-top-left-radius: 30px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+            .tasks-on-board-container:hover{
+                border-top-left-radius: 30px;
+            }
+
+            .tasks-on-board-container:hover{
+                transform: scale(1.05);
+            }
+
+    .lower-container{
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .tasks-to-do-container{
+        width: calc(48% - 10px);
+    }
+
+    .other-container {
+        width: calc(48% - 10px);
+    }
+
+            .tasks-to-do-container:hover{
+                border-top-left-radius: 30px;
+            }
+
+
+            .other-container:hover{
+                border-top-left-radius: 30px;
+            }
+
+    .tasks-on-board-inside-container {
+        flex-direction: row;
+    }
+
+    .regular-container-font {
+        margin-top: 0;
+    }
+
+    .tasks-on-board-inside-container {
+        width: 300px; 
+    }
+
+
+    }
+
+    @media(max-width: 680px){
+
+    .maincontent-inside-container-summary {
+        width: 490px;
+    }
+
+    .headline-container-summary {
+        flex-direction: column;
+        align-items: center;
+        margin: 260px 0;
+    }
+
+    .greeting-font-summary {
+        font-size: 40px;
+    }
+
+    .username-font-summary {
+        font-size: 58px;
+        font-weight: 500;
+        color: #005DFF;
+        margin-left: 0;
+    }
+
+}
+
+@media(max-width: 580px){
+
+    .urgency-container:hover{
+        transform: scale(1.0);
+    }
+
+
+    .tasks-on-board-container:hover{
+        transform: scale(1.05);
+    }
+
+                .tasks-to-do-container:hover{
+                        transform: scale(1.08);
+                }
+
+
+                .other-container:hover{
+                    transform: scale(1.08);
+                }
+
+}
+
+
+
+
+@media(max-width: 540px){
+
+.maincontent-inside-container-summary {
+    width: 380px;
+}
+
+.upper-container {
+    height: 339px;
+}
+
+.h1-summary {
+    font-size: 48px;
+}
+
+.urgency-container {
+    height: 152px;
+}
+
+.urgency-font {
+    font-size: 18px;
+}
+
+        .urgency-container:hover .urgency-font{
+            font-size: 20px;
+        }
+
+.urgency-font-bold {
+    font-size: 22px;
+}
+
+        .urgency-container:hover .urgency-font-bold{
+            font-size: 30px;
+        }
+
+.urgency-number {
+    font-size: 32px;
+}
+
+        .urgency-container:hover .urgency-number{
+            font-size: 40px;
+        }
+
+.urgency-separator {
+    margin: 16px;
+    height: 120px;
+}
+
+.img-size-border {
+    width: 55px;
+    height: 55px;
+}
+
+        .urgency-container:hover .img-size-border{
+            width: 60px;
+            height: 60px;
+        }
+
+.regular-container-font {
+    font-size: 18px;
+}
+
+.tasks-on-board-container {
+    height: 152px;
+}
+
+.tasks-to-do-container
+{
+    height: 152px;
+}
+
+.other-container {
+    height: 152px;
+}
+
+        .tasks-on-board-container:hover .regular-container-font{
+            font-size: 20px;
+        }
+
+        .other-container:hover .regular-container-font{
+            font-size: 20px;
+        }
+
+        .tasks-to-do-container:hover .regular-container-font{
+            font-size: 20px;
+        }
+
+.number-size {
+    font-size: 32px;
+}
+
+}
+
+@media(max-width: 460px){
+    .upper-container {
+        margin: 20px;
+        box-sizing: border-box;
+    }
+
+    .lower-container {
+        margin: 20px;
+        box-sizing: border-box;
+    }
+
+            .urgency-container:hover .urgency-font-bold{
+                font-size: 20px;
+            }
+
+    .tasks-on-board-inside-container {
+        width: 262px;
+    }
+
+    .urgency-separator {
+        margin: 8px;
+    }
+    
+    .urgency-inside-right-container {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 410px){
+
+.h1-summary {
+    font-size: 36px;
+}
+
+.maincontent-inside-container-summary {
+    width: 320px;
+}
+
+.tasks-on-board-inside-container {
+    width: 229px;
+}
+
+.urgency-inside-right-container {
+    width: 208px;
+}
+
+.urgency-font-bold {
+    font-size: 20px;
+}
+
+.urgency-font {
+    font-size: 16px;
+}
+
+}

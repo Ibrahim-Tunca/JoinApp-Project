@@ -58,11 +58,11 @@ function renderContact(blog, contactRef){
 
 
 async function renderContactDetails(name, mail, phone){
-    let response = await fetch(BASE_URL + "contacts.json");
-    let responseToJson = await response.json();
-    let contactDetailsRef = document.getElementById("contactDetailsID");
+    const response = await fetch(BASE_URL + "contacts.json");
+    const responseToJson = await response.json();
     const entries = Object.entries(responseToJson);
-    let pickedContactID = await findContactIdByData(name, mail, phone);
+    const pickedContactID = await findContactIdByData(name, mail, phone);
+    const contactDetailsRef = document.getElementById("contactDetailsID");
 
     for (let index = 0; index < entries.length; index++) {
         
@@ -86,7 +86,7 @@ async function renderContactDetails(name, mail, phone){
 
 
 function floatContactDetails(id){
-        const floatingCard = document.getElementById(id + "-floatingContact")
+    const floatingCard = document.getElementById(id + "-floatingContact")
 
     if(id != choosedContactID){
     
@@ -101,6 +101,20 @@ function floatContactDetails(id){
     choosedContactID = "";
     hideAddContactAndEditContactWindow();
     return;
+}
+
+
+function floatBackContactDetails(id){
+    const floatingCard = document.getElementById(id + "-floatingContact")
+    
+        requestAnimationFrame(() => {
+        floatingCard.classList.remove("is-visible");
+        });
+   
+        setLastContactBackToUnfocused();
+        choosedContactID = "";
+        hideAddContactAndEditContactWindow();
+        return;
 }
 
 

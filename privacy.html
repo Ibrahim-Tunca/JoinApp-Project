@@ -12,6 +12,10 @@
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
+    <link rel="stylesheet" href="./style/responsiveness/privacy-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/navbar-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/header-responsive.css">
+
     <script src="./script/popUp.js"></script>
     <script src="./script/userLogin.js"></script>
 
@@ -28,7 +32,7 @@
             </div>
     </header>
 
-    <main-container style="display: flex; overflow: hidden;">
+    <main-container class="main-container">
 
         <popupmenue class="popup-menue-position d_none" id="popUpID">
                 <div class="popup-menue-container">
@@ -42,10 +46,10 @@
         <navbar class="navbar">
 
             <div class="first-navcontainer">
-                <a class="navbar-element" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg" alt="">Summary</a>
-                <a class="navbar-element" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg" alt="">Add Task</a>
-                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg" alt="">Board</a>
-                <a class="navbar-element" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg" alt="">Contacts</a>
+                <a class="navbar-element" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg"><img class="navbar-icons-responsive" src="./img/Vector.svg">Summary</a>
+                <a class="navbar-element" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg"><img class="navbar-icons-responsive" src="./img/edit_square.svg">Add Task</a>
+                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg"><img class="navbar-icons-responsive" src="./img/Board.svg">Board</a>
+                <a class="navbar-element" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg"><img class="navbar-icons-responsive" src="./img/perm_contact_calendar.svg">Contacts</a>
             </div>
 
             <div class="second-navcontainer">
@@ -62,11 +66,12 @@
             <margin-content class="margin-content-help">
 
 
+                    <div class="headline-container-help">
+                        <h1 class="h1-font-help">Privacy Policy</h1>
+                        <img onclick="history.back()" class="arrow-button-help display_none" src="./img/arrow.svg">
+                    </div>
 
 
-                    <h1 class="h1-font-help">Privacy Policy</h1>
-
-                   
                     <h3 class="h3-font-help">Subtitle</h2>
                     <span>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.

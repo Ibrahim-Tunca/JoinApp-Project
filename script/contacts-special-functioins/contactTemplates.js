@@ -2,7 +2,7 @@ function renderContactsTemplate(userName, email, phone, color, id, initial){
 
         return `
             
-                    <contact onclick="renderContactDetails('${userName}', '${email}', '${phone}')" class="contact-container" id="${id}">
+                    <contact onclick="renderContactDetails('${userName}', '${email}', '${phone}')" class="single-contact-container" id="${id}">
 
                         <div class="inital-ball ${color}">
                             ${initial}
@@ -22,7 +22,12 @@ function renderContactsTemplate(userName, email, phone, color, id, initial){
 function contactDetailsTemplate(name, mail, initials, color, phone, id){
     return `
                 <div class="floating-contact-container" id="${id}-floatingContact">
+                    <div class="arrow-and-informationspan-container"> 
+                        <h3 class="h3-font-floating-contact-responsive">Contact Information</h3>
+                        <img onclick="floatBackContactDetails('${id}')" class="arrow-button-contact" src="./img/arrow.svg">
+                    </div>
                     <top-section class="top-section-floating-contact">
+                    
                         <div class="inital-ball-floating-contact ${color}">
                             ${initials}
                         </div>
@@ -30,11 +35,11 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                             <h2 class="h2-floating-contact">${name}</h2>
                             <div class="edit-and-delete-container-floating-contact">
                                 <div class="edit-and-delete-single-container-floating-contact">
-                                    <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg" alt="">
+                                    <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg">
                                     <span onclick="showEditContactWindow('${name}', '${mail}', '${initials}', '${color}', '${phone}', '${id}')" class="edit-delete-font-float-contaier">Edit</span>
                                 </div>
                                 <div class="edit-and-delete-single-container-floating-contact">
-                                    <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg" alt="">
+                                    <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg">
                                     <span onclick="deleteContact('${id}')" class="edit-delete-font-float-contaier">Delete</span>
                                 </div>
                             </div>
@@ -47,7 +52,28 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                         <p class="p-tag-headline-font-floating-contact">Phone</p>
                         <p class="phonenumber-font-floating-contact">${phone}</p>
                     </bottom-section>
+
+                    <div class="three-dots-button-container">
+                        <button onclick="openThreeDotsWindow()" class="three-dots-button">
+                            <img src="./img/three_dots.svg">
+                        </button>
+                    </div>
+                
                 </div>
+
+
+                <popupmenue class="popup-three-dots-button d_none" id="threeDotsID">
+                    <div class="popup-three-dots-container">
+                        <div onclick="showEditContactWindow('${name}', '${mail}', '${initials}', '${color}', '${phone}', '${id}')" class="popup-three-dots-single-container">
+                            <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg">
+                            <span class="popup-three-dots-span-font">Edit</span>
+                        </div>
+                        <div onclick="deleteContact('${id}')" class="popup-three-dots-single-container">
+                            <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg">
+                            <span class="popup-three-dots-span-font">Delete</span>
+                        </div>
+                    </div>
+                </popupmenue>
 
             `
 }
@@ -96,7 +122,7 @@ function addContactTemplate(){
 
                             <div class="button-order-addContact">
 
-                                <button type="button" onclick="hideAddContactAndEditContactWindow()" class="white-button-big">Cancel <img class="white-button-x" src="./img/iconoir_cancel.svg" alt=""></button>
+                                <button type="button" onclick="hideAddContactAndEditContactWindow()" class="cancel-button-addContact">Cancel <img class="white-button-x" src="./img/iconoir_cancel.svg" alt=""></button>
 
                                 <button type="submit" class="blue-button-big">Create Contact <img class="blue-button-check" src="./img/check.svg" alt=""></button>
 

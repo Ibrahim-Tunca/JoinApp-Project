@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/summary.css">
     <link rel="stylesheet" href="./style/summarycards.css">
+    <link rel="stylesheet" href="./style/responsiveness/summary-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/navbar-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/header-responsive.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
@@ -29,7 +32,7 @@
             </div>
     </header>
 
-    <main-container style="display: flex;">
+    <main-container class="main-container">
 
         <popupmenue class="popup-menue-position d_none" id="popUpID">
                 <div class="popup-menue-container">
@@ -44,10 +47,10 @@
         <navbar class="navbar">
 
             <div class="first-navcontainer">
-                <a class="navbar-element navbar-element-selected" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg" alt="">Summary</a>
-                <a class="navbar-element" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg" alt="">Add Task</a>
-                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg" alt="">Board</a>
-                <a class="navbar-element" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg" alt="">Contacts</a>
+                <a class="navbar-element navbar-element-selected" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg"><img class="navbar-icons-responsive" src="./img/vector_blue.svg">Summary</a>
+                <a class="navbar-element" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg"><img class="navbar-icons-responsive" src="./img/edit_square.svg">Add Task</a>
+                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg"><img class="navbar-icons-responsive" src="./img/Board.svg">Board</a>
+                <a class="navbar-element" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg"><img class="navbar-icons-responsive" src="./img/perm_contact_calendar.svg">Contacts</a>
             </div>
 
             <div class="second-navcontainer">
@@ -67,13 +70,13 @@
 
                 </div>
                 
-                <div>
+                <div class="up-and-down-container">
                     <div class="upper-container ">
 
 
                         <a href="./board.html" class="urgency-container border-radius-summary border-color-summary transition-quick">
                                 <div>
-                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                    <div class="other-icon-and-number">
                                         <img class="img-size-border transition-quick" src="./img/summary-urgent.svg">
                                         <span class="urgency-number" id="urgentTasksNumberID">1</span>
                                     </div>
@@ -89,7 +92,7 @@
 
                         <a href="./board.html" class="tasks-on-board-container border-radius-summary border-color-summary transition-quick">
                             <div class="tasks-on-board-inside-container">
-                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                    <div class="other-icon-and-number">
                                         <img class="img-size-border transition-quick" src="./img/summary-board.svg" alt="">
                                         <span class="number-size transition-quick" id="tasksBoardNumberID">5</span>
                                     </div>
@@ -108,7 +111,7 @@
 
                         <a href="./board.html" class="tasks-to-do-container border-radius-summary border-color-summary transition-quick">
                             <div class="tasks-to-do-inside-container">
-                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                    <div class="other-icon-and-number">
                                         <img class="img-size-border transition-quick" src="./img/summary-todo.svg" alt="">
                                         <span class="number-size transition-quick" id="tasksTodoNumberID">5</span>
                                     </div>
@@ -119,7 +122,7 @@
 
                         <a href="./board.html" class="other-container border-radius-summary border-color-summary transition-quick">
                             <div class="other-inside-container">
-                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                    <div class="other-icon-and-number">
                                         <img class="img-size-border transition-quick" src="./img/summary-progress.svg" alt="">
                                         <span class="number-size transition-quick" id="tasksInProgressNumberID">5</span>
                                     </div>
@@ -130,7 +133,7 @@
 
                         <a href="./board.html" class="other-container border-radius-summary border-color-summary transition-quick">
                             <div class="other-inside-container">
-                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                    <div class="other-icon-and-number">
                                         <img class="img-size-border transition-quick" src="./img/summary-feedback.svg" alt="">
                                         <span class="number-size transition-quick" id="tasksAwaitingFeedbackNumberID">5</span>
                                     </div>
@@ -141,7 +144,7 @@
 
                         <a href="./board.html" class="other-container border-radius-summary border-color-summary transition-quick">
                             <div class="other-inside-container">
-                                    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                                    <div class="other-icon-and-number">
                                         <img class="img-size-border transition-quick" src="./img/summary-done.svg" alt="">
                                         <span class="number-size transition-quick" id="tasksDoneNumberID">5</span>
                                     </div>

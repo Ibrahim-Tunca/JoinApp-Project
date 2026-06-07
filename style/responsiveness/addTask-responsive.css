@@ -1,0 +1,61 @@
+.button-order-addtask-responsive{
+    display: flex;
+    justify-content: center;
+    bottom: 0px;
+    margin-bottom: 70px;
+}
+
+@media(max-width: 1000px){
+.textarea-description-addtask {
+    max-width: 100%;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container-addTask{
+    height: calc(100vh - 177px);
+}
+
+.scrollcontainer{
+    height: calc(100vh - 125px);
+}
+
+.input-title-addTask {
+    margin-top: 25px;
+}
+
+.button-order-addtask {
+    display: none;
+}
+
+.subtasks-container {
+    min-height: 50px;
+    margin-bottom: 0;
+    
+}
+
+
+}
+
+@media(max-width: 480px){
+
+.prio-buttons-addTask {
+    height: 51px;
+    width: 95px;
+    font-size: 16px;
+}
+
+.prio-icons-addTask {
+    height: 12px;
+    width: 16px;
+}
+
+.main-container-addTask {
+    width: 300px;
+}
+
+
+}

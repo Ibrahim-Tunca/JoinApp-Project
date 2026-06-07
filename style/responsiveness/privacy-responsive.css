@@ -1,0 +1,38 @@
+.display_none{
+    display: none;
+}
+
+@media(max-width: 1000px){
+    .privacy-main-container{
+        flex-direction: column-reverse;
+    }
+
+    .help-body {
+        height: calc(100vh - 177px);
+        overflow-y: auto;
+    }
+
+    .display_none{
+        display: flex;
+    }
+}
+
+@media(max-width: 600px){
+
+    .margin-content-help {
+        padding: 10px 35px;
+    }
+
+    .h1-font-help {
+        font-size: 40px;
+    }
+
+}
+
+@media(max-width: 400px){
+
+    .h2-font-help {
+        font-size: 26px;
+    }
+
+}

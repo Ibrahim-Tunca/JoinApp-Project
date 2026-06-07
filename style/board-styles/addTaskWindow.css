@@ -37,6 +37,7 @@
     right: 0px;
     transition: all 1200ms ease-in-out;
 
+    box-sizing: border-box;
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
     border: solid 2px #D1D1D1;

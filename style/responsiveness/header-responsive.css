@@ -1,0 +1,12 @@
+@media(max-width: 720px){
+
+.header-font {
+    display: none;
+}
+
+.help-icon{
+    display: none;
+}
+
+
+}

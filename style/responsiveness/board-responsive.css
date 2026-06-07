@@ -1,0 +1,109 @@
+@media(max-width: 1228px) {
+    .bottom-section-board {
+         flex-direction: column; 
+    }
+
+    .cards-container-board{
+        min-height: 200px;
+    }
+
+    .bottom-section-single-container-board {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .maincontent-container-board {
+        padding: 76px 56px 0 56px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cards-container-board {
+        display: flex;
+        flex-flow: wrap;
+    }
+
+
+
+    .filled-card-board {
+        margin-right: 20px;
+    }
+
+    .textarea-description-addtask {
+        max-width: 100%;
+    }
+
+}
+
+@media(max-width: 1000px){
+
+    .addTask-Button-board {
+        display: none;
+    }
+
+    .input-addtask-button-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .inputfield-container-board {
+        width: 100%;
+    }
+
+    .inputfield-board {
+        width: 100%;
+    }
+
+
+    .maincontent-container-board {
+        height: calc(100vh - 177px);
+    } 
+
+    .addTask-maincontainer-board {
+        width: 100%;
+    }
+
+
+}
+
+@media(max-width: 550px){
+    .main-container-userstory {
+        width: 329px;
+        height: 778px;
+    }
+
+    .h1-font-userstory {
+        font-size: 46px;
+    }
+
+    .userstory-category-tag {
+        padding: 4px 19px;
+        font-size: 18px;
+    }
+
+    .bold-span-font-userstory {
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 480px){
+    .prio-buttons-addTask {
+        width: 105px;
+        font-size: 16px;
+    }
+}
+    
+
+@media(max-width: 415px){
+    .main-container-userstory {
+        padding: 26px 19px;
+        width: 298px;
+    }
+
+    .prio-icons-addTask {
+        height: 9px;
+        width: 16px;
+    }
+}

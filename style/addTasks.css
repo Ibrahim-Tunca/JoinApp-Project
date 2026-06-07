@@ -2,6 +2,11 @@
     display: none;
 }
 
+.main-container{
+    display: flex;
+    overflow: hidden;
+}
+
 .main-container-addTask{
     display: flex;
     flex-direction: column;

@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="./style/addTasks.css">
     <link rel="stylesheet" href="./style/addTask-sidebuttons.css">
     <link rel="stylesheet" href="./style/add-task-styles/addTask-Error-Message.css">
+    <link rel="stylesheet" href="./style/responsiveness/addTask-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/navbar-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/header-responsive.css">
+    
     <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
-
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
 
     <script defer src="./script/popUp.js"></script>
@@ -37,7 +40,7 @@
             </div>
     </header>
 
-    <main-container style="display: flex;">
+    <main-container class="main-container">
 
         <popupmenue class="popup-menue-position d_none" id="popUpID">
                 <div class="popup-menue-container">
@@ -51,10 +54,10 @@
         <navbar class="navbar">
 
             <div class="first-navcontainer">
-                <a class="navbar-element" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg" alt="">Summary</a>
-                <a class="navbar-element navbar-element-selected" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg" alt="">Add Task</a>
-                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg" alt="">Board</a>
-                <a class="navbar-element" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg" alt="">Contacts</a>
+                <a class="navbar-element" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg"><img class="navbar-icons-responsive" src="./img/Vector.svg">Summary</a>
+                <a class="navbar-element navbar-element-selected" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg"><img class="navbar-icons-responsive" src="./img/edit_square_blue.svg">Add Task</a>
+                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg"><img class="navbar-icons-responsive" src="./img/Board.svg">Board</a>
+                <a class="navbar-element" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg"><img class="navbar-icons-responsive" src="./img/perm_contact_calendar.svg">Contacts</a>
             </div>
 
             <div class="second-navcontainer">
@@ -159,7 +162,18 @@
 
                         <div class="subtasks-container" id="createdSubtasksContainerID"></div>
 
-
+                        
+                        
+                        <buttons class="button-order-addtask-responsive">
+                            <button onclick="relodePage();" type="reset" form="addTaskForm" class="button-white-addtask">
+                                Clear
+                                <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg" alt="">
+                            </button>
+                            <button type="submit" form="addTaskForm" class="button-blue-addtask">
+                                Create Task
+                                <img class="affirmative-icon-addtask" src="./img/addTask/check.svg" alt="">
+                            </button>
+                        </buttons>
                         
 
 
@@ -177,6 +191,8 @@
                                 <img class="affirmative-icon-addtask" src="./img/addTask/check.svg" alt="">
                             </button>
                         </buttons>
+
+                        
 
         
 

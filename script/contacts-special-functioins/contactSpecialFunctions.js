@@ -15,6 +15,32 @@ function showBlogIfBlogIsNotEmpty(blog, contactRef){
 }
 
 
+function openThreeDotsWindow(){
+    const contentRef = document.getElementById("threeDotsID");
+    contentRef.classList.remove("d_none");
+}
+
+
+function closeThreeDotsWindow() {
+    const contentRef = document.getElementById("threeDotsID");
+    contentRef.classList.add("d_none");
+}
+
+
+document.addEventListener("click", (event) => {
+    const menuRef = document.getElementById("threeDotsID");
+
+    if (
+        !menuRef ||
+        menuRef.classList.contains("d_none") ||
+        menuRef.contains(event.target) ||
+        event.target.closest(".three-dots-button")
+    ) {
+        return;
+    }
+
+    closeThreeDotsWindow();
+});
 
 
 function setContactInFocusMode(id){

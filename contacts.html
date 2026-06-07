@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="./style/editContact.css">
     <link rel="stylesheet" href="./style/small-styles/contactColorID.css">
     <link rel="stylesheet" href="./style/small-styles/floatingContact.css">
+    <link rel="stylesheet" href="./style/responsiveness/contacts-responsive.css">
 
     <link rel="stylesheet" href="./style/small-styles/headerPopUp.css">
+    <link rel="stylesheet" href="./style/responsiveness/navbar-responsive.css">
+    <link rel="stylesheet" href="./style/responsiveness/header-responsive.css">
 
     <script src="./script/popUp.js"></script>
     <script src="./script/userLogin.js"></script>
@@ -41,7 +44,7 @@
             </div>
     </header>
 
-    <main-container style="display: flex;">
+    <main-container class="maincontainer">
 
         <popupmenue class="popup-menue-position d_none" id="popUpID">
                 <div class="popup-menue-container">
@@ -55,10 +58,10 @@
         <navbar class="navbar">
 
             <div class="first-navcontainer">
-                <a class="navbar-element" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg" alt="">Summary</a>
-                <a class="navbar-element" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg" alt="">Add Task</a>
-                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg" alt="">Board</a>
-                <a class="navbar-element navbar-element-selected" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg" alt="">Contacts</a>
+                <a class="navbar-element" href="./summary.html"><img class="navbar-icons" src="./img/Vector.svg"><img class="navbar-icons-responsive" src="./img/Vector.svg">Summary</a>
+                <a class="navbar-element" href="./addTask.html"><img class="navbar-icons" src="./img/edit_square.svg"><img class="navbar-icons-responsive" src="./img/edit_square.svg">Add Task</a>
+                <a class="navbar-element" href="./board.html"><img class="navbar-icons" src="./img/Board.svg"><img class="navbar-icons-responsive" src="./img/Board.svg">Board</a>
+                <a class="navbar-element navbar-element-selected" href="./contacts.html"><img class="navbar-icons" src="./img/perm_contact_calendar.svg"><img class="navbar-icons-responsive" src="./img/perm_contact_calender_blue.svg">Contacts</a>
             </div>
 
             <div class="second-navcontainer">
@@ -71,13 +74,13 @@
         <maincontent class="maincontent-container-contacts">
 
 
-        <addContact class="addcontact-maincontainer toggle-addContact-card" id="addContactID">
+        <addContact class="addcontact-maincontainer slide-right-window" id="addContactID">
 
         </addContact>
 
 
 
-        <editContact class="editContact-maincontainer toggle-editContact-card" id="editContactID">
+        <editContact class="editContact-maincontainer slide-left-window" id="editContactID">
 
         </editContact>
 
@@ -91,14 +94,22 @@
 
                             </div>
 
-                            <contact id="contactID"></contact>
+                            <contact class="contact-container-responsive" id="contactID"></contact>
+
+                            <div class="contacts-button-responsive-container">
+                                <button onclick="showAddContactWindow()" class="contacts-button-responsive">
+                                    <img class="contacts-button-responsive-icon" src="./img/contacts/person_add.svg">
+                                </button>
+                            </div>
         
 
                 </contact-section>
 
         </maincontent>
 
-        <div id="contactDetailsID"></div>
+        <div class="contact-details-container" id="contactDetailsID"></div>
+
+        
 
     </main-container>
     

@@ -1,0 +1,29 @@
+@media(max-width: 810px){
+
+.join-logo-signup{
+    height: 78px;
+    width: 60px;
+}
+
+.join-logo-signup {
+    margin: 28px;
+}
+
+.blue-button-settings-signup {
+    height: 47px;
+    width: 171px;
+}
+
+}
+
+@media(max-width: 450px){
+
+.formlar-size-signup {
+    width: 370px;
+}
+
+.form-section-signup {
+    width: 360px;
+}
+
+}

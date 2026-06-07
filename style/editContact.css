@@ -92,3 +92,28 @@
 
     margin-top: 40px;
 }
+
+.white-button-big{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: #647188;
+    height: 48px;
+    padding: 0 15px;
+    background-color: #FFFFFF;
+    border: solid 2px #647188;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+        .white-button-big:hover{
+            color: #4589FF;
+            border: solid 2px #4589FF;
+            cursor: pointer;
+        }
+
+        .white-button-big:hover img {
+            filter: invert(29%) sepia(96%) saturate(746%) hue-rotate(186deg) brightness(95%) contrast(92%);
+        }

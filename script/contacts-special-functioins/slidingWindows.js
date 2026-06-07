@@ -9,8 +9,8 @@ function hideAddContactAndEditContactWindow(){
     buttonRef.classList.remove("toggle-color-contacts-button");
     personIconRef.src="./img/contacts/person_add.svg";
     overlayRef.classList.remove("hide-and-show-overlay-contacts");
-    addContactRef.classList.add("toggle-addContact-card");
-    editContactRef.classList.add("toggle-editContact-card");
+    addContactRef.classList.add("slide-right-window");
+    editContactRef.classList.add("slide-left-window");
 }
 
 
@@ -25,8 +25,9 @@ function showAddContactWindow(){
     buttonRef.classList.add("toggle-color-contacts-button");
     personIconRef.src="./img/contacts/person_add-blue.svg";
     overlayRef.classList.add("hide-and-show-overlay-contacts");
-    contentRef.classList.remove("toggle-addContact-card");
+    contentRef.classList.remove("slide-right-window");
 }
+
 
 function showEditContactWindow(name, mail, initials, color, phone, id){
     const overlayRef = document.getElementById("overlayID");
@@ -39,12 +40,13 @@ function showEditContactWindow(name, mail, initials, color, phone, id){
     const phoneRef = document.getElementById("editContactPhoneID");
 
     overlayRef.classList.add("hide-and-show-overlay-contacts");
-    contentRef.classList.remove("toggle-editContact-card");
+    contentRef.classList.remove("slide-left-window");
 
     nameRef.value = name;
     mailRef.value = mail;
     phoneRef.value = phone;
 }
+
 
 function popUpAddContactSucces(){
 

@@ -2,6 +2,10 @@ body{
     margin: 0;
 }
 
+.main-container{
+    display: flex;
+}
+
 .headline-container-summary{
     display: flex;
     align-items: baseline;
@@ -40,6 +44,7 @@ body{
     justify-content: center;
     width: 100%;
     height: calc(100vh - 96px);
+    overflow-y: auto;
 
     box-sizing: border-box;
 }
@@ -49,16 +54,18 @@ body{
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    width: 912px;
     height: 591px;
 
     box-sizing: border-box;
 }
 
+.up-and-down-container{
+    width: 100%;
+}
+
 .upper-container{
     display: flex;
     justify-content: space-between;
-    width: 912px;
 }
 
 .upper-container a{
@@ -68,7 +75,6 @@ body{
 .lower-container{
     display: flex;
     justify-content: space-between;
-    width: 912px;
     margin-top: 20px;
 }
 

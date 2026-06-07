@@ -1,3 +1,7 @@
+.maincontainer{
+    display: flex;
+}
+
 .maincontent-container-contacts{
     display: flex;
     flex-direction: column;
@@ -13,7 +17,6 @@
 
 .contacts-button{
     position: absolute;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +64,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    width: 352px;
+    width: 80%;
     height: 56px;
 
     font-size: 18px;
@@ -80,17 +83,17 @@
     width: 100%;
 }
 
-.contact-container{
+.single-contact-container{
     display: flex;
     align-items: center;
     height: 77px;
-    width: 352px;
+    width: 80%;
     border-radius: 10px;
     margin: 7px 44px;
     cursor: pointer;
 }
 
-        .contact-container:hover:not(.backgroundcolor-blue){
+        .single-contact-container:hover:not(.backgroundcolor-blue){
             background-color: #D2E3FF;
             cursor: pointer;
         }
@@ -174,11 +177,11 @@
     background-color: white;
 }
 
-.toggle-addContact-card{
+.slide-right-window{
     transform: translateX(100%);
 }
 
-.toggle-editContact-card{
+.slide-left-window{
     transform: translateX(-100%);
 }
 

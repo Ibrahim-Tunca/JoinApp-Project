@@ -4,8 +4,11 @@
 }
 
 body{
-    margin: 0px;
     font-family: 'Open_Sans', Arial, sans-serif;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .h2-login{
@@ -18,13 +21,16 @@ body{
 
 .top-section{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 67px;
 }
 
 .blue-join-icon-login{
     height: 122px;
     width: 100px;
+    position: absolute;
+    top: 34px;
+    left: 64px;
 }
 
 .not-a-join-user{
@@ -158,6 +164,7 @@ body{
 .blue-button-big{
     display: flex;
     align-items: center;
+    justify-content: center;
 
     color: white;
     height: 48px;

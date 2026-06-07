@@ -1,13 +1,13 @@
 .floating-contact-container{
+    position: fixed;
     width: 472px;
     height: 350px;
 
-    position: fixed;
-    top: 60px;
+    margin: 60px;
+    
+
     transform: translateX(calc(100% + 860px));
     transition: transform 0.8s ease;
-
-    margin: 60px;
 }
 
     .is-visible {
@@ -21,8 +21,6 @@
     height: 120px;
     width: 100%;
 }
-
-
 
 .inital-ball-floating-contact{
     display: flex;
@@ -38,14 +36,15 @@
     color: white;
     height: 120px;
     width: 120px;
+    margin-right: 22px;
 }
+
 
 .name-and-edit-delete-button-container-floating-contanct{
     display: flex;
     flex-direction: column;
     
     width: 298px;
-    height: 87px;
 }
 
 .h2-floating-contact{

@@ -1,0 +1,30 @@
+@media(max-width: 1000px){
+    .main-container{
+        flex-direction: column-reverse;
+    }
+
+    .help-body {
+        height: calc(100vh - 177px);
+        overflow-y: auto;
+    }
+}
+
+@media(max-width: 600px){
+
+    .margin-content-help {
+        padding: 10px 35px;
+    }
+
+}
+
+@media(max-width: 400px){
+
+    .h1-font-help {
+        font-size: 49px;
+    }
+
+    .h2-font-help {
+        font-size: 26px;
+    }
+
+}
