@@ -2,7 +2,7 @@
 .navbar{
     border-right: inset;
     height: calc(100vh - 156px);
-    min-width: 204px;
+    min-width: 210px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

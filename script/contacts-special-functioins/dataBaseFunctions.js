@@ -24,10 +24,9 @@ async function postData(path = "", data = {}){
     return await response.json();
 }
 
-async function addNewContact(name, mail, phone) {
-
+async function addNewContact(name, mail, phone = "") {
     let currentColor = getContactColorType();
-    
+
         return await postData("/contacts/",{
         userName: name,
         email: mail,

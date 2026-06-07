@@ -2,9 +2,12 @@ let users = [];
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
 
-
 function onloadFunc(){
     showRegister();
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
 
@@ -18,7 +21,7 @@ async function showRegister(){
 }
 
 
-async function updateUser(name, mail, password) {
+async function updateSignedUser(name, mail, password) {
 
     let userExists = await checkIfUserExist(name);
 
@@ -96,6 +99,8 @@ async function validateForm(event){
     let inputRepeat = document.forms["signUpForm"]["repeat"].value;
     let inputCheckbox = document.forms["signUpForm"]["checkbox"].checked;
 
+    const emptyPhoneNumber = "";
+
     const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat, inputCheckbox);
     const passwordsAreSame = checkIfPasswordsAreSame(inputPassword, inputRepeat);
 
@@ -105,7 +110,8 @@ async function validateForm(event){
             }
 
 
-            await updateUser(inputName, inputMail, inputPassword);   
+            await updateSignedUser(inputName, inputMail, inputPassword);  
+            await addNewContact(inputName, inputMail, emptyPhoneNumber); 
                 
             return true;
 }
@@ -147,7 +153,35 @@ function checkIfPasswordsAreSame(password, repeat){
     return true;
 }
 
+function getContactColorType(){
+    let randomNumber = getRandomInt(100);
+    const colorCode = randomNumber % 8;  
 
+    if(colorCode === 0){
+        return "orange";
+    }
+    if(colorCode === 1){
+        return "lila";
+    }
+    if(colorCode === 2){
+        return "lavander";
+    }
+    if(colorCode === 3){
+        return "violette";
+    }
+    if(colorCode === 4){
+        return "pink";
+    }
+    if(colorCode === 5){
+        return "yellow";
+    }
+    if(colorCode === 6){
+        return "turquoise";
+    }
+    if(colorCode === 7){
+        return "red";
+    }
+}
 
 
 

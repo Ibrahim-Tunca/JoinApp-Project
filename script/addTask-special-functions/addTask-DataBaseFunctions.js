@@ -2,14 +2,15 @@ async function loadContacts(){
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
     const entries = Object.entries(responseToJson);
+    const sortedEntries = sortContactsAlphabetically(entries);
 
     const contactSelectionContainerRef = document.getElementById("contactSelectionID");
 
-    for (let index = 0; index < entries.length; index++) {
-        const contactName = entries[index][1].userName;
-        const contactColor = entries[index][1].color;
-        const contactInitals = entries[index][1].userName.charAt(0).toUpperCase();
-        const contactKey = entries[index][0];        
+    for (let index = 0; index < sortedEntries.length; index++) {
+        const contactName = sortedEntries[index][1].userName;
+        const contactColor = sortedEntries[index][1].color;
+        const contactInitals = sortedEntries[index][1].userName.charAt(0).toUpperCase();
+        const contactKey = sortedEntries[index][0];        
 
         contactSelectionContainerRef.innerHTML += contactSelectionTemplate(contactKey, contactInitals, contactColor, contactName);
     }
@@ -48,4 +49,15 @@ async function postData(path = "", data = {}){
         body: JSON.stringify(data)
     });
     return await response.json();
+}
+
+function sortContactsAlphabetically(entries = []) {
+    return [...entries].sort((firstEntry, secondEntry) => {
+        const firstName = firstEntry?.[1]?.userName?.trim() ?? "";
+        const secondName = secondEntry?.[1]?.userName?.trim() ?? "";
+
+        return firstName.localeCompare(secondName, "de", {
+            sensitivity: "base"
+        });
+    });
 }
