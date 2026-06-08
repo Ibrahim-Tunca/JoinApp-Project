@@ -7,29 +7,6 @@ const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebaseda
 
 initCustomSelects();
 
-async function validateAddTaskForm(event){
-    event.preventDefault();
-
-    const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
-    const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
-    const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
-    const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
-
-    const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
-
-    if (!requiredFieldsAreFilled) {
-        return;
-    }
-
-    await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
-    popUpSuccesAddTask();
-
-    setTimeout(() => {
-        window.location.reload();
-    }, 2500);
-}
-
-
 function addContactInTask(id, initials, color){
     let contactFound = checkIfContactAreAlreadyInArray(id);
 
@@ -86,6 +63,29 @@ function popUpSuccesAddTask(){
 
 function relodePage(){
     window.location.reload();
+}
+
+
+async function validateAddTaskForm(event){
+    event.preventDefault();
+
+    const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
+    const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
+    const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
+    const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
+
+    const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
+
+    if (!requiredFieldsAreFilled) {
+        return;
+    }
+
+    await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
+    popUpSuccesAddTask();
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 2500);
 }
 
 

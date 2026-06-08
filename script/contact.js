@@ -135,9 +135,51 @@ async function validateAddContactForm(event){
     const contactMailRef = document.forms["addContactForm"]["mail"].value
     const contactPhoneNumberRef = document.forms["addContactForm"]["phone"].value;
 
+    const everthingIsFilled = checkIfEverthingIsFilled(contactNameRef, contactMailRef, contactPhoneNumberRef);
+
+    if (!everthingIsFilled) {
+        return false;
+    }
+
     await addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
     renderContacts();
     popUpAddContactSucces();
     
+    return true;
+}
+
+function checkIfEverthingIsFilled(name, mail, number){
+
+    const nameRef = document.getElementById("nameID");
+    const mailRef = document.getElementById("mailID");
+    const numberRef = document.getElementById("phoneID");
+
+    const errorNameRef = document.getElementById("errorNameID");
+    const errorMailRef = document.getElementById("errorMailID");
+    const errorNumberRef = document.getElementById("errorNumberID");
+
+    nameRef.classList.remove("inputfield-contact-error");
+    mailRef.classList.remove("inputfield-contact-error");
+    numberRef.classList.remove("inputfield-contact-error");
+
+    errorNameRef.classList.remove("d_block");
+    errorMailRef.classList.remove("d_block");
+    errorNumberRef.classList.remove("d_block");
+
+    if(name === ""){
+        nameRef.classList.add("inputfield-contact-error");
+        errorNameRef.classList.add("d_block");
+        return false;
+    }
+    if(mail === ""){
+        mailRef.classList.add("inputfield-contact-error");
+        errorMailRef.classList.add("d_block");
+        return false;
+    }
+    if(number === ""){
+        numberRef.classList.add("inputfield-contact-error");
+        errorNumberRef.classList.add("d_block");
+        return false;
+    }
     return true;
 }

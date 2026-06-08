@@ -115,17 +115,29 @@ function addContactTemplate(){
 
                             <div class="input-container-contact">
 
-                                <div class="single-inputfield-container-contact">
-                                    <input class="inputfield-contact" type="text" placeholder="Name" name="name" id="nameID">
-                                    <img class="inputfield-placeholder-img" src="./img/person.svg" alt="">
+                                <div style="height: 40px;">
+                                    <div class="single-inputfield-container-contact">
+                                            <input class="inputfield-contact" type="text" placeholder="Name" name="name" id="nameID">
+                                            <img class="inputfield-placeholder-img" src="./img/person.svg">
+                                        
+                                    </div>
+                                    <span class="inputfield-contact-errormessage-name" id="errorNameID">Please enter a name!</span>
                                 </div>
-                                <div class="single-inputfield-container-contact">
-                                    <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
-                                    <img class="inputfield-placeholder-img" src="./img/mail.svg" alt="">
+                                
+                                <div style="height: 40px;">
+                                    <div class="single-inputfield-container-contact">
+                                        <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
+                                        <img class="inputfield-placeholder-img" src="./img/mail.svg">
+                                    </div>
+                                    <span class="inputfield-contact-errormessage-mail" id="errorMailID">Please enter a emailadress!</span>
                                 </div>
-                                <div class="single-inputfield-container-contact">
-                                    <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
-                                    <img class="inputfield-placeholder-img" src="./img/call.svg" alt="">
+
+                                <div style="height: 40px;">
+                                    <div class="single-inputfield-container-contact">
+                                        <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
+                                        <img class="inputfield-placeholder-img" src="./img/call.svg">
+                                    </div>
+                                    <span class="inputfield-contact-errormessage-number" id="errorNumberID">Please enter a phonenumber!</span>
                                 </div>
 
                             </div>

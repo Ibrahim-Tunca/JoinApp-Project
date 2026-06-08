@@ -49,30 +49,34 @@ function showEditContactWindow(name, mail, initials, color, phone, id){
 
 
 function popUpAddContactSucces(){
-
-    let popupWindow = document.getElementById("popupContactID");
+    const overlayRef = document.getElementById("overlayID");
+    const popupWindow = document.getElementById("popupContactID");
 
     popupWindow.innerHTML = `Contact successfully created`;
 
     popupWindow.classList.add("top-50-percent");
 
+    hideAddContactAndEditContactWindow();
+    overlayRef.classList.add("hide-and-show-overlay-contacts");
+
     setTimeout(() => {
-        hideAddContactAndEditContactWindow();
+        overlayRef.classList.remove("hide-and-show-overlay-contacts");
         popupWindow.classList.remove("top-50-percent");
     }, 2500);
 }
 
 function popUpDeleteContactSucces(){
-
-    let popupWindow = document.getElementById("popupContactID");
+    const popupWindow = document.getElementById("popupContactID");
+    const overlayRef = document.getElementById("overlayID");
 
     popupWindow.innerHTML = `Contact successfully deleted`;
-
     popupWindow.classList.add("top-50-percent");
 
     hideAddContactAndEditContactWindow();
+    overlayRef.classList.add("hide-and-show-overlay-contacts");
 
     setTimeout(() => {
+        overlayRef.classList.remove("hide-and-show-overlay-contacts");
         popupWindow.classList.remove("top-50-percent");
     }, 2500);
 }

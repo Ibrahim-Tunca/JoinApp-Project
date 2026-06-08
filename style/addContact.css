@@ -236,3 +236,29 @@
     margin-left: 8px;
 }
 
+.inputfield-contact-error{
+    border-bottom: solid 2px #FF3D00;
+}
+
+.inputfield-contact-errormessage-name{
+    color: #FF3D00;
+    text-align: center;
+    display: none;
+}
+
+.inputfield-contact-errormessage-mail{
+    color: #FF3D00;
+    text-align: center;
+    display: none;
+}
+
+.inputfield-contact-errormessage-number{
+    color: #FF3D00;
+    text-align: center;
+    display: none;
+}
+
+.d_block{
+    display: block;
+    margin-top: 15px;
+}
