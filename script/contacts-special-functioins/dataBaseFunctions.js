@@ -79,21 +79,8 @@ async function deleteContact(id){
     floatingCard.classList.toggle("is-visible");
     choosedContactID = "";
 
+    floatBackContactDetails(id);
     popUpDeleteContactSucces();
     
     await renderContacts();
-}
-
-
-//This function is not in use!!!!
-async function loadContacts() {
-    let response = await fetch(BASE_URL + "contacts.json");
-    let responseToJson = await response.json();
-
-    return Object.entries(responseToJson).map(([id, contact]) => {
-        return {
-            id: id,
-            ...contact
-        };
-    });
 }

@@ -121,6 +121,13 @@ function floatBackContactDetails(id){
 async function validateEditContactForm(event, id){
     event.preventDefault();
     clearAllBlogs();
+
+    const everthingIsFilled = checkIfEverthingIsFilledInEditContact();
+
+    if (!everthingIsFilled) {
+        return false;
+    }
+
     await updateUser(id);
     renderContacts();
     hideAddContactAndEditContactWindow();
@@ -177,6 +184,46 @@ function checkIfEverthingIsFilled(name, mail, number){
         return false;
     }
     if(number === ""){
+        numberRef.classList.add("inputfield-contact-error");
+        errorNumberRef.classList.add("d_block");
+        return false;
+    }
+    return true;
+}
+
+function checkIfEverthingIsFilledInEditContact(){
+
+    const nameRef = document.getElementById("editContactNameID");
+    const mailRef = document.getElementById("editContactMailID");
+    const numberRef = document.getElementById("editContactPhoneID");
+
+    const errorNameRef = document.getElementById("editErrorNameID");
+    const errorMailRef = document.getElementById("editErrorMailID");
+    const errorNumberRef = document.getElementById("editErrorNumberID");
+
+    const nameValue = document.getElementById("editContactNameID").value;
+    const mailValue = document.getElementById("editContactMailID").value;
+    const phoneValue = document.getElementById("editContactPhoneID").value;
+
+    nameRef.classList.remove("inputfield-contact-error");
+    mailRef.classList.remove("inputfield-contact-error");
+    numberRef.classList.remove("inputfield-contact-error");
+
+    errorNameRef.classList.remove("d_block");
+    errorMailRef.classList.remove("d_block");
+    errorNumberRef.classList.remove("d_block");
+
+    if(nameValue === ""){
+        nameRef.classList.add("inputfield-contact-error");
+        errorNameRef.classList.add("d_block");
+        return false;
+    }
+    if(mailValue === ""){
+        mailRef.classList.add("inputfield-contact-error");
+        errorMailRef.classList.add("d_block");
+        return false;
+    }
+    if(phoneValue === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
         return false;

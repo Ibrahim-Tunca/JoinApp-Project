@@ -183,17 +183,28 @@ function editContactTemplate(initials, color, id){
 
                         <div class="input-container-contact">
 
-                            <div class="single-inputfield-container-contact">
-                                <input class="inputfield-contact" type="text" name="name" id="editContactNameID">
-                                <img class="inputfield-placeholder-img" src="./img/person.svg" alt="">
+                            <div style="height: 40px;">
+                                <div class="single-inputfield-container-contact">
+                                    <input class="inputfield-contact" type="text" name="name" id="editContactNameID">
+                                    <img class="inputfield-placeholder-img" src="./img/person.svg">
+                                </div>
+                                <span class="inputfield-contact-errormessage-name" id="editErrorNameID">Please enter a name!</span>
                             </div>
-                            <div class="single-inputfield-container-contact">
-                                <input class="inputfield-contact" type="email" name="mail" id="editContactMailID">
-                                <img class="inputfield-placeholder-img" src="./img/mail.svg" alt="">
+
+                            <div style="height: 40px;">   
+                                <div class="single-inputfield-container-contact">
+                                    <input class="inputfield-contact" type="email" name="mail" id="editContactMailID">
+                                    <img class="inputfield-placeholder-img" src="./img/mail.svg">
+                                </div>
+                                <span class="inputfield-contact-errormessage-name" id="editErrorMailID">Please enter a emailadress!</span>
                             </div>
-                            <div class="single-inputfield-container-contact">
-                                <input class="inputfield-contact" type="tel" name="phone" id="editContactPhoneID">
-                                <img class="inputfield-placeholder-img" src="./img/call.svg" alt="">
+
+                            <div style="height: 40px;">
+                                <div class="single-inputfield-container-contact">
+                                    <input class="inputfield-contact" type="tel" name="phone" id="editContactPhoneID">
+                                    <img class="inputfield-placeholder-img" src="./img/call.svg">
+                                </div>
+                                <span class="inputfield-contact-errormessage-name" id="editErrorNumberID">Please enter a phonenumber!</span>
                             </div>
 
                         </div>
