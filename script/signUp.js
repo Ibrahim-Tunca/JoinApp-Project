@@ -184,4 +184,52 @@ function getContactColorType(){
 }
 
 
+function iconSwitch(){
+    const iconRef = document.getElementById("lockIconID");
+    const repeatIconRef = document.getElementById("repeatlockIconID");
+    const passwordRef = document.getElementById("passwordID");
+    const repeatRef = document.getElementById("repeatID");
+    const containerRef = document.getElementById("inputfieldPasswordContainerID");
+
+    const passwordValue = document.forms["signUpForm"]["password"].value;
+
+    if(passwordValue != ""){
+        iconRef.src = "./img/register/visibility_off.svg"
+        iconRef.classList.add("clickable-icon");
+        repeatIconRef.src = "./img/register/visibility_off.svg"
+        repeatIconRef.classList.add("clickable-icon");
+    }
+    if(passwordValue === ""){
+        iconRef.classList.remove("clickable-icon");
+        iconRef.src = "./img/register/lock.svg"
+        repeatIconRef.classList.remove("clickable-icon");
+        repeatIconRef.src = "./img/register/lock.svg"
+    }
+
+}
+
+
+function showAndHidePassword(){
+    const passwordRef = document.getElementById("passwordID");
+    const iconRef = document.getElementById("lockIconID");
+    const repeatRef = document.getElementById("repeatID");
+    const repeatIconRef = document.getElementById("repeatlockIconID");
+
+    if (passwordRef.type === "password") {
+        iconRef.src = "./img/register/visibility.svg"
+        passwordRef.type = "text";
+        repeatIconRef.src = "./img/register/visibility.svg"
+        repeatRef.type = "text";
+        return;
+    }
+
+    if(passwordRef.type === "text"){
+        iconRef.src = "./img/register/visibility_off.svg"
+        passwordRef.type = "password";
+        repeatIconRef.src = "./img/register/visibility_off.svg"
+        repeatRef.type = "password";
+        return;
+    }
+    
+}
 

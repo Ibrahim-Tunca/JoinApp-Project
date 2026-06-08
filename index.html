@@ -41,8 +41,15 @@
             <div class="form-container-login">
                 <form name="loginForm">
                     <div class="inputfields-container-login">
-                        <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email" id="emailID">
-                        <input class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" id="passwordID">
+                        <div  class="inputfield-container-login">
+                            <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email" id="emailID">
+                            <img class="input-icons-login" src="./img/register/mail.svg">
+                        </div>
+
+                        <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
+                            <input onkeyup="iconSwitch()" class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" id="passwordID">
+                            <img onclick="showAndHidePassword()" class="input-icons-login" src="./img/register/lock.svg" id="lockIconID">
+                        </div>
                     </div>   
                     <div class="error-class-login" id="errorID"></div> 
                 <div class="button-container-login">

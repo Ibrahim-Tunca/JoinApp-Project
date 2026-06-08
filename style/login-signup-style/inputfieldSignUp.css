@@ -4,9 +4,8 @@
     border-bottom: solid 2px #D1D1D1;
     margin: 15px;
 
-    background-image: url("/img/mail.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
         .inputfield-mail-signup::placeholder {
@@ -22,11 +21,13 @@
     padding: 10px 20px 10px 20px;
     border-width: 0px;
     border-bottom: solid 2px #D1D1D1;
+
+    width: 100%;
+    box-sizing: border-box;
+
     margin: 15px;
 
-    background-image: url("/img/person.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
+
 }
 
         .inputfield-name-signup::placeholder {
@@ -44,9 +45,8 @@
     border-bottom: solid 2px #D1D1D1;
     margin: 15px;
 
-    background-image: url("/img/lock.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
         .inputfield-password-signup::placeholder {
@@ -65,9 +65,8 @@
     border-bottom: solid 2px #D1D1D1;
     margin: 15px;
 
-    background-image: url("/img/lock.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
         .inputfield-repeat-signup::placeholder {
@@ -84,6 +83,9 @@
     border-width: 0px;
     border-bottom: solid 2px #FF3D00;
     margin: 15px;
+
+    width: 100%;
+    box-sizing: border-box;
 
     background-image: url("/img/lock.svg");
     background-repeat: no-repeat;
@@ -109,3 +111,9 @@
     color: #FF3D00;
 }
 
+.input-icons-signup{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 24px;
+}

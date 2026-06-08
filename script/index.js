@@ -100,7 +100,42 @@ function checkIfPasswordIsCorrect(password, currentUserpassword){
     return false;
 }
 
+function iconSwitch(){
+    const iconRef = document.getElementById("lockIconID");
+    const passwordRef = document.getElementById("passwordID");
+    const containerRef = document.getElementById("inputfieldPasswordContainerID");
+    
 
+    const passwordValue = document.forms["loginForm"]["password"].value;
+
+    if(passwordValue != ""){
+        iconRef.src = "./img/register/visibility_off.svg"
+        iconRef.classList.add("clickable-icon");
+    }
+    if(passwordValue === ""){
+        iconRef.classList.remove("clickable-icon");
+        iconRef.src = "./img/register/lock.svg"
+    }
+
+}
+
+function showAndHidePassword(){
+    const passwordRef = document.getElementById("passwordID");
+    const iconRef = document.getElementById("lockIconID");
+
+    if (passwordRef.type === "password") {
+        iconRef.src = "./img/register/visibility.svg"
+        passwordRef.type = "text";
+        return;
+    }
+
+    if(passwordRef.type === "text"){
+        iconRef.src = "./img/register/visibility_off.svg"
+        passwordRef.type = "password";
+        return;
+    }
+    
+}
 
 
 
