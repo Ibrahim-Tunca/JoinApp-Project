@@ -3,10 +3,6 @@
          flex-direction: column; 
     }
 
-    .cards-container-board{
-        min-height: 200px;
-    }
-
     .bottom-section-single-container-board {
         width: 100%;
         display: flex;
@@ -22,6 +18,8 @@
     .cards-container-board {
         display: flex;
         flex-flow: wrap;
+        min-height: 200px;
+        width: 100%;
     }
 
 

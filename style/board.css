@@ -159,6 +159,7 @@
 .cards-container-board{
     background-color: white;
     min-height: 600px;
+    width: 233px;
 }
 
 .cards-container-drag-hover-board{

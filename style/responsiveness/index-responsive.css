@@ -17,7 +17,7 @@
 }
 
 bottom-section {
-    order: 3;
+    display: none;
 }
 
 .not-a-join-user {
