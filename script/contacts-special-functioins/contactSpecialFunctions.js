@@ -70,31 +70,52 @@ function setLastContactBackToUnfocused(){
 
 function getContactColorType(){
     let randomNumber = getRandomInt(100);
-    const colorCode = randomNumber % 8;  
+    const colorCode = randomNumber % 15;  
 
     if(colorCode === 0){
-        return "orange";
+        return "ocker";
     }
     if(colorCode === 1){
-        return "lila";
-    }
-    if(colorCode === 2){
-        return "lavander";
-    }
-    if(colorCode === 3){
-        return "violette";
-    }
-    if(colorCode === 4){
-        return "pink";
-    }
-    if(colorCode === 5){
         return "yellow";
     }
+    if(colorCode === 2){
+        return "orange";
+    }
+    if(colorCode === 3){
+        return "red";
+    }
+    if(colorCode === 4){
+        return "salmon";
+    }
+    if(colorCode === 5){
+        return "creme";
+    }
     if(colorCode === 6){
-        return "turquoise";
+        return "lila";
     }
     if(colorCode === 7){
-        return "red";
+        return "lavender";
+    }
+    if(colorCode === 8){
+        return "violette";
+    }
+    if(colorCode === 9){
+        return "pink";
+    }
+    if(colorCode === 10){
+        return "magenta";
+    }
+    if(colorCode === 11){
+        return "blue";
+    }
+    if(colorCode === 12){
+        return "turquoise";
+    }
+    if(colorCode === 13){
+        return "babyblue";
+    }
+    if(colorCode === 14){
+        return "lime";
     }
 }
 

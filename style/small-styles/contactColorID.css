@@ -1,5 +1,25 @@
+.ocker{
+    background-color: #FFBB2B;
+}
+
+.yellow{
+    background-color: #FFE62B;
+}
+
 .orange{
     background-color: #FF7A00;
+}
+
+.red{
+    background-color: #FF4646;
+}
+
+.salmon{
+    background-color: #FF745E;
+}
+
+.creme{
+    background-color: #FFA35E;
 }
 
 .lila{
@@ -18,15 +38,26 @@
     background-color: #FC71FF;
 }
 
-.yellow{
-    background-color: #FFBB2B;
+.magenta{
+    background-color: #FF5EB3;
+}
+
+.blue{
+    background-color: #0038FF;
 }
 
 .turquoise{
     background-color: #1FD7C1;
 }
 
-.red{
-    background-color: #FF4646;
+.babyblue{
+    background-color: #00BEE8;
 }
+
+.lime{
+    background-color: #C3FF2B;
+}
+
+
+
 

@@ -157,12 +157,17 @@
         }
 
 .cards-container-board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: white;
     min-height: 600px;
     width: 233px;
+    border-radius: 22px;
+    border:2px;
 }
 
 .cards-container-drag-hover-board{
-    background-color: #D2E3FF;
-    border-radius: 22px;
+    border-style: dotted;
+    color: #A8A8A8;
 }

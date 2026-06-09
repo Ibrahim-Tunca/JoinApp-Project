@@ -118,6 +118,7 @@
 .name-mail-container{
     display: flex;
     flex-direction: column;
+    max-width: 226px;
 }
 
 .name-font-contact{
