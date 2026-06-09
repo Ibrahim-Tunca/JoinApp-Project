@@ -90,8 +90,3 @@ function contactSelectionTemplate(id, initials, color, name, mail){
             </label>`
 }
 
-function setYOUnextToTheUserContact(mail){
-    const contactNameRef = document.getElementById(mail + "ID");
-    contactNameRef.innerHTML += " " + "(You)";
-}
-

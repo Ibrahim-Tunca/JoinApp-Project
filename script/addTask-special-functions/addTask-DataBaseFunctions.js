@@ -17,11 +17,18 @@ async function loadContacts(){
         contactSelectionContainerRef.innerHTML += contactSelectionTemplate(contactKey, contactInitals, contactColor, contactName, contactMail);
     }
     
+    if(!globalUserMail){
+        return;
+    }
     setYOUnextToTheUserContact(globalUserMail);
 }
 
 
 function takeTheUserFromArrayAndPutInOnTheTop(sortedEntries){
+    if (!checkIfUserIsLogged()) {
+        return sortedEntries;
+    }
+
     const userDataString = localStorage.getItem("userData")
     const userData = JSON.parse(userDataString);
     const userMail = userData.email;
@@ -40,7 +47,13 @@ function takeTheUserFromArrayAndPutInOnTheTop(sortedEntries){
         }
         
     }
-     return sortedEntries; 
+    return sortedEntries; 
+}
+
+
+function setYOUnextToTheUserContact(mail){
+    const contactNameRef = document.getElementById(mail + "ID");
+    contactNameRef.innerHTML += " " + "(You)";
 }
 
 
