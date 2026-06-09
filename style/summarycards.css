@@ -72,6 +72,11 @@
             height: 81px;
         }
 
+        .urgency-inside-right-top-container{
+            display: flex;
+            justify-content: space-between;
+        }
+
                 .urgency-container:hover .urgency-inside-right-container{
                     width: 310px;
                     height: 90px;

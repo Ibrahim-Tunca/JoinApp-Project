@@ -1,5 +1,9 @@
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+let deadline;
+
 async function getTaskEntriesFromDataBase(){
     const variable = await loadData("/tasks");
     const entries = Object.entries(variable || {});
@@ -15,7 +19,7 @@ async function loadData(path=""){
 
 
 async function loadTaskStats(){
-     greetLoggedUser();
+    greetLoggedUser();
     const tasks = await getTaskEntriesFromDataBase();
     const urgentTasksNumberRef = document.getElementById("urgentTasksNumberID");
     const tasksBoardNumberRef = document.getElementById("tasksBoardNumberID");
@@ -61,6 +65,8 @@ async function loadTaskStats(){
         tasksInProgressNumberRef.innerHTML = progressCounter;
         tasksAwaitingFeedbackNumberRef.innerHTML = feedbackCounter;
         tasksDoneNumberRef.innerHTML = doneCounter;
+        
+        getDeadlineDate()
 }
 
 
@@ -79,4 +85,74 @@ function greetLoggedUser(){
         greetingContainerRef.innerHTML = `<span class="greeting-font-summary">Good morning,</span><span class="username-font-summary"> ${username}</span>`
     }
  
+}
+
+
+async function getDeadlineDate(){
+    const tasks = await getTaskEntriesFromDataBase();
+    const currentDate = new Date();
+
+    for (let index = 0; index < tasks.length; index++) {
+        const taskDate = tasks[index][1].date;        
+        updateDeadlineIfTaskDateIsUpcoming(taskDate, currentDate);
+        setNewDeadline();
+    }
+
+}
+
+
+function setNewDeadline(){
+    const yearRef = document.getElementById("yearID");
+    const monthRef = document.getElementById("monthID");
+    const dayRef = document.getElementById("dayID");
+
+    if(!deadline){
+        monthRef.innerHTML = `No Tasks upcoming!`
+        return;
+    }
+
+    const day = new Date(deadline).getDate();
+    const monthNumber = new Date(deadline).getMonth();
+    const monthName = months[monthNumber];
+    const year = new Date(deadline).getFullYear();
+
+    
+
+    dayRef.innerHTML = day + ",";
+    monthRef.innerHTML = monthName;
+    yearRef.innerHTML = year;
+}
+
+
+function updateDeadlineIfTaskDateIsUpcoming(taskDate, currentDate){
+        const taskYear = new Date(taskDate).getFullYear();
+        const taskMonth = new Date(taskDate).getMonth();
+        const taskDay = new Date(taskDate).getDate();
+        
+        if(taskYear >= currentDate.getFullYear()){
+            if (taskMonth >= currentDate.getMonth()) {
+                if(taskDay >= currentDate.getDate()){
+                    checkIfTaskDateEarlierThanLastTaskDateAndUpdateDeadline(taskDay, taskMonth, taskYear, taskDate);
+                }
+            }
+        }
+}
+
+function checkIfTaskDateEarlierThanLastTaskDateAndUpdateDeadline(taskDay, taskMonth, taskYear, taskDate){
+
+    if(!deadline){
+        deadline = taskDate;
+    }
+
+    const deadlineYear = new Date(deadline).getFullYear();
+    const deadlineMonth = new Date(deadline).getMonth();
+    const deadlineDay = new Date(deadline).getDate();
+
+    if(deadlineYear >= taskYear){
+        if(deadlineMonth >= taskMonth){
+            if(deadlineDay > taskDay){
+                deadline = taskDate;
+            }
+        }
+    }
 }
