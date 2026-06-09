@@ -73,7 +73,7 @@ function confirmEditSubtaskTemplate(id, value){
             </div> `;
 }
 
-function contactSelectionTemplate(id, initials, color, name){
+function contactSelectionTemplate(id, initials, color, name, mail){
     return `<label class="contact-option-addTask" id="contactID${id}">
                 <input
                     onchange="addContactInTask('${id}', '${initials}', '${color}'), generateInitalBallUnderContactOption()"
@@ -84,9 +84,14 @@ function contactSelectionTemplate(id, initials, color, name){
                 >
                 <div class="contact-option-left-container-addTask">
                     <div class="contact-initial-ball ${color}">${initials}</div>
-                    <span class="contact-option-font">${name}</span>
+                    <span class="contact-option-font" id="${mail}ID">${name}</span>
                 </div>
                 <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxID${id}"></span>
             </label>`
+}
+
+function setYOUnextToTheUserContact(mail){
+    const contactNameRef = document.getElementById(mail + "ID");
+    contactNameRef.innerHTML += " " + "(You)";
 }
 

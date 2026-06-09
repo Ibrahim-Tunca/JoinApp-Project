@@ -2,6 +2,7 @@ let priority = "";
 let subtaskID = 0;
 let subtasks = [];
 let choosedContacts = [];
+let globalUserMail = "";
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
