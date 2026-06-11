@@ -4,9 +4,13 @@
 }
 
 .maincontent-container-board{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 76px 0 0 56px;
     height: calc(100vh - 172px);
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .bottom-section-board{

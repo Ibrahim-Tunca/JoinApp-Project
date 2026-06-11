@@ -7,16 +7,31 @@
     overflow: hidden;
 }
 
+.real-main-container-addTask{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: calc(100vh - 96px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
 .main-container-addTask{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 
-    height: calc(100vh - 96px);
-    width: 488px;
+    height: calc(100vh - 166px);
+    width: 100%;
     padding: 0 21px;
     overflow: hidden;
     overflow-y: auto;
+}
+
+.scroll-container-addTask{
+    display: flex;
+    overflow: hidden;
+    width: 488px;
 }
 
 .font-bold-add-task{
@@ -114,17 +129,16 @@
 
 /*===================Custom Calendericon======================================================*/
 
-        /* Placeholder-Text für input[type="date"] */
 .input-date-addTask::-webkit-datetime-edit {
-    color: #D1D1D1; /* Placeholder-Farbe */
+    color: #D1D1D1; 
 }
 
 .input-date-addTask:focus::-webkit-datetime-edit {
-    color: #000000; /* Eingabefarbe */
+    color: #000000; 
 }
 
 .input-date-addTask:not(:placeholder-shown)::-webkit-datetime-edit {
-    color: #000000; /* Eingabefarbe, wenn ein Datum ausgewählt wurde */
+    color: #000000; 
 }
 
         .input-date-addTask:focus{

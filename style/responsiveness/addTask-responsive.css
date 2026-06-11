@@ -1,5 +1,5 @@
 .button-order-addtask-responsive{
-    display: flex;
+    display: none;
     justify-content: center;
     bottom: 0px;
     margin-bottom: 70px;
@@ -7,6 +7,11 @@
 }
 
 @media(max-width: 1000px){
+
+.button-order-addtask-responsive{
+    display: flex;
+}
+
 .textarea-description-addtask {
     max-width: 100%;
 }
@@ -16,8 +21,18 @@
     flex-direction: column;
 }
 
+.real-main-container-addTask {
+    height: calc(100vh - 166px);
+}
+
+.scroll-container-addTask{
+    width: 100%;
+}
+
 .main-container-addTask{
     height: calc(100vh - 177px);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .scrollcontainer{
