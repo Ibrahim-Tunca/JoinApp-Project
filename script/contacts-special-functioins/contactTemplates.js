@@ -19,6 +19,7 @@ function renderContactsTemplate(userName, email, phone, color, id, initial){
 
 }
 
+
 function contactDetailsTemplate(name, mail, initials, color, phone, id){
     return `
                 <div class="floating-contact-container" id="${id}-floatingContact">

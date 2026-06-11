@@ -21,7 +21,6 @@ function removeContainerDragHover(id){
 
 
 async function moveTo(containerRef){
-
     const statusByContainer = {
         toDoContainerID: "todo",
         inProgressContainerID: "inProgress",
@@ -29,11 +28,10 @@ async function moveTo(containerRef){
         doneContainerID: "done"
     };
     
-
     const status = statusByContainer[containerRef];
-    if (!status || !currentDraggedTaskID) {
-        return;
-    }
+        if (!status || !currentDraggedTaskID) {
+            return;
+        }
 
     await updateStatusFromTask(currentDraggedTaskID, status);
     await renderAllCards();

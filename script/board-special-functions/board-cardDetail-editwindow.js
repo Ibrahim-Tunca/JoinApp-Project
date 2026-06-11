@@ -108,7 +108,6 @@ async function updateTask(event){
 async function editCardDetail(){
     const cardDetailRef = document.getElementById("cardDetailContainerID");
     const task = await getTaskById(currentClickedTaskID);
-
     const title = task.title;
     const description = task.description;
     const date = task.date;

@@ -4,9 +4,18 @@ async function loadContacts(){
     const entries = Object.entries(responseToJson);
     const sortedEntries = sortContactsAlphabetically(entries);
     const sortedAndSetUserOnTheTop = takeTheUserFromArrayAndPutInOnTheTop(sortedEntries);
-
     const contactSelectionContainerRef = document.getElementById("contactSelectionID");
 
+    renderContactSelectionEntries(sortedAndSetUserOnTheTop, contactSelectionContainerRef);
+    
+    if(!globalUserMail){
+        return;
+    }
+    setYOUnextToTheUserContact(globalUserMail);
+}
+
+
+function renderContactSelectionEntries(sortedAndSetUserOnTheTop, contactSelectionContainerRef){
     for (let index = 0; index < sortedAndSetUserOnTheTop.length; index++) {
         const contactMail = sortedAndSetUserOnTheTop[index][1].email;
         const contactName = sortedAndSetUserOnTheTop[index][1].userName;
@@ -16,11 +25,6 @@ async function loadContacts(){
 
         contactSelectionContainerRef.innerHTML += contactSelectionTemplate(contactKey, contactInitals, contactColor, contactName, contactMail);
     }
-    
-    if(!globalUserMail){
-        return;
-    }
-    setYOUnextToTheUserContact(globalUserMail);
 }
 
 
@@ -33,6 +37,12 @@ function takeTheUserFromArrayAndPutInOnTheTop(sortedEntries){
     const userData = JSON.parse(userDataString);
     const userMail = userData.email;
 
+    sortedEntries = moveUserContactToTop(sortedEntries, userMail);
+    return sortedEntries; 
+}
+
+
+function moveUserContactToTop(sortedEntries, userMail){
     for (let index = 0; index < sortedEntries.length; index++) {
         const currentMail = sortedEntries[index][1].email;
         const currentUser = sortedEntries[index];
@@ -45,9 +55,8 @@ function takeTheUserFromArrayAndPutInOnTheTop(sortedEntries){
             sortedEntries.splice(0, 1, currentUser);
             return sortedEntries;
         }
-        
     }
-    return sortedEntries; 
+    return sortedEntries;
 }
 
 
@@ -89,6 +98,7 @@ async function postData(path = "", data = {}){
     });
     return await response.json();
 }
+
 
 function sortContactsAlphabetically(entries = []) {
     return [...entries].sort((firstEntry, secondEntry) => {

@@ -4,7 +4,6 @@ function checkIfUserIsLogged(){
 
 
 function setNameInitialButton(){
-
     const userIsLogged = checkIfUserIsLogged();
     
     if(!userIsLogged){
@@ -13,12 +12,10 @@ function setNameInitialButton(){
     
     const userDataString = localStorage.getItem("userData")
     const userData = JSON.parse(userDataString);
-
     let userInitialRef = document.getElementById("userInitialButtonID");
     
     const userName = userData.userName;
     const userInitial = userName.charAt(0).toUpperCase();
-
     userInitialRef.innerHTML = userInitial; 
 }
 

@@ -2,7 +2,10 @@ const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebaseda
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+let urgentCounter = 0, onBoardCounter = 0, todoCounter = 0, progressCounter = 0, feedbackCounter = 0, doneCounter = 0;
+
 let deadline;
+
 
 async function getTaskEntriesFromDataBase(){
     const variable = await loadData("/tasks");
@@ -28,8 +31,20 @@ async function loadTaskStats(){
     const tasksAwaitingFeedbackNumberRef = document.getElementById("tasksAwaitingFeedbackNumberID");
     const tasksDoneNumberRef = document.getElementById("tasksDoneNumberID");
 
-    let urgentCounter = 0, onBoardCounter = 0, todoCounter = 0, progressCounter = 0, feedbackCounter = 0, doneCounter = 0;
+    countAllTasksFromAllStatusses(tasks);
+    
+        urgentTasksNumberRef.innerHTML = urgentCounter;
+        tasksBoardNumberRef.innerHTML = onBoardCounter;
+        tasksTodoNumberRef.innerHTML = todoCounter;
+        tasksInProgressNumberRef.innerHTML = progressCounter;
+        tasksAwaitingFeedbackNumberRef.innerHTML = feedbackCounter;
+        tasksDoneNumberRef.innerHTML = doneCounter;
 
+        getDeadlineDate()
+}
+
+
+function countAllTasksFromAllStatusses(tasks){
     for (let index = 0; index < tasks.length; index++) {
         const currentStatus = tasks[index][1].status;
         const currentPriority = tasks[index][1].priority;
@@ -53,20 +68,11 @@ async function loadTaskStats(){
             }
         }
 
-            if(currentPriority === "urgent"){
-                urgentCounter++;
-            }
-            onBoardCounter++;
+        if(currentPriority === "urgent"){
+            urgentCounter++;
+        }
+        onBoardCounter++;
     }    
-        urgentTasksNumberRef.innerHTML = urgentCounter;
-        tasksBoardNumberRef.innerHTML = onBoardCounter;
-
-        tasksTodoNumberRef.innerHTML = todoCounter;
-        tasksInProgressNumberRef.innerHTML = progressCounter;
-        tasksAwaitingFeedbackNumberRef.innerHTML = feedbackCounter;
-        tasksDoneNumberRef.innerHTML = doneCounter;
-        
-        getDeadlineDate()
 }
 
 
@@ -116,8 +122,6 @@ function setNewDeadline(){
     const monthName = months[monthNumber];
     const year = new Date(deadline).getFullYear();
 
-    
-
     dayRef.innerHTML = day + ",";
     monthRef.innerHTML = monthName;
     yearRef.innerHTML = year;
@@ -138,12 +142,11 @@ function updateDeadlineIfTaskDateIsUpcoming(taskDate, currentDate){
         }
 }
 
-function checkIfTaskDateEarlierThanLastTaskDateAndUpdateDeadline(taskDay, taskMonth, taskYear, taskDate){
 
+function checkIfTaskDateEarlierThanLastTaskDateAndUpdateDeadline(taskDay, taskMonth, taskYear, taskDate){
     if(!deadline){
         deadline = taskDate;
     }
-
     const deadlineYear = new Date(deadline).getFullYear();
     const deadlineMonth = new Date(deadline).getMonth();
     const deadlineDay = new Date(deadline).getDate();

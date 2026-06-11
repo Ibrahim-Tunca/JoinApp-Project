@@ -152,7 +152,6 @@ function editSingleSubtask(id, value){
         inputRef.value = value;
         inputRef.focus();
         inputRef.setSelectionRange(value.length, value.length);
-
 }
 
 
@@ -215,6 +214,7 @@ function initCustomSelects() {
         }
     });
 }
+
 
 function closeAllCustomSelects() {
     document.querySelectorAll(".custom-select-addTask").forEach((selectElement) => {

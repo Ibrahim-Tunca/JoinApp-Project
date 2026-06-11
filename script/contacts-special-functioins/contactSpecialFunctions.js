@@ -3,9 +3,6 @@ function getRandomInt(max) {
 }
 
 
-
-
-
 function showBlogIfBlogIsNotEmpty(blog, contactRef){
 
     if(blog.contacts.length > 0)
@@ -121,7 +118,6 @@ function getContactColorType(){
 
 
 function sortIntoAlphabeticalOrder(entries){
-
     for (let index = 0; index < entries.length; index++) {
         const contact = entries[index][1];
         const contactFirstLetter = contact.userName.charAt(0).toUpperCase();
@@ -294,9 +290,9 @@ function sortIntoAlphabeticalOrder(entries){
     }
 
     sortContactsInsideBlogs();
-    
     return;
 }
+
 
 function sortContactsInsideBlogs() {
     alphabeticalOrder.forEach((blog) => {

@@ -5,7 +5,6 @@ function hideAddContactAndEditContactWindow(){
     const addContactRef = document.getElementById("addContactID");
     const editContactRef = document.getElementById("editContactID");
 
-
     buttonRef.classList.remove("toggle-color-contacts-button");
     personIconRef.src="./img/contacts/person_add.svg";
     overlayRef.classList.remove("hide-and-show-overlay-contacts");
@@ -53,7 +52,6 @@ function popUpAddContactSucces(){
     const popupWindow = document.getElementById("popupContactID");
 
     popupWindow.innerHTML = `Contact successfully created`;
-
     popupWindow.classList.add("top-50-percent");
 
     hideAddContactAndEditContactWindow();
@@ -64,6 +62,7 @@ function popUpAddContactSucces(){
         popupWindow.classList.remove("top-50-percent");
     }, 2500);
 }
+
 
 function popUpDeleteContactSucces(){
     const popupWindow = document.getElementById("popupContactID");

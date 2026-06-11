@@ -6,7 +6,9 @@ let globalUserMail = "";
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
+
 initCustomSelects();
+
 
 function addContactInTask(id, initials, color){
     let contactFound = checkIfContactAreAlreadyInArray(id);
@@ -21,7 +23,6 @@ function addContactInTask(id, initials, color){
 
 
 function checkIfContactAreAlreadyInArray(id){
-
     for (let index = 0; index < choosedContacts.length; index++) {
         const currentContactID = choosedContacts[index].id;
         if(currentContactID === id){
@@ -37,27 +38,22 @@ function checkIfContactAreAlreadyInArray(id){
 
 function generateInitalBallUnderContactOption(){
     contentRef = document.getElementById("initialBallContainerID");
-
     contentRef.innerHTML = "";
+
     for (let index = 0; index < choosedContacts.length; index++) {
         const currentContact = choosedContacts[index];
-        
         const initials = currentContact.initals;
         const color = currentContact.color;
         contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
     }
-
 }
 
 
 function popUpSuccesAddTask(){
-
     const popUpWindowRef = document.getElementById("popUpSuccesID");
     const whiteTransparentOverlayRef = document.getElementById("whiteTransparentOverlayID");
-
     popUpWindowRef.classList.add("top-50-percent");
     whiteTransparentOverlayRef.classList.add("show-overlay-add-task");
-
     return;
 }
 
@@ -74,7 +70,6 @@ async function validateAddTaskForm(event){
     const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
     const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
     const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
-
     const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
 
     if (!requiredFieldsAreFilled) {
@@ -101,7 +96,6 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
     titleFontRef.style.color = "black";
     dateFontRef.style.color = "black";
 
-    
     titleRef.classList.remove("input-title-error-addTask");
     dateRef.classList.remove("input-date-error-addTask");
     prioContainerRef.classList.remove("prio-buttons-order-error-addTask");

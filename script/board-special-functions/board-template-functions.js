@@ -1,3 +1,35 @@
+function subtaskProgressbarTemplate(finishedSubTasks, subtasks){
+    return  `
+                <progress class="progress-bar-style-board" value="${finishedSubTasks}" max="${subtasks.length}"></progress>
+                <span >${finishedSubTasks}/${subtasks.length} Subtasks</span>
+            `
+}
+
+
+function getSubtaskTemplate(subtaskID, subtaskValue, id){
+    return  `
+                <div class="subtask-single-container-userstory">
+                    <span onclick="subTaskDone(${subtaskID}, '${id}')" class="subtask-checkbox-cardDetail" id="subTaskNr${subtaskID}"></span>
+                    <span class="regular-span-font-userstory">${subtaskValue}</span>
+                </div>
+            `
+}
+
+
+function getContactTemplate(color, initials, name){
+    return `
+                <div class="assigned-to-single-container">
+                    <div class="letter-ball-userstory ${color}"">
+                        ${initials}
+                    </div>
+                    <span>
+                        ${name}
+                    </span>
+                </div>
+            `;
+}
+
+
 function getCardTemplate(id, title, description, category, date, priority){
     return  `
                 <div draggable="true" ondragstart="moveTask('${id}')" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">

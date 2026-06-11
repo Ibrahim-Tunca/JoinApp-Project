@@ -21,6 +21,7 @@ function pasteSubtaskUnderInputfieldTemplate(id, value){
                 </div>`;
 }
 
+
 function editSingleSubtaskTemplate(id){
     return `    <div class="wrapper-div-container">
                         <input 
@@ -50,6 +51,7 @@ function editSingleSubtaskTemplate(id){
                 </div>`
 }
 
+
 function confirmEditSubtaskTemplate(id, value){
     return `<div class="single-subtask-container" id="subtaskNr${id}ID">    
                 <span>• ${value}</span>  
@@ -72,6 +74,7 @@ function confirmEditSubtaskTemplate(id, value){
                         </div>
             </div> `;
 }
+
 
 function contactSelectionTemplate(id, initials, color, name, mail){
     return `<label class="contact-option-addTask" id="contactID${id}">

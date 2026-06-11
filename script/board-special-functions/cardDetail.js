@@ -54,29 +54,16 @@ async function getContacts(id){
                 const color = contactsInDataBase[index][1].color;
                 const initals = contactsInDataBase[index][1].userName.charAt(0).toUpperCase();
                 const name = contactsInDataBase[index][1].userName;
-                cardDetailContactContainerRef.innerHTML +=  `
-                                                                <div class="assigned-to-single-container">
-                                                                    <div class="letter-ball-userstory ${color}"">
-                                                                        ${initals}
-                                                                    </div>
-                                                                    <span>
-                                                                        ${name}
-                                                                    </span>
-                                                                </div>
-                                                            `;
+                cardDetailContactContainerRef.innerHTML +=  getContactTemplate(color, initials, name);
             }
-
         }
-
-    }
-    
+    }   
 }
 
 
 async function getSubtasks(id){
     const tasks = await getTaskEntriesFromDataBase();
     const cardDetailSubtaskContainerRef = document.getElementById("cardDetailSubtaskContainerID");
-
     cardDetailSubtaskContainerRef.innerHTML = "";
 
     for (let index = 0; index < tasks.length; index++) {
@@ -87,20 +74,9 @@ async function getSubtasks(id){
                 const subtask = subtasksArray[index];
                 const subtaskValue = subtasksArray[index].value;
                 const subtaskID = subtasksArray[index].id;
-                
-                
-                
-                cardDetailSubtaskContainerRef.innerHTML +=  `
-                                                                <div class="subtask-single-container-userstory">
-                                                                    <span onclick="subTaskDone(${subtaskID}, '${id}')" class="subtask-checkbox-cardDetail" id="subTaskNr${subtaskID}"></span>
-                                                                    <span class="regular-span-font-userstory">${subtaskValue}</span>
-                                                                </div>
-                                                            `
+                cardDetailSubtaskContainerRef.innerHTML +=  getSubtaskTemplate(subtaskID, subtaskValue, id);
                 subtaskSetTheRigthCheckBoxImg(subtask);
             }
-            
-            
-            
         }
     }
 } 
@@ -113,13 +89,10 @@ async function getSubtaskArrayFromDataBaseByID(taskID){
 }
 
 
-
 async function subTaskDone(subtaskID, taskID){
     const subTaskRef = document.getElementById("subTaskNr" + subtaskID);
     const subtaskArray = await getSubtaskArrayFromDataBaseByID(taskID);
     
-    
-
     for (let index = 0; index < subtaskArray.length; index++) {
         const currentSubtaskID = subtaskArray[index].id;
 
@@ -137,14 +110,8 @@ async function subTaskDone(subtaskID, taskID){
                 await updateStatusFromSubtask(subtaskID, taskID, falseBool); 
                 await renderAllCards();
             }
-            
-
-        }
-        
-        
+        } 
     }
-    
-    
 }
 
 
@@ -159,8 +126,6 @@ function subtaskSetTheRigthCheckBoxImg(subtask){
         subTaskRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
         return;
     }
-    
-
 }
 
 

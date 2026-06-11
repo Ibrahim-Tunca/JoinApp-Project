@@ -2,9 +2,11 @@ let users = [];
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
 
+
 function onloadFunc(){
     showRegister();
 }
+
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -14,7 +16,6 @@ function getRandomInt(max) {
 async function showRegister(){
     let response = await fetch(BASE_URL + ".json")
     let responseToJson = await response.json();
-
     users = Object.values(responseToJson || {});
 
     console.log(users);
@@ -22,7 +23,6 @@ async function showRegister(){
 
 
 async function updateSignedUser(name, mail, password) {
-
     let userExists = await checkIfUserExist(name);
 
     if(userExists){
@@ -42,7 +42,6 @@ async function updateSignedUser(name, mail, password) {
 
 
 function popUpSucces(){
-
     let popupWindow = document.getElementById("popupSignupID");
     let backgroundcloud = document.getElementById("blackgroundcloudID");
 
@@ -61,9 +60,7 @@ async function checkIfUserExist(inputUsername){
     let responseToJson = await response.json();
 
     if(!responseToJson) return false;
-
     users = Object.values(responseToJson || {});
-
 
     for (let index = 0; index < users.length; index++) {
         const element = users[index];
@@ -71,7 +68,6 @@ async function checkIfUserExist(inputUsername){
         if(element.userName === inputUsername){
             return true;
         }
-    
     }
     return false;
 }
@@ -84,9 +80,7 @@ async function putData(path = "", data = {}) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data)
-    });
- 
-      
+    });  
 }
 
 
@@ -100,16 +94,12 @@ async function validateForm(event){
     let inputCheckbox = document.forms["signUpForm"]["checkbox"].checked;
 
     const emptyPhoneNumber = "";
-
     const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat, inputCheckbox);
     const passwordsAreSame = checkIfPasswordsAreSame(inputPassword, inputRepeat);
 
             if(everyThingisFilled == false || passwordsAreSame == false){
-                console.error("irgendetwas stimmt hier nicht!");
                 return false
             }
-
-
             await updateSignedUser(inputName, inputMail, inputPassword);  
             await addNewContact(inputName, inputMail, emptyPhoneNumber); 
                 
@@ -123,7 +113,6 @@ function checkIfEverthingIsFilled(name, mail, password, repeat, checkbox){
     let contentRef = document.getElementById("errorID");
 
     if(name === "" || mail === "" || password === "" || repeat === "" || checkbox == false){
-
         repeatRef.classList.toggle("inputfield-repeat-signup");
         repeatRef.classList.toggle("inputfield-repeat-error-signup");
         contentRef.innerHTML = "Please fill everything out!"
@@ -136,51 +125,18 @@ function checkIfEverthingIsFilled(name, mail, password, repeat, checkbox){
 
 
 function checkIfPasswordsAreSame(password, repeat){
-
-    let repeatRef = document.getElementById("repeatID");
-    let contentRef = document.getElementById("errorID");
+    const repeatRef = document.getElementById("repeatID");
+    const contentRef = document.getElementById("errorID");
 
     if(password != repeat){
-
         repeatRef.classList.toggle("inputfield-repeat-signup");
         repeatRef.classList.toggle("inputfield-repeat-error-signup");
-
         contentRef.innerHTML = "Your passwords d'ont match. Please try again."
 
         return false; 
     }
 
     return true;
-}
-
-function getContactColorType(){
-    let randomNumber = getRandomInt(100);
-    const colorCode = randomNumber % 8;  
-
-    if(colorCode === 0){
-        return "orange";
-    }
-    if(colorCode === 1){
-        return "lila";
-    }
-    if(colorCode === 2){
-        return "lavander";
-    }
-    if(colorCode === 3){
-        return "violette";
-    }
-    if(colorCode === 4){
-        return "pink";
-    }
-    if(colorCode === 5){
-        return "yellow";
-    }
-    if(colorCode === 6){
-        return "turquoise";
-    }
-    if(colorCode === 7){
-        return "red";
-    }
 }
 
 
@@ -205,7 +161,6 @@ function iconSwitch(){
         repeatIconRef.classList.remove("clickable-icon");
         repeatIconRef.src = "./img/register/lock.svg"
     }
-
 }
 
 
@@ -230,6 +185,56 @@ function showAndHidePassword(){
         repeatRef.type = "password";
         return;
     }
-    
 }
 
+
+function getContactColorType(){
+    let randomNumber = getRandomInt(100);
+    const colorCode = randomNumber % 15;  
+
+    if(colorCode === 0){
+        return "ocker";
+    }
+    if(colorCode === 1){
+        return "yellow";
+    }
+    if(colorCode === 2){
+        return "orange";
+    }
+    if(colorCode === 3){
+        return "red";
+    }
+    if(colorCode === 4){
+        return "salmon";
+    }
+    if(colorCode === 5){
+        return "creme";
+    }
+    if(colorCode === 6){
+        return "lila";
+    }
+    if(colorCode === 7){
+        return "lavender";
+    }
+    if(colorCode === 8){
+        return "violette";
+    }
+    if(colorCode === 9){
+        return "pink";
+    }
+    if(colorCode === 10){
+        return "magenta";
+    }
+    if(colorCode === 11){
+        return "blue";
+    }
+    if(colorCode === 12){
+        return "turquoise";
+    }
+    if(colorCode === 13){
+        return "babyblue";
+    }
+    if(colorCode === 14){
+        return "lime";
+    }
+}

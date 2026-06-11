@@ -13,6 +13,7 @@ async function findContactIdByData(name, mail, phone) {
     return null; 
 }
 
+
 async function postData(path = "", data = {}){
     let response = await fetch(BASE_URL + path + ".json", {
         method: "POST",
@@ -24,6 +25,7 @@ async function postData(path = "", data = {}){
     return await response.json();
 }
 
+
 async function addNewContact(name, mail, phone = "") {
     let currentColor = getContactColorType();
 
@@ -33,11 +35,10 @@ async function addNewContact(name, mail, phone = "") {
         phone: phone,
         color: currentColor,
         });
-    
 }
 
-async function updateUser(id){
 
+async function updateUser(id){
     const nameValue = document.getElementById("editContactNameID").value;
     const mailValue = document.getElementById("editContactMailID").value;
     const phoneValue = document.getElementById("editContactPhoneID").value;
@@ -48,6 +49,7 @@ async function updateUser(id){
         phone: phoneValue
     });
 }
+
 
 async function patchData(path="", data={}){
    	 let response = await fetch(BASE_URL + path + ".json",{
@@ -81,6 +83,5 @@ async function deleteContact(id){
 
     floatBackContactDetails(id);
     popUpDeleteContactSucces();
-    
     await renderContacts();
 }

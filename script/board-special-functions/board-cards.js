@@ -45,10 +45,7 @@ function showSubtaskProgress(subtasks, id){
         return;
     }
 
-    subTaskContainerRef.innerHTML = `
-                                        <progress class="progress-bar-style-board" value="${finishedSubTasks}" max="${subtasks.length}"></progress>
-                                        <span >${finishedSubTasks}/${subtasks.length} Subtasks</span>
-                                    `
+    subTaskContainerRef.innerHTML = subtaskProgressbarTemplate(finishedSubTasks, subtasks);
     return;
 }
 

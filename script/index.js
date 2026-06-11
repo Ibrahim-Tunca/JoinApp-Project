@@ -43,7 +43,6 @@ async function validateForm(event){
 
 
 function checkIfEmailAndPasswordFieldIsFilled(mail, password, errorRef, emailRef, passwordRef){
-
     emailRef.classList.remove("inputfield-error-login");
     passwordRef.classList.remove("inputfield-error-login");
 
@@ -52,19 +51,16 @@ function checkIfEmailAndPasswordFieldIsFilled(mail, password, errorRef, emailRef
         emailRef.classList.add("inputfield-error-login");
         return false;
     }
-
     if(password === ""){
         errorRef.innerHTML = "Please give your Password!";
         passwordRef.classList.add("inputfield-error-login");
         return false;
     }
-
     return true;
 }
 
 
 function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users, errorRef, emailRef, passwordRef){
-
     emailRef.classList.remove("inputfield-error-login");
     passwordRef.classList.remove("inputfield-error-login");
 
@@ -100,12 +96,11 @@ function checkIfPasswordIsCorrect(password, currentUserpassword){
     return false;
 }
 
+
 function iconSwitch(){
     const iconRef = document.getElementById("lockIconID");
     const passwordRef = document.getElementById("passwordID");
     const containerRef = document.getElementById("inputfieldPasswordContainerID");
-    
-
     const passwordValue = document.forms["loginForm"]["password"].value;
 
     if(passwordValue != ""){
@@ -116,8 +111,8 @@ function iconSwitch(){
         iconRef.classList.remove("clickable-icon");
         iconRef.src = "./img/register/lock.svg"
     }
-
 }
+
 
 function showAndHidePassword(){
     const passwordRef = document.getElementById("passwordID");
@@ -134,7 +129,6 @@ function showAndHidePassword(){
         passwordRef.type = "password";
         return;
     }
-    
 }
 
 

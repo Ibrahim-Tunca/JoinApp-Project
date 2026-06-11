@@ -25,7 +25,7 @@ async function getAwaitFeedbackCards(){
 async function getDoneCards(){
     const tasks = await getTaskEntriesFromDataBase();
     const cardsArray = tasks.filter(([, task]) => task.status === "done");
-
+    
     return cardsArray; 
 }
 

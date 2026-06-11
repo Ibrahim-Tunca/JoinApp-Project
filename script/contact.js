@@ -33,18 +33,16 @@ async function renderContacts(){
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
     const entries = Object.entries(responseToJson);
-
     sortIntoAlphabeticalOrder(entries);  
-
     contactRef.innerHTML = "";
 
     for (let index = 0; index < alphabeticalOrder.length; index++) {
         const blog = alphabeticalOrder[index];
         showBlogIfBlogIsNotEmpty(blog, contactRef);
-
         renderContact(blog, contactRef);
-        
+    }
 }
+
 
 function renderContact(blog, contactRef){
     for (let index = 0; index < blog.contacts.length; index++) {
@@ -52,7 +50,6 @@ function renderContact(blog, contactRef){
             const contactInital = contact.userName.charAt(0).toUpperCase();
             
             contactRef.innerHTML += renderContactsTemplate(contact.userName, contact.email, contact.phone, contact.color, contact.id, contactInital);
-        }
     }
 }
 
@@ -89,7 +86,6 @@ function floatContactDetails(id){
     const floatingCard = document.getElementById(id + "-floatingContact")
 
     if(id != choosedContactID){
-    
         requestAnimationFrame(() => {
         floatingCard.classList.toggle("is-visible");
         });
@@ -123,7 +119,6 @@ async function validateEditContactForm(event, id){
     clearAllBlogs();
 
     const everthingIsFilled = checkIfEverthingIsFilledInEditContact();
-
     if (!everthingIsFilled) {
         return false;
     }
@@ -134,6 +129,7 @@ async function validateEditContactForm(event, id){
     return false;
 }
 
+
 async function validateAddContactForm(event){
     event.preventDefault();
     clearAllBlogs();
@@ -141,7 +137,6 @@ async function validateAddContactForm(event){
     const contactNameRef = document.forms["addContactForm"]["name"].value;
     const contactMailRef = document.forms["addContactForm"]["mail"].value
     const contactPhoneNumberRef = document.forms["addContactForm"]["phone"].value;
-
     const everthingIsFilled = checkIfEverthingIsFilled(contactNameRef, contactMailRef, contactPhoneNumberRef);
 
     if (!everthingIsFilled) {
@@ -151,12 +146,11 @@ async function validateAddContactForm(event){
     await addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
     renderContacts();
     popUpAddContactSucces();
-    
     return true;
 }
 
-function checkIfEverthingIsFilled(name, mail, number){
 
+function checkIfEverthingIsFilled(name, mail, number){
     const nameRef = document.getElementById("nameID");
     const mailRef = document.getElementById("mailID");
     const numberRef = document.getElementById("phoneID");
@@ -191,8 +185,8 @@ function checkIfEverthingIsFilled(name, mail, number){
     return true;
 }
 
-function checkIfEverthingIsFilledInEditContact(){
 
+function checkIfEverthingIsFilledInEditContact(){
     const nameRef = document.getElementById("editContactNameID");
     const mailRef = document.getElementById("editContactMailID");
     const numberRef = document.getElementById("editContactPhoneID");

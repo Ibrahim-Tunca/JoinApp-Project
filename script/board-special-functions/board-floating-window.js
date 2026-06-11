@@ -13,7 +13,6 @@ function hideWhiteTransparentOverlay(){
 function showAddTaskWindow() {
     const sectionContainerRef = document.getElementById("formContainerID");
     sectionContainerRef.innerHTML = getAddTaskFormTemplate();
-
     const addTaskWindowRef = document.getElementById("addTaskForm");
 
     showWhiteTransparentOverlay();

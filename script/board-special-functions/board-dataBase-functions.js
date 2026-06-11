@@ -2,7 +2,6 @@ async function loadContactsInCardDetailWindow(){
     let response = await fetch(BASE_URL + "contacts.json");
     let responseToJson = await response.json();
     const entries = Object.entries(responseToJson);
-
     const contactSelectionContainerRef = document.getElementById("contactSelectionCardDetailID");
 
     for (let index = 0; index < entries.length; index++) {
@@ -13,9 +12,7 @@ async function loadContactsInCardDetailWindow(){
 
         contactSelectionContainerRef.innerHTML += contactSelectionTemplateCardDetail(contactKey, contactInitals, contactColor, contactName);
         setContactInFocusWhenContactIsAlreadyInTheArray(contactKey);
-        
-    }
-    
+    } 
 }
 
 
@@ -100,108 +97,3 @@ async function deleteTask(){
     renderAllCards();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-function generateInitalBallUnderContactOptionCardDetail(){
-    contentRef = document.getElementById("initialBallContainerCardDetailID");
-
-    contentRef.innerHTML = "";
-    for (let index = 0; index < choosedContacts.length; index++) {
-        const currentContact = choosedContacts[index];
-        
-        const initials = currentContact.initals;
-        const color = currentContact.color;
-        contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
-    }
-
-}
-
-
-function contactSelectionTemplateCardDetail(id, initials, color, name){
-    return `<label class="contact-option-addTask" id="contactCardDetailID${id}">
-                <input
-                    onchange="addContactInCardDetailTask('${id}', '${initials}', '${color}', generateInitalBallUnderContactOptionCardDetail())"
-                    class="contact-checkbox-addTask"
-                    type="checkbox"
-                    name="contacts"
-                    value="${name}"
-                >
-                <div class="contact-option-left-container-addTask">
-                    <div class="contact-initial-ball ${color}">${initials}</div>
-                    <span class="contact-option-font">${name}</span>
-                </div>
-                <span class="contact-checkbox-visual-addTask" aria-hidden="true" id="checkBoxCarddetailID${id}"></span>
-            </label>`
-            
-}
-
-function addContactInCardDetailTask(id, initials, color){
-    let contactFound = checkIfContactAreAlreadyInArrayCardDetail(id);
-
-    if(contactFound){
-        return;
-    }
-    
-    choosedContacts.push({id: id, initals: initials, color: color});
-    console.log(choosedContacts);
-    return;
-}
-
-
-function checkIfContactAreAlreadyInArrayCardDetail(id){
-
-    for (let index = 0; index < choosedContacts.length; index++) {
-        const currentContactID = choosedContacts[index].id;
-        if(currentContactID === id){
-            setContactInUnfocusInCardetail(id);
-            choosedContacts.splice(index, 1);
-            return true;
-        }
-    }
-    setContactInFocusInCardetail(id);
-    return false;
-}
-
-function setContactInFocusWhenContactIsAlreadyInTheArray(id){
-    for (let index = 0; index < choosedContacts.length; index++) {
-        const currentContactID = choosedContacts[index].id;
-        if(currentContactID === id){
-            setContactInFocusInCardetail(id);
-        }
-    }
-}
-
-function setContactInFocusInCardetail(id){
-    contactRef = document.getElementById("contactCardDetailID" + id);
-    checkBoxRef = document.getElementById("checkBoxCarddetailID" + id);
-
-    contactRef.classList.add("contact-option-addTask-focused");
-    checkBoxRef.style.backgroundImage = 'url("./img/addTask/checkbox_checked_white.svg")';
-}
-
-
-function setContactInUnfocusInCardetail(id){
-    contactRef = document.getElementById("contactCardDetailID" + id);
-    checkBoxRef = document.getElementById("checkBoxCarddetailID" + id);
-
-    contactRef.classList.remove("contact-option-addTask-focused");
-    checkBoxRef.style.backgroundImage = 'url("../img/checkbox_unchecked.svg")';
-}
-
-
-*/

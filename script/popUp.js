@@ -9,7 +9,3 @@ function logout(){
 }
 
 
-//function onloadFunc(){
-//    deleteData("/name/key")
-//}
-
