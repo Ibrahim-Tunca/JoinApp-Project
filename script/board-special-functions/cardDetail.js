@@ -52,7 +52,7 @@ async function getContacts(id){
             const contactDataBaseID = contactsInDataBase[index][0];
             if(contactDataBaseID === contactTaskID){
                 const color = contactsInDataBase[index][1].color;
-                const initals = contactsInDataBase[index][1].userName.charAt(0).toUpperCase();
+                const initials = contactsInDataBase[index][1].userName.charAt(0).toUpperCase();
                 const name = contactsInDataBase[index][1].userName;
                 cardDetailContactContainerRef.innerHTML +=  getContactTemplate(color, initials, name);
             }
