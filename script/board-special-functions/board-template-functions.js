@@ -32,8 +32,8 @@ function getContactTemplate(color, initials, name){
 
 function getCardTemplate(id, title, description, category, date, priority){
     return  `
-                <div draggable="true" ondragstart="moveTask('${id}')" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
-
+                <div id="boardCardNR${id}" draggable="true" ondragstart="moveTask('${id}'),  customDragImage(event, this)" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
+                
                     <div class="headline-card-container-board">
                         <span class="headline-card-board" id="categoryNr${id}">${category}</span>
                     </div>

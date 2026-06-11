@@ -36,3 +36,20 @@ async function moveTo(containerRef){
     await updateStatusFromTask(currentDraggedTaskID, status);
     await renderAllCards();
 }
+
+
+function customDragImage(event, element) {
+    const dragPreview = element.cloneNode(true);
+    dragPreview.style.backgroundColor = "#D2E3FF";
+    dragPreview.style.borderRadius = "24px";
+    dragPreview.style.transform = "rotate(10deg)";
+    document.body.appendChild(dragPreview);
+
+        event.dataTransfer.setDragImage(
+        dragPreview,
+        dragPreview.offsetWidth / 2,
+        dragPreview.offsetHeight / 2
+    );
+
+    setTimeout(() => dragPreview.remove(), 0);
+}

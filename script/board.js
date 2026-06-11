@@ -43,6 +43,7 @@ function getCardValues(tasks, containerRef){
         const subtasks = tasks[index][1].subtasks || [];
         
         containerRef.innerHTML +=   getCardTemplate(taskID, title, description, category, date, priority)
+                        
                                         getImgByPriority(priority, taskID);
                                         getHeadlineCardColor(category, taskID);
                                         getLetterBalls(contacts, taskID);
