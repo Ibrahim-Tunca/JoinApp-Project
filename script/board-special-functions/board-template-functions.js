@@ -35,7 +35,27 @@ function getCardTemplate(id, title, description, category, date, priority){
                 <div id="boardCardNR${id}" draggable="true" ondragstart="moveTask('${id}'),  customDragImage(event, this)" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
                 
                     <div class="headline-card-container-board">
+
                         <span class="headline-card-board" id="categoryNr${id}">${category}</span>
+
+                        <div class="card-menu-wrapper">
+                            <button
+                                class="swap-button-board"
+                                onclick="openPopupMenu(event, '${id}')"
+                            >
+                                <img class="swap-icon-board" src="./img/swap_horiz.svg" alt="Move task">
+                            </button>
+
+                            <div class="popUpMenue-moveto d_none" id="popupMenuNR${id}">
+                                <div class="swap-button-order-board">
+                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
+                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
+                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
+                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
+                                </div>
+                            </div>
+                        </div>
+                    
                     </div>
 
                     <span class="headline-font-task-card">

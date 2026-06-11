@@ -1,3 +1,54 @@
+.swap-button-board{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    background-color: #F4F4F4;
+    border-style: none;
+    cursor: pointer;
+}
+
+    .swap-button-board:hover{
+        background-color: #D2E3FF;
+    }
+
+.swap-button-order-board{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.swap-icon-board{
+    height: 16px;
+    width: 18px;
+    padding: 6px 0px;
+}
+
+.popUpMenue-moveto{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #4589FF;
+    position: absolute;
+    right: 0;
+    width: 126px;
+    top: 6px;
+}
+
+.moveto-span-tag{
+    color: white;
+    border-radius: 5px;
+    padding: 0 4px;
+}
+
+        .moveto-span-tag:hover{
+            background-color: #D2E3FF;
+            color: #4589FF;
+        }
+
 @media(max-width: 1228px) {
     .bottom-section-board {
          flex-direction: column; 
@@ -42,6 +93,9 @@
 }
 
 @media(max-width: 1000px){
+    .swap-button-board{
+        display: flex;
+    }
 
     .addTask-Button-board {
         display: none;

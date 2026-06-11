@@ -77,3 +77,42 @@ async function getContactsContainerFromTaskByID(id){
     }
     return;
 }
+
+
+function openPopupMenu(event, id) {
+    event.stopPropagation();
+
+    currentClickedTaskID = id;
+    const menuRef = document.getElementById("popupMenuNR" + id);
+    menuRef.classList.remove("d_none");
+}
+
+
+function closePopupMenu(id) {
+    const menuRef = document.getElementById("popupMenuNR" + id);
+    menuRef.classList.add("d_none");
+}
+
+
+async function moveTaskFromMenu(event, id, status) {
+    event.stopPropagation();
+
+    await updateStatusFromTask(id, status);
+    await renderAllCards();
+}       
+
+
+document.addEventListener("click", (event) => {
+    const menuRef = document.getElementById("popupMenuNR" + currentClickedTaskID);
+
+    if (
+        !menuRef ||
+        menuRef.classList.contains("d_none") ||
+        menuRef.contains(event.target) ||
+        event.target.closest(".swap-button-board")
+    ) {
+        return;
+    }
+
+    closePopupMenu(currentClickedTaskID);
+});
