@@ -180,11 +180,13 @@ function toggleThePrivacyCheckbox(){
 
 
 function checkIfPasswordsAreSame(password, repeat){
+    const passwordRef = document.getElementById("passwordID");
     const repeatRef = document.getElementById("repeatID");
     const contentRef = document.getElementById("errorMessageID");
 
     if(password != repeat){
         removeTheRedUnderlineAndMessage();
+        passwordRef.classList.add("red-bottom-border");
         repeatRef.classList.add("red-bottom-border");
         contentRef.innerHTML = "Your passwords d'ont match. Please try again."
         return false; 
