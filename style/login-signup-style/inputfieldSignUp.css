@@ -77,29 +77,6 @@
             outline: none;
             border-bottom-color: #4589FF;
         }
-
-.inputfield-repeat-error-signup{
-    padding: 10px 20px 10px 20px;
-    border-width: 0px;
-    border-bottom: solid 2px #FF3D00;
-    margin: 15px;
-
-    width: 100%;
-    box-sizing: border-box;
-
-    background-image: url("/img/lock.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-}
-
-        .inputfield-repeat-error-signup::placeholder {
-            color: #D1D1D1;
-        }
-
-        .inputfield-repeat-error-signup:focus {
-            outline: none;
-        }
-
         
 .repeat-error-message{
     margin: 0 30px;
@@ -116,4 +93,8 @@
     height: 24px;
     position: absolute;
     right: 24px;
+}
+
+.red-bottom-border{
+    border-bottom: solid 2px #FF3D00;
 }

@@ -58,12 +58,12 @@
                                     <input class="inputfield-repeat-signup inputfield-font-signup" type="password" placeholder="Confirm Password" name="repeat" id="repeatID" autocomplete="new-password">
                                     <img onclick="showAndHidePassword()" class="input-icons-signup" src="./img/register/lock.svg" id="repeatlockIconID">
                                 </div>
-                                <div class="repeat-error-message" id="errorID"></div>
+                                <div class="repeat-error-message" id="errorMessageID"></div>
                         
 
-                                <div class="checkbox-signup">  
-                                    <input type="checkbox" id="acceptPolicyID" name="checkbox">
-                                    <label for="checkbox">i accept the <a class="checkbox-href" href="">Privacy policy</a></label>
+                                <div class="checkbox-signup-container">  
+                                    <span onclick="toggleThePrivacyCheckbox()" class="checkbox-box" id="acceptPolicyID"></span>
+                                    <span>i accept the <a class="checkbox-href" href="">Privacy policy</a></span>
                                 </div>
 
                                 <div class="button-container-signup">

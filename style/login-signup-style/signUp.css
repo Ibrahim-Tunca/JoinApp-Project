@@ -95,11 +95,24 @@ body{
     height: 48px;
 }
 
-
-.checkbox-signup{
+.checkbox-signup-container{
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 15px;
+}
+
+.checkbox-box{
+    display: flex;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-image: url("../../img/checkbox_unchecked.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 9px;
+    cursor: pointer;
 }
 
 .checkbox-href{
@@ -112,7 +125,6 @@ body{
     color: #005DFF;
     cursor: pointer;
 }
-
 
 .private-pollicy-legal-notice-element{
     color: white;
@@ -170,10 +182,4 @@ body{
 
 .top-50-percent{
     top: 50% !important;
-}
-
- /* Maybe this must be deleted */
-
-.popup-under-window{
-    bottom: -150px;
 }

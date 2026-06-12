@@ -1,5 +1,7 @@
 let users = [];
 
+let globalCheckboxValue = false;
+
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
@@ -42,15 +44,14 @@ async function updateSignedUser(name, mail, password) {
 
 
 function popUpSucces(){
-    let popupWindow = document.getElementById("popupSignupID");
-    let backgroundcloud = document.getElementById("blackgroundcloudID");
+    const popupWindow = document.getElementById("popupSignupID");
+    const backgroundcloud = document.getElementById("blackgroundcloudID");
 
     backgroundcloud.classList.add("show-overlay");
     popupWindow.classList.add("top-50-percent");
 
-
     setTimeout(() => {
-        window.location.href = "./summary.html";
+        window.location.href = "./index.html";
     }, 2500);
 }
 
@@ -87,14 +88,13 @@ async function putData(path = "", data = {}) {
 async function validateForm(event){
     event.preventDefault();
 
-    let inputName = document.forms["signUpForm"]["name"].value;
-    let inputMail = document.forms["signUpForm"]["mail"].value;
-    let inputPassword = document.forms["signUpForm"]["password"].value;
-    let inputRepeat = document.forms["signUpForm"]["repeat"].value;
-    let inputCheckbox = document.forms["signUpForm"]["checkbox"].checked;
+    const inputName = document.forms["signUpForm"]["name"].value;
+    const inputMail = document.forms["signUpForm"]["mail"].value;
+    const inputPassword = document.forms["signUpForm"]["password"].value;
+    const inputRepeat = document.forms["signUpForm"]["repeat"].value;
 
     const emptyPhoneNumber = "";
-    const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat, inputCheckbox);
+    const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat);
     const passwordsAreSame = checkIfPasswordsAreSame(inputPassword, inputRepeat);
 
             if(everyThingisFilled == false || passwordsAreSame == false){
@@ -107,16 +107,38 @@ async function validateForm(event){
 }
 
 
-function checkIfEverthingIsFilled(name, mail, password, repeat, checkbox){
+function checkIfEverthingIsFilled(name, mail, password, repeat){
 
-    let repeatRef = document.getElementById("repeatID");
-    let contentRef = document.getElementById("errorID");
+    const nameFieldRef = document.getElementById("nameID");
+    const mailFieldRef = document.getElementById("mailID");
+    const passwordFieldRef = document.getElementById("passwordID");
+    const repeatFieldRef = document.getElementById("repeatID");
+    const errorMessageRef = document.getElementById("errorMessageID");
 
-    if(name === "" || mail === "" || password === "" || repeat === "" || checkbox == false){
-        repeatRef.classList.toggle("inputfield-repeat-signup");
-        repeatRef.classList.toggle("inputfield-repeat-error-signup");
-        contentRef.innerHTML = "Please fill everything out!"
+    removeTheRedUnderlineAndMessage();
 
+    if(name === ""){
+        nameFieldRef.classList.add("red-bottom-border");
+        errorMessageRef.innerHTML = "Please enter your name!"
+        return false;
+    }
+    if(mail === ""){
+        mailFieldRef.classList.add("red-bottom-border");
+        errorMessageRef.innerHTML = "Please enter your mail!"
+        return false;
+    }
+    if(password === ""){
+        passwordFieldRef.classList.add("red-bottom-border");
+        errorMessageRef.innerHTML = "Please enter a password!"
+        return false;
+    }
+    if(repeat === ""){
+        repeatFieldRef.classList.add("red-bottom-border");
+        errorMessageRef.innerHTML = "Please repeat your password!"
+        return false;
+    }
+    if(globalCheckboxValue == false){
+        errorMessageRef.innerHTML = "Please read the AGB!"
         return false;
     }
 
@@ -124,15 +146,47 @@ function checkIfEverthingIsFilled(name, mail, password, repeat, checkbox){
 }
 
 
+function removeTheRedUnderlineAndMessage(){
+    const nameFieldRef = document.getElementById("nameID");
+    const mailFieldRef = document.getElementById("mailID");
+    const passwordFieldRef = document.getElementById("passwordID");
+    const repeatFieldRef = document.getElementById("repeatID");
+    const errorMessageRef = document.getElementById("errorMessageID");
+
+    nameFieldRef.classList.remove("red-bottom-border");
+    mailFieldRef.classList.remove("red-bottom-border");
+    passwordFieldRef.classList.remove("red-bottom-border");
+    repeatFieldRef.classList.remove("red-bottom-border");
+    errorMessageRef.innerHTML = ""
+}
+
+
+function toggleThePrivacyCheckbox(){
+    const checkBoxRef = document.getElementById("acceptPolicyID");
+
+    if(globalCheckboxValue === false){
+        globalCheckboxValue = true;
+        checkBoxRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
+        return;
+    }
+
+    if(globalCheckboxValue === true){
+        globalCheckboxValue = false;
+        checkBoxRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
+        return;
+    }
+    
+}
+
+
 function checkIfPasswordsAreSame(password, repeat){
     const repeatRef = document.getElementById("repeatID");
-    const contentRef = document.getElementById("errorID");
+    const contentRef = document.getElementById("errorMessageID");
 
     if(password != repeat){
-        repeatRef.classList.toggle("inputfield-repeat-signup");
-        repeatRef.classList.toggle("inputfield-repeat-error-signup");
+        removeTheRedUnderlineAndMessage();
+        repeatRef.classList.add("red-bottom-border");
         contentRef.innerHTML = "Your passwords d'ont match. Please try again."
-
         return false; 
     }
 
