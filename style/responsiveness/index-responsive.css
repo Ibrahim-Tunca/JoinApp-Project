@@ -1,5 +1,10 @@
 @media (max-width: 690px) {
 
+.white-big-join-icon-login{
+    height: 188px;
+    width: 150px;
+}
+
 .top-section {
     order: 2;
     margin: 24px;

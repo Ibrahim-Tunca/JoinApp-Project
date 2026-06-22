@@ -8,7 +8,7 @@ async function showRegister(){
     let response = await fetch(BASE_URL + ".json");
     let responseToJson = await response.json();
     users = Object.values(responseToJson || {});
-    console.log(users);
+    console.log(users[2]);
 }
 
 
@@ -37,7 +37,7 @@ async function validateForm(event){
     const userFound = CheckIfUserIsRegisteredAndIfPasswordIsCorrect(inputMail, inputPassword, users, errorRef, emailRef, passwordRef);
 
         if(userFound){
-            window.location.href = "./summary.html";
+            loginSuccesPopup();
         }
 }
 
@@ -132,6 +132,29 @@ function showAndHidePassword(){
 }
 
 
+function loginSuccesPopup(){
+    const popupWindow = document.getElementById("loginSuccesPopupID");
+    const backgroundcloud = document.getElementById("blackgroundcloudID");
+
+    backgroundcloud.classList.add("show-overlay");
+    popupWindow.classList.add("top-50-percent");
+
+    setTimeout(() => {
+        window.location.href = "./summary.html";
+    }, 2500);
+}
+
+function startingAnimation(){
+    const blueCloudRef = document.getElementById("blueBackgroundCloudID");
+    const joinLogoRef = document.getElementById("joinLogoID");
+
+    setTimeout(() => {
+        blueCloudRef.classList.add("hide-overlay");
+        joinLogoRef.classList.remove("white-big-join-icon-login");
+        joinLogoRef.classList.add("blue-join-icon-login");
+        joinLogoRef.src="./img/Capa 2.svg";
+    }, 1000);
+}
 
 
 
