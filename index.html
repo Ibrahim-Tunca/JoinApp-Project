@@ -51,13 +51,15 @@
                                     <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email" id="emailID">
                                     <img class="input-icons-login" src="./img/register/mail.svg">
                                 </div>
+                                <div class="error-class-login" id="mailErrorID"></div>
 
                                 <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
                                     <input onkeyup="iconSwitch()" class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" id="passwordID">
                                     <img onclick="showAndHidePassword()" class="input-icons-login" src="./img/register/lock.svg" id="lockIconID">
                                 </div>
+                                <div class="error-class-login" id="passwordErrorID"></div>
                             </div>   
-                            <div class="error-class-login" id="errorID">
+                            
 
                             </div> 
                             <div class="button-container-login">
@@ -77,13 +79,25 @@
 
             </formcontainer>
 
-            
+
             <bottom-section>
                 <div class="bottom-section-order">
                     <a class="private-pollicy-legal-notice-element" href="./privacy-unlogged.html">Privacy Policy</a>
                     <a class="private-pollicy-legal-notice-element" href="./legal-unlogged.html">Legal Notice</a>
                 </div>
             </bottom-section>
+
+            <bottom-section-responsevise class="bottom-section-responsevise">
+                        
+                    <div class="not-a-join-user">
+                        <div>
+                            not a join user? 
+                        </div>
+                        <a href="./signUp.html">
+                            <button class="blue-button">Sign up</button>
+                        </a>
+                    </div>
+            </bottom-section-responsevise>
 
         </maincontainer>
 

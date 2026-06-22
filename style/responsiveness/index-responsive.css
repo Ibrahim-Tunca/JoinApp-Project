@@ -1,3 +1,12 @@
+.bottom-section-responsevise{
+    display: none;
+    bottom: 0px;
+    position: fixed;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
 @media (max-width: 690px) {
 
 .white-big-join-icon-login{
@@ -6,19 +15,15 @@
 }
 
 .top-section {
-    order: 2;
-    margin: 24px;
-    margin-top: 75px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    display: none;
 }
 
 .center-section-login {
-    order: 1;
     padding: 24px;
-    margin-top: 200px;
+}
+
+.bottom-section-responsevise{
+    display: flex;
 }
 
 bottom-section {
@@ -53,6 +58,7 @@ bottom-section {
     width: 195px;
     justify-content: space-between;
     height: 114px;
+    margin-top: 15px;
 }
 
 .button-container-login {
@@ -61,10 +67,28 @@ bottom-section {
 
 }
 
-@media(max-width: 420px){
+@media(max-width: 535px){
 
-.inputfields-container-login {
-    width: 370px;
+    .inputfields-container-login {
+        width: 330px;
+    }
 }
 
+@media(max-width: 420px){
+
+    .inputfields-container-login {
+        width: 300px;
+    }
+
+    .blue-join-icon-login {
+        top: 15px;
+        left: 15px;
+    }
+
+}
+
+@media(max-width: 380px){
+    .center-container-login {
+        box-shadow: none;
+    }
 }

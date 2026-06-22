@@ -16,14 +16,33 @@
 
 }
 
+@media(max-width: 490px){
+    
+    .form-section-signup {
+        width: 330px;
+    }
+}
+
 @media(max-width: 450px){
 
-.formlar-size-signup {
-    width: 370px;
+    .formlar-size-signup {
+        width: 370px;
+    }
+
+    .form-section-signup {
+        width: 290px;
+    }
+
 }
 
-.form-section-signup {
-    width: 360px;
+@media(max-width: 390px){
+    .arrow-container-signup {
+        margin: 57px 19px;
+    }
 }
 
+@media(max-height: 790px){
+    .join-logo-signup {
+        display: none;
+    }
 }

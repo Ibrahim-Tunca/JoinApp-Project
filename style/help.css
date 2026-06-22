@@ -6,6 +6,7 @@
 .help-body{   
     height: calc(100vh - 96px);
     overflow-y: auto;
+    max-width: 1400px;
 }
 
 .headline-container-help{

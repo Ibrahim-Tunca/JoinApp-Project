@@ -27,42 +27,62 @@ async function validateForm(event){
     let inputMail = document.forms["loginForm"]["mail"].value;
     let inputPassword = document.forms["loginForm"]["password"].value;
 
-    let emailRef = document.getElementById("emailID");
-    let passwordRef = document.getElementById("passwordID");
-    let errorRef = document.getElementById("errorID");
-
-    checkIfEmailAndPasswordFieldIsFilled(inputMail, inputPassword, errorRef, emailRef, passwordRef);
-
-
-    const userFound = CheckIfUserIsRegisteredAndIfPasswordIsCorrect(inputMail, inputPassword, users, errorRef, emailRef, passwordRef);
-
-        if(userFound){
-            loginSuccesPopup();
+    checkIfEmailAndPasswordFieldIsFilled(inputMail, inputPassword);
+    
+        if(checkIfEmailAndPasswordFieldIsFilled){
+            const userFound = CheckIfUserIsRegisteredAndIfPasswordIsCorrect(inputMail, inputPassword, users);
+            if(userFound){
+                loginSuccesPopup();
+            }
         }
+      
 }
 
 
-function checkIfEmailAndPasswordFieldIsFilled(mail, password, errorRef, emailRef, passwordRef){
-    emailRef.classList.remove("inputfield-error-login");
-    passwordRef.classList.remove("inputfield-error-login");
+function checkIfEmailAndPasswordFieldIsFilled(mail, password){
+    let everyThingisFilled = true;
+
+    const emailRef = document.getElementById("emailID");
+    const passwordRef = document.getElementById("passwordID");
+
+    const emailErrorMessage = document.getElementById("mailErrorID");
+    const passwordErrorMessage = document.getElementById("passwordErrorID");
+    clearErrormessagesAndRedlines();
 
     if(mail === ""){
-        errorRef.innerHTML = "Please give your Email!";
+        emailErrorMessage.innerHTML = "Please give your Email!";
         emailRef.classList.add("inputfield-error-login");
-        return false;
+        everyThingisFilled = false;
     }
     if(password === ""){
-        errorRef.innerHTML = "Please give your Password!";
+        passwordErrorMessage.innerHTML = "Please give your Password!";
         passwordRef.classList.add("inputfield-error-login");
-        return false;
+        everyThingisFilled = false;
     }
-    return true;
+    return everyThingisFilled;
+}
+
+function clearErrormessagesAndRedlines(){
+    const emailRef = document.getElementById("emailID");
+    const passwordRef = document.getElementById("passwordID");
+
+    const emailErrorMessage = document.getElementById("mailErrorID");
+    const passwordErrorMessage = document.getElementById("passwordErrorID");
+
+    emailRef.classList.remove("inputfield-error-login");
+    passwordRef.classList.remove("inputfield-error-login");
+
+    emailErrorMessage.innerHTML = "";
+    passwordErrorMessage.innerHTML = "";
 }
 
 
-function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users, errorRef, emailRef, passwordRef){
-    emailRef.classList.remove("inputfield-error-login");
-    passwordRef.classList.remove("inputfield-error-login");
+function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users){
+    const emailRef = document.getElementById("emailID");
+    const passwordRef = document.getElementById("passwordID");
+    
+    const emailErrorMessage = document.getElementById("mailErrorID");
+    const passwordErrorMessage = document.getElementById("passwordErrorID");
 
     for (let index = 0; index < users.length; index++) {
         const currentUser = users[index];
@@ -70,14 +90,14 @@ function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users, er
         if(currentUser.email === mail){
             passwordCheck = checkIfPasswordIsCorrect(password, currentUser.password);
             if(!passwordCheck){
-                errorRef.innerHTML = "Password is wrong!";
+                passwordErrorMessage.innerHTML = "Password is wrong!";
                 passwordRef.classList.add("inputfield-error-login");
             }
             setDataToLocalStorage(currentUser);
             return passwordCheck;
         }   
     }
-    errorRef.innerHTML = "User is not registered!";
+    emailErrorMessage.innerHTML = "User is not registered!";
     emailRef.classList.add("inputfield-error-login");
     return false;
 }

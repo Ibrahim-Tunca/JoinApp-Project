@@ -42,29 +42,36 @@
 
                         <div class="form-container-signup">
                             <form name="signUpForm"  class="form-section-signup">
+
                                 <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
                                     <input class="inputfield-name-signup inputfield-font-signup" type="text" placeholder="Name" name="name" id="nameID">
                                     <img class="input-icons-signup" src="./img/register/person.svg">
                                 </div>
+                                <div class="error-message-signup" id="errorMessageNameID"></div>
+
                                 <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
                                     <input class="inputfield-mail-signup inputfield-font-signup" type="email" placeholder="Email" name="mail" id="mailID" autocomplete="email">
                                     <img class="input-icons-signup" src="./img/register/mail.svg">
                                 </div>
+                                <div class="error-message-signup" id="errorMessageMailID"></div>
+
                                 <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
                                     <input onkeyup="iconSwitch()" class="inputfield-password-signup inputfield-font-signup" type="password" placeholder="Password" name="password" id="passwordID" autocomplete="new-password">
                                     <img onclick="showAndHidePassword()" class="input-icons-signup" src="./img/register/lock.svg" id="lockIconID">
                                 </div>
+                                <div class="error-message-signup" id="errorMessagePasswordID"></div>
+
                                 <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
                                     <input class="inputfield-repeat-signup inputfield-font-signup" type="password" placeholder="Confirm Password" name="repeat" id="repeatID" autocomplete="new-password">
                                     <img onclick="showAndHidePassword()" class="input-icons-signup" src="./img/register/lock.svg" id="repeatlockIconID">
                                 </div>
-                                <div class="repeat-error-message" id="errorMessageID"></div>
-                        
+                                <div class="error-message-signup" id="errorMessageRepeatID"></div>
 
                                 <div class="checkbox-signup-container">  
                                     <span onclick="toggleThePrivacyCheckbox()" class="checkbox-box" id="acceptPolicyID"></span>
                                     <span>i accept the <a class="checkbox-href" href="">Privacy policy</a></span>
                                 </div>
+                                <div class="error-message-signup" id="errorMessageCheckboxID"></div>
 
                                 <div class="button-container-signup">
                                     <div class="button-order-signup">

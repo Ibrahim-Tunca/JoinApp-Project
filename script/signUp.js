@@ -108,56 +108,72 @@ async function validateForm(event){
 
 
 function checkIfEverthingIsFilled(name, mail, password, repeat){
+    let everythingIsFilled = true;
 
     const nameFieldRef = document.getElementById("nameID");
+    const nameFieldErrorMessage = document.getElementById("errorMessageNameID");
     const mailFieldRef = document.getElementById("mailID");
+    const mailFieldErrorMessage = document.getElementById("errorMessageMailID");
     const passwordFieldRef = document.getElementById("passwordID");
+    const passwordFieldErrorMessage = document.getElementById("errorMessagePasswordID");
     const repeatFieldRef = document.getElementById("repeatID");
-    const errorMessageRef = document.getElementById("errorMessageID");
+    const repeatFieldErrorMessage = document.getElementById("errorMessageRepeatID");
+
+    const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
 
     removeTheRedUnderlineAndMessage();
 
     if(name === ""){
         nameFieldRef.classList.add("red-bottom-border");
-        errorMessageRef.innerHTML = "Please enter your name!"
-        return false;
+        nameFieldErrorMessage.innerHTML = "Please enter your name!"
+        everythingIsFilled = false;
     }
     if(mail === ""){
         mailFieldRef.classList.add("red-bottom-border");
-        errorMessageRef.innerHTML = "Please enter your mail!"
-        return false;
+        mailFieldErrorMessage.innerHTML = "Please enter your mail!"
+        everythingIsFilled = false;
     }
     if(password === ""){
         passwordFieldRef.classList.add("red-bottom-border");
-        errorMessageRef.innerHTML = "Please enter a password!"
-        return false;
+        passwordFieldErrorMessage.innerHTML = "Please enter a password!"
+        everythingIsFilled = false;
     }
     if(repeat === ""){
         repeatFieldRef.classList.add("red-bottom-border");
-        errorMessageRef.innerHTML = "Please repeat your password!"
-        return false;
+        repeatFieldErrorMessage.innerHTML = "Please repeat your password!"
+        everythingIsFilled = false;
     }
     if(globalCheckboxValue == false){
-        errorMessageRef.innerHTML = "Please read the AGB!"
-        return false;
+        checkboxFieldErrorMessage.innerHTML = "Please read the AGB!"
+        everythingIsFilled = false;
     }
 
-    return true;
+    return everythingIsFilled;
 }
 
 
 function removeTheRedUnderlineAndMessage(){
     const nameFieldRef = document.getElementById("nameID");
+    const nameFieldErrorMessage = document.getElementById("errorMessageNameID");
     const mailFieldRef = document.getElementById("mailID");
+    const mailFieldErrorMessage = document.getElementById("errorMessageMailID");
     const passwordFieldRef = document.getElementById("passwordID");
+    const passwordFieldErrorMessage = document.getElementById("errorMessagePasswordID");
     const repeatFieldRef = document.getElementById("repeatID");
-    const errorMessageRef = document.getElementById("errorMessageID");
+    const repeatFieldErrorMessage = document.getElementById("errorMessageRepeatID");
+
+    const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
 
     nameFieldRef.classList.remove("red-bottom-border");
     mailFieldRef.classList.remove("red-bottom-border");
     passwordFieldRef.classList.remove("red-bottom-border");
     repeatFieldRef.classList.remove("red-bottom-border");
-    errorMessageRef.innerHTML = ""
+    
+    nameFieldErrorMessage.innerHTML = "";
+    mailFieldErrorMessage.innerHTML = "";
+    passwordFieldErrorMessage.innerHTML = "";
+    repeatFieldErrorMessage.innerHTML = "";
+    checkboxFieldErrorMessage.innerHTML = "";
 }
 
 
@@ -182,7 +198,7 @@ function toggleThePrivacyCheckbox(){
 function checkIfPasswordsAreSame(password, repeat){
     const passwordRef = document.getElementById("passwordID");
     const repeatRef = document.getElementById("repeatID");
-    const contentRef = document.getElementById("errorMessageID");
+    const contentRef = document.getElementById("errorMessageRepeatID");
 
     if(password != repeat){
         removeTheRedUnderlineAndMessage();
