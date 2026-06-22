@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'Open_Sans';
-    src: url('/fonts/Open_sans/OpenSans-VariableFont_wdth\,wght.ttf')
+    src: url('../../fonts/Open_sans/OpenSans-VariableFont_wdth\,wght.ttf')
 }
 
 body{
@@ -9,6 +9,26 @@ body{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+}
+
+.maincontainer-login{
+    width: 100%;
+    position: relative;
+}
+
+.center-section-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 118px);
+}
+
+.center-container-login{
+    width: 652px;
+    height: 448px;
+
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+    border-radius: 30px;
 }
 
 .h2-login{
@@ -22,7 +42,8 @@ body{
 .top-section{
     display: flex;
     justify-content: flex-end;
-    margin: 67px;
+    margin-top: 67px;
+    margin-right: 60px;
 }
 
 .not-a-join-user{
@@ -49,19 +70,6 @@ body{
 .blue-button:hover{
     background-color: #005DFF;
     cursor: pointer;
-}
-
-.center-section-login{
-    display: flex;
-    justify-content: center;
-}
-
-.center-container-login{
-    width: 652px;
-    height: 448px;
-
-    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
-    border-radius: 30px;
 }
 
 .headline-login{

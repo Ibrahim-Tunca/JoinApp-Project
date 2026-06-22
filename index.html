@@ -17,74 +17,75 @@
     <div class="login-popup" id="loginSuccesPopupID">You Signed Up successfully</div>
 
     <div class="background-blue-cloud-maker" id="blueBackgroundCloudID"></div>
-    <img class="white-big-join-icon-login" src="./img/Capa 1.svg" id="joinLogoID">
-
-    <top-section class="top-section">
-                
-            <div class="not-a-join-user">
-                <div>
-                    not a join user? 
-                </div>
-                <a href="./signUp.html">
-                    <button class="blue-button">Sign up</button>
-                </a>
-            </div>
-    </top-section>
-
-
-
-    <section class="center-section-login">
     
-        <div class="center-container-login">
-            <div class="headline-login">
-                <h2 class="h2-login">
-                    Log in
-                </h2>
-            </div>
 
-            <div class="form-container-login">
-                <form name="loginForm">
-                    <div class="inputfields-container-login">
-                        <div  class="inputfield-container-login">
-                            <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email" id="emailID">
-                            <img class="input-icons-login" src="./img/register/mail.svg">
-                        </div>
+        <maincontainer class="maincontainer-login">
 
-                        <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
-                            <input onkeyup="iconSwitch()" class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" id="passwordID">
-                            <img onclick="showAndHidePassword()" class="input-icons-login" src="./img/register/lock.svg" id="lockIconID">
+            <img class="white-big-join-icon-login" src="./img/Capa 1.svg" id="joinLogoID">
+
+            <top-section class="top-section">
+                        
+                    <div class="not-a-join-user">
+                        <div>
+                            not a join user? 
                         </div>
-                    </div>   
-                    <div class="error-class-login" id="errorID"></div> 
-                <div class="button-container-login">
-                <div class="button-order-login">
-                    <button  onclick="return validateForm(event)" class="blue-button-big">Log in</button>
-                    <button type="button" class="white-button-big" onclick="window.location.href='./summary.html'">
-                        Guest Log in
-                    </button>
-                </div>
-            </div>
-                
-                
-                
-                
-                
-                </form>
-            </div>
+                        <a href="./signUp.html">
+                            <button class="blue-button">Sign up</button>
+                        </a>
+                    </div>
+            </top-section>
+
+            <formcontainer class="center-section-login">
+
+                <div class="center-container-login">
+                    <div class="headline-login">
+                        <h2 class="h2-login">
+                            Log in
+                        </h2>
+                    </div>
+
+                    <div class="form-container-login">
+                        <form name="loginForm">
+                            <div class="inputfields-container-login">
+                                <div  class="inputfield-container-login">
+                                    <input class="inputfield-mail-login" type="email" name="mail" autocomplete="email" placeholder="Email" id="emailID">
+                                    <img class="input-icons-login" src="./img/register/mail.svg">
+                                </div>
+
+                                <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
+                                    <input onkeyup="iconSwitch()" class="inputfield-password-login" type="password" name="password" autocomplete="Password" placeholder="Password" id="passwordID">
+                                    <img onclick="showAndHidePassword()" class="input-icons-login" src="./img/register/lock.svg" id="lockIconID">
+                                </div>
+                            </div>   
+                            <div class="error-class-login" id="errorID">
+
+                            </div> 
+                            <div class="button-container-login">
+                                <div class="button-order-login">
+                                    <button  onclick="return validateForm(event)" class="blue-button-big">
+                                        Log in
+                                    </button>
+                                    <button type="button" class="white-button-big" onclick="window.location.href='./summary.html'">
+                                        Guest Log in
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                        
+                </div>  
+
+            </formcontainer>
 
             
-        </div>  
+            <bottom-section>
+                <div class="bottom-section-order">
+                    <a class="private-pollicy-legal-notice-element" href="./privacy-unlogged.html">Privacy Policy</a>
+                    <a class="private-pollicy-legal-notice-element" href="./legal-unlogged.html">Legal Notice</a>
+                </div>
+            </bottom-section>
 
-    </section>
-
-
-
-    <bottom-section>
-        <div class="bottom-section-order">
-            <a class="private-pollicy-legal-notice-element" href="./privacy-unlogged.html">Privacy Policy</a>
-            <a class="private-pollicy-legal-notice-element" href="./legal-unlogged.html">Legal Notice</a>
-        </div>
-    </bottom-section>
+        </maincontainer>
 
 
 </body>
