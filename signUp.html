@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-container-signup">
-                            <form name="signUpForm"  class="form-section-signup">
+                            <form onsubmit="return validateForm(event)" name="signUpForm"  class="form-section-signup">
 
                                 <div class="inputfield-container-login" id="inputfieldPasswordContainerID">
                                     <input class="inputfield-name-signup inputfield-font-signup" type="text" placeholder="Name" name="name" id="nameID">
@@ -75,7 +75,7 @@
 
                                 <div class="button-container-signup">
                                     <div class="button-order-signup">
-                                        <button onclick="return validateForm(event)" class="blue-button-big blue-button-settings-signup">Sign Up</button>  
+                                        <button type="submit" class="blue-button-big blue-button-settings-signup">Sign Up</button>  
                                     </div> 
                                 </div> 
                             </form>
