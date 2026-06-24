@@ -78,19 +78,31 @@ function countAllTasksFromAllStatusses(tasks){
 
 function greetLoggedUser(){
     const greetingContainerRef = document.getElementById("greetingID");
+    const greetingResponsiveContainerRef = document.getElementById("greetingResponsiveID");
     const userIsLogged = checkIfUserIsLogged();
     
     if(!userIsLogged){
         greetingContainerRef.innerHTML = `<h1 class="h1-summary">Good morning</h1>`;
+        greetingResponsiveContainerRef.innerHTML = `<h1 class="h1-summary">Good morning</h1>`;
         return;
     }else {
         const userDataString = localStorage.getItem("userData")
         const userData = JSON.parse(userDataString);
         const username = userData.userName;
 
-        greetingContainerRef.innerHTML = `<span class="greeting-font-summary">Good morning,</span><span class="username-font-summary"> ${username}</span>`
+        greetingContainerRef.innerHTML = `<span class="greeting-font-summary">Good morning,</span><span class="username-font-summary"> ${username}</span>`;
+        greetingResponsiveContainerRef.innerHTML = `<span class="greeting-font-summary">Good morning,</span><br><span class="username-font-summary-responsesive">${username}</span>`
     }
  
+}
+
+
+function greetAnimation(){
+    const greetContainerRef = document.getElementById("greetingResponsiveContainerID");
+    
+        setTimeout(() => {
+            greetContainerRef.classList.add("hide-greeting");
+    }, 3000);
 }
 
 
