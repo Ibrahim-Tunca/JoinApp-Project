@@ -119,6 +119,7 @@ function checkIfEverthingIsFilled(name, mail, password, repeat){
     const repeatFieldRef = document.getElementById("repeatID");
     const repeatFieldErrorMessage = document.getElementById("errorMessageRepeatID");
 
+    const checkboxRef = document.getElementById("acceptPolicyID");
     const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
 
     removeTheRedUnderlineAndMessage();
@@ -144,7 +145,8 @@ function checkIfEverthingIsFilled(name, mail, password, repeat){
         everythingIsFilled = false;
     }
     if(globalCheckboxValue == false){
-        checkboxFieldErrorMessage.innerHTML = "Please read the AGB!"
+        checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked_error.svg)";
+        checkboxFieldErrorMessage.innerHTML = "Please accept the Privacy Policy!"
         everythingIsFilled = false;
     }
 
@@ -162,6 +164,7 @@ function removeTheRedUnderlineAndMessage(){
     const repeatFieldRef = document.getElementById("repeatID");
     const repeatFieldErrorMessage = document.getElementById("errorMessageRepeatID");
 
+    const checkboxRef = document.getElementById("acceptPolicyID");
     const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
 
     nameFieldRef.classList.remove("red-bottom-border");
@@ -174,6 +177,8 @@ function removeTheRedUnderlineAndMessage(){
     passwordFieldErrorMessage.innerHTML = "";
     repeatFieldErrorMessage.innerHTML = "";
     checkboxFieldErrorMessage.innerHTML = "";
+
+    checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked.svg)";
 }
 
 
@@ -204,7 +209,7 @@ function checkIfPasswordsAreSame(password, repeat){
         removeTheRedUnderlineAndMessage();
         passwordRef.classList.add("red-bottom-border");
         repeatRef.classList.add("red-bottom-border");
-        contentRef.innerHTML = "Your passwords d'ont match. Please try again."
+        contentRef.innerHTML = "Your passwords don't match. Please try again."
         return false; 
     }
 

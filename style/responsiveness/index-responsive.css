@@ -1,6 +1,6 @@
 .bottom-section-responsevise{
     display: none;
-    bottom: 0px;
+    bottom: 65px;
     position: fixed;
     justify-content: center;
     width: 100%;
@@ -26,8 +26,8 @@
     display: flex;
 }
 
-bottom-section {
-    display: none;
+.bottom-section-order{
+    padding-bottom: 25px;
 }
 
 .not-a-join-user {
@@ -69,6 +69,15 @@ bottom-section {
 
 @media(max-width: 535px){
 
+    .border-under-headline{
+        width: 90px;
+    }
+
+    .blue-join-icon-login {
+        height: 78px;
+        width: 64px;
+    }
+
     .inputfields-container-login {
         width: 330px;
     }
@@ -87,8 +96,27 @@ bottom-section {
 
 }
 
-@media(max-width: 380px){
+@media(max-height: 730px){
+    .bottom-section-responsevise {
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-height: 680px){
+    .bottom-section-responsevise {
+        margin-bottom: 0px;
+    }
+
+    .h2-login {
+        margin-top: 20px;
+    }
+
     .center-container-login {
-        box-shadow: none;
+        height: 407px;
+        margin-top: 35px;
+    }
+
+    .button-order-login {
+        margin-top: 0px;
     }
 }

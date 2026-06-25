@@ -7,7 +7,7 @@ function setNameInitialButton(){
     const userIsLogged = checkIfUserIsLogged();
     
     if(!userIsLogged){
-        window.location.href="http://ibrahim-tunca.developerakademie.net/index.html";
+        window.location.href="https://join-3199.developerakademie.net/index.html";
         return;
     }
     

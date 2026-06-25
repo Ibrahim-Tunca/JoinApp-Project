@@ -2,7 +2,7 @@
 
 .join-logo-signup{
     height: 78px;
-    width: 60px;
+    width: 64px;
 }
 
 .join-logo-signup {
@@ -41,8 +41,47 @@
     }
 }
 
+@media(max-width: 350px){
+    .form-section-signup {
+        width: 250px;
+    }
+}
+
 @media(max-height: 790px){
+
+    .button-container-signup {
+        padding: 15px 0;
+    }
+
+    .formlar-size-signup {
+        height: 510px;
+        margin-top: 40px;
+    }
+
+    .bottom-section-order {
+        padding-bottom: 10px;
+    }
+
+    .checkbox-signup-container {
+        padding-top: 0px; 
+        margin-top: 0px; 
+    }
+
+    .h2-signup {
+        margin-top: 20px;
+    }
+
     .join-logo-signup {
-        display: none;
+        height: 67px;
+        width: 47px;
+        margin-top: 15px;
+    }
+
+    .arrow-container-signup {
+        margin: 40px 19px;
+    }
+
+    .border-under-headline{
+        width: 112px;
     }
 }

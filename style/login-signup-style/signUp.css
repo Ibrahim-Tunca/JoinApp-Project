@@ -30,8 +30,13 @@ body{
 .h2-signup{
     font-size: 48px;
     margin-bottom: 11px;
-    padding-bottom: 15px;
-    border-bottom: solid 2px #4589FF;
+}
+
+.border-under-headline{
+    margin-bottom: 11px;
+    height: 3px;
+    width: 181px;
+    background-color: #4589FF;
 }
 
 .arrow-signup{
@@ -62,6 +67,7 @@ body{
 .headline-signup{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     align-items: center;
 }
@@ -85,7 +91,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0 40px 0;
+    padding: 40px 0;
 }
 
 .button-order-signup{
