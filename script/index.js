@@ -109,6 +109,13 @@ function setDataToLocalStorage(inputObject){
 }
 
 
+function guestLogin(){
+    const object = {email: "guestemail@hotmail.com", password: "guest1", userName: "guest"};
+    const objectString = JSON.stringify(object);
+    localStorage.setItem("userData", objectString);
+}
+
+
 function checkIfPasswordIsCorrect(password, currentUserpassword){
     if(password === currentUserpassword){
         return true;

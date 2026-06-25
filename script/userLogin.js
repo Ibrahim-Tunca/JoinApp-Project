@@ -7,10 +7,12 @@ function setNameInitialButton(){
     const userIsLogged = checkIfUserIsLogged();
     
     if(!userIsLogged){
+        window.location.href="http://ibrahim-tunca.developerakademie.net/index.html";
         return;
     }
     
-    const userDataString = localStorage.getItem("userData")
+    const userDataString = localStorage.getItem("userData");
+    console.log(userDataString);
     const userData = JSON.parse(userDataString);
     let userInitialRef = document.getElementById("userInitialButtonID");
     
