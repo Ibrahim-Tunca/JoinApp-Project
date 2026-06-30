@@ -2,8 +2,6 @@ let currentDraggedTaskID;
 
 let currentClickedTaskID;
 
-let currentTaskStatus;
-
 
 async function renderAllCards() {
     const toDoContainerRef = document.getElementById("toDoContainerID");

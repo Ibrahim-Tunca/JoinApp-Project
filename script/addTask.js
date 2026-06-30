@@ -3,6 +3,7 @@ let subtaskID = 0;
 let subtasks = [];
 let choosedContacts = [];
 let globalUserMail = "";
+let currentTaskStatus;
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -58,8 +59,14 @@ function popUpSuccesAddTask(){
 }
 
 
-function relodePage(){
-    window.location.reload();
+function resetGlobalArrays(){
+    const contactBallsRef = document.getElementById("initialBallContainerID");
+    const subtasksRef = document.getElementById("createdSubtasksContainerID");
+    choosedContacts = [];
+    subtasks = [];
+
+    contactBallsRef.innerHTML = "";
+    subtasksRef.innerHTML = "";
 }
 
 

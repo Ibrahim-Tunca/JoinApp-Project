@@ -19,8 +19,8 @@
 }
 
 .img-size-border{
-    width: 66px;
-    height: 66px;
+    width: 58px;
+    height: 58px;
     object-fit: cover;
     border-radius: 40px;
 }
