@@ -166,3 +166,15 @@
         width: 16px;
     }
 }
+
+@media(max-height: 750px){
+    .main-container-userstory {
+        height: 660px;
+    }
+}
+
+@media(max-height: 670px){
+    .main-container-userstory {
+        height: 580px;
+    }
+}

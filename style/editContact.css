@@ -86,11 +86,11 @@
 }
 
 .button-order-editContact{
+    position: fixed;
     display: flex;
     justify-content: space-evenly;
     width: 296px;
-
-    margin-top: 40px;
+    bottom: 50px;
 }
 
 .white-button-big{
@@ -102,7 +102,7 @@
     height: 48px;
     padding: 0 15px;
     background-color: #FFFFFF;
-    border: solid 2px #647188;
+    border: solid 1px #647188;
     border-radius: 8px;
     font-size: 20px;
     transition: 0.2s;

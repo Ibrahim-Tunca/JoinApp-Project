@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>summary</title>
+    <title>Add Task</title>
     <link rel="shortcut icon" href="./img/Capa 2.svg" type="image/x-icon">
 
     <link rel="stylesheet" href="./style/header.css">
@@ -119,7 +119,7 @@
                                     <button type="button" class="custom-select-toggle-addTask">
                                         <span class="custom-select-label-addTask">Select contacts to assign</span>
                                         <span class="custom-select-arrow-wrap-addTask">
-                                            <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg" alt="">
+                                            <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg">
                                         </span>
                                     </button>
 
@@ -129,6 +129,9 @@
 
                                 <div class="contact-inital-ball-container-under-contact-option" id="initialBallContainerID"></div>
 
+                                <category class="margin-top-bigger-add-task">
+                                    <span class="font-bold-add-task">Category</span>
+                                </category>
 
                                 <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category" id="categoryID">
                                     <input type="hidden" name="taskCategory">
@@ -136,7 +139,7 @@
                                     <button type="button" class="custom-select-toggle-addTask underline-color-select-category">
                                         <span class="custom-select-label-addTask">Select task category</span>
                                         <span class="custom-select-arrow-wrap-addTask">
-                                            <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg" alt="">
+                                            <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg">
                                         </span>
                                     </button>
 
@@ -169,7 +172,7 @@
                                 
                                 
                                 <buttons class="button-order-addtask-responsive">
-                                    <button onclick="relodePage();" type="reset" form="addTaskForm" class="button-white-addtask">
+                                    <button onclick="resetGlobalArrays()" type="reset" form="addTaskForm" class="button-white-addtask">
                                         Clear
                                         <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg" alt="">
                                     </button>

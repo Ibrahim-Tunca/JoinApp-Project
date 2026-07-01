@@ -178,12 +178,16 @@
     }
 
     .floating-contact-container{
-        background-color: white;
+        position: fixed;
+        top: 96px;
+        left: 0;
+        right: 0;
         width: 100%;
         height: calc(100vh - 177px);
         margin: 0;
         padding: 60px;
         box-sizing: border-box;
+        background-color: white;
     }
 
     .top-section-floating-contact {
@@ -192,7 +196,7 @@
     }
 
     .name-and-edit-delete-button-container-floating-contanct {
-        width: 0; 
+        width: 280px;; 
     }
 
     .arrow-button-contact{
@@ -305,6 +309,10 @@
         margin-right: 25px;
 
     }
+
+    .name-and-edit-delete-button-container-floating-contanct{
+        width: 200px;
+    }
 }
 
 @media(max-width: 400px){
@@ -315,5 +323,82 @@
 
     .single-contact-container {
         margin: 7px 25px;
+    }
+
+    .name-and-edit-delete-button-container-floating-contanct{
+        width: 0;
+    }
+}
+
+@media(max-height: 750px){
+    .top-section-addContact {
+        height: 315px;
+    }
+
+    .addcontact-maincontainer {
+        height: 730px;
+    }
+
+    .h2-font-contact {
+        margin: 0;
+    }
+
+    .close-button {
+        padding: 0; 
+    }
+
+    .editContact-maincontainer {
+        height: 730px;
+    }
+
+    .top-section-editContact {
+        height: 255px;
+    }
+
+    .initial-container-edit-contact {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media(max-height: 670px){
+    .addcontact-maincontainer {
+        height: 650px;
+    }
+
+    .top-section-addContact {
+        height: 240px;
+        justify-content: start;
+    }
+
+    .top-section-inside-addContact-ontainer {
+        height: 160px;
+    }
+
+    .h2-font-contact {
+        margin: 0;
+    }
+
+    .person-logo-container-contact {
+        height: 100px;
+        width: 100px;
+        margin-top: 16px;
+    }
+
+    .close-button {
+        padding: 0; 
+    }
+
+    .editContact-maincontainer {
+        height: 655px;
+    }
+
+    .top-section-editContact {
+        height: 255px;
+    }
+
+    .initial-container-edit-contact {
+        height: 100px;
+        width: 100px;
     }
 }

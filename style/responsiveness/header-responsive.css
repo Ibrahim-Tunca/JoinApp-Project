@@ -1,3 +1,9 @@
+@media(max-width: 1440px){
+.header-container {
+    margin-left: 0px;
+}
+}
+
 @media(max-width: 720px){
 
 .header-font {
@@ -6,22 +12,6 @@
 
 .help-icon{
     display: none;
-}
-
-}
-
-@media(max-width: 750px){
-
-header{
-    height: 82px;
-}
-
-@media(max-height: 700px) {
-
-header{
-    height: 96px;
-}
-
 }
 
 }

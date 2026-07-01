@@ -93,9 +93,11 @@ async function validateAddTaskForm(event){
 
 
 function checkIfEverthingImportantIsFillingdOut(title, date, category){
+    let everyImportantThingIsFilled = true;
+
     const titleRef = document.getElementById("titleID");
     const dateRef = document.getElementById("dateID");
-    const prioContainerRef = document.getElementById("prioID");
+    const categoryRef = document.getElementById("categoryID");
 
     const titleFontRef = document.getElementById("titleFontID");
     const dateFontRef = document.getElementById("dateFontID");
@@ -105,21 +107,23 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
 
     titleRef.classList.remove("input-title-error-addTask");
     dateRef.classList.remove("input-date-error-addTask");
-    prioContainerRef.classList.remove("prio-buttons-order-error-addTask");
+    categoryRef.classList.remove("input-date-error-addTask");
+
 
     if(title === ""){
         titleRef.classList.add("input-title-error-addTask");
         titleFontRef.style.color = "#FF3D00";
-        return false;
+        everyImportantThingIsFilled = false;
     }
     if(date === ""){
         dateRef.classList.add("input-date-error-addTask");
         dateFontRef.style.color = "#FF3D00";
-        return false;
+        everyImportantThingIsFilled = false;
     }
-    if(priority === ""){
-        prioContainerRef.classList.add("prio-buttons-order-error-addTask");
-        return false;
+    if(category === ""){
+        categoryRef.classList.add("input-date-error-addTask");
+        everyImportantThingIsFilled = false;
     }
-    return true;
+
+    return everyImportantThingIsFilled;
 }

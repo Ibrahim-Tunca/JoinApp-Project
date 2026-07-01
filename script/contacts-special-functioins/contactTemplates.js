@@ -79,7 +79,7 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                             <img class="edit-delete-icons-floating-contact" src="./img/contacts/edit.svg">
                             <span class="popup-three-dots-span-font">Edit</span>
                         </div>
-                        <div onclick="deleteContact('${id}')" class="popup-three-dots-single-container">
+                        <div onclick="deleteContact('${id}'), closeThreeDotsWindow()" class="popup-three-dots-single-container">
                             <img class="edit-delete-icons-floating-contact" src="./img/contacts/delete.svg">
                             <span class="popup-three-dots-span-font">Delete</span>
                         </div>

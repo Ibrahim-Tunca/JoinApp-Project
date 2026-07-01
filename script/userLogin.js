@@ -12,7 +12,6 @@ function setNameInitialButton(){
     }
     
     const userDataString = localStorage.getItem("userData");
-    console.log(userDataString);
     const userData = JSON.parse(userDataString);
     let userInitialRef = document.getElementById("userInitialButtonID");
     
