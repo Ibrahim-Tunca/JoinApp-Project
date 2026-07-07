@@ -74,7 +74,11 @@ function getCardTemplate(id, title, description, category, date, priority){
                         <div class="letter-ball-container" id="letterBallContainerNr${id}">
                                                         
                         </div>
+                        <div id="remainingContactballContainerNr${id}">
+                        
+                        </div>
                         <div id="priorityNr${id}">
+
                         </div>
                     </div>
 

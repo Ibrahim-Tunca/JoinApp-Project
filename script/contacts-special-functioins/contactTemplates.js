@@ -108,7 +108,7 @@ function addContactTemplate(){
 
                 <contact class="bottom-section-contact">
 
-                        <form onsubmit="return validateAddContactForm(event)" name="addContactForm" class="bottom-section-container-contact">
+                        <form onsubmit="return validateAddContactForm(event)" name="addContactForm" class="bottom-section-container-contact" novalidate>
 
                             <div class="person-logo-container-contact">
                                 <img class="person-logo-contact" src="./img/person.svg" alt="">
@@ -176,7 +176,7 @@ function editContactTemplate(initials, color, id){
 
                 <contact class="bottom-section-contact">
 
-                    <form onsubmit="return validateEditContactForm(event, '${id}')" name="editContactForm" class="bottom-section-container-contact">
+                    <form onsubmit="return validateEditContactForm(event, '${id}')" name="editContactForm" class="bottom-section-container-contact" novalidate>
 
                         <div class="initial-container-edit-contact ${color}">
                             <span class="inital-font-edit-contact">${initials}</span>

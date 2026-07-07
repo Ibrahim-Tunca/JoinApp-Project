@@ -41,11 +41,21 @@ function generateInitalBallUnderContactOption(){
     contentRef = document.getElementById("initialBallContainerID");
     contentRef.innerHTML = "";
 
-    for (let index = 0; index < choosedContacts.length; index++) {
-        const currentContact = choosedContacts[index];
-        const initials = currentContact.initals;
-        const color = currentContact.color;
-        contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
+    if(choosedContacts.length > 4){
+        for (let index = 0; index < 3; index++) {
+            const currentContact = choosedContacts[index];
+            const initials = currentContact.initals;
+            const color = currentContact.color;
+            contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
+        }
+        contentRef.innerHTML += `<span class="remaining-contact-bubble-font">+${choosedContacts.length - 4}</span>`;
+    }else{
+            for (let index = 0; index < choosedContacts.length; index++) {
+            const currentContact = choosedContacts[index];
+            const initials = currentContact.initals;
+            const color = currentContact.color;
+            contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
+        }
     }
 }
 
@@ -95,6 +105,8 @@ async function validateAddTaskForm(event){
 function checkIfEverthingImportantIsFillingdOut(title, date, category){
     let everyImportantThingIsFilled = true;
 
+    const cleanedTitle = title.trim();
+
     const titleRef = document.getElementById("titleID");
     const dateRef = document.getElementById("dateID");
     const categoryRef = document.getElementById("categoryID");
@@ -109,8 +121,9 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
     dateRef.classList.remove("input-date-error-addTask");
     categoryRef.classList.remove("input-date-error-addTask");
 
+    dateFontRef.innerHTML = `This field is required`
 
-    if(title === ""){
+    if(cleanedTitle === ""){
         titleRef.classList.add("input-title-error-addTask");
         titleFontRef.style.color = "#FF3D00";
         everyImportantThingIsFilled = false;
@@ -118,6 +131,13 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
     if(date === ""){
         dateRef.classList.add("input-date-error-addTask");
         dateFontRef.style.color = "#FF3D00";
+        dateFontRef.innerHTML = "This field is required";
+        everyImportantThingIsFilled = false;
+    }
+    if (date !== "" && !isDateInFuture(date)) {
+        dateRef.classList.add("input-date-error-addTask");
+        dateFontRef.style.color = "#FF3D00";
+        dateFontRef.innerHTML = "Please don't take a date in the past!";
         everyImportantThingIsFilled = false;
     }
     if(category === ""){
@@ -126,4 +146,18 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
     }
 
     return everyImportantThingIsFilled;
+}
+
+
+function isDateInFuture(dateValue) {
+    const tomorrow = new Date();
+    tomorrow.setHours(0, 0, 0, 0);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+    const minDate = `${year}-${month}-${day}`;
+
+    return dateValue >= minDate;
 }

@@ -163,18 +163,6 @@ function confirmEditSubtask(id){
     subTaskRef.innerHTML = confirmEditSubtaskTemplate(id, subTaskValue);
 }
 
-function setMinDateToFuture() {
-    const tomorrow = new Date();
-    tomorrow.setHours(0, 0, 0, 0);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    const year = tomorrow.getFullYear();
-    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-    const day = String(tomorrow.getDate()).padStart(2, '0');
-
-    document.getElementById('dateID').min = `${year}-${month}-${day}`;
-}
-
 
 function initCustomSelects() {
     const customSelects = document.querySelectorAll(".custom-select-addTask");

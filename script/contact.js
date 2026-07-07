@@ -119,7 +119,8 @@ async function validateEditContactForm(event, id){
     clearAllBlogs();
 
     const everthingIsFilled = checkIfEverthingIsFilledInEditContact();
-    if (!everthingIsFilled) {
+    const emailIsValid = checkIfMailIsValidEdit();
+    if (everthingIsFilled == false || emailIsValid == false) {
         return false;
     }
 
@@ -134,12 +135,13 @@ async function validateAddContactForm(event){
     event.preventDefault();
     clearAllBlogs();
 
-    const contactNameRef = document.forms["addContactForm"]["name"].value;
-    const contactMailRef = document.forms["addContactForm"]["mail"].value
-    const contactPhoneNumberRef = document.forms["addContactForm"]["phone"].value;
-    const everthingIsFilled = checkIfEverthingIsFilled(contactNameRef, contactMailRef, contactPhoneNumberRef);
+    const contactNameValue = document.forms["addContactForm"]["name"].value;
+    const contactMailValue = document.forms["addContactForm"]["mail"].value
+    const contactPhoneNumberValue = document.forms["addContactForm"]["phone"].value;
+    const everthingIsFilled = checkIfEverthingIsFilled(contactNameValue, contactMailValue, contactPhoneNumberValue);
+    const emailIsValid = checkIfMailIsValid(contactMailValue);
 
-    if (!everthingIsFilled) {
+    if (everthingIsFilled == false || emailIsValid == false) {
         return false;
     }
 
@@ -151,6 +153,8 @@ async function validateAddContactForm(event){
 
 
 function checkIfEverthingIsFilled(name, mail, number){
+    let everythingIsFilled = true;
+
     const nameRef = document.getElementById("nameID");
     const mailRef = document.getElementById("mailID");
     const numberRef = document.getElementById("phoneID");
@@ -167,26 +171,30 @@ function checkIfEverthingIsFilled(name, mail, number){
     errorMailRef.classList.remove("d_block");
     errorNumberRef.classList.remove("d_block");
 
+    errorMailRef.innerHTML = "Please enter a emailadress!";
+
     if(name === ""){
         nameRef.classList.add("inputfield-contact-error");
         errorNameRef.classList.add("d_block");
-        return false;
+        everythingIsFilled = false;
     }
     if(mail === ""){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
-        return false;
+        everythingIsFilled = false;
     }
     if(number === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
-        return false;
+        everythingIsFilled = false;
     }
-    return true;
+    return everythingIsFilled;
 }
 
 
 function checkIfEverthingIsFilledInEditContact(){
+    let everythingIsFilled = true;
+
     const nameRef = document.getElementById("editContactNameID");
     const mailRef = document.getElementById("editContactMailID");
     const numberRef = document.getElementById("editContactPhoneID");
@@ -199,6 +207,8 @@ function checkIfEverthingIsFilledInEditContact(){
     const mailValue = document.getElementById("editContactMailID").value;
     const phoneValue = document.getElementById("editContactPhoneID").value;
 
+    errorMailRef.innerHTML = "Please enter a emailadress!";
+
     nameRef.classList.remove("inputfield-contact-error");
     mailRef.classList.remove("inputfield-contact-error");
     numberRef.classList.remove("inputfield-contact-error");
@@ -210,17 +220,50 @@ function checkIfEverthingIsFilledInEditContact(){
     if(nameValue === ""){
         nameRef.classList.add("inputfield-contact-error");
         errorNameRef.classList.add("d_block");
-        return false;
+        everythingIsFilled = false;
     }
     if(mailValue === ""){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
-        return false;
+        everythingIsFilled = false;
     }
     if(phoneValue === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
+        everythingIsFilled = false;
+    }
+    return everythingIsFilled;
+}
+
+
+function checkIfMailIsValid(mail){
+    const mailFieldRef = document.getElementById("mailID");
+    const mailFieldErrorMessage = document.getElementById("errorMailID");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (mail !== "" && !emailPattern.test(mail)) {
+        mailFieldRef.classList.add("inputfield-contact-error");
+        mailFieldErrorMessage.classList.add("d_block");
+        mailFieldErrorMessage.innerHTML = "Please enter a valid email address.";
         return false;
     }
+
+    return true;
+}
+
+function checkIfMailIsValidEdit(){
+    const errorMailRef = document.getElementById("editErrorMailID");
+    const mailRef = document.getElementById("editContactMailID");
+
+    const mailValue = document.getElementById("editContactMailID").value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (mailValue !== "" && !emailPattern.test(mailValue)) {
+        mailRef.classList.add("inputfield-contact-error");
+        errorMailRef.classList.add("d_block");
+        errorMailRef.innerHTML = "Please enter a valid email address.";
+        return false;
+    }
+
     return true;
 }

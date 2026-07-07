@@ -397,6 +397,13 @@
 .contact-inital-ball-container-under-contact-option{
     display: flex;
     margin: 13px 0;
+    align-items: center;
+}
+
+.remaining-contact-bubble-font{
+    font-size: 19px;
+    font-weight: 700;
+    color: #42526E;
 }
 
 .input-subtask-addTask{

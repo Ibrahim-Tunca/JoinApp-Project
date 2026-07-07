@@ -95,9 +95,10 @@ async function validateForm(event){
 
     const emptyPhoneNumber = "";
     const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat);
+    const emailIsValid = checkIfMailIsValid(inputMail);
     const passwordsAreSame = checkIfPasswordsAreSame(inputPassword, inputRepeat);
 
-            if(everyThingisFilled == false || passwordsAreSame == false){
+            if(everyThingisFilled == false || emailIsValid == false || passwordsAreSame == false){
                 return false
             }
             await updateSignedUser(inputName, inputMail, inputPassword);  
@@ -154,6 +155,21 @@ function checkIfEverthingIsFilled(name, mail, password, repeat){
 }
 
 
+function checkIfMailIsValid(mail){
+    const mailFieldRef = document.getElementById("mailID");
+    const mailFieldErrorMessage = document.getElementById("errorMessageMailID");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (mail !== "" && !emailPattern.test(mail)) {
+        mailFieldRef.classList.add("red-bottom-border");
+        mailFieldErrorMessage.innerHTML = "Please enter a valid email address.";
+        return false;
+    }
+
+    return true;
+}
+
+
 function removeTheRedUnderlineAndMessage(){
     const nameFieldRef = document.getElementById("nameID");
     const nameFieldErrorMessage = document.getElementById("errorMessageNameID");
@@ -178,7 +194,10 @@ function removeTheRedUnderlineAndMessage(){
     repeatFieldErrorMessage.innerHTML = "";
     checkboxFieldErrorMessage.innerHTML = "";
 
-    checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked.svg)";
+    if(!globalCheckboxValue){
+        checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked.svg)";
+    }
+    checkboxRef.style.backgroundImage = "url(../../img/checkbox_checked.svg)";
 }
 
 

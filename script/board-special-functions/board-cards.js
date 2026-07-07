@@ -52,15 +52,27 @@ function showSubtaskProgress(subtasks, id){
 
 function getLetterBalls(contacts, id){
     const letterBallContainerRef = document.getElementById("letterBallContainerNr" + id);
+    const remainingContactballContainer = document.getElementById("remainingContactballContainerNr" + id);
     let distanceBetweenInitalBalls = 0;
 
-    for (let index = 0; index < contacts.length; index++) {
-        const initals = contacts[index].initals;
-        const color = contacts[index].color;
-        const contactId = contacts[index].id;
-
-        letterBallContainerRef.innerHTML += `<div class="letter-ball-card ${color}" style="left: ${distanceBetweenInitalBalls}px;">${initals}</div>`;
-        distanceBetweenInitalBalls = distanceBetweenInitalBalls + 26;
+    if(contacts.length > 4){
+        for (let index = 0; index < 3; index++) {
+            const initals = contacts[index].initals;
+            const color = contacts[index].color;
+            const contactId = contacts[index].id;
+            letterBallContainerRef.innerHTML += `<div class="letter-ball-card ${color}" style="left: ${distanceBetweenInitalBalls}px;">${initals}</div>`;
+            distanceBetweenInitalBalls = distanceBetweenInitalBalls + 26;
+        }
+        remainingContactballContainer.innerHTML += `<span class="remaining-contact-bubble-font" style="padding-left: 38px;">+${contacts.length - 4}</span>`;
+    }
+    else{
+        for (let index = 0; index < contacts.length; index++) {
+            const initals = contacts[index].initals;
+            const color = contacts[index].color;
+            const contactId = contacts[index].id;
+            letterBallContainerRef.innerHTML += `<div class="letter-ball-card ${color}" style="left: ${distanceBetweenInitalBalls}px;">${initals}</div>`;
+            distanceBetweenInitalBalls = distanceBetweenInitalBalls + 26;
+        }
     }
 }
 
