@@ -106,7 +106,7 @@ function getCardDetailTemplate(){
 
                                 <h1 class="h1-font-userstory" id="cardDetailTitleID">Kochwelt Page & Recipe Recommander</h1>
 
-                                <span class="regular-span-font-userstory" id="cardDetailDescriptionID">Build start page with recipe recommendation.</span>
+                                    <span class="regular-span-font-userstory" id="cardDetailDescriptionID">Build start page with recipe recommendation.</span>
 
                                 <date style=" display: flex;">
                                     <span class="bold-span-font-userstory bold-span-font-space-userstory">Due Date:</span>

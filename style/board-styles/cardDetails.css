@@ -42,6 +42,7 @@
 
 .regular-span-font-userstory{
     font-size: 19px;
+    overflow-wrap: anywhere;
 }
 
 .bold-span-font-userstory{

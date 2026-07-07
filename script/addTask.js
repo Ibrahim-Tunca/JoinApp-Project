@@ -72,11 +72,14 @@ function popUpSuccesAddTask(){
 function resetGlobalArrays(){
     const contactBallsRef = document.getElementById("initialBallContainerID");
     const subtasksRef = document.getElementById("createdSubtasksContainerID");
+    const contactSelectionContainerRef = document.getElementById("contactSelectionID");
     choosedContacts = [];
     subtasks = [];
 
     contactBallsRef.innerHTML = "";
     subtasksRef.innerHTML = "";
+    contactSelectionContainerRef.innerHTML = "";
+    loadContacts();
 }
 
 
