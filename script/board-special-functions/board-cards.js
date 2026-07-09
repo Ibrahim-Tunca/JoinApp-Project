@@ -63,7 +63,7 @@ function getLetterBalls(contacts, id){
             letterBallContainerRef.innerHTML += `<div class="letter-ball-card ${color}" style="left: ${distanceBetweenInitalBalls}px;">${initals}</div>`;
             distanceBetweenInitalBalls = distanceBetweenInitalBalls + 26;
         }
-        remainingContactballContainer.innerHTML += `<span class="remaining-contact-bubble-font" style="padding-left: 38px;">+${contacts.length - 4}</span>`;
+        remainingContactballContainer.innerHTML += `<span class="remaining-contact-bubble-font" style="padding-left: 38px;">+${contacts.length - 3}</span>`;
     }
     else{
         for (let index = 0; index < contacts.length; index++) {

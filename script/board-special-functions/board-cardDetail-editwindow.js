@@ -12,13 +12,13 @@ function loadPriorityButton(prio){
 
 
 function setAllContactsInFocusThatAreAlreadyChoosed(){
-
-    for (let index = 0; index < choosedContacts.length; index++) {
-        const currentContactID = choosedContacts[index].id;
-        
-        setContactInFocus(currentContactID);
-    }
     
+    if(choosedContacts != undefined){
+        for (let index = 0; index < choosedContacts.length; index++) {
+        const currentContactID = choosedContacts[index].id;
+        setContactInFocus(currentContactID);
+        }
+    }
 }
 
 
@@ -39,11 +39,13 @@ function pasteSubtaskUnderInputfield(){
 function renderSubtasks(){
     const createdSubtasksContainer = document.getElementById("createdSubtasksContainerID");
 
-    for (let index = 0; index < subtasks.length; index++) {
-        const currentSubtaskID = subtasks[index].id;
-        const subtaskValue = subtasks[index].value;
-        createdSubtasksContainer.innerHTML += pasteSubtaskUnderInputfieldTemplate(currentSubtaskID, subtaskValue);
-        subtaskID++;
+    if(subtasks != undefined){
+        for (let index = 0; index < subtasks.length; index++) {
+            const currentSubtaskID = subtasks[index].id;
+            const subtaskValue = subtasks[index].value;
+            createdSubtasksContainer.innerHTML += pasteSubtaskUnderInputfieldTemplate(currentSubtaskID, subtaskValue);
+            subtaskID++;
+        }
     }
 }
 
@@ -85,6 +87,10 @@ async function updateStatusFromTask(taskID, status){
 
 async function updateTask(event){
     event.preventDefault();
+    console.log(choosedContacts);
+    console.log(subtasks);
+    
+    
     
     const titleValue = document.forms["addTaskForm"]["addTaskTitle"].value;
     const descriptionValue = document.forms["addTaskForm"]["addTaskDescription"].value;

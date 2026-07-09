@@ -77,6 +77,7 @@ async function deleteContact(id){
 
     clearAllBlogs();
     await deleteData("/contacts/" + id);
+    await removeDeletedContactFromAllTasks(id);
 
     floatingCard.classList.toggle("is-visible");
     choosedContactID = "";
@@ -84,4 +85,42 @@ async function deleteContact(id){
     floatBackContactDetails(id);
     popUpDeleteContactSucces();
     await renderContacts();
+}
+
+
+async function loadData(path=""){
+	let response = await fetch(BASE_URL + path + ".json");
+	let responseToJson = await response.json();
+    return responseToJson;
+}
+
+
+async function removeDeletedContactFromAllTasks(contactID){
+    const variable = await loadData("/tasks");
+    const entries = Object.entries(variable || {});
+    
+    await removeDeletedContactFromTaskEntries(entries, contactID);
+}
+
+
+async function removeDeletedContactFromTaskEntries(entries, contactID){
+    for (let index = 0; index < entries.length; index++) {
+        const taskID = entries[index][0];
+        const contactArray = entries[index][1].contacts;
+
+        if(contactArray != undefined){
+            await removeDeletedContactFromTaskContacts(contactArray, contactID, taskID);
+        }
+    }
+}
+
+
+async function removeDeletedContactFromTaskContacts(contactArray, contactID, taskID){
+    const filteredContacts = contactArray.filter(contact => contact && contact.id !== contactID);
+
+    if (filteredContacts.length !== contactArray.length) {
+        await patchData("/tasks/" + taskID, {
+            contacts: filteredContacts
+        });
+    }
 }

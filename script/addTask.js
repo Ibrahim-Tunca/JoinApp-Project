@@ -18,12 +18,20 @@ function addContactInTask(id, initials, color){
         return;
     }
     
+    console.log(choosedContacts);
+    if(choosedContacts == null){
+        choosedContacts = [];
+    }
     choosedContacts.push({id: id, initals: initials, color: color});
     return;
 }
 
 
 function checkIfContactAreAlreadyInArray(id){
+    if(choosedContacts == null){
+        setContactInFocus(id);
+        return false;
+    }
     for (let index = 0; index < choosedContacts.length; index++) {
         const currentContactID = choosedContacts[index].id;
         if(currentContactID === id){
@@ -41,7 +49,8 @@ function generateInitalBallUnderContactOption(){
     contentRef = document.getElementById("initialBallContainerID");
     contentRef.innerHTML = "";
 
-    if(choosedContacts.length > 4){
+    if(choosedContacts != undefined){
+        if(choosedContacts.length > 4){
         for (let index = 0; index < 3; index++) {
             const currentContact = choosedContacts[index];
             const initials = currentContact.initals;
@@ -55,6 +64,7 @@ function generateInitalBallUnderContactOption(){
             const initials = currentContact.initals;
             const color = currentContact.color;
             contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
+            }
         }
     }
 }
