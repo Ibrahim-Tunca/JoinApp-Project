@@ -148,6 +148,10 @@ function checkIfEverthingIsFilled(name, mail, number){
     const errorMailRef = document.getElementById("errorMailID");
     const errorNumberRef = document.getElementById("errorNumberID");
 
+    const cleanedName = name.trim();
+    const cleanedMail = mail.trim();
+    const cleanedNumber = number.trim();
+
     nameRef.classList.remove("inputfield-contact-error");
     mailRef.classList.remove("inputfield-contact-error");
     numberRef.classList.remove("inputfield-contact-error");
@@ -156,19 +160,19 @@ function checkIfEverthingIsFilled(name, mail, number){
     errorMailRef.classList.remove("d_block");
     errorNumberRef.classList.remove("d_block");
 
-    if(name === ""){
+    if(cleanedName === ""){
         nameRef.classList.add("inputfield-contact-error");
         errorNameRef.classList.add("d_block");
         errorNameRef.innerHTML = "Please enter a name!";
         everythingIsFilled = false;
     }
-    if(mail === ""){
+    if(cleanedMail === ""){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
         errorMailRef.innerHTML = "Please enter a emailadress!";
         everythingIsFilled = false;
     }
-    if(number === ""){
+    if(cleanedNumber === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
         errorNumberRef.innerHTML = "Please enter a phonenumber!";
@@ -274,6 +278,10 @@ function checkIfEverthingIsFilledInEditContact(){
     const mailValue = document.getElementById("editContactMailID").value;
     const phoneValue = document.getElementById("editContactPhoneID").value;
 
+    const cleanedNameValue = nameValue.trim();
+    const cleanedMailValue = mailValue.trim();
+    const cleanedPhoneValue = phoneValue.trim();
+
     nameRef.classList.remove("inputfield-contact-error");
     mailRef.classList.remove("inputfield-contact-error");
     numberRef.classList.remove("inputfield-contact-error");
@@ -282,19 +290,19 @@ function checkIfEverthingIsFilledInEditContact(){
     errorMailRef.classList.remove("d_block");
     errorNumberRef.classList.remove("d_block");
 
-    if(nameValue === ""){
+    if(cleanedNameValue === ""){
         nameRef.classList.add("inputfield-contact-error");
         errorNameRef.classList.add("d_block");
         errorNameRef.innerHTML = "Please enter a name!";
         everythingIsFilled = false;
     }
-    if(mailValue === ""){
+    if(cleanedMailValue === ""){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
         errorMailRef.innerHTML = "Please enter a emailadress!";
         everythingIsFilled = false;
     }
-    if(phoneValue === ""){
+    if(cleanedPhoneValue === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
         errorNumberRef.innerHTML = "Please enter a phonenumber!";
