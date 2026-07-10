@@ -114,23 +114,6 @@ function floatBackContactDetails(id){
 }
 
 
-async function validateEditContactForm(event, id){
-    event.preventDefault();
-    clearAllBlogs();
-
-    const everthingIsFilled = checkIfEverthingIsFilledInEditContact();
-    const emailIsValid = checkIfMailIsValidEdit();
-    if (everthingIsFilled == false || emailIsValid == false) {
-        return false;
-    }
-
-    await updateUser(id);
-    renderContacts();
-    hideAddContactAndEditContactWindow();
-    return false;
-}
-
-
 async function validateAddContactForm(event){
     event.preventDefault();
     clearAllBlogs();
@@ -139,9 +122,11 @@ async function validateAddContactForm(event){
     const contactMailValue = document.forms["addContactForm"]["mail"].value
     const contactPhoneNumberValue = document.forms["addContactForm"]["phone"].value;
     const everthingIsFilled = checkIfEverthingIsFilled(contactNameValue, contactMailValue, contactPhoneNumberValue);
+    const nameIsValid = checkIfUsernameIsValid(contactNameValue);
     const emailIsValid = checkIfMailIsValid(contactMailValue);
+    const phoneNumberIsValid = checkIfPhonnumberIsValid(contactPhoneNumberValue);
 
-    if (everthingIsFilled == false || emailIsValid == false) {
+    if (everthingIsFilled == false || nameIsValid == false || emailIsValid == false || phoneNumberIsValid == false){
         return false;
     }
 
@@ -171,24 +156,106 @@ function checkIfEverthingIsFilled(name, mail, number){
     errorMailRef.classList.remove("d_block");
     errorNumberRef.classList.remove("d_block");
 
-    errorMailRef.innerHTML = "Please enter a emailadress!";
-
     if(name === ""){
         nameRef.classList.add("inputfield-contact-error");
         errorNameRef.classList.add("d_block");
+        errorNameRef.innerHTML = "Please enter a name!";
         everythingIsFilled = false;
     }
     if(mail === ""){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
+        errorMailRef.innerHTML = "Please enter a emailadress!";
         everythingIsFilled = false;
     }
     if(number === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
+        errorNumberRef.innerHTML = "Please enter a phonenumber!";
         everythingIsFilled = false;
     }
     return everythingIsFilled;
+}
+
+
+function checkIfUsernameIsValid(name){
+    const nameRef = document.getElementById("nameID");
+    const errorNameRef = document.getElementById("errorNameID");
+
+    if(name.length > 28){
+        nameRef.classList.add("inputfield-contact-error");
+        errorNameRef.classList.add("d_block");
+        errorNameRef.innerHTML = "Entered name too long!"
+        return false;
+    }
+
+    return true;
+}
+
+
+function checkIfMailIsValid(mail){
+    const mailFieldRef = document.getElementById("mailID");
+    const mailFieldErrorMessage = document.getElementById("errorMailID");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (mail !== "" && !emailPattern.test(mail)) {
+        mailFieldRef.classList.add("inputfield-contact-error");
+        mailFieldErrorMessage.classList.add("d_block");
+        mailFieldErrorMessage.innerHTML = "Please enter a valid email address.";
+        return false;
+    }
+
+    if(mail.length > 38){
+        mailFieldRef.classList.add("inputfield-contact-error");
+        mailFieldErrorMessage.classList.add("d_block");
+        mailFieldErrorMessage.innerHTML = "Email address too long!";
+        return false;
+    }
+
+    return true;
+}
+
+
+function checkIfPhonnumberIsValid(phone){
+    const numberRef = document.getElementById("phoneID");
+    const errorNumberRef = document.getElementById("errorNumberID");
+    const phonePattern = /^\+?\d+$/;
+    const trimmedPhone = phone.trim();
+
+    if(trimmedPhone.length > 28){
+        numberRef.classList.add("inputfield-contact-error");
+        errorNumberRef.classList.add("d_block");
+        errorNumberRef.innerHTML = "Entered number too long!"
+        return false;
+    }
+
+    if(trimmedPhone !== "" && !phonePattern.test(trimmedPhone)){
+        numberRef.classList.add("inputfield-contact-error");
+        errorNumberRef.classList.add("d_block");
+        errorNumberRef.innerHTML = "Please enter a valid phone number.";
+        return false;
+    }
+
+    return true;
+}
+
+
+async function validateEditContactForm(event, id){
+    event.preventDefault();
+    clearAllBlogs();
+
+    const everthingIsFilled = checkIfEverthingIsFilledInEditContact();
+    const nameIsValid = checkIfUsernameIsValidEdit();
+    const emailIsValid = checkIfMailIsValidEdit();
+    const phoneNumberIsValid = checkIfPhonnumberIsValidEdit();
+    if (everthingIsFilled == false || nameIsValid == false || emailIsValid == false || phoneNumberIsValid == false) {
+        return false;
+    }
+
+    await updateUser(id);
+    renderContacts();
+    hideAddContactAndEditContactWindow();
+    return false;
 }
 
 
@@ -207,8 +274,6 @@ function checkIfEverthingIsFilledInEditContact(){
     const mailValue = document.getElementById("editContactMailID").value;
     const phoneValue = document.getElementById("editContactPhoneID").value;
 
-    errorMailRef.innerHTML = "Please enter a emailadress!";
-
     nameRef.classList.remove("inputfield-contact-error");
     mailRef.classList.remove("inputfield-contact-error");
     numberRef.classList.remove("inputfield-contact-error");
@@ -220,36 +285,41 @@ function checkIfEverthingIsFilledInEditContact(){
     if(nameValue === ""){
         nameRef.classList.add("inputfield-contact-error");
         errorNameRef.classList.add("d_block");
+        errorNameRef.innerHTML = "Please enter a name!";
         everythingIsFilled = false;
     }
     if(mailValue === ""){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
+        errorMailRef.innerHTML = "Please enter a emailadress!";
         everythingIsFilled = false;
     }
     if(phoneValue === ""){
         numberRef.classList.add("inputfield-contact-error");
         errorNumberRef.classList.add("d_block");
+        errorNumberRef.innerHTML = "Please enter a phonenumber!";
         everythingIsFilled = false;
     }
     return everythingIsFilled;
 }
 
 
-function checkIfMailIsValid(mail){
-    const mailFieldRef = document.getElementById("mailID");
-    const mailFieldErrorMessage = document.getElementById("errorMailID");
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function checkIfUsernameIsValidEdit(){
+    const nameRef = document.getElementById("editContactNameID");
+    const errorNameRef = document.getElementById("editErrorNameID");
+    const nameValue = document.getElementById("editContactNameID").value;
 
-    if (mail !== "" && !emailPattern.test(mail)) {
-        mailFieldRef.classList.add("inputfield-contact-error");
-        mailFieldErrorMessage.classList.add("d_block");
-        mailFieldErrorMessage.innerHTML = "Please enter a valid email address.";
+
+    if(nameValue.length > 28){
+        nameRef.classList.add("inputfield-contact-error");
+        errorNameRef.classList.add("d_block");
+        errorNameRef.innerHTML = "Entered name too long!"
         return false;
     }
 
     return true;
 }
+
 
 function checkIfMailIsValidEdit(){
     const errorMailRef = document.getElementById("editErrorMailID");
@@ -262,6 +332,39 @@ function checkIfMailIsValidEdit(){
         mailRef.classList.add("inputfield-contact-error");
         errorMailRef.classList.add("d_block");
         errorMailRef.innerHTML = "Please enter a valid email address.";
+        return false;
+    }
+
+    if(mailValue.length > 33){
+        mailRef.classList.add("inputfield-contact-error");
+        errorMailRef.classList.add("d_block");
+        errorMailRef.innerHTML = "Email address too long!";
+        return false;
+    }
+
+    return true;
+}
+
+
+function checkIfPhonnumberIsValidEdit(){
+    const numberRef = document.getElementById("editContactPhoneID");
+    const errorNumberRef = document.getElementById("editErrorNumberID");
+    const phoneValue = document.getElementById("editContactPhoneID").value;
+
+    const phonePattern = /^\+?\d+$/;
+    const trimmedPhone = phoneValue.trim();
+
+    if(trimmedPhone.length > 28){
+        numberRef.classList.add("inputfield-contact-error");
+        errorNumberRef.classList.add("d_block");
+        errorNumberRef.innerHTML = "Entered number too long!"
+        return false;
+    }
+
+    if(trimmedPhone !== "" && !phonePattern.test(trimmedPhone)){
+        numberRef.classList.add("inputfield-contact-error");
+        errorNumberRef.classList.add("d_block");
+        errorNumberRef.innerHTML = "Please enter a valid phone number.";
         return false;
     }
 

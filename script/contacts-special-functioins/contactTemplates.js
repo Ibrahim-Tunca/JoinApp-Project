@@ -122,7 +122,7 @@ function addContactTemplate(){
                                             <img class="inputfield-placeholder-img" src="./img/person.svg">
                                         
                                     </div>
-                                    <span class="inputfield-contact-errormessage-name" id="errorNameID">Please enter a name!</span>
+                                    <span class="inputfield-contact-errormessage-name" id="errorNameID"></span>
                                 </div>
                                 
                                 <div style="height: 40px;">
@@ -130,7 +130,7 @@ function addContactTemplate(){
                                         <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
                                         <img class="inputfield-placeholder-img" src="./img/mail.svg">
                                     </div>
-                                    <span class="inputfield-contact-errormessage-mail" id="errorMailID">Please enter a emailadress!</span>
+                                    <span class="inputfield-contact-errormessage-mail" id="errorMailID"></span>
                                 </div>
 
                                 <div style="height: 40px;">
@@ -138,7 +138,7 @@ function addContactTemplate(){
                                         <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
                                         <img class="inputfield-placeholder-img" src="./img/call.svg">
                                     </div>
-                                    <span class="inputfield-contact-errormessage-number" id="errorNumberID">Please enter a phonenumber!</span>
+                                    <span class="inputfield-contact-errormessage-number" id="errorNumberID"></span>
                                 </div>
 
                             </div>
@@ -163,7 +163,7 @@ function editContactTemplate(initials, color, id){
 
                 <top-section class="top-section-editContact">
 
-                    <div onclick="hideAddContactAndEditContactWindow()" class="close-button-container-add-contact"><img class="close-button" src="./img/close.svg" alt=""></div>
+                    <div onclick="hideAddContactAndEditContactWindow()" class="close-button-container-add-contact"><img class="close-button" src="./img/close.svg"></div>
 
 
                     <div class="top-section-inside-editContact-ontainer">
@@ -189,7 +189,7 @@ function editContactTemplate(initials, color, id){
                                     <input class="inputfield-contact" type="text" name="name" id="editContactNameID">
                                     <img class="inputfield-placeholder-img" src="./img/person.svg">
                                 </div>
-                                <span class="inputfield-contact-errormessage-name" id="editErrorNameID">Please enter a name!</span>
+                                <span class="inputfield-contact-errormessage-name" id="editErrorNameID"></span>
                             </div>
 
                             <div style="height: 40px;">   
@@ -197,7 +197,7 @@ function editContactTemplate(initials, color, id){
                                     <input class="inputfield-contact" type="email" name="mail" id="editContactMailID">
                                     <img class="inputfield-placeholder-img" src="./img/mail.svg">
                                 </div>
-                                <span class="inputfield-contact-errormessage-name" id="editErrorMailID">Please enter a emailadress!</span>
+                                <span class="inputfield-contact-errormessage-name" id="editErrorMailID"></span>
                             </div>
 
                             <div style="height: 40px;">
@@ -205,7 +205,7 @@ function editContactTemplate(initials, color, id){
                                     <input class="inputfield-contact" type="tel" name="phone" id="editContactPhoneID">
                                     <img class="inputfield-placeholder-img" src="./img/call.svg">
                                 </div>
-                                <span class="inputfield-contact-errormessage-name" id="editErrorNumberID">Please enter a phonenumber!</span>
+                                <span class="inputfield-contact-errormessage-name" id="editErrorNumberID"></span>
                             </div>
 
                         </div>
