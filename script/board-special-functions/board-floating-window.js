@@ -50,7 +50,7 @@ function hideCardDetailWindow(){
         return
     }
 
-    cardDetailContainerRef.classList.remove("top-50-percent");
+    cardDetailContainerRef.classList.remove("top-50-percent-board");
     hideWhiteTransparentOverlay();
 }
 

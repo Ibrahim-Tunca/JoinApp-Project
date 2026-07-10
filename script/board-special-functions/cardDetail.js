@@ -153,7 +153,7 @@ async function showCardDetail(id, title, description, category, date, priority){
     
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            cardDetailContainer.classList.add("top-50-percent");
+            cardDetailContainer.classList.add("top-50-percent-board");
         });
     });
    

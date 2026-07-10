@@ -132,9 +132,11 @@
 }
 
 @media(max-width: 550px){
+
     .main-container-userstory {
-        width: 329px;
-        height: 778px;
+        width: 70%;
+        height: 80%;
+        padding: 48px 40px;
     }
 
     .h1-font-userstory {
@@ -153,7 +155,6 @@
 
 @media(max-width: 480px){
     .prio-buttons-addTask {
-        width: 105px;
         font-size: 16px;
     }
 }
@@ -161,24 +162,13 @@
 
 @media(max-width: 415px){
     .main-container-userstory {
+        width: 90%;
+        height: 90%;
         padding: 26px 19px;
-        width: 298px;
     }
 
     .prio-icons-addTask {
         height: 9px;
         width: 16px;
-    }
-}
-
-@media(max-height: 750px){
-    .main-container-userstory {
-        height: 660px;
-    }
-}
-
-@media(max-height: 670px){
-    .main-container-userstory {
-        height: 580px;
     }
 }

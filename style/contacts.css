@@ -131,11 +131,15 @@
 
 .name-font-contact{
     font-size: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .mail-font-contact{
     font-size: 16px;
     color: #005DFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .succesfull-popup{

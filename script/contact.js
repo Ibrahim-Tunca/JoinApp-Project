@@ -145,7 +145,7 @@ async function validateAddContactForm(event){
         return false;
     }
 
-    await addNewContact(contactNameRef, contactMailRef, contactPhoneNumberRef);
+    await addNewContact(contactNameValue, contactMailValue, contactPhoneNumberValue);
     renderContacts();
     popUpAddContactSucces();
     return true;
