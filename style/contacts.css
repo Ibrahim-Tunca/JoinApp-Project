@@ -6,7 +6,7 @@
     display: flex;
     width: 100%;
     max-width: 1440px;
-    height: calc(100vh - 172px);
+    height: calc(100vh - 177px);
     box-sizing: border-box;
 }
 

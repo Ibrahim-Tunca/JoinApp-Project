@@ -111,6 +111,11 @@
             font-weight: 700;
         }
 
+        .month-font-summary{
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         .urgency-container:hover .urgency-font-bold{
             color: #4589FF;
             font-size: 37px;

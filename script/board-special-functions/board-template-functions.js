@@ -22,7 +22,7 @@ function getContactTemplate(color, initials, name){
                     <div class="letter-ball-userstory ${color}"">
                         ${initials}
                     </div>
-                    <span>
+                    <span class="contact-name-font">
                         ${name}
                     </span>
                 </div>
@@ -354,6 +354,9 @@ function getAddTaskFormTemplate(){
 
                         <div class="contact-inital-ball-container-under-contact-option" id="initialBallContainerID"></div>
 
+                        <category class="margin-top-bigger-add-task">
+                            <span class="font-bold-add-task">Category</span>
+                        </category>
 
                         <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category" id="categoryID">
                             <input type="hidden" name="taskCategory">

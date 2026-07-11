@@ -51,7 +51,7 @@ function generateInitalBallUnderContactOption(){
 
     if(choosedContacts != undefined){
         if(choosedContacts.length > 4){
-        for (let index = 0; index < 3; index++) {
+        for (let index = 0; index < 4; index++) {
             const currentContact = choosedContacts[index];
             const initials = currentContact.initals;
             const color = currentContact.color;

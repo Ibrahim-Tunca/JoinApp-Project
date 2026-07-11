@@ -105,11 +105,15 @@
 
     border-radius: 21px;
     height: 42px;
-    width: 42px;
+    min-width: 42px;
     color: white;
     font-size: 16px;
 }
 
+.contact-name-font{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .assigned-to-content-order{
     display: flex;

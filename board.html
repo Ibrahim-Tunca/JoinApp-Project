@@ -104,7 +104,7 @@
                         onmouseleave="this.src='./img/search.svg'"
                         src="./img/search.svg">
                 </div>
-                <button onclick="showAddTaskWindow(), makeAddTaksButtonBlack()" class="addTask-Button-board" id="addTaskButtonID">
+                <button onclick="showAddTaskWindow(), makeAddTaksButtonBlack(), setPrioToMedium()" class="addTask-Button-board" id="addTaskButtonID">
                     Add Task
                     <img class="plus-icon-board" src="./img/plus.svg" alt="">
                 </button>
@@ -116,7 +116,7 @@
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">To do</h2>
-                        <div onclick="showAddTaskWindow(), setFirstButtonGrey()" class="plus-button-board" id="firstPLusID">
+                        <div onclick="showAddTaskWindow(), setFirstButtonGrey(), setPrioToMedium()" class="plus-button-board" id="firstPLusID">
                             +
                         </div>
                     </div>
@@ -132,7 +132,7 @@
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">In progress</h2>
-                        <div onclick="addTaskInInProgressContainer(), setSecondButtonGrey()" class="plus-button-board" id="secondPlusID">
+                        <div onclick="addTaskInInProgressContainer(), setSecondButtonGrey(), setPrioToMedium()" class="plus-button-board" id="secondPlusID">
                             +
                         </div>
                     </div>
@@ -149,7 +149,7 @@
 
                     <div class="headline-container-board">
                         <h2 class="h2-font-board">Await feedback</h2>
-                        <div onclick="addTaskInAwaitFeedbackContainer(), setThirdButtonGrey()" class="plus-button-board" id="thirdPlusID">
+                        <div onclick="addTaskInAwaitFeedbackContainer(), setThirdButtonGrey(), setPrioToMedium()" class="plus-button-board" id="thirdPlusID">
                             +
                         </div>
                     </div>
