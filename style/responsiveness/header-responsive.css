@@ -1,3 +1,13 @@
+.display-help-in-popup-window{
+    display: none;
+    justify-content: end;
+    font-size: 19px;
+    color: #42526E;
+    padding: 5px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
 @media(max-width: 1440px){
 .header-container {
     margin-left: 0px;
@@ -14,14 +24,17 @@
     display: none;
 }
 
+.display-help-in-popup-window{
+    display: flex;
+}
+
+
 }
 
 @media(max-width: 500px){
     .user-button {
-
         height: 40px;
         width: 40px;
-
         font-size: 21px;
 
     }

@@ -20,10 +20,11 @@ function renderContactSelectionEntries(sortedAndSetUserOnTheTop, contactSelectio
         const contactMail = sortedAndSetUserOnTheTop[index][1].email;
         const contactName = sortedAndSetUserOnTheTop[index][1].userName;
         const contactColor = sortedAndSetUserOnTheTop[index][1].color;
-        const contactInitals = sortedAndSetUserOnTheTop[index][1].userName.charAt(0).toUpperCase();
+        const nameParts = sortedAndSetUserOnTheTop[index][1].userName.trim().split(/\s+/);
+        const initialsValue = nameParts.length === 1 ? nameParts[0].charAt(0).toUpperCase() : (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
         const contactKey = sortedAndSetUserOnTheTop[index][0];        
 
-        contactSelectionContainerRef.innerHTML += contactSelectionTemplate(contactKey, contactInitals, contactColor, contactName, contactMail);
+        contactSelectionContainerRef.innerHTML += contactSelectionTemplate(contactKey, initialsValue, contactColor, contactName, contactMail);
     }
 }
 

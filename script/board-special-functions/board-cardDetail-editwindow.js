@@ -87,10 +87,6 @@ async function updateStatusFromTask(taskID, status){
 
 async function updateTask(event){
     event.preventDefault();
-    console.log(choosedContacts);
-    console.log(subtasks);
-    
-    
     
     const titleValue = document.forms["addTaskForm"]["addTaskTitle"].value;
     const descriptionValue = document.forms["addTaskForm"]["addTaskDescription"].value;

@@ -209,7 +209,7 @@
 
     .addcontact-maincontainer {
         width: 70%;
-        height: 825px;
+        height: 100%;
         border-top-right-radius: 30px;
         top: 50%;
     	left: 50%;
@@ -235,7 +235,7 @@
 
     .editContact-maincontainer {
         width: 70%;
-        height: 825px;
+        height: 100%;
         border-radius: 30px;
         top: 50%;
     	left: 50%;
@@ -335,20 +335,12 @@
         height: 315px;
     }
 
-    .addcontact-maincontainer {
-        height: 730px;
-    }
-
     .h2-font-contact {
         margin: 0;
     }
 
     .close-button {
         padding: 0; 
-    }
-
-    .editContact-maincontainer {
-        height: 730px;
     }
 
     .top-section-editContact {
@@ -362,9 +354,6 @@
 }
 
 @media(max-height: 670px){
-    .addcontact-maincontainer {
-        height: 650px;
-    }
 
     .top-section-addContact {
         height: 240px;
@@ -387,10 +376,6 @@
 
     .close-button {
         padding: 0; 
-    }
-
-    .editContact-maincontainer {
-        height: 655px;
     }
 
     .top-section-editContact {

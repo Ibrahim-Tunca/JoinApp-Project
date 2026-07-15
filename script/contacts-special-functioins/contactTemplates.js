@@ -29,11 +29,11 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                     </div>
                     <top-section class="top-section-floating-contact">
                     
-                        <div class="inital-ball-floating-contact ${color}">
+                        <div class="inital-ball-floating-contact ${color}" id="contactDetailInitialsID">
                             ${initials}
                         </div>
                         <div class="name-and-edit-delete-button-container-floating-contanct">
-                            <h2 class="h2-floating-contact">${name}</h2>
+                            <h2 class="h2-floating-contact" id="contactDetailNameID">${name}</h2>
                             <div class="edit-and-delete-container-floating-contact">
                                 <div 
                                         class="edit-and-delete-single-container-floating-contact"
@@ -59,9 +59,9 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
                     <bottom-section>
                         <h3 class="h3-font-floating-contact">Contact Information</h3>
                         <p class="p-tag-headline-font-floating-contact">Email</p>
-                        <p class="email-font-floating-contact">${mail}</p>
+                        <p class="email-font-floating-contact" id="contactDetailMailID">${mail}</p>
                         <p class="p-tag-headline-font-floating-contact">Phone</p>
-                        <p class="phonenumber-font-floating-contact">${phone}</p>
+                        <p class="phonenumber-font-floating-contact" id="contactDetailPhoneID">${phone}</p>
                     </bottom-section>
 
                     <div class="three-dots-button-container">
@@ -118,7 +118,7 @@ function addContactTemplate(){
 
                                 <div style="height: 40px;">
                                     <div class="single-inputfield-container-contact">
-                                            <input class="inputfield-contact" type="text" placeholder="Name" name="name" id="nameID">
+                                            <input onblur="checkIfNameIsValid()" class="inputfield-contact" type="text" placeholder="Name" name="name" id="nameID">
                                             <img class="inputfield-placeholder-img" src="./img/person.svg">
                                         
                                     </div>
@@ -127,7 +127,7 @@ function addContactTemplate(){
                                 
                                 <div style="height: 40px;">
                                     <div class="single-inputfield-container-contact">
-                                        <input class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
+                                        <input onblur="checkIfMailIsValid()" class="inputfield-contact" type="email" placeholder="Email" name="mail" id="mailID">
                                         <img class="inputfield-placeholder-img" src="./img/mail.svg">
                                     </div>
                                     <span class="inputfield-contact-errormessage-mail" id="errorMailID"></span>
@@ -135,7 +135,7 @@ function addContactTemplate(){
 
                                 <div style="height: 40px;">
                                     <div class="single-inputfield-container-contact">
-                                        <input class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
+                                        <input onblur="checkIfPhonnumberIsValid()" class="inputfield-contact" type="tel" placeholder="Phone" name="phone" id="phoneID">
                                         <img class="inputfield-placeholder-img" src="./img/call.svg">
                                     </div>
                                     <span class="inputfield-contact-errormessage-number" id="errorNumberID"></span>
@@ -186,7 +186,7 @@ function editContactTemplate(initials, color, id){
 
                             <div style="height: 40px;">
                                 <div class="single-inputfield-container-contact">
-                                    <input class="inputfield-contact" type="text" name="name" id="editContactNameID">
+                                    <input onblur="checkIfNameIsValidEdit()" class="inputfield-contact" type="text" name="name" id="editContactNameID">
                                     <img class="inputfield-placeholder-img" src="./img/person.svg">
                                 </div>
                                 <span class="inputfield-contact-errormessage-name" id="editErrorNameID"></span>
@@ -194,7 +194,7 @@ function editContactTemplate(initials, color, id){
 
                             <div style="height: 40px;">   
                                 <div class="single-inputfield-container-contact">
-                                    <input class="inputfield-contact" type="email" name="mail" id="editContactMailID">
+                                    <input onblur="checkIfMailIsValidEdit()" class="inputfield-contact" type="email" name="mail" id="editContactMailID">
                                     <img class="inputfield-placeholder-img" src="./img/mail.svg">
                                 </div>
                                 <span class="inputfield-contact-errormessage-name" id="editErrorMailID"></span>
@@ -202,7 +202,7 @@ function editContactTemplate(initials, color, id){
 
                             <div style="height: 40px;">
                                 <div class="single-inputfield-container-contact">
-                                    <input class="inputfield-contact" type="tel" name="phone" id="editContactPhoneID">
+                                    <input onblur="checkIfPhonnumberIsValidEdit()" class="inputfield-contact" type="tel" name="phone" id="editContactPhoneID">
                                     <img class="inputfield-placeholder-img" src="./img/call.svg">
                                 </div>
                                 <span class="inputfield-contact-errormessage-name" id="editErrorNumberID"></span>

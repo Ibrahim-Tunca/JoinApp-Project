@@ -165,6 +165,8 @@
 .prio-buttons-order-addTask{
     display: flex;
     justify-content: space-between;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .prio-buttons-addTask{
@@ -262,6 +264,8 @@
         .custom-select-toggle-addTask:focus {
             outline: none;
         }
+
+
 
 .custom-select-label-addTask {
     color: #000000;

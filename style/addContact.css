@@ -154,7 +154,7 @@
     border-width: 0px;
     border-bottom: solid 1px #D1D1D1;
     font-size: 23px;
-    width: 100%;
+    width: 80%;
 }
 
 .inputfield-contact::placeholder{
@@ -170,9 +170,10 @@
 .button-order-addContact{
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 420px;
 
-    margin-top: 40px;
+    position: fixed;
+    bottom: 30px;
 }
 
 .blue-button-big{
@@ -237,7 +238,7 @@
 }
 
 .inputfield-contact-error{
-    border-bottom: solid 2px #FF3D00;
+    border-bottom: solid 1px #FF3D00;
 }
 
 .inputfield-contact-errormessage-name{

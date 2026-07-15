@@ -63,3 +63,7 @@
     width: 22px;
     height: 22px;
 }
+
+.selectfield-error-message{
+    color: #FF3D00;
+}

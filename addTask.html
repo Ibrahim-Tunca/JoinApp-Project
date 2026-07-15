@@ -24,6 +24,7 @@
     <script src="./script/addTask-special-functions/inputAndSelectFields.js"></script>
     <script src="./script/addTask-special-functions/addTask-templates.js"></script>
     <script src="./script/addTask-special-functions/addTask-DataBaseFunctions.js"></script>
+    <script src="./script/addTask-special-functions/addTask-category-selectfield-errormessage.js"></script>
 
 </head>
 <body onload="setNameInitialButton(), loadContacts(), setPrioToMedium()">
@@ -48,6 +49,7 @@
                 <div class="popup-menue-container">
                     <a class="popup-menue-font" href="./legal.html">Legal Notice</a>
                     <a class="popup-menue-font" href="./privacy.html">Private Policy</a>
+                    <a class="display-help-in-popup-window" href="./help.html">Help</a>
                     <a onclick="logout()" class="popup-menue-font" href="./index.html">Log out</a>
                 </div>
         </popupmenue>
@@ -77,7 +79,7 @@
 
 
 
-                                <input name="addTaskTitle" class="input-title-addTask" type="text" placeholder="Enter a title" id="titleID">
+                                <input onblur="checkIfTitleIsValid()" name="addTaskTitle" class="input-title-addTask" type="text" placeholder="Enter a title" id="titleID">
                                 <span id="titleFontID">This field is required</span>
 
                                 <div class="margin-top-add-task">
@@ -90,7 +92,7 @@
                                 <div class="margin-top-add-task">
                                     <span class="font-bold-add-task">Due date</span>
                                 </div>
-                                <input class="input-date-addTask" type="date" name="addTaskDate" placeholder="tt/mm/jjjj" id="dateID">
+                                <input onblur="checkIfDateIsValid()" class="input-date-addTask" type="date" name="addTaskDate" placeholder="tt/mm/jjjj" id="dateID">
                                 <span id="dateFontID">This field is required</span>
 
 
@@ -133,15 +135,16 @@
                                     <span class="font-bold-add-task">Category</span>
                                 </category>
 
-                                <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category" id="categoryID">
+                                <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category">
                                     <input type="hidden" name="taskCategory">
                                     
-                                    <button type="button" class="custom-select-toggle-addTask underline-color-select-category">
+                                    <button type="button" class="custom-select-toggle-addTask underline-color-select-category" id="categoryID">
                                         <span class="custom-select-label-addTask">Select task category</span>
                                         <span class="custom-select-arrow-wrap-addTask">
                                             <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg">
                                         </span>
                                     </button>
+                                    <span class="selectfield-error-message d_none" id="categoryErrorMessageID">This field is required</span>
 
                                     <div class="custom-select-menu-addTask d_none">
                                         <button type="button" class="custom-select-option-addTask" data-value="Technical Task">Technical Task</button>

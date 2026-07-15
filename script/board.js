@@ -14,7 +14,6 @@ async function renderAllCards() {
     const awaitFeedbackTasks = await getAwaitFeedbackCards();
     const doneTasks = await getDoneCards();
 
-
     getCardValues(toDoTasks, toDoContainerRef);
     getCardValues(inProgressTasks, inProgressContainerRef);
     getCardValues(awaitFeedbackTasks, awaitFeedbackContainerRef);

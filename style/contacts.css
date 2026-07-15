@@ -120,7 +120,7 @@
     color: white;
 
     height: 42px;
-    width: 42px;
+    min-width: 42px;
 }
 
 .name-mail-container{

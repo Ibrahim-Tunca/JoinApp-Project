@@ -7,10 +7,11 @@ async function loadContactsInCardDetailWindow(){
     for (let index = 0; index < entries.length; index++) {
         const contactName = entries[index][1].userName;
         const contactColor = entries[index][1].color;
-        const contactInitals = entries[index][1].userName.charAt(0).toUpperCase();
+        const nameParts = entries[index][1].userName.trim().split(/\s+/);
+        const initialsValue = nameParts.length === 1 ? nameParts[0].charAt(0).toUpperCase() : (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
         const contactKey = entries[index][0];                
 
-        contactSelectionContainerRef.innerHTML += contactSelectionTemplateCardDetail(contactKey, contactInitals, contactColor, contactName);
+        contactSelectionContainerRef.innerHTML += contactSelectionTemplateCardDetail(contactKey, initialsValue, contactColor, contactName);
         setContactInFocusWhenContactIsAlreadyInTheArray(contactKey);
     } 
 }

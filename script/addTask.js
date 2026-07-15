@@ -4,6 +4,7 @@ let subtasks = [];
 let choosedContacts = [];
 let globalUserMail = "";
 let currentTaskStatus;
+let categoryTouched = false;
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -18,7 +19,6 @@ function addContactInTask(id, initials, color){
         return;
     }
     
-    console.log(choosedContacts);
     if(choosedContacts == null){
         choosedContacts = [];
     }
@@ -101,8 +101,10 @@ async function validateAddTaskForm(event){
     const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
     const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
     const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
+    const titleIsValid = checkIfTitleIsValid();
+    const dateIsValid = checkIfDateIsValid();
 
-    if (!requiredFieldsAreFilled) {
+    if (!requiredFieldsAreFilled || titleIsValid == false || dateIsValid == false) {
         return;
     }
 
@@ -110,55 +112,61 @@ async function validateAddTaskForm(event){
     popUpSuccesAddTask();
 
     setTimeout(() => {
-        window.location.reload();
+        window.location.href = "./board.html";
     }, 2500);
 }
 
 
 function checkIfEverthingImportantIsFillingdOut(title, date, category){
     let everyImportantThingIsFilled = true;
-
     const cleanedTitle = title.trim();
 
-    const titleRef = document.getElementById("titleID");
-    const dateRef = document.getElementById("dateID");
-    const categoryRef = document.getElementById("categoryID");
-
-    const titleFontRef = document.getElementById("titleFontID");
-    const dateFontRef = document.getElementById("dateFontID");
-
-    titleFontRef.style.color = "black";
-    dateFontRef.style.color = "black";
-
-    titleRef.classList.remove("input-title-error-addTask");
-    dateRef.classList.remove("input-date-error-addTask");
-    categoryRef.classList.remove("input-date-error-addTask");
-
-    dateFontRef.innerHTML = `This field is required`
-
     if(cleanedTitle === ""){
-        titleRef.classList.add("input-title-error-addTask");
-        titleFontRef.style.color = "#FF3D00";
         everyImportantThingIsFilled = false;
     }
     if(date === ""){
-        dateRef.classList.add("input-date-error-addTask");
-        dateFontRef.style.color = "#FF3D00";
-        dateFontRef.innerHTML = "This field is required";
         everyImportantThingIsFilled = false;
     }
     if (date !== "" && !isDateInFuture(date)) {
-        dateRef.classList.add("input-date-error-addTask");
-        dateFontRef.style.color = "#FF3D00";
-        dateFontRef.innerHTML = "Please don't take a date in the past!";
         everyImportantThingIsFilled = false;
     }
     if(category === ""){
-        categoryRef.classList.add("input-date-error-addTask");
         everyImportantThingIsFilled = false;
     }
-
     return everyImportantThingIsFilled;
+}
+
+
+function checkIfTitleIsValid(){
+    const titleValue = document.forms["addTaskForm"]["addTaskTitle"].value;
+    const cleanedTitle = titleValue.trim();
+
+    removeTitleErrorMessage();
+
+    if(cleanedTitle === ""){
+        titleErrorMessage();
+        return false;
+    }
+    return true;
+}
+
+
+function checkIfDateIsValid(){
+    const dateFontRef = document.getElementById("dateFontID");
+    const dateValue = document.forms["addTaskForm"]["addTaskDate"].value;
+
+    removeDateErrorMessage();
+
+    if(dateValue === ""){
+        dateErrorMessage();
+        return false;
+    }
+    if (dateValue !== "" && !isDateInFuture(dateValue)) {
+        dateErrorMessage();
+        dateFontRef.innerHTML = "Please don't take a date in the past!";
+        return false;
+    }
+    return true;
 }
 
 
@@ -174,3 +182,59 @@ function isDateInFuture(dateValue) {
 
     return dateValue >= minDate;
 }
+
+
+function titleErrorMessage(){
+    const titleRef = document.getElementById("titleID");
+    const titleFontRef = document.getElementById("titleFontID");
+
+    titleRef.classList.add("input-title-error-addTask");
+    titleFontRef.style.color = "#FF3D00";
+}
+
+
+function removeTitleErrorMessage(){
+    const titleRef = document.getElementById("titleID");
+    const titleFontRef = document.getElementById("titleFontID");
+
+    titleRef.classList.remove("input-title-error-addTask");
+    titleFontRef.style.color = "black";
+}
+
+
+function dateErrorMessage(){
+    const dateRef = document.getElementById("dateID");
+    const dateFontRef = document.getElementById("dateFontID");
+
+    dateRef.classList.add("input-date-error-addTask");
+    dateFontRef.style.color = "#FF3D00";
+    dateFontRef.innerHTML = "This field is required";
+}
+
+
+function removeDateErrorMessage(){
+    const dateRef = document.getElementById("dateID");
+    const dateFontRef = document.getElementById("dateFontID");
+
+    dateRef.classList.remove("input-date-error-addTask");
+    dateFontRef.style.color = "black";
+}
+
+
+function categoryErrorMessage(){
+    const categoryRef = document.getElementById("categoryID");
+    const categoryErrorMessageRef = document.getElementById("categoryErrorMessageID");
+
+    categoryRef.classList.remove("input-date-error-addTask");
+    categoryErrorMessageRef.classList.add("d_none");
+}
+
+
+function removeCategoryErrorMessage(){
+    const categoryRef = document.getElementById("categoryID");
+    const categoryErrorMessageRef = document.getElementById("categoryErrorMessageID");
+
+    categoryRef.classList.add("input-date-error-addTask");
+    categoryErrorMessageRef.classList.remove("d_none");
+}
+
