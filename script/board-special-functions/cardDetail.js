@@ -43,9 +43,7 @@ async function getContacts(id){
     const contactsInDataBase = await getContactEntriesFromDataBase();
     const contactsInTask = await getContactsContainerFromTaskByID(id) || [];
     const cardDetailContactContainerRef = document.getElementById("cardDetailContactContainerID");
-
     cardDetailContactContainerRef.innerHTML = "";
-
     for (let index = 0; index < contactsInTask.length; index++) {
         const contactTaskID = contactsInTask[index].id;
         for (let index = 0; index < contactsInDataBase.length; index++) {
@@ -65,7 +63,6 @@ async function getSubtasks(id){
     const tasks = await getTaskEntriesFromDataBase();
     const cardDetailSubtaskContainerRef = document.getElementById("cardDetailSubtaskContainerID");
     cardDetailSubtaskContainerRef.innerHTML = "";
-
     for (let index = 0; index < tasks.length; index++) {
         const taskID = tasks[index][0];
         const subtasksArray = tasks[index][1].subtasks || [];
@@ -92,10 +89,8 @@ async function getSubtaskArrayFromDataBaseByID(taskID){
 async function subTaskDone(subtaskID, taskID){
     const subTaskRef = document.getElementById("subTaskNr" + subtaskID);
     const subtaskArray = await getSubtaskArrayFromDataBaseByID(taskID);
-    
     for (let index = 0; index < subtaskArray.length; index++) {
         const currentSubtaskID = subtaskArray[index].id;
-
         if(currentSubtaskID === subtaskID){
             const subtaskStatus = subtaskArray[index].status;
             if(subtaskStatus == false){
@@ -134,14 +129,12 @@ async function showCardDetail(id, title, description, category, date, priority){
     const formContainerRef = document.getElementById("formContainerID");
     formContainerRef.innerHTML = getCardDetailTemplate();
     const cardDetailContainer = document.getElementById("cardDetailContainerID");
-
     const categoryRef = document.getElementById("cardDetailCategoryID");
     const titleRef = document.getElementById("cardDetailTitleID");
     const descriptionRef = document.getElementById("cardDetailDescriptionID");
     const dateRef = document.getElementById("cardDetailDateID");
     const priorityRef = document.getElementById("cardDetailPriorityID");
     currentClickedTaskID = id;
-
     categoryRef.innerHTML = category;
     titleRef.innerHTML = title;
     descriptionRef.innerHTML = description;
@@ -156,5 +149,4 @@ async function showCardDetail(id, title, description, category, date, priority){
             cardDetailContainer.classList.add("top-50-percent-board");
         });
     });
-   
 }

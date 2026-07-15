@@ -60,26 +60,30 @@ async function renderContactDetails(name, mail, phone){
     const responseToJson = await response.json();
     const entries = Object.entries(responseToJson);
     const pickedContactID = await findContactIdByData(name, mail, phone);
-    const contactDetailsRef = document.getElementById("contactDetailsID");
-
     for (let index = 0; index < entries.length; index++) {
-        
         const currentContactID = entries[index][0];
-
         setLastContactBackToUnfocused();
 
         if (currentContactID === pickedContactID){
-            const foundName = entries[index][1].userName;
-            const foundMail = entries[index][1].email;
-            const foundInitials = entries[index][1].userName.charAt(0).toUpperCase();
-            const foundColor = entries[index][1].color;
-            const foundPhone = entries[index][1].phone;
-
-            contactDetailsRef.innerHTML = contactDetailsTemplate(foundName, foundMail, foundInitials, foundColor, foundPhone, currentContactID);
+            setContactDetailValues(currentContactID, pickedContactID, entries);
             floatContactDetails(currentContactID);  
             return;
         } 
     }
+}
+
+
+function setContactDetailValues(currentContactID, pickedContactID, entries){
+    const contactDetailsRef = document.getElementById("contactDetailsID");
+
+    const foundName = entries[index][1].userName;
+    const foundMail = entries[index][1].email;
+    const nameParts = foundName.trim().split(/\s+/);
+    const initialsValue = nameParts.length === 1 ? nameParts[0].charAt(0).toUpperCase() : (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
+    const foundColor = entries[index][1].color;
+    const foundPhone = entries[index][1].phone;
+
+    contactDetailsRef.innerHTML = contactDetailsTemplate(foundName, foundMail, initialsValue, foundColor, foundPhone, currentContactID);
 }
 
 

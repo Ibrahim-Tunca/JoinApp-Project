@@ -8,7 +8,6 @@ let categoryTouched = false;
 
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
-
 initCustomSelects();
 
 
@@ -46,26 +45,37 @@ function checkIfContactAreAlreadyInArray(id){
 
 
 function generateInitalBallUnderContactOption(){
-    contentRef = document.getElementById("initialBallContainerID");
+    const contentRef = document.getElementById("initialBallContainerID");
     contentRef.innerHTML = "";
-
     if(choosedContacts != undefined){
         if(choosedContacts.length > 4){
-        for (let index = 0; index < 4; index++) {
+            renderSelectedContactsPreviewWithOverflow();
+        }else{
+            renderSelectedContactsPreview();
+        }
+    }
+}
+
+
+function renderSelectedContactsPreviewWithOverflow(){
+    const contentRef = document.getElementById("initialBallContainerID");
+    for (let index = 0; index < 4; index++) {
             const currentContact = choosedContacts[index];
             const initials = currentContact.initals;
             const color = currentContact.color;
             contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
-        }
-        contentRef.innerHTML += `<span class="remaining-contact-bubble-font">+${choosedContacts.length - 4}</span>`;
-    }else{
-            for (let index = 0; index < choosedContacts.length; index++) {
+    }
+    contentRef.innerHTML += `<span class="remaining-contact-bubble-font">+${choosedContacts.length - 4}</span>`;
+}
+
+
+function renderSelectedContactsPreview(){
+    const contentRef = document.getElementById("initialBallContainerID");
+    for (let index = 0; index < choosedContacts.length; index++) {
             const currentContact = choosedContacts[index];
             const initials = currentContact.initals;
             const color = currentContact.color;
             contentRef.innerHTML += `<div class="contact-initial-ball ${color} margin-right-add-task">${initials}</div>`
-            }
-        }
     }
 }
 
@@ -95,7 +105,6 @@ function resetGlobalArrays(){
 
 async function validateAddTaskForm(event){
     event.preventDefault();
-
     const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
     const descriptionRef = document.forms["addTaskForm"]["addTaskDescription"].value;
     const dateRef = document.forms["addTaskForm"]["addTaskDate"].value;
@@ -103,14 +112,11 @@ async function validateAddTaskForm(event){
     const requiredFieldsAreFilled = checkIfEverthingImportantIsFillingdOut(titleRef, dateRef, taskCategory);
     const titleIsValid = checkIfTitleIsValid();
     const dateIsValid = checkIfDateIsValid();
-
     if (!requiredFieldsAreFilled || titleIsValid == false || dateIsValid == false) {
         return;
     }
-
     await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
     popUpSuccesAddTask();
-
     setTimeout(() => {
         window.location.href = "./board.html";
     }, 2500);

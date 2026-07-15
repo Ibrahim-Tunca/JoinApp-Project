@@ -69,7 +69,6 @@ function setYOUnextToTheUserContact(mail){
 
 async function addNewTask(title, description, date, category) {
     const status = currentTaskStatus || "todo";
-
         const response = await postData("/tasks/",{
             title: title,
             description: description,
@@ -84,7 +83,6 @@ async function addNewTask(title, description, date, category) {
     choosedContacts = [];
     subtasks = [];
     currentTaskStatus = "";
-
     return response;
 }
 

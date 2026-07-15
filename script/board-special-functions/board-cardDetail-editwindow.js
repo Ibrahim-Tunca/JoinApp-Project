@@ -86,13 +86,11 @@ async function updateStatusFromTask(taskID, status){
 
 
 async function updateTask(event){
-    event.preventDefault();
-    
+    event.preventDefault();  
     const titleValue = document.forms["addTaskForm"]["addTaskTitle"].value;
     const descriptionValue = document.forms["addTaskForm"]["addTaskDescription"].value;
     const dateValue = document.forms["addTaskForm"]["addTaskDate"].value;
     const taskCategory = document.forms["addTaskForm"]["taskCategory"].value;
-
     await patchData("/tasks/" + currentClickedTaskID,{
         title: titleValue,
         description: descriptionValue,
@@ -117,10 +115,8 @@ async function editCardDetail(){
     const category = task.category;
     const subtaskArray = task.subtasks;
     const contacts = task.contacts;
-
     subtasks = subtaskArray;
     choosedContacts = contacts;
-
     cardDetailRef.innerHTML =   getCardDetailEditTemplate(title, description, date, category);
                                 initCustomSelects();
                                 await loadContacts();

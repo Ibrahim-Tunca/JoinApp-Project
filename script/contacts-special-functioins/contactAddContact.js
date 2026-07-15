@@ -1,7 +1,6 @@
 async function validateAddContactForm(event){
     event.preventDefault();
     clearAllBlogs();
-
     const contactNameValue = document.forms["addContactForm"]["name"].value;
     const contactMailValue = document.forms["addContactForm"]["mail"].value
     const contactPhoneNumberValue = document.forms["addContactForm"]["phone"].value;
@@ -9,11 +8,9 @@ async function validateAddContactForm(event){
     const nameIsValid = checkIfNameIsValid();
     const emailIsValid = checkIfMailIsValid();
     const phoneNumberIsValid = checkIfPhonnumberIsValid();
-
     if (everthingIsFilled == false || nameIsValid == false || emailIsValid == false || phoneNumberIsValid == false){
         return false;
     }
-
     await addNewContact(contactNameValue, contactMailValue, contactPhoneNumberValue);
     renderContacts();
     popUpAddContactSucces();
@@ -45,7 +42,6 @@ function checkIfNameIsValid(){
     const contactNameValue = document.forms["addContactForm"]["name"].value;
     const cleanedName = contactNameValue.trim();
     removeErrorMessageName();
-
     if(cleanedName === ""){
         errorMessageName();
         return false;
@@ -84,7 +80,6 @@ function checkIfPhonnumberIsValid(){
     const normalizedPhone = contactPhoneNumberValue.replace(/\s+/g, "");
     const phonePattern = /^\+?\d+$/;
     removeErrorMessagePhone();
-
     if(normalizedPhone.length > 40){
         errorMessagePhone();
         errorNumberRef.innerHTML = "Entered phonenumber is to long";
