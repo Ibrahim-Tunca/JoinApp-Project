@@ -65,7 +65,7 @@ async function renderContactDetails(name, mail, phone){
         setLastContactBackToUnfocused();
 
         if (currentContactID === pickedContactID){
-            setContactDetailValues(currentContactID, pickedContactID, entries);
+            setContactDetailValues(currentContactID, pickedContactID, entries, index);
             floatContactDetails(currentContactID);  
             return;
         } 
@@ -73,7 +73,7 @@ async function renderContactDetails(name, mail, phone){
 }
 
 
-function setContactDetailValues(currentContactID, pickedContactID, entries){
+function setContactDetailValues(currentContactID, pickedContactID, entries, index){
     const contactDetailsRef = document.getElementById("contactDetailsID");
 
     const foundName = entries[index][1].userName;
