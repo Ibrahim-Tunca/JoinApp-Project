@@ -30,6 +30,49 @@ function getContactTemplate(color, initials, name){
 }
 
 
+async function renderTheRightMoveToOptionsTemplate(id){
+    const task = await getTaskById(id);
+    const menuRef = document.getElementById("popupMenuNR" + id);
+        
+    if(task.status === "todo"){
+            menuRef.innerHTML = `
+                                    <div class="swap-button-order-board">
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
+                                    </div>
+                                `
+    }
+    if(task.status === "inProgress"){
+            menuRef.innerHTML = `
+                                    <div class="swap-button-order-board">
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
+                                    </div>
+                                `
+    }
+    if(task.status === "awaitFeedback"){
+            menuRef.innerHTML = `
+                                    <div class="swap-button-order-board">
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
+                                    </div>
+                                `
+    }
+    if(task.status === "done"){
+            menuRef.innerHTML = `
+                                    <div class="swap-button-order-board">
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
+                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
+                                    </div>
+                                `
+    }
+}
+
+
 function getCardTemplate(id, title, description, category, date, priority){
     return  `
                 <div id="boardCardNR${id}" draggable="true" ondragstart="moveTask('${id}'),  customDragImage(event, this)" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
@@ -46,13 +89,8 @@ function getCardTemplate(id, title, description, category, date, priority){
                                 <img class="swap-icon-board" src="./img/swap_horiz.svg" alt="Move task">
                             </button>
 
-                            <div class="popUpMenue-moveto d_none" id="popupMenuNR${id}">
-                                <div class="swap-button-order-board">
-                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
-                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
-                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
-                                    <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
-                                </div>
+                            <div class="popUpMenue-moveto" id="popupMenuNR${id}">
+                                
                             </div>
                         </div>
                     

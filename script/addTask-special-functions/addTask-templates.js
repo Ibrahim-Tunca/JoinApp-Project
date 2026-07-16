@@ -1,6 +1,9 @@
 function pasteSubtaskUnderInputfieldTemplate(id, value){
     return      `<div class="single-subtask-container" id="subtaskNr${id}ID">    
-                        <span>• ${value}</span>  
+                        <div class="subtask-content">
+                            <span class="subtask-bullet">•</span>
+                            <span class="subtask-text">${value}</span>
+                        </div>
                         <div class="subtask-button-container">
                         <img 
                             onclick="deleteSingleSubtask(${id})"

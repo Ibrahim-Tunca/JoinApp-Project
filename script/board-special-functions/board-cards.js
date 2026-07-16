@@ -91,18 +91,22 @@ async function getContactsContainerFromTaskByID(id){
 }
 
 
-function openPopupMenu(event, id) {
+async function openPopupMenu(event, id) {
     event.stopPropagation();
 
+    closeAllPopupMenus();
     currentClickedTaskID = id;
-    const menuRef = document.getElementById("popupMenuNR" + id);
-    menuRef.classList.remove("d_none");
+
+    renderTheRightMoveToOptionsTemplate(id);
 }
 
 
-function closePopupMenu(id) {
-    const menuRef = document.getElementById("popupMenuNR" + id);
-    menuRef.classList.add("d_none");
+function closeAllPopupMenus() {
+    const openMenus = document.querySelectorAll('[id^="popupMenuNR"]');
+
+    openMenus.forEach((menuRef) => {
+        menuRef.innerHTML = "";
+    });
 }
 
 
@@ -115,16 +119,12 @@ async function moveTaskFromMenu(event, id, status) {
 
 
 document.addEventListener("click", (event) => {
-    const menuRef = document.getElementById("popupMenuNR" + currentClickedTaskID);
-
     if (
-        !menuRef ||
-        menuRef.classList.contains("d_none") ||
-        menuRef.contains(event.target) ||
+        event.target.closest(".popUpMenue-moveto") ||
         event.target.closest(".swap-button-board")
     ) {
         return;
     }
 
-    closePopupMenu(currentClickedTaskID);
+    closeAllPopupMenus();
 });

@@ -64,6 +64,10 @@
     height: 22px;
 }
 
+.selectfield-error-message-container{
+    min-height: 22px;
+}
+
 .selectfield-error-message{
     color: #FF3D00;
 }
