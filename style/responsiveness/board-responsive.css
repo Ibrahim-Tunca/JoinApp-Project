@@ -50,7 +50,13 @@
             color: #4589FF;
         }
 
-@media(max-width: 1228px) {
+/*@media(max-width: 1300px){
+        .maincontent-container-board {
+        padding: 76px 0 0 26px;
+    }
+}*/
+
+@media(max-width: 1328px) {
     .bottom-section-board {
          flex-direction: column; 
     }
@@ -62,9 +68,7 @@
     }
 
     .maincontent-container-board {
-        padding: 76px 56px 0 56px;
-        width: 100%;
-        box-sizing: border-box;
+        padding: 76px 46px 0 46px;
     }
 
     .cards-container-board {
