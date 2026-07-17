@@ -60,7 +60,7 @@ function checkIfNameIsValidEdit(){
     const errorNameRef = document.getElementById("editErrorNameID");
     const nameValue = document.getElementById("editContactNameID").value;
     const cleanedName = nameValue.trim();
-    removeErrorMessageNameEdit();s
+    removeErrorMessageNameEdit();
     if(cleanedName === ""){
         errorMessageNameEdit();
         return false;

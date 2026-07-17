@@ -6,6 +6,21 @@
     margin-top: 40px;
 }
 
+@media(max-width: 1020px){
+    .button-white-addtask {
+    padding: 0 15px;
+    margin: 0;
+}
+
+.button-blue-addtask {
+    margin-right: 0;
+}
+
+.button-order-addtask{
+    right: 0;
+}
+}
+
 @media(max-width: 1000px){
 
 .button-order-addtask-responsive{

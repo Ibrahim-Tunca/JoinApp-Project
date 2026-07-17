@@ -145,6 +145,7 @@ function overwriteAnSubtaskFromGlobalArray(id, value){
 
 function editSingleSubtask(id, value){
     const subTaskRef = document.getElementById("subtaskNr" + id + "ID");
+    subTaskRef.classList.add("subtask-editing");
     subTaskRef.style.paddingLeft = "0";
     subTaskRef.innerHTML = editSingleSubtaskTemplate(id);
 
@@ -158,9 +159,12 @@ function editSingleSubtask(id, value){
 function confirmEditSubtask(id){
     const subTaskRef = document.getElementById("subtaskNr" + id + "ID");
     const subTaskValue = document.getElementById("editSubtask" + id).value;
+    const createdSubtasksContainer = document.getElementById("createdSubtasksContainerID");
 
     overwriteAnSubtaskFromGlobalArray(id, subTaskValue);
-    subTaskRef.innerHTML = confirmEditSubtaskTemplate(id, subTaskValue);
+    subTaskRef.classList.remove("subtask-editing");
+    createdSubtasksContainer.innerHTML = "";
+    renderSubtasks();
 }
 
 
