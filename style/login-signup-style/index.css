@@ -113,7 +113,7 @@ body{
     width: 100%;
 
     font-size: 19px;
- 
+    padding: 10px 56px 10px 20px;
     box-sizing: border-box;
 }
 
@@ -134,7 +134,7 @@ body{
     width: 100%;
 
     font-size: 19px;
-
+    padding: 10px 56px 10px 20px;
     box-sizing: border-box;
 }
 
@@ -309,7 +309,7 @@ bottom-section {
     top: 34px;
     left: 64px;
     transition: 1.5s;
-    z-index: 999;
+    z-index: 992;
 }
 
 .white-big-join-icon-login{
