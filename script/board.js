@@ -1,6 +1,12 @@
 let currentDraggedTaskID;
-
 let currentClickedTaskID;
+
+
+/**
+ * Loads all task cards by status and renders them into their matching board columns.
+ *
+ * @returns {Promise<void>} A promise that resolves when all board columns have been rendered.
+ */
 
 
 async function renderAllCards() {
@@ -8,17 +14,24 @@ async function renderAllCards() {
     const inProgressContainerRef = document.getElementById("inProgressContainerID");
     const awaitFeedbackContainerRef = document.getElementById("awaitFeedbackContainerID");
     const doneContainerRef = document.getElementById("doneContainerID");
-
     const toDoTasks = await getToDoCards();
     const inProgressTasks = await getInProgressCards();
     const awaitFeedbackTasks = await getAwaitFeedbackCards();
     const doneTasks = await getDoneCards();
-
     getCardValues(toDoTasks, toDoContainerRef);
     getCardValues(inProgressTasks, inProgressContainerRef);
     getCardValues(awaitFeedbackTasks, awaitFeedbackContainerRef);
     getCardValues(doneTasks, doneContainerRef);
 }
+
+
+/**
+ * Extracts the relevant values from a task list and renders the matching card content
+ * into the provided container.
+ *
+ * @param {Array<[string, object]>} tasks - The list of task entries to render.
+ * @param {HTMLElement} containerRef - The board column container that receives the card content.
+ */
 
 
 function getCardValues(tasks, containerRef){
@@ -43,11 +56,27 @@ function getCardValues(tasks, containerRef){
 }
 
 
+/**
+ * Checks whether a task container is empty and shows a placeholder message if no tasks exist.
+ *
+ * @param {Array<[string, object]>} tasks - The list of task entries for the current column.
+ * @param {HTMLElement} containerRef - The board column container to update.
+ */
+
+
 function checkIfTaskContainerIsEmptyAndAddPlaceholder(tasks, containerRef){
     if(tasks.length === 0){
             containerRef.innerHTML = `<div class="no-task-to-do"> No Task To do</div>`
     };
 }
+
+
+/**
+ * Filters all tasks by the current search input and re-renders the board columns
+ * with the matching results.
+ *
+ * @returns {Promise<void>} A promise that resolves when the filtered task cards have been rendered.
+ */
 
 
 async function searchCards() {
@@ -71,17 +100,32 @@ async function searchCards() {
 }
 
 
+/**
+ * Filters tasks by title, description, or category using the current search value.
+ *
+ * @param {Array<[string, object]>} tasks - The full list of task entries.
+ * @param {string} searchValue - The normalized search term entered by the user.
+ * @returns {Array<[string, object]>} The filtered list of matching task entries.
+ */
+
+
 function filterTasksBySearchValue(tasks, searchValue) {
     return tasks.filter(([, task]) => {
         const title = (task.title || "").toLowerCase();
         const description = (task.description || "").toLowerCase();
         const category = (task.category || "").toLowerCase();
-
         return title.includes(searchValue) ||
                description.includes(searchValue) ||
                category.includes(searchValue);
     });
 }
+
+
+/**
+ * Renders all board cards again if the search input is empty.
+ *
+ * @param {string} searchValue - The normalized search term entered by the user.
+ */
 
 
 function renderAllCardIfSearchbarIsEmpty(searchValue){

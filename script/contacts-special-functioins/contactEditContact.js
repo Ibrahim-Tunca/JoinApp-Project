@@ -1,33 +1,40 @@
+/**
+ * Validates the edit-contact form, updates the contact in the database,
+ * refreshes the contact list, and closes the edit window.
+ *
+ * @param {SubmitEvent} event - The submit event triggered by the edit-contact form.
+ * @param {string} id - The id of the contact to update.
+ * @returns {Promise<boolean|void>} Returns false if validation fails.
+ */
 async function validateEditContactForm(event, id){
     event.preventDefault();
     clearAllBlogs();
-    const everthingIsFilled = checkIfEverthingIsFilledEditContact();
     const nameIsValid = checkIfNameIsValidEdit();
     const emailIsValid = checkIfMailIsValidEdit();
     const phoneNumberIsValid = checkIfPhonnumberIsValidEdit();
-    if (everthingIsFilled == false || nameIsValid == false || emailIsValid == false || phoneNumberIsValid == false) {
+    if (nameIsValid == false || emailIsValid == false || phoneNumberIsValid == false) {
         return false;
     }
     updateContactDetail();
     await updateUser(id);
     renderContacts();
     hideAddContactAndEditContactWindow();
-    return false;
 }
 
 
+/**
+ * Updates the visible contact detail card with the edited field values.
+ */
 function updateContactDetail(){
     const contactDetailNameRef = document.getElementById("contactDetailNameID");
     const contactDetailInitialsRef = document.getElementById("contactDetailInitialsID");
     const contactDetailMailRef = document.getElementById("contactDetailMailID");
     const contactDetailPhoneRef = document.getElementById("contactDetailPhoneID");
-
     const nameValue = document.getElementById("editContactNameID").value;
     const nameParts = nameValue.trim().split(/\s+/);
     const initialsValue = nameParts.length === 1 ? nameParts[0].charAt(0).toUpperCase() : (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
     const mailValue = document.getElementById("editContactMailID").value;
     const phoneValue = document.getElementById("editContactPhoneID").value;
-
     contactDetailNameRef.innerHTML = nameValue;
     contactDetailInitialsRef.innerHTML = initialsValue;
     contactDetailMailRef.innerHTML = mailValue;
@@ -35,139 +42,59 @@ function updateContactDetail(){
 }
 
 
-function checkIfEverthingIsFilledEditContact(){
-    let everythingIsFilled = true;
-    const nameValue = document.getElementById("editContactNameID").value;
-    const mailValue = document.getElementById("editContactMailID").value;
-    const phoneValue = document.getElementById("editContactPhoneID").value;
-    const cleanedNameValue = nameValue.trim();
-    const cleanedMailValue = mailValue.trim();
-    const cleanedPhoneValue = phoneValue.trim();
-    if(cleanedNameValue === ""){
-        everythingIsFilled = false;
-    }
-    if(cleanedMailValue === ""){
-        everythingIsFilled = false;
-    }
-    if(cleanedPhoneValue === ""){
-        everythingIsFilled = false;
-    }
-    return everythingIsFilled;
-}
-
-
+/**
+ * Validates the edited contact name field.
+ *
+ * @returns {boolean} Returns true if the name is valid, otherwise false.
+ */
 function checkIfNameIsValidEdit(){
+    const nameRef = document.getElementById("editContactNameID");
     const errorNameRef = document.getElementById("editErrorNameID");
     const nameValue = document.getElementById("editContactNameID").value;
-    const cleanedName = nameValue.trim();
-    removeErrorMessageNameEdit();
-    if(cleanedName === ""){
-        errorMessageNameEdit();
-        return false;
-    }
-    if(cleanedName.length > 28){
-        errorMessageNameEdit();
-        errorNameRef.innerHTML = "Entered name too long!"
-        return false;
-    }
-    return true;
+    let fieldCheck = true;
+    hideErrorMessage(nameRef, errorNameRef);
+    fieldCheck = checkIfFieldIsEmpty(nameValue, nameRef, errorNameRef, "Please enter a name!");
+    fieldCheck = checkIfFieldValueIsToLong(nameValue, 28, nameRef, errorNameRef, "Entered name too long!") && fieldCheck == true;
+    return fieldCheck;
 }
 
 
+/**
+ * Validates the edited contact email field.
+ *
+ * @returns {boolean} Returns true if the email address is valid, otherwise false.
+ */
 function checkIfMailIsValidEdit(){
+    const mailRef = document.getElementById("editContactMailID");
     const errorMailRef = document.getElementById("editErrorMailID");
     const contactMailValue = document.getElementById("editContactMailID").value;
-    const emailPattern = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
-    removeErrorMessageMailEdit();
-
-    if(contactMailValue === "" || !emailPattern.test(contactMailValue)){
-        errorMessageMailEdit();
-        return false;
+    hideErrorMessage(mailRef, errorMailRef)
+    let fieldCheck = true;
+    fieldCheck = checkIfFieldIsEmpty(contactMailValue, mailRef, errorMailRef, "Please enter email address!");
+    fieldCheck = checkIfFieldValueIsToLong(contactMailValue, 38, mailRef, errorMailRef, "Entered mail address is too long!") && fieldCheck == true;
+    if(fieldCheck){
+        fieldCheck = checkIfTheMailvalueIsAValidAdress(contactMailValue, mailRef, errorMailRef, "Please enter a valid email address!");
     }
-    if(contactMailValue.length > 38){
-        errorMessageMailEdit();
-        errorMailRef.innerHTML = "Email address too long!";
-        return false;
-    }
-    return true;
+    return fieldCheck;
 }
 
 
+/**
+ * Validates the edited contact phone number field.
+ *
+ * @returns {boolean} Returns true if the phone number is valid, otherwise false.
+ */
 function checkIfPhonnumberIsValidEdit(){
+    const numberRef = document.getElementById("editContactPhoneID");
     const errorNumberRef = document.getElementById("editErrorNumberID");
     const phoneValue = document.getElementById("editContactPhoneID").value;
-    const normalizedPhone = phoneValue.replace(/\s+/g, "");
-    const phonePattern = /^\+?\d+$/;
-    removeErrorMessagePhoneEdit();
-
-    if(normalizedPhone.length > 40){
-        errorMessagePhoneEdit();
-        errorNumberRef.innerHTML = "Entered phonenumber is to long";
-        return false;
+    let fieldCheck = true;
+    hideErrorMessage(numberRef, errorNumberRef);
+    fieldCheck = checkIfFieldIsEmpty(phoneValue, numberRef, errorNumberRef, "Please enter a phone number!");
+    fieldCheck = checkIfFieldValueIsToLong(phoneValue, 40, numberRef, errorNumberRef, "Entered phonenumber is to long!") && fieldCheck == true;
+    if(fieldCheck){
+        fieldCheck = checkIfThePhoneNumberValueIsValid(phoneValue, numberRef, errorNumberRef, "Please enter a valid phone number!");
     }
-    if(normalizedPhone === "" || !phonePattern.test(normalizedPhone)){
-        errorMessagePhoneEdit();   
-        return false;
-    }
-    return true;
+    return fieldCheck;
 }
 
-
-function errorMessageNameEdit(){
-    const nameRef = document.getElementById("editContactNameID");
-    const errorNameRef = document.getElementById("editErrorNameID");
-
-    nameRef.classList.add("inputfield-contact-error");
-    errorNameRef.classList.add("d_block");
-    errorNameRef.innerHTML = "Please enter a name!";
-}
-
-
-function removeErrorMessageNameEdit(){
-    const nameRef = document.getElementById("editContactNameID");
-    const errorNameRef = document.getElementById("editErrorNameID");
-
-    nameRef.classList.remove("inputfield-contact-error");
-    errorNameRef.classList.remove("d_block");
-    errorNameRef.innerHTML = "";
-}
-
-
-function errorMessageMailEdit(){
-    const mailRef = document.getElementById("editContactMailID");
-    const errorMailRef = document.getElementById("editErrorMailID");
-
-    mailRef.classList.add("inputfield-contact-error");
-    errorMailRef.classList.add("d_block");
-    errorMailRef.innerHTML = "Please enter a valid email address.";
-}
-
-
-function removeErrorMessageMailEdit(){
-    const mailRef = document.getElementById("editContactMailID");
-    const errorMailRef = document.getElementById("editErrorMailID");
-
-    mailRef.classList.remove("inputfield-contact-error");
-    errorMailRef.classList.remove("d_block");
-    errorMailRef.innerHTML = "";
-}
-
-
-function errorMessagePhoneEdit(){
-    const numberRef = document.getElementById("editContactPhoneID");
-    const errorNumberRef = document.getElementById("editErrorNumberID");
-
-    numberRef.classList.add("inputfield-contact-error");
-    errorNumberRef.classList.add("d_block");
-    errorNumberRef.innerHTML = "Please enter a valid phone number.";
-}
-
-
-function removeErrorMessagePhoneEdit(){
-    const numberRef = document.getElementById("editContactPhoneID");
-    const errorNumberRef = document.getElementById("editErrorNumberID");
-
-    numberRef.classList.remove("inputfield-contact-error");
-    errorNumberRef.classList.remove("d_block");
-    errorNumberRef.innerHTML = ""
-}

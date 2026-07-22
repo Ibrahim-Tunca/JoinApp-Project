@@ -1,8 +1,21 @@
+/**
+ * Returns a random integer between 0 and the given maximum value.
+ *
+ * @param {number} max - The upper boundary for the random number.
+ * @returns {number} A random integer from 0 up to, but not including, max.
+ */
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
 
+/**
+ * Renders the letter heading for an alphabetical contact group
+ * if the group contains at least one contact.
+ *
+ * @param {{ letter: string, contacts: object[] }} blog - The alphabetical contact group.
+ * @param {HTMLElement} contactRef - The container that receives the group heading.
+ */
 function showBlogIfBlogIsNotEmpty(blog, contactRef){
 
     if(blog.contacts.length > 0)
@@ -12,12 +25,18 @@ function showBlogIfBlogIsNotEmpty(blog, contactRef){
 }
 
 
+/**
+ * Opens the three-dots action menu.
+ */
 function openThreeDotsWindow(){
     const contentRef = document.getElementById("threeDotsID");
     contentRef.classList.remove("d_none");
 }
 
 
+/**
+ * Closes the three-dots action menu.
+ */
 function closeThreeDotsWindow() {
     const contentRef = document.getElementById("threeDotsID");
     contentRef.classList.add("d_none");
@@ -26,7 +45,6 @@ function closeThreeDotsWindow() {
 
 document.addEventListener("click", (event) => {
     const menuRef = document.getElementById("threeDotsID");
-
     if (
         !menuRef ||
         menuRef.classList.contains("d_none") ||
@@ -35,11 +53,15 @@ document.addEventListener("click", (event) => {
     ) {
         return;
     }
-
     closeThreeDotsWindow();
 });
 
 
+/**
+ * Applies the focused styling to a selected contact in the contact list.
+ *
+ * @param {string} id - The id of the contact that should be focused.
+ */
 function setContactInFocusMode(id){
     const contactRef = document.getElementById(id);
     const contactNameRef = document.getElementById(id + "-userName");
@@ -51,6 +73,9 @@ function setContactInFocusMode(id){
 }
 
 
+/**
+ * Removes the focused styling from the previously selected contact.
+ */
 function setLastContactBackToUnfocused(){
     if(choosedContactID != ""){
         const contactRef = document.getElementById(choosedContactID);
@@ -65,6 +90,11 @@ function setLastContactBackToUnfocused(){
 }
 
 
+/**
+ * Returns a random color class name for a contact avatar.
+ *
+ * @returns {string|undefined} The generated color class name.
+ */
 function getContactColorType(){
     let randomNumber = getRandomInt(100);
     const colorCode = randomNumber % 15;  
@@ -117,12 +147,16 @@ function getContactColorType(){
 }
 
 
+/**
+ * Sorts contact entries into the predefined alphabetical groups.
+ *
+ * @param {Array<[string, object]>} entries - The contact entries loaded from the database.
+ */
 function sortIntoAlphabeticalOrder(entries){
     for (let index = 0; index < entries.length; index++) {
         const contact = entries[index][1];
         const contactFirstLetter = contact.userName.charAt(0).toUpperCase();
         const contactID = entries[index][0];
-
         switch (contactFirstLetter) {
             case "A":
                 alphabeticalOrder[0].contacts.push({
@@ -294,6 +328,9 @@ function sortIntoAlphabeticalOrder(entries){
 }
 
 
+/**
+ * Sorts the contacts inside each alphabetical group by username.
+ */
 function sortContactsInsideBlogs() {
     alphabeticalOrder.forEach((blog) => {
         blog.contacts.sort((a, b) =>

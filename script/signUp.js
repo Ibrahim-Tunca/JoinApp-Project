@@ -10,37 +10,22 @@ function onloadFunc(){
 }
 
 
+/**
+ * This is a simple random number generator 
+ * 
+ * @param {number} - the max value of the generated random number
+ * @returns 
+ */
+
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
 
-async function showRegister(){
-    let response = await fetch(BASE_URL + ".json")
-    let responseToJson = await response.json();
-    users = Object.values(responseToJson || {});
-
-    console.log(users);
-}
-
-
-async function updateSignedUser(name, mail, password) {
-    let userExists = await checkIfUserExist(name);
-
-    if(userExists){
-        let contentRef = document.getElementById("errorID");
-        contentRef.innerHTML = "This User already eexists!"
-
-        return;
-    }else {
-        popUpSucces();
-        return await putData("/user/" + name, {
-        userName: name,
-        email: mail,
-        password: password,
-        });
-    }
-}
+/**
+ * This function shows a popupmessage if the registration was succesfull
+ */
 
 
 function popUpSucces(){
@@ -56,61 +41,46 @@ function popUpSucces(){
 }
 
 
-async function checkIfUserExist(inputUsername){
-    let response = await fetch(BASE_URL + "user.json")
-    let responseToJson = await response.json();
-
-    if(!responseToJson) return false;
-    users = Object.values(responseToJson || {});
-
-    for (let index = 0; index < users.length; index++) {
-        const element = users[index];
-        
-        if(element.userName === inputUsername){
-            return true;
-        }
-    }
-    return false;
-}
-
-
-async function putData(path = "", data = {}) {
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-    });  
-}
+/**
+ * This function is the main sign up function. If the other functions are all true, the user will be registratet with the given inputvalues.
+ * 
+ * @param {event} - This function works onsubmit when the user have clicked the sign up button.
+ * @returns - true when the signup was succesfull and opens the Loginpage. When the sign up was failed, the functions returns false and came some errermessages in the App.
+ */
 
 
 async function validateForm(event){
     event.preventDefault();
-
     const inputName = document.forms["signUpForm"]["name"].value;
     const inputMail = document.forms["signUpForm"]["mail"].value;
     const inputPassword = document.forms["signUpForm"]["password"].value;
     const inputRepeat = document.forms["signUpForm"]["repeat"].value;
-
     const emptyPhoneNumber = "";
     const everyThingisFilled = checkIfEverthingIsFilled(inputName, inputMail, inputPassword, inputRepeat);
     const emailIsValid = checkIfMailIsValid(inputMail);
     const passwordsAreSame = checkIfPasswordsAreSame(inputPassword, inputRepeat);
-
             if(everyThingisFilled == false || emailIsValid == false || passwordsAreSame == false){
                 return false
             }
             await updateSignedUser(inputName, inputMail, inputPassword);  
             await addNewContact(inputName, inputMail, emptyPhoneNumber); 
-                
             return true;
 }
 
 
+/**
+ * This function is used to check if every inputfield is filled.
+ * 
+ * @param {string} name - this is the name that the user want to take
+ * @param {string} mail - this is the emailadress from the user
+ * @param {string} password - this is the password that the user want to take 
+ * @param {string} repeat - this is again the same password to help the user that he doenst make a mistake while he is writing
+ * @returns - If one of these inputfields not filled, the form doesnt work and the user became a message why not
+ */
+
+
 function checkIfEverthingIsFilled(name, mail, password, repeat){
     let everythingIsFilled = true;
-
     const nameFieldRef = document.getElementById("nameID");
     const nameFieldErrorMessage = document.getElementById("errorMessageNameID");
     const mailFieldRef = document.getElementById("mailID");
@@ -119,40 +89,63 @@ function checkIfEverthingIsFilled(name, mail, password, repeat){
     const passwordFieldErrorMessage = document.getElementById("errorMessagePasswordID");
     const repeatFieldRef = document.getElementById("repeatID");
     const repeatFieldErrorMessage = document.getElementById("errorMessageRepeatID");
+    removeTheRedUnderlineAndErrorMessage();
+    everythingIsFilled = checkInputValueAndGenerateErrorMessage(name, nameFieldRef, nameFieldErrorMessage, "Please enter a name") && everythingIsFilled;
+    everythingIsFilled = checkInputValueAndGenerateErrorMessage(mail, mailFieldRef, mailFieldErrorMessage, "Please enter a mail") && everythingIsFilled;
+    everythingIsFilled = checkInputValueAndGenerateErrorMessage(password, passwordFieldRef, passwordFieldErrorMessage, "Please enter a password!") && everythingIsFilled;
+    everythingIsFilled = checkInputValueAndGenerateErrorMessage(repeat, repeatFieldRef, repeatFieldErrorMessage, "Please repeat your password!") && everythingIsFilled;
+    everythingIsFilled = checkIfCheckboxIsChecked() && everythingIsFilled;
+    return everythingIsFilled;
+}
 
+
+/**
+ * This function check a single inputfield if the field are filled. If the pickedfield is not fielled, a errormessage will be generated
+ * 
+ * @param {string} value - the value that the user write on name, email and password
+ * @param {*} fieldRef 
+ * @param {*} errorRef 
+ * @param {string} errorMessage - the string is individuel and a message that the user can read and understand what is missing in the form
+ * @returns - returns false when the user dont fill the input
+ */
+
+
+function checkInputValueAndGenerateErrorMessage(value, fieldRef, errorRef, errorMessage){
+    const cleanedValue = value.trim();
+    if(cleanedValue === ""){
+        fieldRef.classList.add("red-bottom-border");
+        errorRef.innerHTML = errorMessage;
+        return false;
+    }
+    return true;
+}
+
+
+/**
+ * a simple function to check if the user has checked the checkbox
+ * 
+ * @returns returns false when the user didnt agree with the privacy policy
+ */
+
+
+function checkIfCheckboxIsChecked(){
     const checkboxRef = document.getElementById("acceptPolicyID");
     const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
-
-    removeTheRedUnderlineAndMessage();
-
-    if(name === ""){
-        nameFieldRef.classList.add("red-bottom-border");
-        nameFieldErrorMessage.innerHTML = "Please enter your name!"
-        everythingIsFilled = false;
-    }
-    if(mail === ""){
-        mailFieldRef.classList.add("red-bottom-border");
-        mailFieldErrorMessage.innerHTML = "Please enter your mail!"
-        everythingIsFilled = false;
-    }
-    if(password === ""){
-        passwordFieldRef.classList.add("red-bottom-border");
-        passwordFieldErrorMessage.innerHTML = "Please enter a password!"
-        everythingIsFilled = false;
-    }
-    if(repeat === ""){
-        repeatFieldRef.classList.add("red-bottom-border");
-        repeatFieldErrorMessage.innerHTML = "Please repeat your password!"
-        everythingIsFilled = false;
-    }
     if(globalCheckboxValue == false){
         checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked_error.svg)";
         checkboxFieldErrorMessage.innerHTML = "Please accept the Privacy Policy!"
-        everythingIsFilled = false;
+        return false;
     }
-
-    return everythingIsFilled;
+    return true;
 }
+
+
+/**
+ * a function to check if the emailadress is a valid emailadress with chars like "@" and the dots are in the right positions
+ * 
+ * @param {string} - the value that the users own emailadress 
+ * @returns 
+ */
 
 
 function checkIfMailIsValid(mail){
@@ -170,7 +163,12 @@ function checkIfMailIsValid(mail){
 }
 
 
-function removeTheRedUnderlineAndMessage(){
+/**
+ * This function is used to remove all errormessages and all redlines and redchackbox
+ */
+
+
+function removeTheRedUnderlineAndErrorMessage(){
     const nameFieldRef = document.getElementById("nameID");
     const nameFieldErrorMessage = document.getElementById("errorMessageNameID");
     const mailFieldRef = document.getElementById("mailID");
@@ -179,26 +177,39 @@ function removeTheRedUnderlineAndMessage(){
     const passwordFieldErrorMessage = document.getElementById("errorMessagePasswordID");
     const repeatFieldRef = document.getElementById("repeatID");
     const repeatFieldErrorMessage = document.getElementById("errorMessageRepeatID");
-
-    const checkboxRef = document.getElementById("acceptPolicyID");
-    const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
-
     nameFieldRef.classList.remove("red-bottom-border");
     mailFieldRef.classList.remove("red-bottom-border");
     passwordFieldRef.classList.remove("red-bottom-border");
     repeatFieldRef.classList.remove("red-bottom-border");
-    
     nameFieldErrorMessage.innerHTML = "";
     mailFieldErrorMessage.innerHTML = "";
     passwordFieldErrorMessage.innerHTML = "";
     repeatFieldErrorMessage.innerHTML = "";
-    checkboxFieldErrorMessage.innerHTML = "";
+    removeRedCheckbox()
+}
 
-    if(!globalCheckboxValue){
+
+/**
+ * This function removes only the red checkbox and the errormessage at the checkbox
+ */
+
+
+function removeRedCheckbox(){
+    const checkboxRef = document.getElementById("acceptPolicyID");
+    const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
+    checkboxFieldErrorMessage.innerHTML = "";
+    if (!globalCheckboxValue) {
         checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked.svg)";
+    } else {
+        checkboxRef.style.backgroundImage = "url(../../img/checkbox_checked.svg)";
     }
     checkboxRef.style.backgroundImage = "url(../../img/checkbox_checked.svg)";
 }
+
+
+/**
+ * This function toggle the globalcheckboxvalue and add a checkmark when the globalvalue is true
+ */
 
 
 function toggleThePrivacyCheckbox(){
@@ -207,16 +218,21 @@ function toggleThePrivacyCheckbox(){
     if(globalCheckboxValue === false){
         globalCheckboxValue = true;
         checkBoxRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
-        return;
-    }
-
-    if(globalCheckboxValue === true){
+    } else{
         globalCheckboxValue = false;
         checkBoxRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
-        return;
     }
     
 }
+
+
+/**
+ * This function checks if the both passwords which the user has write is same
+ * 
+ * @param {string} - the first input (password) which the user has write 
+ * @param {string} - the second input (repeatpassword) which the user has write
+ * @returns - returns true if the both passwords are same und false when the each input is different
+ */
 
 
 function checkIfPasswordsAreSame(password, repeat){
@@ -225,7 +241,7 @@ function checkIfPasswordsAreSame(password, repeat){
     const contentRef = document.getElementById("errorMessageRepeatID");
 
     if(password != repeat){
-        removeTheRedUnderlineAndMessage();
+        removeTheRedUnderlineAndErrorMessage();
         passwordRef.classList.add("red-bottom-border");
         repeatRef.classList.add("red-bottom-border");
         contentRef.innerHTML = "Your passwords don't match. Please try again."
@@ -236,15 +252,18 @@ function checkIfPasswordsAreSame(password, repeat){
 }
 
 
+/**
+ * This function is only to be used to switch the icon from uncovericon and covericon.
+ */
+
+
 function iconSwitch(){
     const iconRef = document.getElementById("lockIconID");
     const repeatIconRef = document.getElementById("repeatlockIconID");
     const passwordRef = document.getElementById("passwordID");
     const repeatRef = document.getElementById("repeatID");
     const containerRef = document.getElementById("inputfieldPasswordContainerID");
-
     const passwordValue = document.forms["signUpForm"]["password"].value;
-
     if(passwordValue != ""){
         iconRef.src = "./img/register/visibility_off.svg"
         iconRef.classList.add("clickable-icon");
@@ -258,6 +277,13 @@ function iconSwitch(){
         repeatIconRef.src = "./img/register/lock.svg"
     }
 }
+
+
+/**
+ * This function hide and show the password input. It switches from dots to text and text to dots. 
+ * 
+ * @returns returns nothing. Return stops the function
+ */
 
 
 function showAndHidePassword(){
