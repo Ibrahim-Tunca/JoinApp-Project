@@ -150,11 +150,11 @@
 }
 
 .inputfield-contact{
-    padding: 7px 20px;
+    padding: 7px 44px 7px 20px;
     border-width: 0px;
     border-bottom: solid 1px #D1D1D1;
     font-size: 23px;
-    width: 80%;
+    width: 100%;
 }
 
 .inputfield-contact::placeholder{
