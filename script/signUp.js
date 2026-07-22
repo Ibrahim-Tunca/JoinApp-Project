@@ -1,9 +1,6 @@
 let users = [];
-
 let globalCheckboxValue = false;
-
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/"
-
 
 function onloadFunc(){
     showRegister();
@@ -11,23 +8,8 @@ function onloadFunc(){
 
 
 /**
- * This is a simple random number generator 
- * 
- * @param {number} - the max value of the generated random number
- * @returns 
- */
-
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
-
-/**
  * This function shows a popupmessage if the registration was succesfull
  */
-
-
 function popUpSucces(){
     const popupWindow = document.getElementById("popupSignupID");
     const backgroundcloud = document.getElementById("blackgroundcloudID");
@@ -47,8 +29,6 @@ function popUpSucces(){
  * @param {event} - This function works onsubmit when the user have clicked the sign up button.
  * @returns - true when the signup was succesfull and opens the Loginpage. When the sign up was failed, the functions returns false and came some errermessages in the App.
  */
-
-
 async function validateForm(event){
     event.preventDefault();
     const inputName = document.forms["signUpForm"]["name"].value;
@@ -77,8 +57,6 @@ async function validateForm(event){
  * @param {string} repeat - this is again the same password to help the user that he doenst make a mistake while he is writing
  * @returns - If one of these inputfields not filled, the form doesnt work and the user became a message why not
  */
-
-
 function checkIfEverthingIsFilled(name, mail, password, repeat){
     let everythingIsFilled = true;
     const nameFieldRef = document.getElementById("nameID");
@@ -108,8 +86,6 @@ function checkIfEverthingIsFilled(name, mail, password, repeat){
  * @param {string} errorMessage - the string is individuel and a message that the user can read and understand what is missing in the form
  * @returns - returns false when the user dont fill the input
  */
-
-
 function checkInputValueAndGenerateErrorMessage(value, fieldRef, errorRef, errorMessage){
     const cleanedValue = value.trim();
     if(cleanedValue === ""){
@@ -126,8 +102,6 @@ function checkInputValueAndGenerateErrorMessage(value, fieldRef, errorRef, error
  * 
  * @returns returns false when the user didnt agree with the privacy policy
  */
-
-
 function checkIfCheckboxIsChecked(){
     const checkboxRef = document.getElementById("acceptPolicyID");
     const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
@@ -146,8 +120,6 @@ function checkIfCheckboxIsChecked(){
  * @param {string} - the value that the users own emailadress 
  * @returns 
  */
-
-
 function checkIfMailIsValid(mail){
     const mailFieldRef = document.getElementById("mailID");
     const mailFieldErrorMessage = document.getElementById("errorMessageMailID");
@@ -166,8 +138,6 @@ function checkIfMailIsValid(mail){
 /**
  * This function is used to remove all errormessages and all redlines and redchackbox
  */
-
-
 function removeTheRedUnderlineAndErrorMessage(){
     const nameFieldRef = document.getElementById("nameID");
     const nameFieldErrorMessage = document.getElementById("errorMessageNameID");
@@ -192,8 +162,6 @@ function removeTheRedUnderlineAndErrorMessage(){
 /**
  * This function removes only the red checkbox and the errormessage at the checkbox
  */
-
-
 function removeRedCheckbox(){
     const checkboxRef = document.getElementById("acceptPolicyID");
     const checkboxFieldErrorMessage = document.getElementById("errorMessageCheckboxID");
@@ -210,8 +178,6 @@ function removeRedCheckbox(){
 /**
  * This function toggle the globalcheckboxvalue and add a checkmark when the globalvalue is true
  */
-
-
 function toggleThePrivacyCheckbox(){
     const checkBoxRef = document.getElementById("acceptPolicyID");
 
@@ -233,8 +199,6 @@ function toggleThePrivacyCheckbox(){
  * @param {string} - the second input (repeatpassword) which the user has write
  * @returns - returns true if the both passwords are same und false when the each input is different
  */
-
-
 function checkIfPasswordsAreSame(password, repeat){
     const passwordRef = document.getElementById("passwordID");
     const repeatRef = document.getElementById("repeatID");
@@ -255,8 +219,6 @@ function checkIfPasswordsAreSame(password, repeat){
 /**
  * This function is only to be used to switch the icon from uncovericon and covericon.
  */
-
-
 function iconSwitch(){
     const iconRef = document.getElementById("lockIconID");
     const repeatIconRef = document.getElementById("repeatlockIconID");
@@ -284,8 +246,6 @@ function iconSwitch(){
  * 
  * @returns returns nothing. Return stops the function
  */
-
-
 function showAndHidePassword(){
     const passwordRef = document.getElementById("passwordID");
     const iconRef = document.getElementById("lockIconID");
@@ -309,54 +269,3 @@ function showAndHidePassword(){
     }
 }
 
-
-function getContactColorType(){
-    let randomNumber = getRandomInt(100);
-    const colorCode = randomNumber % 15;  
-
-    if(colorCode === 0){
-        return "ocker";
-    }
-    if(colorCode === 1){
-        return "yellow";
-    }
-    if(colorCode === 2){
-        return "orange";
-    }
-    if(colorCode === 3){
-        return "red";
-    }
-    if(colorCode === 4){
-        return "salmon";
-    }
-    if(colorCode === 5){
-        return "creme";
-    }
-    if(colorCode === 6){
-        return "lila";
-    }
-    if(colorCode === 7){
-        return "lavender";
-    }
-    if(colorCode === 8){
-        return "violette";
-    }
-    if(colorCode === 9){
-        return "pink";
-    }
-    if(colorCode === 10){
-        return "magenta";
-    }
-    if(colorCode === 11){
-        return "blue";
-    }
-    if(colorCode === 12){
-        return "turquoise";
-    }
-    if(colorCode === 13){
-        return "babyblue";
-    }
-    if(colorCode === 14){
-        return "lime";
-    }
-}

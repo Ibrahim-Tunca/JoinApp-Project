@@ -7,8 +7,6 @@ let currentClickedTaskID;
  *
  * @returns {Promise<void>} A promise that resolves when all board columns have been rendered.
  */
-
-
 async function renderAllCards() {
     const toDoContainerRef = document.getElementById("toDoContainerID");
     const inProgressContainerRef = document.getElementById("inProgressContainerID");
@@ -32,8 +30,6 @@ async function renderAllCards() {
  * @param {Array<[string, object]>} tasks - The list of task entries to render.
  * @param {HTMLElement} containerRef - The board column container that receives the card content.
  */
-
-
 function getCardValues(tasks, containerRef){
     containerRef.innerHTML = "";
     checkIfTaskContainerIsEmptyAndAddPlaceholder(tasks, containerRef);
@@ -62,8 +58,6 @@ function getCardValues(tasks, containerRef){
  * @param {Array<[string, object]>} tasks - The list of task entries for the current column.
  * @param {HTMLElement} containerRef - The board column container to update.
  */
-
-
 function checkIfTaskContainerIsEmptyAndAddPlaceholder(tasks, containerRef){
     if(tasks.length === 0){
             containerRef.innerHTML = `<div class="no-task-to-do"> No Task To do</div>`
@@ -77,8 +71,6 @@ function checkIfTaskContainerIsEmptyAndAddPlaceholder(tasks, containerRef){
  *
  * @returns {Promise<void>} A promise that resolves when the filtered task cards have been rendered.
  */
-
-
 async function searchCards() {
     const searchBarRef = document.getElementById("searchBarID");
     const searchValue = searchBarRef.value.trim().toLowerCase();
@@ -107,8 +99,6 @@ async function searchCards() {
  * @param {string} searchValue - The normalized search term entered by the user.
  * @returns {Array<[string, object]>} The filtered list of matching task entries.
  */
-
-
 function filterTasksBySearchValue(tasks, searchValue) {
     return tasks.filter(([, task]) => {
         const title = (task.title || "").toLowerCase();
@@ -126,8 +116,6 @@ function filterTasksBySearchValue(tasks, searchValue) {
  *
  * @param {string} searchValue - The normalized search term entered by the user.
  */
-
-
 function renderAllCardIfSearchbarIsEmpty(searchValue){
     if (searchValue === "") {
         renderAllCards();

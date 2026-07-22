@@ -6,8 +6,6 @@ const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebaseda
  * Fetches registered users from the database and logs one entry to the console.
  * This function is only used for debugging.
  */
-
-
 async function showRegister(){
     let response = await fetch(BASE_URL + ".json");
     let responseToJson = await response.json();
@@ -19,8 +17,6 @@ async function showRegister(){
 /**
  * Runs when the page loads and triggers the initial user fetch
  */
-
-
 function onloadFunc(){
     showRegister();
 }
@@ -33,8 +29,6 @@ function onloadFunc(){
  * 
  * @param {SubmitEvent} - The submit event triggered by the login form.
  */
-
-
 async function validateForm(event){
     event.preventDefault();
     const response = await fetch(BASE_URL + "user.json");
@@ -60,8 +54,6 @@ async function validateForm(event){
  * @param {string} - The password entered by the user.
  * @returns {boolean} Returns true if both fields contain values, otherwise false.
  */
-
-
 function checkIfEmailAndPasswordFieldIsFilled(mail, password){
     let everyThingisFilled = true;
     const emailRef = document.getElementById("emailID");
@@ -85,8 +77,6 @@ function checkIfEmailAndPasswordFieldIsFilled(mail, password){
  * @param {string} errorMessage - The error message shown when the field is empty.
  * @returns {boolean} Returns true if the field is filled, otherwise false.
  */
-
-
 function checkIfSomethingInTheInput(contentRef, errorRef, inputValue, errorMessage){
     const cleanedinputValue = inputValue.trim();
     if(cleanedinputValue === ""){
@@ -101,8 +91,6 @@ function checkIfSomethingInTheInput(contentRef, errorRef, inputValue, errorMessa
 /**
  * Clears all login error messages and removes the error styling from the input fields.
  */
-
-
 function clearErrormessagesAndRedlines(){
     const emailRef = document.getElementById("emailID");
     const passwordRef = document.getElementById("passwordID");
@@ -123,8 +111,6 @@ function clearErrormessagesAndRedlines(){
  * @param {object} users - The list of registered users loaded from the database.
  * @returns {boolean} Returns true if the user exists and the password is correct, otherwise false.
  */
-
-
 function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users){
     let correctPassword;
     let userIsFound = searchRegisteredUserMail(users, mail);
@@ -144,8 +130,6 @@ function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users){
  * @param {string} inputMail - The email entered by the user. 
  * @returns {boolean} Returns true if the email address exists, otherwise false.
  */
-
-
 function searchRegisteredUserMail(users, inputMail){
     const emailRef = document.getElementById("emailID");
     const emailErrorMessage = document.getElementById("mailErrorID");
@@ -168,8 +152,6 @@ function searchRegisteredUserMail(users, inputMail){
  * @param {string} inputPassword - The password entered by the user.
  * @returns {boolean} Returns true if the password is correct, otherwise false. 
  */
-
-
 function checkIfPasswordIsCorrect(inputPassword){
     const passwordRef = document.getElementById("passwordID");
     const passwordErrorMessage = document.getElementById("passwordErrorID");
@@ -187,8 +169,6 @@ function checkIfPasswordIsCorrect(inputPassword){
  * 
  * @param {object} inputObject - The user data to store, for example email, username, and password.
  */
-
-
 function setDataToLocalStorage(inputObject){
     const objectString = JSON.stringify(inputObject);
     localStorage.setItem("userData", objectString);
@@ -198,8 +178,6 @@ function setDataToLocalStorage(inputObject){
 /**
  * Stores the guest account data in local storage to log the user in as a guest.
  */
-
-
 function guestLogin(){
     const object = {email: "guestemail@hotmail.com", password: "guest1", userName: "guest"};
     const objectString = JSON.stringify(object);
@@ -210,8 +188,6 @@ function guestLogin(){
 /**
  * Updates the password field icon depending on whether the password input is empty or filled.
  */
-
-
 function iconSwitch(){
     const iconRef = document.getElementById("lockIconID");
     const passwordRef = document.getElementById("passwordID");
@@ -232,8 +208,6 @@ function iconSwitch(){
  * Toggles the password field between hidden and visible text
  * and updates the icon accordingly. 
  */
-
-
 function showAndHidePassword(){
     const passwordRef = document.getElementById("passwordID");
     const iconRef = document.getElementById("lockIconID");
@@ -253,8 +227,6 @@ function showAndHidePassword(){
 /**
  * Displays the login success popup and redirects the user to the summary page.
  */
-
-
 function loginSuccesPopup(){
     const popupWindow = document.getElementById("loginSuccesPopupID");
     const backgroundcloud = document.getElementById("blackgroundcloudID");
@@ -271,8 +243,6 @@ function loginSuccesPopup(){
 /**
  * Starts the intro animation shown when the page is opened.
  */
-
-
 function startingAnimation(){
     const blueCloudRef = document.getElementById("blueBackgroundCloudID");
     const joinLogoRef = document.getElementById("joinLogoID");

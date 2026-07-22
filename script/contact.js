@@ -14,8 +14,6 @@ let alphabeticalOrder = [
 /**
  * Runs on page load and starts rendering the contact list.
  */
-
-
 function onloadFunc(){
     renderContacts();        
 }
@@ -24,8 +22,6 @@ function onloadFunc(){
 /**
  * Clears all contact arrays inside the alphabetical grouping structure.
  */
-
-
 function clearAllBlogs(){
     for (let index = 0; index < alphabeticalOrder.length; index++) {
         const blog = alphabeticalOrder[index];
@@ -40,8 +36,6 @@ function clearAllBlogs(){
  *
  * @returns {Promise<void>} A promise that resolves when all contacts have been rendered.
  */
-
-
 async function renderContacts(){
     let contactRef = document.getElementById("contactID")
     let response = await fetch(BASE_URL + "contacts.json");
@@ -63,8 +57,6 @@ async function renderContacts(){
  * @param {{ letter: string, contacts: object[] }} blog - The current alphabetical contact group.
  * @param {HTMLElement} contactRef - The container that receives the rendered contact entries.
  */
-
-
 function renderContact(blog, contactRef){
     for (let index = 0; index < blog.contacts.length; index++) {
             const contact = blog.contacts[index];
@@ -83,8 +75,6 @@ function renderContact(blog, contactRef){
  * @param {string} phone - The selected contact phone number.
  * @returns {Promise<void>} A promise that resolves when the contact details have been rendered.
  */
-
-
 async function renderContactDetails(name, mail, phone){
     const response = await fetch(BASE_URL + "contacts.json");
     const responseToJson = await response.json();
@@ -109,8 +99,6 @@ async function renderContactDetails(name, mail, phone){
  * @param {Array<[string, object]>} entries - All contact entries loaded from the database.
  * @param {number} index - The array index of the selected contact entry.
  */
-
-
 function setContactDetailValues(currentContactID, entries, index){
     const contactDetailsRef = document.getElementById("contactDetailsID");
     const foundName = entries[index][1].userName;
@@ -129,8 +117,6 @@ function setContactDetailValues(currentContactID, entries, index){
  *
  * @param {string} id - The id of the contact whose detail card should be toggled.
  */
-
-
 function floatContactDetails(id){
     const floatingCard = document.getElementById(id + "-floatingContact")
     if(id != choosedContactID){
@@ -153,8 +139,6 @@ function floatContactDetails(id){
  *
  * @param {string} id - The id of the contact whose detail card should be hidden.
  */
-
-
 function floatBackContactDetails(id){
     const floatingCard = document.getElementById(id + "-floatingContact")
         requestAnimationFrame(() => {

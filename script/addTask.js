@@ -18,8 +18,6 @@ initCustomSelects();
  * @param {string} initials - The initials shown for the selected contact.
  * @param {string} color - The CSS color class used for the contact bubble.
  */
-
-
 function addContactInTask(id, initials, color){
     let contactFound = checkIfContactAreAlreadyInArray(id);
     if(contactFound){
@@ -40,8 +38,6 @@ function addContactInTask(id, initials, color){
  * @param {string|number} id - The unique id of the contact.
  * @returns {boolean} Returns true if the contact was already selected, otherwise false.
  */
-
-
 function checkIfContactAreAlreadyInArray(id){
     if(choosedContacts == null){
         setContactInFocus(id);
@@ -64,8 +60,6 @@ function checkIfContactAreAlreadyInArray(id){
  * Renders the selected contact bubbles below the contact selection field.
  * If more than four contacts are selected, an overflow preview is shown.
  */
-
-
 function generateInitalBallUnderContactOption(){
     const contentRef = document.getElementById("initialBallContainerID");
     contentRef.innerHTML = "";
@@ -83,8 +77,6 @@ function generateInitalBallUnderContactOption(){
  * Renders up to four selected contact bubbles and shows an overflow indicator
  * for any additional selected contacts.
  */
-
-
 function renderSelectedContactsPreviewWithOverflow(){
     const contentRef = document.getElementById("initialBallContainerID");
     for (let index = 0; index < 4; index++) {
@@ -100,8 +92,6 @@ function renderSelectedContactsPreviewWithOverflow(){
 /**
  * Renders all selected contact bubbles below the contact selection field.
  */
-
-
 function renderSelectedContactsPreview(){
     const contentRef = document.getElementById("initialBallContainerID");
     for (let index = 0; index < choosedContacts.length; index++) {
@@ -116,8 +106,6 @@ function renderSelectedContactsPreview(){
 /**
  * Displays the success popup after a task has been created.
  */
-
-
 function popUpSuccesAddTask(){
     const popUpWindowRef = document.getElementById("popUpSuccesID");
     const whiteTransparentOverlayRef = document.getElementById("whiteTransparentOverlayID");
@@ -131,8 +119,6 @@ function popUpSuccesAddTask(){
  * Resets the selected contacts, subtasks, and related UI containers
  * after a task action has been completed.
  */
-
-
 function resetGlobalArrays(){
     const contactBallsRef = document.getElementById("initialBallContainerID");
     const subtasksRef = document.getElementById("createdSubtasksContainerID");
@@ -153,8 +139,6 @@ function resetGlobalArrays(){
  * @param {SubmitEvent} event - The submit event triggered by the form.
  * @returns {Promise<void>} A promise that resolves when the task flow is finished.
  */
-
-
 async function validateAddTaskForm(event){
     event.preventDefault();
     const titleRef = document.forms["addTaskForm"]["addTaskTitle"].value;
@@ -183,8 +167,6 @@ async function validateAddTaskForm(event){
  * @param {string} category - The selected task category.
  * @returns {boolean} Returns true if all required fields are valid, otherwise false.
  */
-
-
 function checkIfEverthingImportantIsFillingdOut(title, date, category){
     let everyImportantThingIsFilled = true;
     const cleanedTitle = title.trim();
@@ -209,8 +191,6 @@ function checkIfEverthingImportantIsFillingdOut(title, date, category){
  *
  * @returns {boolean} Returns true if the title is valid, otherwise false.
  */
-
-
 function checkIfTitleIsValid(){
     const titleRef = document.getElementById("titleID");
     const titleFontRef = document.getElementById("titleFontID");
@@ -231,8 +211,6 @@ function checkIfTitleIsValid(){
  *
  * @returns {boolean} Returns true if the date is valid, otherwise false.
  */
-
-
 function checkIfDateIsValid(){
     const dateRef = document.getElementById("dateID");
     const dateFontRef = document.getElementById("dateFontID");
@@ -259,8 +237,6 @@ function checkIfDateIsValid(){
  * @param {string} dateValue - The selected date in YYYY-MM-DD format.
  * @returns {boolean} Returns true if the date is valid, otherwise false.
  */
-
-
 function isDateInFuture(dateValue) {
     const tomorrow = new Date();
     tomorrow.setHours(0, 0, 0, 0);
@@ -279,8 +255,6 @@ function isDateInFuture(dateValue) {
  * @param {HTMLElement} contentRef - The input element that should receive the error style.
  * @param {HTMLElement} fontRef - The text element whose color should be changed.
  */
-
-
 function showErrorMessage(contentRef, fontRef){
     contentRef.classList.add("input-title-error-addTask");
     fontRef.style.color = "#FF3D00";
@@ -293,8 +267,6 @@ function showErrorMessage(contentRef, fontRef){
  * @param {HTMLElement} contentRef - The input element that should lose the error style.
  * @param {HTMLElement} errorRef - The text element whose color should be reset.
  */
-
-
 function hideErrorMessage(contentRef, errorRef){
     contentRef.classList.remove("input-title-error-addTask");
     errorRef.style.color = "black";
@@ -305,8 +277,6 @@ function hideErrorMessage(contentRef, errorRef){
  * Hides the category error message and removes the error styling
  * from the category input field.
  */
-
-
 function categoryErrorMessage(){
     const categoryRef = document.getElementById("categoryID");
     const categoryErrorMessageRef = document.getElementById("categoryErrorMessageID");
@@ -319,8 +289,6 @@ function categoryErrorMessage(){
  * Shows the category error message and applies the error styling
  * to the category input field.
  */
-
-
 function removeCategoryErrorMessage(){
     const categoryRef = document.getElementById("categoryID");
     const categoryErrorMessageRef = document.getElementById("categoryErrorMessageID");

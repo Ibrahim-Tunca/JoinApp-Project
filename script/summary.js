@@ -24,8 +24,6 @@ async function getTaskEntriesFromDataBase(){
  * @param {string} [path=""] - The database path that should be loaded.
  * @returns {Promise<object|null>} A promise that resolves to the loaded JSON data.
  */
-
-
 async function loadData(path=""){
 	let response = await fetch(BASE_URL + path + ".json");
 	let responseToJson = await response.json();
@@ -39,8 +37,6 @@ async function loadData(path=""){
  *
  * @returns {Promise<void>} A promise that resolves when the summary values have been updated.
  */
-
-
 async function loadTaskStats(){
     greetLoggedUser();
     const tasks = await getTaskEntriesFromDataBase();
@@ -66,8 +62,6 @@ async function loadTaskStats(){
  *
  * @param {Array<[string, object]>} tasks - The list of task entries loaded from the database.
  */
-
-
 function countAllTasksFromAllStatusses(tasks){
     for (let index = 0; index < tasks.length; index++) {
         const currentStatus = tasks[index][1].status;
@@ -102,8 +96,6 @@ function countAllTasksFromAllStatusses(tasks){
  * Renders a greeting for the current user.
  * If no user data is stored, a generic greeting is shown.
  */
-
-
 function greetLoggedUser(){
     const greetingContainerRef = document.getElementById("greetingID");
     const greetingResponsiveContainerRef = document.getElementById("greetingResponsiveID");
@@ -125,8 +117,6 @@ function greetLoggedUser(){
 /**
  * Starts the responsive greeting animation and hides it after a short delay.
  */
-
-
 function greetAnimation(){
     const greetContainerRef = document.getElementById("greetingResponsiveContainerID");
         setTimeout(() => {
@@ -140,8 +130,6 @@ function greetAnimation(){
  *
  * @returns {Promise<void>} A promise that resolves when the deadline has been processed.
  */
-
-
 async function getDeadlineDate(){
     const tasks = await getTaskEntriesFromDataBase();
     const currentDate = new Date();
@@ -158,8 +146,6 @@ async function getDeadlineDate(){
  * Displays the currently stored nearest deadline in the summary section.
  * If no upcoming deadline exists, a fallback message is shown.
  */
-
-
 function setNewDeadline(){
     const yearRef = document.getElementById("yearID");
     const monthRef = document.getElementById("monthID");
@@ -185,8 +171,6 @@ function setNewDeadline(){
  * @param {string} taskDate - The due date of the current task.
  * @param {Date} currentDate - The current date used as the comparison baseline.
  */
-
-
 function updateDeadlineIfTaskDateIsUpcoming(taskDate, currentDate){
         const taskYear = new Date(taskDate).getFullYear();
         const taskMonth = new Date(taskDate).getMonth();
@@ -210,8 +194,6 @@ function updateDeadlineIfTaskDateIsUpcoming(taskDate, currentDate){
  * @param {number} taskYear - The year of the task date.
  * @param {string} taskDate - The original task date string.
  */
-
-
 function checkIfTaskDateEarlierThanLastTaskDateAndUpdateDeadline(taskDay, taskMonth, taskYear, taskDate){
     if(!deadline){
         deadline = taskDate;
