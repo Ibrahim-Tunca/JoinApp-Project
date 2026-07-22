@@ -26,10 +26,11 @@ function onloadFunc(){
 
 /**
  * Handles the login form submission.
- * Prevents the default form behavior, loads user data, validates the inputs,
- * and starts the login flow if the credentials are correct
- * 
- * @param {SubmitEvent} - The submit event triggered by the login form.
+ * Prevents the default form behavior, loads registered users, validates the inputs,
+ * stores the logged-in user in local storage, and shows the success popup if the login succeeds.
+ *
+ * @param {SubmitEvent} event - The submit event triggered by the login form.
+ * @returns {Promise<void>} A promise that resolves when the login flow has finished.
  */
 async function validateForm(event){
     event.preventDefault();

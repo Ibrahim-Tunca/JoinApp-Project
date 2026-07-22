@@ -60,10 +60,11 @@ function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users){
 
 /**
  * Searches the registered users for the entered email address.
+ * If a matching user is found, the user's password and user object are stored for the login flow.
  * If no matching user is found, an error message is displayed.
- * 
- * @param  {object} users - The list of registered users.
- * @param {string} inputMail - The email entered by the user. 
+ *
+ * @param {object[]} users - The list of registered users.
+ * @param {string} mail - The email entered by the user.
  * @returns {boolean} Returns true if the email address exists, otherwise false.
  */
 function searchRegisteredUserMail(users, mail){
@@ -84,10 +85,11 @@ function searchRegisteredUserMail(users, mail){
 
 
 /**
- * Checks whether the entered password matches the password of the registered user.
- * 
+ * Checks whether the entered password matches the password
+ * of the previously identified registered user.
+ *
  * @param {string} inputPassword - The password entered by the user.
- * @returns {boolean} Returns true if the password is correct, otherwise false. 
+ * @returns {boolean} Returns true if the password is correct, otherwise false.
  */
 function checkIfPasswordIsCorrect(inputPassword){
     const passwordRef = document.getElementById("passwordID");
