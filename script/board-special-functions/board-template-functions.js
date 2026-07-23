@@ -1,3 +1,14 @@
+/**
+ * Returns the HTML template for a single board card.
+ *
+ * @param {string} id - The id of the task.
+ * @param {string} title - The task title.
+ * @param {string} description - The task description.
+ * @param {string} category - The task category.
+ * @param {string} date - The task due date.
+ * @param {string} priority - The task priority.
+ * @returns {string} The HTML string for the board card.
+ */
 function getCardTemplate(id, title, description, category, date, priority){
     return  `
                 <div id="boardCardNR${id}" draggable="true" ondragstart="moveTask('${id}'),  customDragImage(event, this)" class="filled-card-board" onclick="showCardDetail('${id}', '${title}', '${description}', '${category}', '${date}', '${priority}')">
@@ -50,6 +61,11 @@ function getCardTemplate(id, title, description, category, date, priority){
 }
 
 
+/**
+ * Returns the HTML template for the task card detail window.
+ *
+ * @returns {string} The HTML string for the card detail view.
+ */
 function getCardDetailTemplate(){
     return  `
                 <cardDetail class="main-container-userstory" id="cardDetailContainerID">
@@ -130,6 +146,15 @@ function getCardDetailTemplate(){
 }
 
 
+/**
+ * Returns the HTML template for the editable card detail form.
+ *
+ * @param {string} title - The current task title.
+ * @param {string} description - The current task description.
+ * @param {string} date - The current task due date.
+ * @param {string} category - The current task category.
+ * @returns {string} The HTML string for the edit form.
+ */
 function getCardDetailEditTemplate(title, description, date, category){
     return  `
                     <div class="close-button-carddetail-edit">
@@ -250,6 +275,11 @@ function getCardDetailEditTemplate(title, description, date, category){
 }
 
 
+/**
+ * Returns the HTML template for the add-task window shown on the board.
+ *
+ * @returns {string} The HTML string for the add-task form.
+ */
 function getAddTaskFormTemplate(){
     return  `
                     <form onsubmit="validateAddTaskForm(event)" name="addTaskForm" class="addTask-maincontainer-board slide-addTask-window-board" id="addTaskForm">
@@ -290,7 +320,6 @@ function getAddTaskFormTemplate(){
                                 <button onclick="setPrioToLow()" type="button" class="prio-buttons-addTask low-prio-button-addTask" id="lowPrioID">Low<img class="prio-icons-addTask" src="./img/addTask/prio-low.svg" id="lowPrioIMGID"></button>
                             </div>
                         </priority>
-
 
 
 

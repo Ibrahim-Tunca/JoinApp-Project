@@ -1,3 +1,10 @@
+/**
+ * Returns the HTML template for a rendered subtask entry below the subtask input.
+ *
+ * @param {string|number} id - The id of the subtask.
+ * @param {string} value - The text content of the subtask.
+ * @returns {string} The HTML string for the rendered subtask.
+ */
 function pasteSubtaskUnderInputfieldTemplate(id, value){
     return      `<div class="single-subtask-container" id="subtaskNr${id}ID">    
                         <div class="subtask-content">
@@ -25,6 +32,12 @@ function pasteSubtaskUnderInputfieldTemplate(id, value){
 }
 
 
+/**
+ * Returns the HTML template for a subtask in edit mode.
+ *
+ * @param {string|number} id - The id of the subtask being edited.
+ * @returns {string} The HTML string for the editable subtask row.
+ */
 function editSingleSubtaskTemplate(id){
     return `    <div class="wrapper-div-container">
                         <input 
@@ -55,6 +68,16 @@ function editSingleSubtaskTemplate(id){
 }
 
 
+/**
+ * Returns the HTML template for one contact entry in the add-task contact selection.
+ *
+ * @param {string|number} id - The id of the contact.
+ * @param {string} initials - The initials displayed for the contact.
+ * @param {string} color - The CSS color class used for the contact avatar.
+ * @param {string} name - The display name of the contact.
+ * @param {string} mail - The email address of the contact.
+ * @returns {string} The HTML string for the contact selection entry.
+ */
 function contactSelectionTemplate(id, initials, color, name, mail){
     return `<label class="contact-option-addTask" id="contactID${id}">
                 <input

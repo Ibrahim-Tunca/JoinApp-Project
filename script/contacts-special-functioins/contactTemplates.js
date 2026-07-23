@@ -1,3 +1,14 @@
+/**
+ * Returns the HTML template for a single contact entry in the contact list.
+ *
+ * @param {string} userName - The display name of the contact.
+ * @param {string} email - The email address of the contact.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} color - The CSS color class used for the contact avatar.
+ * @param {string} id - The id of the contact.
+ * @param {string} initial - The initials shown for the contact avatar.
+ * @returns {string} The HTML string for the contact list entry.
+ */
 function renderContactsTemplate(userName, email, phone, color, id, initial){
 
         return `
@@ -20,6 +31,17 @@ function renderContactsTemplate(userName, email, phone, color, id, initial){
 }
 
 
+/**
+ * Returns the HTML template for the floating contact detail view.
+ *
+ * @param {string} name - The display name of the contact.
+ * @param {string} mail - The email address of the contact.
+ * @param {string} initials - The initials shown for the contact avatar.
+ * @param {string} color - The CSS color class used for the contact avatar.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} id - The id of the contact.
+ * @returns {string} The HTML string for the contact detail window.
+ */
 function contactDetailsTemplate(name, mail, initials, color, phone, id){
     return `
                 <div class="floating-contact-container" id="${id}-floatingContact">
@@ -90,6 +112,11 @@ function contactDetailsTemplate(name, mail, initials, color, phone, id){
 }
 
 
+/**
+ * Returns the HTML template for the add-contact window.
+ *
+ * @returns {string} The HTML string for the add-contact form.
+ */
 function addContactTemplate(){
     return  `
                 <top-section class="top-section-addContact">
@@ -158,6 +185,14 @@ function addContactTemplate(){
 }
 
 
+/**
+ * Returns the HTML template for the edit-contact window.
+ *
+ * @param {string} initials - The initials shown for the contact avatar.
+ * @param {string} color - The CSS color class used for the contact avatar.
+ * @param {string} id - The id of the contact being edited.
+ * @returns {string} The HTML string for the edit-contact form.
+ */
 function editContactTemplate(initials, color, id){
     return `
 
