@@ -99,7 +99,7 @@ function addContactTemplate(){
 
                     <div class="top-section-inside-addContact-ontainer">
                         <div class="join-logo-contact-container"><img class="join-logo-contact" src="./img/Capa 1.svg" alt=""></div>
-                        <h2 class="h2-font-contact">Add Task</h2>
+                        <h2 class="h2-font-contact">Add contact</h2>
                         <span class="top-section-contact-font">Tasks are better with a team!</span>
                     </div>
 
@@ -169,6 +169,7 @@ function editContactTemplate(initials, color, id){
                     <div class="top-section-inside-editContact-ontainer">
                         <div class="join-logo-contact-container"><img class="join-logo-contact" src="./img/Capa 1.svg" alt=""></div>
                         <h2 class="h2-font-contact">Edit contact</h2>
+                        <span class="top-section-contact-font">Tasks are better with a team!</span>
                     </div>
 
 
