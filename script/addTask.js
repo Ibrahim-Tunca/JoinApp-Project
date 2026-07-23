@@ -5,6 +5,7 @@ let choosedContacts = [];
 let globalUserMail = "";
 let currentTaskStatus;
 let categoryTouched = false;
+let customSelectListenersRegistered = false;
 const BASE_URL = "https://joinproject-88615-default-rtdb.europe-west1.firebasedatabase.app/";
 
 initCustomSelects();

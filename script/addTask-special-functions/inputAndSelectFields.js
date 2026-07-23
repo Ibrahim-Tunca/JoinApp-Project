@@ -209,49 +209,156 @@ function confirmEditSubtask(id){
 
 /**
  * Initializes all custom select fields used in the add-task form.
- * It wires up toggle, option selection, outside-click, and Escape-key behavior.
  */
 function initCustomSelects() {
     const customSelects = document.querySelectorAll(".custom-select-addTask");
     customSelects.forEach((selectElement) => {
-        const toggleButton = selectElement.querySelector(".custom-select-toggle-addTask");
-        const label = selectElement.querySelector(".custom-select-label-addTask");
-        const hiddenInput = selectElement.querySelector('input[type="hidden"]');
-        const menu = selectElement.querySelector(".custom-select-menu-addTask");
-        const options = selectElement.querySelectorAll(".custom-select-option-addTask");
-        const placeholder = selectElement.dataset.placeholder;
-        selectElement.classList.add("placeholder");
-        toggleButton.addEventListener("click", () => {
-            const isOpen = selectElement.classList.contains("open");
-
-            closeAllCustomSelects();
-
-            if (!isOpen) {
-                selectElement.classList.add("open");
-                menu.classList.remove("d_none");
-            }
-        });
-        options.forEach((optionButton) => {
-            optionButton.addEventListener("click", () => {
-                const optionValue = optionButton.dataset.value;
-                const optionText = optionButton.textContent;
-
-                hiddenInput.value = optionValue;
-                label.textContent = optionText;
-                selectElement.classList.remove("placeholder");
-                selectElement.classList.remove("open");
-                menu.classList.add("d_none");
-            });
-        });
+        initSingleCustomSelect(selectElement);
     });
-    document.addEventListener("click", (event) => {
-        if (!event.target.closest(".custom-select-addTask")) {
-            closeAllCustomSelects();
+    registerCustomSelectGlobalListeners();
+}
+
+
+/**
+ * Initializes one custom select element.
+ *
+ * @param {Element} selectElement - The custom select wrapper element.
+ */
+function initSingleCustomSelect(selectElement) {
+    const selectParts = getCustomSelectParts(selectElement);
+
+    selectElement.classList.add("placeholder");
+    bindCustomSelectToggle(selectElement, selectParts.toggleButton, selectParts.menu);
+    bindCustomSelectOptions(
+        selectElement,
+        selectParts.options,
+        selectParts.hiddenInput,
+        selectParts.label,
+        selectParts.menu
+    );
+}
+
+
+/**
+ * Returns all relevant DOM parts of one custom select.
+ *
+ * @param {Element} selectElement - The custom select wrapper element.
+ * @returns {object} All required DOM references for the custom select.
+ */
+function getCustomSelectParts(selectElement) {
+    return {
+        toggleButton: selectElement.querySelector(".custom-select-toggle-addTask"),
+        label: selectElement.querySelector(".custom-select-label-addTask"),
+        hiddenInput: selectElement.querySelector('input[type="hidden"]'),
+        menu: selectElement.querySelector(".custom-select-menu-addTask"),
+        options: selectElement.querySelectorAll(".custom-select-option-addTask")
+    };
+}
+
+
+/**
+ * Binds the open and close behavior for a custom select toggle button.
+ *
+ * @param {Element} selectElement - The custom select wrapper element.
+ * @param {Element} toggleButton - The button that opens the select menu.
+ * @param {Element} menu - The menu element of the custom select.
+ */
+function bindCustomSelectToggle(selectElement, toggleButton, menu) {
+    toggleButton.addEventListener("click", () => {
+        const isOpen = selectElement.classList.contains("open");
+        closeAllCustomSelects();
+        if (!isOpen) {
+            selectElement.classList.add("open");
+            menu.classList.remove("d_none");
         }
     });
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closeAllCustomSelects();
+}
+
+
+/**
+ * Binds the click behavior for all options of a custom select.
+ *
+ * @param {Element} selectElement - The custom select wrapper element.
+ * @param {NodeList} options - All option buttons inside the custom select.
+ * @param {HTMLInputElement} hiddenInput - The hidden input storing the selected value.
+ * @param {Element} label - The visible label showing the selected option.
+ * @param {Element} menu - The menu element of the custom select.
+ */
+function bindCustomSelectOptions(selectElement, options, hiddenInput, label, menu) {
+    options.forEach((optionButton) => {
+        optionButton.addEventListener("click", () => {
+            applyCustomSelectOption(selectElement, optionButton, hiddenInput, label, menu);
+        });
+    });
+}
+
+
+/**
+ * Applies the selected option to the custom select.
+ *
+ * @param {Element} selectElement - The custom select wrapper element.
+ * @param {Element} optionButton - The clicked option button.
+ * @param {HTMLInputElement} hiddenInput - The hidden input storing the selected value.
+ * @param {Element} label - The visible label showing the selected option.
+ * @param {Element} menu - The menu element of the custom select.
+ */
+function applyCustomSelectOption(selectElement, optionButton, hiddenInput, label, menu) {
+    const optionValue = optionButton.dataset.value;
+    const optionText = optionButton.textContent;
+    hiddenInput.value = optionValue;
+    label.textContent = optionText;
+    selectElement.classList.remove("placeholder");
+    selectElement.classList.remove("open");
+    menu.classList.add("d_none");
+}
+
+
+/**
+ * Registers the global listeners for outside click and Escape key once.
+ */
+function registerCustomSelectGlobalListeners() {
+    if (customSelectListenersRegistered) {
+        return;
+    }
+    document.addEventListener("click", handleCustomSelectOutsideClick);
+    document.addEventListener("keydown", handleCustomSelectEscape);
+    customSelectListenersRegistered = true;
+}
+
+
+/**
+ * Closes all custom selects when clicking outside of them.
+ *
+ * @param {MouseEvent} event - The click event.
+ */
+function handleCustomSelectOutsideClick(event) {
+    if (!event.target.closest(".custom-select-addTask")) {
+        closeAllCustomSelects();
+    }
+}
+
+
+/**
+ * Closes all custom selects when pressing the Escape key.
+ *
+ * @param {KeyboardEvent} event - The keydown event.
+ */
+function handleCustomSelectEscape(event) {
+    if (event.key === "Escape") {
+        closeAllCustomSelects();
+    }
+}
+
+
+/**
+ * Closes all currently open custom select menus.
+ */
+function closeAllCustomSelects() {
+    document.querySelectorAll(".custom-select-addTask").forEach((selectElement) => {
+        selectElement.classList.remove("open");
+        const menu = selectElement.querySelector(".custom-select-menu-addTask");
+        if (menu) {
+            menu.classList.add("d_none");
         }
     });
 }
