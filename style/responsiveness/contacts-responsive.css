@@ -387,3 +387,21 @@
         width: 100px;
     }
 }
+
+@media(max-width: 380px){
+    .bottom-section-container-contact {
+        width: 90%;
+    }
+
+    .inputfield-contact-errormessage-name {
+        font-size: 14px;
+    }
+
+    .inputfield-contact-errormessage-mail {
+        font-size: 14px;
+    }
+
+    .inputfield-contact-errormessage-number {
+        font-size: 14px;
+    }
+}
