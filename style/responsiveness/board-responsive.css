@@ -50,12 +50,6 @@
             color: #4589FF;
         }
 
-/*@media(max-width: 1300px){
-        .maincontent-container-board {
-        padding: 76px 0 0 26px;
-    }
-}*/
-
 @media(max-width: 1328px) {
     .bottom-section-board {
          flex-direction: column; 
@@ -131,8 +125,25 @@
     .addTask-maincontainer-board {
         width: 100%;
     }
+}
 
+@media(max-width: 728px){
+    .maincontent-container-board {
+        padding: 0;
+    }
 
+    .headline-container-board {
+        padding: 0 24px;
+    }
+
+    .inputfield-container-board {
+        width: 80%;
+        padding: 48px 0;
+    }
+
+    .bottom-section-board {
+        margin-top: 0px;
+    }
 }
 
 @media(max-width: 550px){
