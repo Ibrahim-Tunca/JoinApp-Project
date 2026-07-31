@@ -30,7 +30,6 @@ function onloadFunc(){
  * stores the logged-in user in local storage, and shows the success popup if the login succeeds.
  *
  * @param {SubmitEvent} event - The submit event triggered by the login form.
- * @returns {Promise<void>} A promise that resolves when the login flow has finished.
  */
 async function validateForm(event){
     event.preventDefault();
@@ -116,10 +115,8 @@ function showAndHidePassword(){
 function loginSuccesPopup(){
     const popupWindow = document.getElementById("loginSuccesPopupID");
     const backgroundcloud = document.getElementById("blackgroundcloudID");
-
     backgroundcloud.classList.add("show-overlay");
     popupWindow.classList.add("top-50-percent");
-
     setTimeout(() => {
         window.location.href = "./summary.html";
     }, 2500);
@@ -132,7 +129,6 @@ function loginSuccesPopup(){
 function startingAnimation(){
     const blueCloudRef = document.getElementById("blueBackgroundCloudID");
     const joinLogoRef = document.getElementById("joinLogoID");
-
     setTimeout(() => {
         blueCloudRef.classList.add("hide-overlay");
         joinLogoRef.classList.remove("white-big-join-icon-login");

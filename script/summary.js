@@ -9,8 +9,6 @@ let deadline;
  *
  * @returns {Promise<Array<[string, object]>>} A promise that resolves to all stored task entries.
  */
-
-
 async function getTaskEntriesFromDataBase(){
     const variable = await loadData("/tasks");
     const entries = Object.entries(variable || {});
@@ -32,10 +30,8 @@ async function loadData(path=""){
 
 
 /**
- * Loads all task statistics, updates the greeting, counts tasks by status and priority,
- * and renders the values into the summary page.
- *
- * @returns {Promise<void>} A promise that resolves when the summary values have been updated.
+ * Loads the task statistics, updates the greeting,
+ * renders all task counters, and starts the deadline calculation.
  */
 async function loadTaskStats(){
     greetLoggedUser();
@@ -47,48 +43,29 @@ async function loadTaskStats(){
     const tasksAwaitingFeedbackNumberRef = document.getElementById("tasksAwaitingFeedbackNumberID");
     const tasksDoneNumberRef = document.getElementById("tasksDoneNumberID");
     countAllTasksFromAllStatusses(tasks);
-        urgentTasksNumberRef.innerHTML = urgentCounter;
-        tasksBoardNumberRef.innerHTML = onBoardCounter;
-        tasksTodoNumberRef.innerHTML = todoCounter;
-        tasksInProgressNumberRef.innerHTML = progressCounter;
-        tasksAwaitingFeedbackNumberRef.innerHTML = feedbackCounter;
-        tasksDoneNumberRef.innerHTML = doneCounter;
-        getDeadlineDate()
+    urgentTasksNumberRef.innerHTML = urgentCounter;
+    tasksBoardNumberRef.innerHTML = onBoardCounter;
+    tasksTodoNumberRef.innerHTML = todoCounter;
+    tasksInProgressNumberRef.innerHTML = progressCounter;
+    tasksAwaitingFeedbackNumberRef.innerHTML = feedbackCounter;
+    tasksDoneNumberRef.innerHTML = doneCounter;
+    getDeadlineDate();
 }
 
 
 /**
- * Counts all tasks by status and priority and updates the global summary counters.
+ * Counts all tasks by status and priority
+ * and updates the global summary counters.
  *
  * @param {Array<[string, object]>} tasks - The list of task entries loaded from the database.
  */
 function countAllTasksFromAllStatusses(tasks){
-    for (let index = 0; index < tasks.length; index++) {
-        const currentStatus = tasks[index][1].status;
-        const currentPriority = tasks[index][1].priority;
-        switch(currentStatus){
-            case"todo":{
-                todoCounter++;
-                break;
-            }
-            case"inProgress":{
-                progressCounter++;
-                break;
-            }
-            case"awaitFeedback":{
-                feedbackCounter++;
-                break;
-            }
-            case"done":{
-                doneCounter++;
-                break;
-            }
-        }
-        if(currentPriority === "urgent"){
-            urgentCounter++;
-        }
-        onBoardCounter++;
-    }    
+    todoCounter = tasks.filter(task => task[1].status === "todo").length;
+    progressCounter = tasks.filter(tasks => tasks[1].status == "inProgress").length;
+    feedbackCounter = tasks.filter(tasks => tasks[1].status == "awaitFeedback").length;
+    doneCounter = tasks.filter(tasks => tasks[1].status == "done").length;
+    urgentCounter = tasks.filter(tasks => tasks[1].priority == "urgent").length;
+    onBoardCounter = tasks.length;  
 }
 
 
@@ -128,7 +105,6 @@ function greetAnimation(){
 /**
  * Finds the nearest upcoming task deadline and triggers the deadline display update.
  *
- * @returns {Promise<void>} A promise that resolves when the deadline has been processed.
  */
 async function getDeadlineDate(){
     const tasks = await getTaskEntriesFromDataBase();
@@ -138,7 +114,6 @@ async function getDeadlineDate(){
         updateDeadlineIfTaskDateIsUpcoming(taskDate, currentDate);
         setNewDeadline();
     }
-
 }
 
 

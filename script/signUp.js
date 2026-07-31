@@ -8,15 +8,14 @@ function onloadFunc(){
 
 
 /**
- * This function shows a popupmessage if the registration was succesfull
+ * Shows the success popup after a user has signed up
+ * and redirects to the login page.
  */
 function popUpSucces(){
     const popupWindow = document.getElementById("popupSignupID");
     const backgroundcloud = document.getElementById("blackgroundcloudID");
-
     backgroundcloud.classList.add("show-overlay");
     popupWindow.classList.add("top-50-percent");
-
     setTimeout(() => {
         window.location.href = "./index.html";
     }, 2500);
@@ -24,10 +23,12 @@ function popUpSucces(){
 
 
 /**
- * This function is the main sign up function. If the other functions are all true, the user will be registratet with the given inputvalues.
- * 
- * @param {event} - This function works onsubmit when the user have clicked the sign up button.
- * @returns - true when the signup was succesfull and opens the Loginpage. When the sign up was failed, the functions returns false and came some errermessages in the App.
+ * Handles the sign-up form submission.
+ * Validates the input fields, creates the user account,
+ * and adds the new user to the contact list.
+ *
+ * @param {SubmitEvent} event - The submit event triggered by the sign-up form.
+ * @returns {Promise<boolean>} Returns true if the sign-up process succeeds, otherwise false.
  */
 async function validateForm(event){
     event.preventDefault();
@@ -49,13 +50,14 @@ async function validateForm(event){
 
 
 /**
- * This function is used to check if every inputfield is filled.
- * 
- * @param {string} name - this is the name that the user want to take
- * @param {string} mail - this is the emailadress from the user
- * @param {string} password - this is the password that the user want to take 
- * @param {string} repeat - this is again the same password to help the user that he doenst make a mistake while he is writing
- * @returns - If one of these inputfields not filled, the form doesnt work and the user became a message why not
+ * Checks whether all required sign-up input fields are filled
+ * and whether the privacy checkbox is accepted.
+ *
+ * @param {string} name - The username entered by the user.
+ * @param {string} mail - The email address entered by the user.
+ * @param {string} password - The password entered by the user.
+ * @param {string} repeat - The repeated password entered by the user.
+ * @returns {boolean} Returns true if all required fields are filled, otherwise false.
  */
 function checkIfEverthingIsFilled(name, mail, password, repeat){
     let everythingIsFilled = true;
@@ -78,13 +80,14 @@ function checkIfEverthingIsFilled(name, mail, password, repeat){
 
 
 /**
- * This function check a single inputfield if the field are filled. If the pickedfield is not fielled, a errormessage will be generated
- * 
- * @param {string} value - the value that the user write on name, email and password
- * @param {*} fieldRef 
- * @param {*} errorRef 
- * @param {string} errorMessage - the string is individuel and a message that the user can read and understand what is missing in the form
- * @returns - returns false when the user dont fill the input
+ * Checks whether a single input field contains a value.
+ * If the field is empty, an error style and message are shown.
+ *
+ * @param {string} value - The input value to validate.
+ * @param {HTMLElement} fieldRef - The input element that should receive the error styling.
+ * @param {HTMLElement} errorRef - The element that displays the error message.
+ * @param {string} errorMessage - The error message shown when the field is empty.
+ * @returns {boolean} Returns true if the field contains a value, otherwise false.
  */
 function checkInputValueAndGenerateErrorMessage(value, fieldRef, errorRef, errorMessage){
     const cleanedValue = value.trim();
@@ -98,9 +101,9 @@ function checkInputValueAndGenerateErrorMessage(value, fieldRef, errorRef, error
 
 
 /**
- * a simple function to check if the user has checked the checkbox
- * 
- * @returns returns false when the user didnt agree with the privacy policy
+ * Checks whether the privacy policy checkbox has been accepted.
+ *
+ * @returns {boolean} Returns true if the checkbox is checked, otherwise false.
  */
 function checkIfCheckboxIsChecked(){
     const checkboxRef = document.getElementById("acceptPolicyID");
@@ -115,28 +118,27 @@ function checkIfCheckboxIsChecked(){
 
 
 /**
- * a function to check if the emailadress is a valid emailadress with chars like "@" and the dots are in the right positions
- * 
- * @param {string} - the value that the users own emailadress 
- * @returns 
+ * Checks whether the entered email address has a valid format.
+ *
+ * @param {string} mail - The email address entered by the user.
+ * @returns {boolean} Returns true if the email address is valid, otherwise false.
  */
 function checkIfMailIsValid(mail){
     const mailFieldRef = document.getElementById("mailID");
     const mailFieldErrorMessage = document.getElementById("errorMessageMailID");
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (mail !== "" && !emailPattern.test(mail)) {
         mailFieldRef.classList.add("red-bottom-border");
         mailFieldErrorMessage.innerHTML = "Please enter a valid email address.";
         return false;
     }
-
     return true;
 }
 
 
 /**
- * This function is used to remove all errormessages and all redlines and redchackbox
+ * Removes all input error styles and error messages
+ * and resets the checkbox error state.
  */
 function removeTheRedUnderlineAndErrorMessage(){
     const nameFieldRef = document.getElementById("nameID");
@@ -151,16 +153,30 @@ function removeTheRedUnderlineAndErrorMessage(){
     mailFieldRef.classList.remove("red-bottom-border");
     passwordFieldRef.classList.remove("red-bottom-border");
     repeatFieldRef.classList.remove("red-bottom-border");
-    nameFieldErrorMessage.innerHTML = "";
-    mailFieldErrorMessage.innerHTML = "";
-    passwordFieldErrorMessage.innerHTML = "";
-    repeatFieldErrorMessage.innerHTML = "";
+    removeAllErrorMessages(nameFieldErrorMessage, mailFieldErrorMessage, passwordFieldErrorMessage, repeatFieldErrorMessage)
     removeRedCheckbox()
 }
 
 
 /**
- * This function removes only the red checkbox and the errormessage at the checkbox
+ * Clears all error messages for the sign-up input fields.
+ *
+ * @param {HTMLElement} nameFieldErrorMessage - The error element for the name field.
+ * @param {HTMLElement} mailFieldErrorMessage - The error element for the email field.
+ * @param {HTMLElement} passwordFieldErrorMessage - The error element for the password field.
+ * @param {HTMLElement} repeatFieldErrorMessage - The error element for the repeat-password field.
+ */
+function removeAllErrorMessages(nameFieldErrorMessage, mailFieldErrorMessage, passwordFieldErrorMessage, repeatFieldErrorMessage){
+    nameFieldErrorMessage.innerHTML = "";
+    mailFieldErrorMessage.innerHTML = "";
+    passwordFieldErrorMessage.innerHTML = "";
+    repeatFieldErrorMessage.innerHTML = "";
+}
+
+
+/**
+ * Removes the checkbox error message
+ * and resets the checkbox icon to its normal state.
  */
 function removeRedCheckbox(){
     const checkboxRef = document.getElementById("acceptPolicyID");
@@ -176,11 +192,11 @@ function removeRedCheckbox(){
 
 
 /**
- * This function toggle the globalcheckboxvalue and add a checkmark when the globalvalue is true
+ * Toggles the privacy policy checkbox state
+ * and updates the checkbox icon.
  */
 function toggleThePrivacyCheckbox(){
     const checkBoxRef = document.getElementById("acceptPolicyID");
-
     if(globalCheckboxValue === false){
         globalCheckboxValue = true;
         checkBoxRef.style.backgroundImage = 'url("../../img/checkbox_checked.svg")';
@@ -188,22 +204,20 @@ function toggleThePrivacyCheckbox(){
         globalCheckboxValue = false;
         checkBoxRef.style.backgroundImage = 'url("../../img/checkbox_unchecked.svg")';
     }
-    
 }
 
 
 /**
- * This function checks if the both passwords which the user has write is same
- * 
- * @param {string} - the first input (password) which the user has write 
- * @param {string} - the second input (repeatpassword) which the user has write
- * @returns - returns true if the both passwords are same und false when the each input is different
+ * Checks whether the entered password and repeated password are identical.
+ *
+ * @param {string} password - The password entered by the user.
+ * @param {string} repeat - The repeated password entered by the user.
+ * @returns {boolean} Returns true if both passwords match, otherwise false.
  */
 function checkIfPasswordsAreSame(password, repeat){
     const passwordRef = document.getElementById("passwordID");
     const repeatRef = document.getElementById("repeatID");
     const contentRef = document.getElementById("errorMessageRepeatID");
-
     if(password != repeat){
         removeTheRedUnderlineAndErrorMessage();
         passwordRef.classList.add("red-bottom-border");
@@ -211,61 +225,76 @@ function checkIfPasswordsAreSame(password, repeat){
         contentRef.innerHTML = "Your passwords don't match. Please try again."
         return false; 
     }
-
     return true;
 }
 
 
 /**
- * This function is only to be used to switch the icon from uncovericon and covericon.
+ * Updates the password icons depending on whether the password field is empty or filled.
  */
 function iconSwitch(){
     const iconRef = document.getElementById("lockIconID");
     const repeatIconRef = document.getElementById("repeatlockIconID");
-    const passwordRef = document.getElementById("passwordID");
-    const repeatRef = document.getElementById("repeatID");
-    const containerRef = document.getElementById("inputfieldPasswordContainerID");
     const passwordValue = document.forms["signUpForm"]["password"].value;
     if(passwordValue != ""){
-        iconRef.src = "./img/register/visibility_off.svg"
         iconRef.classList.add("clickable-icon");
-        repeatIconRef.src = "./img/register/visibility_off.svg"
         repeatIconRef.classList.add("clickable-icon");
+        changePasswordIcon(iconRef, repeatIconRef, "./img/register/visibility_off.svg");
     }
     if(passwordValue === ""){
         iconRef.classList.remove("clickable-icon");
-        iconRef.src = "./img/register/lock.svg"
         repeatIconRef.classList.remove("clickable-icon");
-        repeatIconRef.src = "./img/register/lock.svg"
+        changePasswordIcon(iconRef, repeatIconRef, "./img/register/lock.svg");
     }
 }
 
 
 /**
- * This function hide and show the password input. It switches from dots to text and text to dots. 
- * 
- * @returns returns nothing. Return stops the function
+ * Updates both password icons with the same image source.
+ *
+ * @param {HTMLImageElement} iconRef - The icon element of the password field.
+ * @param {HTMLImageElement} repeatIconRef - The icon element of the repeat-password field.
+ * @param {string} imgSource - The image path that should be applied to both icons.
+ */
+function changePasswordIcon(iconRef, repeatIconRef, imgSource){
+    iconRef.src = imgSource;
+    repeatIconRef.src = imgSource;
+}
+
+
+/**
+ * Toggles both password fields between hidden and visible text
+ * and updates the related icons.
  */
 function showAndHidePassword(){
     const passwordRef = document.getElementById("passwordID");
     const iconRef = document.getElementById("lockIconID");
     const repeatRef = document.getElementById("repeatID");
     const repeatIconRef = document.getElementById("repeatlockIconID");
-
     if (passwordRef.type === "password") {
-        iconRef.src = "./img/register/visibility.svg"
-        passwordRef.type = "text";
-        repeatIconRef.src = "./img/register/visibility.svg"
-        repeatRef.type = "text";
+        changeTextType(passwordRef, repeatRef, iconRef, repeatIconRef, "./img/register/visibility.svg", "text")
         return;
     }
-
     if(passwordRef.type === "text"){
-        iconRef.src = "./img/register/visibility_off.svg"
-        passwordRef.type = "password";
-        repeatIconRef.src = "./img/register/visibility_off.svg"
-        repeatRef.type = "password";
+        changeTextType(passwordRef, repeatRef, iconRef, repeatIconRef, "./img/register/visibility_off.svg", "password")
         return;
     }
 }
 
+
+/**
+ * Changes the input type and icon of both password fields at the same time.
+ *
+ * @param {HTMLInputElement} passwordRef - The main password input field.
+ * @param {HTMLInputElement} repeatRef - The repeat-password input field.
+ * @param {HTMLImageElement} iconRef - The icon element of the password field.
+ * @param {HTMLImageElement} repeatIconRef - The icon element of the repeat-password field.
+ * @param {string} imgSource - The image path that should be applied to both icons.
+ * @param {string} textType - The input type to apply, for example "text" or "password".
+ */
+function changeTextType(passwordRef, repeatRef, iconRef, repeatIconRef, imgSource, textType){
+    iconRef.src = imgSource;
+    passwordRef.type = textType;
+    repeatIconRef.src = imgSource;
+    repeatRef.type = textType;
+}

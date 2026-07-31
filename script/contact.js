@@ -33,8 +33,6 @@ function clearAllBlogs(){
 /**
  * Loads all contacts from the database, sorts them into alphabetical groups,
  * and renders them into the contact list.
- *
- * @returns {Promise<void>} A promise that resolves when all contacts have been rendered.
  */
 async function renderContacts(){
     let contactRef = document.getElementById("contactID")
