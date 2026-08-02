@@ -4,8 +4,6 @@ let currentClickedTaskID;
 
 /**
  * Loads all task cards by status and renders them into their matching board columns.
- *
- * @returns {Promise<void>} A promise that resolves when all board columns have been rendered.
  */
 async function renderAllCards() {
     const toDoContainerRef = document.getElementById("toDoContainerID");
@@ -42,12 +40,12 @@ function getCardValues(tasks, containerRef){
         const priority = tasks[index][1].priority;  
         const contacts = tasks[index][1].contacts || [];
         const subtasks = tasks[index][1].subtasks || [];
-        containerRef.innerHTML +=   getCardTemplate(taskID, title, description, category, date, priority)
-                                        getImgByPriority(priority, taskID);
-                                        getHeadlineCardColor(category, taskID);
-                                        getLetterBalls(contacts, taskID);
-                                        showSubtaskProgress(subtasks, taskID);
-                                        getContactsContainerFromTaskByID(taskID);
+        containerRef.innerHTML += getCardTemplate(taskID, title, description, category, date, priority)
+        getImgByPriority(priority, taskID);
+        getHeadlineCardColor(category, taskID);
+        getLetterBalls(contacts, taskID);
+        showSubtaskProgress(subtasks, taskID);
+        getContactsContainerFromTaskByID(taskID);
     }
 }
 
@@ -66,25 +64,36 @@ function checkIfTaskContainerIsEmptyAndAddPlaceholder(tasks, containerRef){
 
 
 /**
- * Filters all tasks by the current search input and re-renders the board columns
- * with the matching results.
- *
- * @returns {Promise<void>} A promise that resolves when the filtered task cards have been rendered.
+ * Filters all tasks by the current search input
+ * and re-renders the board columns with the matching results.
  */
-async function searchCards() {
+async function searchAndRenderCards(){
     const searchBarRef = document.getElementById("searchBarID");
     const searchValue = searchBarRef.value.trim().toLowerCase();
     renderAllCardIfSearchbarIsEmpty(searchValue);
-    const toDoContainerRef = document.getElementById("toDoContainerID");
-    const inProgressContainerRef = document.getElementById("inProgressContainerID");
-    const awaitFeedbackContainerRef = document.getElementById("awaitFeedbackContainerID");
-    const doneContainerRef = document.getElementById("doneContainerID");
     const allTasks = await getTaskEntriesFromDataBase();
     const filteredTasks = filterTasksBySearchValue(allTasks, searchValue);
     const toDoTasks = filteredTasks.filter(([, task]) => task.status === "todo");
     const inProgressTasks = filteredTasks.filter(([, task]) => task.status === "inProgress");
     const awaitFeedbackTasks = filteredTasks.filter(([, task]) => task.status === "awaitFeedback");
     const doneTasks = filteredTasks.filter(([, task]) => task.status === "done");
+    renderFilteredCards(toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks);
+}
+
+
+/**
+ * Renders the provided task lists into their matching board columns.
+ *
+ * @param {Array<[string, object]>} toDoTasks - The filtered tasks with the status "todo".
+ * @param {Array<[string, object]>} inProgressTasks - The filtered tasks with the status "inProgress".
+ * @param {Array<[string, object]>} awaitFeedbackTasks - The filtered tasks with the status "awaitFeedback".
+ * @param {Array<[string, object]>} doneTasks - The filtered tasks with the status "done".
+ */
+function renderFilteredCards(toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks){
+    const toDoContainerRef = document.getElementById("toDoContainerID");
+    const inProgressContainerRef = document.getElementById("inProgressContainerID");
+    const awaitFeedbackContainerRef = document.getElementById("awaitFeedbackContainerID");
+    const doneContainerRef = document.getElementById("doneContainerID");
     getCardValues(toDoTasks, toDoContainerRef);
     getCardValues(inProgressTasks, inProgressContainerRef);
     getCardValues(awaitFeedbackTasks, awaitFeedbackContainerRef);

@@ -54,50 +54,72 @@ function getContactTemplate(color, initials, name){
 
 
 /**
- * Renders the correct move-to options for a board card popup menu
- * based on the current task status.
+ * Returns the HTML template for the move-to menu
+ * of a task that is currently in the "todo" column.
  *
  * @param {string} id - The id of the selected task.
- * @returns {Promise<void>} A promise that resolves when the popup menu has been filled.
+ * @returns {string} The HTML string for the move-to popup menu.
  */
-async function renderTheRightMoveToOptionsTemplate(id){
-    const task = await getTaskById(id);
-    const menuRef = document.getElementById("popupMenuNR" + id);
-        
-    if(task.status === "todo"){
-            menuRef.innerHTML = `
-                                    <div class="swap-button-order-board">
-                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
-                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
-                                        <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
-                                    </div>
-                                `
-    }
-    if(task.status === "inProgress"){
-            menuRef.innerHTML = `
-                                    <div class="swap-button-order-board">
+function getMoveToMenuTodoTemplate(id){
+    return `
+                <div class="swap-button-order-board">
+                                            <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
+                                            <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
+                                            <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
+                </div>
+            `
+}
+
+
+/**
+ * Returns the HTML template for the move-to menu
+ * of a task that is currently in the "in progress" column.
+ *
+ * @param {string} id - The id of the selected task.
+ * @returns {string} The HTML string for the move-to popup menu.
+ */
+function getMoveToMenuInProgressTemplate(id){
+    return `
+                <div class="swap-button-order-board">
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
-                                    </div>
-                                `
-    }
-    if(task.status === "awaitFeedback"){
-            menuRef.innerHTML = `
-                                    <div class="swap-button-order-board">
+                </div>
+            `
+}
+
+
+/**
+ * Returns the HTML template for the move-to menu
+ * of a task that is currently in the "awaiting feedback" column.
+ *
+ * @param {string} id - The id of the selected task.
+ * @returns {string} The HTML string for the move-to popup menu.
+ */
+function getMoveToMenuAwaitFeedbackTemplate(id){
+    return `
+                <div class="swap-button-order-board">
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'done')">Done</span>
-                                    </div>
-                                `
-    }
-    if(task.status === "done"){
-            menuRef.innerHTML = `
-                                    <div class="swap-button-order-board">
+                </div>
+            `
+}
+
+
+/**
+ * Returns the HTML template for the move-to menu
+ * of a task that is currently in the "done" column.
+ *
+ * @param {string} id - The id of the selected task.
+ * @returns {string} The HTML string for the move-to popup menu.
+ */
+function getMoveToMenuDoneTemplate(id){
+    return `
+                <div class="swap-button-order-board">
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'todo')">To Do</span>
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'inProgress')">In Progress</span>
                                         <span class="moveto-span-tag" onclick="moveTaskFromMenu(event, '${id}', 'awaitFeedback')">Await Feed</span>
-                                    </div>
-                                `
-    }
+                </div>
+            `
 }

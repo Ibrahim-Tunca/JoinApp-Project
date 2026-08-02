@@ -114,7 +114,6 @@ async function updateStatusFromTask(taskID, status){
  * closes the detail window, and re-renders the board.
  *
  * @param {SubmitEvent} event - The submit event triggered by the edit form.
- * @returns {Promise<void>} A promise that resolves when the task has been updated.
  */
 async function updateTask(event){
     event.preventDefault();  
@@ -139,8 +138,6 @@ async function updateTask(event){
 /**
  * Loads the currently selected task and renders the editable detail view,
  * including contacts, priority, and subtasks.
- *
- * @returns {Promise<void>} A promise that resolves when the edit view has been fully rendered.
  */
 async function editCardDetail(){
     const cardDetailRef = document.getElementById("cardDetailContainerID");
@@ -155,12 +152,12 @@ async function editCardDetail(){
     subtasks = subtaskArray;
     choosedContacts = contacts;
     cardDetailRef.innerHTML =   getCardDetailEditTemplate(title, description, date, category);
-                                initCustomSelects();
-                                await loadContacts();
-                                loadPriorityButton(priority);
-                                setAllContactsInFocusThatAreAlreadyChoosed();
-                                generateInitalBallUnderContactOption();
-                                renderSubtasks();                                                                     
+    initCustomSelects();
+    await loadContacts();
+    loadPriorityButton(priority);
+    setAllContactsInFocusThatAreAlreadyChoosed();
+    generateInitalBallUnderContactOption();
+    renderSubtasks();                                                                     
 }
 
 

@@ -45,7 +45,6 @@ function removeContainerDragHover(id){
  * and re-renders the board afterwards.
  *
  * @param {string} containerRef - The id of the target board column container.
- * @returns {Promise<void>} A promise that resolves when the task has been moved.
  */
 async function moveTo(containerRef){
     const statusByContainer = {
@@ -82,4 +81,29 @@ function customDragImage(event, element) {
         dragPreview.offsetHeight / 2
     );
     setTimeout(() => dragPreview.remove(), 0);
+}
+
+
+/**
+ * Renders the correct move-to options for a board card popup menu
+ * based on the current task status.
+ *
+ * @param {string} id - The id of the selected task.
+ */
+async function renderTheRightMoveToOptionsTemplate(id){
+    const task = await getTaskById(id);
+    const menuRef = document.getElementById("popupMenuNR" + id);
+        
+    if(task.status === "todo"){
+            menuRef.innerHTML =  getMoveToMenuTodoTemplate(id);
+    }
+    if(task.status === "inProgress"){
+            menuRef.innerHTML = getMoveToMenuInProgressTemplate(id);
+    }
+    if(task.status === "awaitFeedback"){
+            menuRef.innerHTML = getMoveToMenuAwaitFeedbackTemplate(id);
+    }
+    if(task.status === "done"){
+            menuRef.innerHTML = getMoveToMenuDoneTemplate(id);
+    }
 }

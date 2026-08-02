@@ -138,7 +138,6 @@ function resetGlobalArrays(){
  * shows the success popup, and redirects to the board page.
  *
  * @param {SubmitEvent} event - The submit event triggered by the form.
- * @returns {Promise<void>} A promise that resolves when the task flow is finished.
  */
 async function validateAddTaskForm(event){
     event.preventDefault();

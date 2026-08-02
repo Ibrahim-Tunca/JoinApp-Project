@@ -1,8 +1,6 @@
 /**
  * Loads all contacts from the database, sorts them alphabetically,
  * optionally moves the logged-in user to the top, and renders the selection list.
- *
- * @returns {Promise<void>} A promise that resolves when the contact list has been rendered.
  */
 async function loadContacts(){
     let response = await fetch(BASE_URL + "contacts.json");
@@ -112,11 +110,20 @@ async function addNewTask(title, description, date, category) {
             subtasks: subtasks,
             status: status
         });
+    setAllGlobalArraysAndOtherGlobalValuesToNull();
+    return response;
+}
+
+
+/**
+ * Resets all global task-related values
+ * after a task has been created.
+ */
+function setAllGlobalArraysAndOtherGlobalValuesToNull(){
     priority = "";
     choosedContacts = [];
     subtasks = [];
     currentTaskStatus = "";
-    return response;
 }
 
 

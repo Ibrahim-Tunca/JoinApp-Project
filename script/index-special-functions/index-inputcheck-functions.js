@@ -48,7 +48,7 @@ function checkIfSomethingInTheInput(contentRef, errorRef, inputValue, errorMessa
  * @param {object} users - The list of registered users loaded from the database.
  * @returns {boolean} Returns true if the user exists and the password is correct, otherwise false.
  */
-function CheckIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users){
+function checkIfUserIsRegisteredAndIfPasswordIsCorrect(mail, password, users){
     const userIsFound = searchRegisteredUserMail(users, mail);
     const passwordIsCorrect = checkIfPasswordIsCorrect(password) && userIsFound;
     if(passwordIsCorrect){
