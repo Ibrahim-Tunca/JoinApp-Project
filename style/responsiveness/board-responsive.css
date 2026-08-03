@@ -50,6 +50,12 @@
             color: #4589FF;
         }
 
+@media(max-width: 1440px){
+    .maincontent-container-board {
+        margin: 0 auto;
+    }
+}
+
 @media(max-width: 1328px) {
     .bottom-section-board {
          flex-direction: column; 
