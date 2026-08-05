@@ -126,7 +126,7 @@ function checkIfCheckboxIsChecked(){
 function checkIfMailIsValid(mail){
     const mailFieldRef = document.getElementById("mailID");
     const mailFieldErrorMessage = document.getElementById("errorMessageMailID");
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
     if (mail !== "" && !emailPattern.test(mail)) {
         mailFieldRef.classList.add("red-bottom-border");
         mailFieldErrorMessage.innerHTML = "Please enter a valid email address.";

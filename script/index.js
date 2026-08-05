@@ -38,9 +38,9 @@ async function validateForm(event){
     const users = Object.values(responseToJson || {});
     const inputMail = document.forms["loginForm"]["mail"].value;
     const inputPassword = document.forms["loginForm"]["password"].value;
-    checkIfEmailAndPasswordFieldIsFilled(inputMail, inputPassword);
-        if(checkIfEmailAndPasswordFieldIsFilled){
-            const userFound = CheckIfUserIsRegisteredAndIfPasswordIsCorrect(inputMail, inputPassword, users);
+    const inputCheck = checkIfEmailAndPasswordFieldIsFilled(inputMail, inputPassword);
+        if(inputCheck == true){
+            const userFound = checkIfUserIsRegisteredAndIfPasswordIsCorrect(inputMail, inputPassword, users);
             if(userFound){
                 setDataToLocalStorage(globalUserObject);
                 loginSuccesPopup();
