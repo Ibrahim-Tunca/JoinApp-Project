@@ -153,9 +153,31 @@ async function validateAddTaskForm(event){
     }
     await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
     popUpSuccesAddTask();
+    delayPopupAndJumpToBoard()
+}
+
+
+function delayPopupAndJumpToBoard(){
+    disableCreateTaskButton();
     setTimeout(() => {
         window.location.href = "./board.html";
     }, 2500);
+}
+
+
+function disableCreateTaskButton(){
+    const normalButtonRef = document.getElementById("creatTaskButtonID");
+    const disableadButtonRef = document.getElementById("disableadCreatTaskButtonID");
+    normalButtonRef.classList.add("d_none");
+    disableadButtonRef.classList.remove("d_none");
+}
+
+
+function activateCreateTaskButton(){
+    const normalButtonRef = document.getElementById("creatTaskButtonID");
+    const disableadButtonRef = document.getElementById("disableadCreatTaskButtonID");
+    normalButtonRef.classList.add("d_flex");
+    disableadButtonRef.classList.add("d_none");
 }
 
 

@@ -177,11 +177,15 @@
                                 <buttons class="button-order-addtask-responsive">
                                     <button onclick="resetGlobalArrays()" type="reset" form="addTaskForm" class="button-white-addtask">
                                         Clear
-                                        <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg" alt="">
+                                        <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg">
                                     </button>
-                                    <button type="submit" form="addTaskForm" class="button-blue-addtask">
+                                    <button type="submit" form="addTaskForm" class="button-blue-addtask" id="creatTaskButtonID">
                                         Create Task
-                                        <img class="affirmative-icon-addtask" src="./img/addTask/check.svg" alt="">
+                                        <img class="affirmative-icon-addtask" src="./img/addTask/check.svg">
+                                    </button>
+                                    <button type="button" class="button-blue-disabled-addtask d_none" id="disableadCreatTaskButtonID">
+                                        Create Task
+                                        <img class="affirmative-icon-addtask" src="./img/addTask/check.svg">
                                     </button>
                                 </buttons>
                                 
@@ -194,11 +198,11 @@
                         <buttons class="button-order-addtask">
                             <button onclick="resetGlobalArrays()" type="reset" form="addTaskForm" class="button-white-addtask">
                                 Clear
-                                <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg" alt="">
+                                <img class="clear-icon-addtask" src="./img/addTask/iconoir_cancel.svg">
                             </button>
                             <button type="submit" form="addTaskForm" class="button-blue-addtask">
                                 Create Task
-                                <img class="affirmative-icon-addtask" src="./img/addTask/check.svg" alt="">
+                                <img class="affirmative-icon-addtask" src="./img/addTask/check.svg">
                             </button>
                         </buttons>
 

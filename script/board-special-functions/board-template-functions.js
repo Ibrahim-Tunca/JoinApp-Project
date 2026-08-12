@@ -388,9 +388,13 @@ function getAddTaskFormTemplate(){
 
 
                         <div class="button-order-addtask-window">
-                            <button type="submit" form="addTaskForm" class="button-blue-addtask">
+                            <button type="submit" form="addTaskForm" class="button-blue-addtask" id="creatTaskButtonID">
                                 Create Task
                                 <img class="affirmative-icon-addtask" src="./img/addTask/check.svg" alt="">
+                            </button>
+                            <button type="button" class="button-blue-disabled-addtask d_none" id="disableadCreatTaskButtonID">
+                                        Create Task
+                                        <img class="affirmative-icon-addtask" src="./img/addTask/check.svg">
                             </button>
                         </div>
 
