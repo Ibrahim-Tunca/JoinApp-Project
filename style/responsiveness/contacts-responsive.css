@@ -330,6 +330,24 @@
     }
 }
 
+@media(max-width: 380px){
+    .bottom-section-container-contact {
+        width: 90%;
+    }
+
+    .inputfield-contact-errormessage-name {
+        font-size: 14px;
+    }
+
+    .inputfield-contact-errormessage-mail {
+        font-size: 14px;
+    }
+
+    .inputfield-contact-errormessage-number {
+        font-size: 14px;
+    }
+}
+
 @media(max-height: 750px){
     .top-section-addContact {
         height: 315px;
@@ -353,7 +371,7 @@
     }
 }
 
-@media(max-height: 670px){
+@media(max-height: 700px){
 
     .top-section-addContact {
         height: 240px;
@@ -388,20 +406,12 @@
     }
 }
 
-@media(max-width: 380px){
-    .bottom-section-container-contact {
-        width: 90%;
+@media(max-height: 670px){
+    .initial-container-edit-contact {
+        display: none;
     }
 
-    .inputfield-contact-errormessage-name {
-        font-size: 14px;
-    }
-
-    .inputfield-contact-errormessage-mail {
-        font-size: 14px;
-    }
-
-    .inputfield-contact-errormessage-number {
-        font-size: 14px;
+    .person-logo-container-contact {
+        display: none;
     }
 }
