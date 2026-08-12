@@ -101,18 +101,33 @@ function showButtons(){
 
 
 /**
- * Creates a new subtask from the input field
- * and renders it below the subtask input.
+ * Creates a new subtask from the input field if the trimmed value is not empty,
+ * ensures that the global subtask array exists, and renders the subtask below the input.
  */
 function pasteSubtaskUnderInputfield(){
     const subtasksInputfieldButtonContainerRef = document.getElementById("subtasksInputfieldButtonContainerID");
     const subtaskValue = document.forms["addTaskForm"]["subtaskform"].value;
-    const createdSubtasksContainer = document.getElementById("createdSubtasksContainerID");
-    subtasks.push({id: subtaskID, value: subtaskValue, status: false});
-    createdSubtasksContainer.innerHTML += pasteSubtaskUnderInputfieldTemplate(subtaskID, subtaskValue);
-    subtaskID++;
-    subtasksInputfieldButtonContainerRef.classList.add("d_none");
-    document.forms["addTaskForm"]["subtaskform"].value = "";
+    const cleanedSubtaskValue = subtaskValue.trim();
+      if (cleanedSubtaskValue !== "") {
+        ensureGlobalSubtasksArray();
+        const createdSubtasksContainer = document.getElementById("createdSubtasksContainerID");
+        subtasks.push({id: subtaskID, value: cleanedSubtaskValue, status: false});
+        createdSubtasksContainer.innerHTML += pasteSubtaskUnderInputfieldTemplate(subtaskID, cleanedSubtaskValue);
+        subtaskID++;
+        subtasksInputfieldButtonContainerRef.classList.add("d_none");
+        document.forms["addTaskForm"]["subtaskform"].value = "";
+    }
+}
+
+
+/**
+ * Ensures that the global subtasks array exists.
+ * If the current subtasks value is not an array, it is reset to an empty array.
+ */
+function ensureGlobalSubtasksArray(){
+    if (!Array.isArray(subtasks)) {
+            subtasks = [];
+    }
 }
 
 
