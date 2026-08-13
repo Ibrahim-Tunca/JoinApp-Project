@@ -338,6 +338,10 @@
     .inputfield-contact-errormessage-number {
         font-size: 14px;
     }
+
+    .top-section-contact-font{
+        font-size: 20px;
+    }
 }
 
 @media(max-height: 750px){
@@ -399,6 +403,24 @@
 }
 
 @media(max-height: 630px){
+    .addcontact-maincontainer {
+        width: 70%;
+        height: 100%;
+        border-top-right-radius: 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .slide-right-window{
+        transform: translate(-50%, 120vh);
+    }
+
+    .top-section-addContact {
+        width: 100%;
+        border-top-right-radius: 30px;
+    }
+
     .join-logo-contact {
         display: none;
     }
@@ -414,12 +436,4 @@
     .bottom-section-contact {
         height: 348px;
     }
-
-    /*.initial-container-edit-contact {
-        display: none;
-    }
-
-    .person-logo-container-contact {
-        display: none;
-    }*/
 }

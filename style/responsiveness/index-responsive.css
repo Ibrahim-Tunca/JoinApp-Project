@@ -48,7 +48,6 @@
 .blue-join-icon-login {
     height: 85px;
     width: 67px;
-    position: absolute;
     top: 32px;
     left: 33px;
 }
@@ -128,5 +127,24 @@
 
     .inputfield-password-login {
         width: 95%;
+    }
+}
+
+@media(max-height: 695px){
+    .bottom-section-order {
+        padding-bottom: 10px;
+    }
+}
+
+@media(max-height: 630px){
+    .top-section {
+        margin-top: 10px;
+    }
+
+    .blue-join-icon-login {
+        height: 85px;
+        width: 67px;
+        top: 32px;
+        left: 33px;
     }
 }

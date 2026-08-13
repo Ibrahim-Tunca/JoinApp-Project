@@ -153,8 +153,8 @@ function removeTheRedUnderlineAndErrorMessage(){
     mailFieldRef.classList.remove("red-bottom-border");
     passwordFieldRef.classList.remove("red-bottom-border");
     repeatFieldRef.classList.remove("red-bottom-border");
-    removeAllErrorMessages(nameFieldErrorMessage, mailFieldErrorMessage, passwordFieldErrorMessage, repeatFieldErrorMessage)
-    removeRedCheckbox()
+    removeAllErrorMessages(nameFieldErrorMessage, mailFieldErrorMessage, passwordFieldErrorMessage, repeatFieldErrorMessage);
+    removeRedCheckbox();
 }
 
 
@@ -184,10 +184,13 @@ function removeRedCheckbox(){
     checkboxFieldErrorMessage.innerHTML = "";
     if (!globalCheckboxValue) {
         checkboxRef.style.backgroundImage = "url(../../img/checkbox_unchecked.svg)";
+        return;
     } else {
         checkboxRef.style.backgroundImage = "url(../../img/checkbox_checked.svg)";
+        return;
     }
     checkboxRef.style.backgroundImage = "url(../../img/checkbox_checked.svg)";
+    return;
 }
 
 
@@ -219,7 +222,6 @@ function checkIfPasswordsAreSame(password, repeat){
     const repeatRef = document.getElementById("repeatID");
     const contentRef = document.getElementById("errorMessageRepeatID");
     if(password != repeat){
-        removeTheRedUnderlineAndErrorMessage();
         passwordRef.classList.add("red-bottom-border");
         repeatRef.classList.add("red-bottom-border");
         contentRef.innerHTML = "Your passwords don't match. Please try again."
