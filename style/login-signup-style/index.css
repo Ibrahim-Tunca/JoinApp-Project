@@ -103,6 +103,7 @@ body{
 .inputfield-container-login{
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
 }
 

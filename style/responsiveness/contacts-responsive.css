@@ -220,17 +220,9 @@
         transform: translate(-50%, 120vh);
     }
 
-    .join-logo-contact {
-        display: none;
-    }
-
     .top-section-addContact{
         width: 100%;
         border-top-right-radius: 30px;
-    }
-
-    .bottom-section-contact {
-        height: 348px;
     }
 
     .editContact-maincontainer {
@@ -406,12 +398,28 @@
     }
 }
 
-@media(max-height: 670px){
-    .initial-container-edit-contact {
+@media(max-height: 630px){
+    .join-logo-contact {
+        display: none;
+    }
+
+    .button-order-addContact {
+        bottom: 10px;
+    }
+
+    .button-order-editContact {
+        bottom: 10px;
+    }
+
+    .bottom-section-contact {
+        height: 348px;
+    }
+
+    /*.initial-container-edit-contact {
         display: none;
     }
 
     .person-logo-container-contact {
         display: none;
-    }
+    }*/
 }

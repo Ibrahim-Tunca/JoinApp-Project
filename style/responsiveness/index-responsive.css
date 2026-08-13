@@ -120,3 +120,13 @@
         margin-top: 0px;
     }
 }
+
+@media(max-width: 400px){
+    .inputfield-mail-login {
+        width: 95%;
+    }
+
+    .inputfield-password-login {
+        width: 95%;
+    }
+}
