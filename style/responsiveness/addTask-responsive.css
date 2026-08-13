@@ -6,18 +6,15 @@
     margin-top: 40px;
 }
 
-@media(max-width: 1033px){
-    .button-white-addtask {
-    padding: 0 15px;
+@media(max-width: 1037px){
+.button-white-addtask {
+    padding: 0 0 0 5px;
     margin: 0;
 }
 
 .button-blue-addtask {
+    padding: 0 0 0 5px;
     margin-right: 0;
-}
-
-.button-order-addtask{
-    right: 0;
 }
 }
 

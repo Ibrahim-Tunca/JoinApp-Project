@@ -47,9 +47,9 @@
 
     color: white;
     height: 48px;
-    padding: 0 15px;
+    padding: 0 5px;
     margin: 0 15px;
-    background-color: #4589FF;
+    background-color: #1268FF;
     border-radius: 8px;
     border-style: none;
     font-size: 20px;
@@ -81,6 +81,6 @@
     height: 24px;
     width: 24px;
     object-fit: cover;
-    margin-left: 8px;
+    margin-left: 2px;
 }
 

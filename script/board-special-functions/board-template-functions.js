@@ -222,26 +222,6 @@ function getCardDetailEditTemplate(title, description, date, category){
 
                         <div class="contact-inital-ball-container-under-contact-option" id="initialBallContainerID"></div>
 
-
-                        <div class="custom-select-addTask margin-top-add-task" data-placeholder="Select task category" id="categoryID">
-                            <input type="hidden" value="${category}" name="taskCategory">
-                            
-                            <button type="button" class="custom-select-toggle-addTask underline-color-select-category">
-                                <span class="custom-select-label-addTask">Select task category</span>
-                                <span class="custom-select-arrow-wrap-addTask">
-                                    <img class="custom-select-arrow-addTask" src="./img/addTask/arrow_drop_down.svg" alt="">
-                                </span>
-                            </button>
-
-                            <div class="custom-select-menu-addTask d_none">
-                                <button type="button" class="custom-select-option-addTask" data-value="Technical Task">Technical Task</button>
-                                <button type="button" class="custom-select-option-addTask" data-value="User Story">User Story</button>
-                            </div>
-                        </div>
-
-                            
-
-
                         <subtask class="margin-top-bigger-add-task">
                             <span class="font-bold-add-task">Subtask</span>
                             
@@ -266,7 +246,7 @@ function getCardDetailEditTemplate(title, description, date, category){
                     </form>
 
                     <div class="ok-button-container-carddetail-edit">
-                            <button type="submit" form="addTaskForm" class="button-blue-addtask" style="padding: 0 5px">
+                            <button type="submit" form="addTaskForm" class="button-blue-addtask">
                                 Ok
                                 <img class="affirmative-icon-addtask" src="./img/addTask/check.svg" alt="">
                             </button>
