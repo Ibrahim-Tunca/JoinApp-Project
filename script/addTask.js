@@ -135,9 +135,10 @@ function resetGlobalArrays(){
 
 /**
  * Validates the add-task form, creates a new task if all required values are valid,
- * shows the success popup, and redirects to the board page.
+ * shows the success popup, and starts the delayed redirect to the board page.
  *
  * @param {SubmitEvent} event - The submit event triggered by the form.
+ * @returns {Promise<void>} A promise that resolves when the task creation flow has been started.
  */
 async function validateAddTaskForm(event){
     event.preventDefault();
@@ -153,11 +154,14 @@ async function validateAddTaskForm(event){
     }
     await addNewTask(titleRef, descriptionRef, dateRef, taskCategory);
     popUpSuccesAddTask();
-    delayPopupAndJumpToBoard()
+    disableButtonAndRedirectToBoardAfterDelay()
 }
 
 
-function delayPopupAndJumpToBoard(){
+/**
+ * Disables the create-task button and redirects to the board page after a short delay.
+ */
+function disableButtonAndRedirectToBoardAfterDelay(){
     disableCreateTaskButton();
     setTimeout(() => {
         window.location.href = "./board.html";
@@ -165,6 +169,10 @@ function delayPopupAndJumpToBoard(){
 }
 
 
+/**
+ * Hides the active create-task button
+ * and shows the disabled button variant.
+ */
 function disableCreateTaskButton(){
     const normalButtonRef = document.getElementById("creatTaskButtonID");
     const disableadButtonRef = document.getElementById("disableadCreatTaskButtonID");
@@ -173,6 +181,10 @@ function disableCreateTaskButton(){
 }
 
 
+/**
+ * Shows the active create-task button again
+ * and hides the disabled button variant.
+ */
 function activateCreateTaskButton(){
     const normalButtonRef = document.getElementById("creatTaskButtonID");
     const disableadButtonRef = document.getElementById("disableadCreatTaskButtonID");

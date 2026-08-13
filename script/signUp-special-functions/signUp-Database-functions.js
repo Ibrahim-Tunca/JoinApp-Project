@@ -14,7 +14,7 @@ async function showRegister(){
 
 /**
  * Creates or updates a signed-up user in the database.
- * If the username already exists, an error message is shown instead.
+ * If the entered email address already exists, an error message is shown instead.
  *
  * @param {string} name - The username entered during sign-up.
  * @param {string} mail - The email address entered during sign-up.
@@ -22,10 +22,9 @@ async function showRegister(){
  * @returns {Promise<object|void>} A promise that resolves to the server response if the user is saved.
  */
 async function updateSignedUser(name, mail, password) {
-    let userExists = await checkIfUserExist(name);
+    const userExists = await checkIfUserExist(mail);
     if(userExists){
-        let contentRef = document.getElementById("errorID");
-        contentRef.innerHTML = "This User already eexists!"
+        generateExistingUserErrorMessage();
         return;
     }else {
         popUpSucces();
@@ -39,19 +38,31 @@ async function updateSignedUser(name, mail, password) {
 
 
 /**
- * Checks whether a username already exists in the user database.
- *
- * @param {string} inputUsername - The username to search for.
- * @returns {Promise<boolean>} A promise that resolves to true if the user already exists, otherwise false.
+ * Shows an error message when the entered email address
+ * is already registered and highlights the email field.
  */
-async function checkIfUserExist(inputUsername){
+function generateExistingUserErrorMessage(){
+    const contentRef = document.getElementById("errorMessageMailID");
+    const mailFieldErrorMessage = document.getElementById("mailID");
+    contentRef.innerHTML = "This User already exists!"
+    mailFieldErrorMessage.classList.add("red-bottom-border");
+}
+
+
+/**
+ * Checks whether an email address already exists in the user database.
+ *
+ * @param {string} inputMail - The email address to search for.
+ * @returns {Promise<boolean>} A promise that resolves to true if the email address already exists, otherwise false.
+ */
+async function checkIfUserExist(inputMail){
     let response = await fetch(BASE_URL + "user.json")
     let responseToJson = await response.json();
     if(!responseToJson) return false;
     users = Object.values(responseToJson || {});
     for (let index = 0; index < users.length; index++) {
         const element = users[index];
-        if(element.userName === inputUsername){
+        if(element.email === inputMail){
             return true;
         }
     }
